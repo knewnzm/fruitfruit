@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.fruitfruit.answer.AnswerMapper">
+	<resultMap type="com.project.fruitfruit.answer.Answer" id="answer">
+		<result column="answer_num" property="answer_num" />
+		<result column="answer_product_num" property="answer_product_num" />
+		<result column="answer_writer" property="answer_writer" />
+		<result column="answer_content" property="answer_content" />
+		<result column="answer_date" property="answer_date" />
+	</resultMap>
+	
+</mapper>
+

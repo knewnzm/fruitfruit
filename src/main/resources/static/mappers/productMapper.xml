@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.fruitfruit.product.ProductMapper">
+	<resultMap type="com.project.fruitfruit.product.Product" id="product">
+		<result property="product_num" column="product_num" />
+		<result property="product_seller_id" column="product_seller_id" />
+		<result property="product_title" column="product_title" />
+		<result property="product_path" column="product_path" />
+		<result property="product_content" column="product_content" />
+		<result property="product_inner_path" column="product_inner_path" />
+		<result property="product_price" column="product_price" />
+		<result property="produt_quantity" column="produt_quantity" />
+		<result property="product_date" column="product_date" />
+		<result property="product_hit" column="product_hit" />
+		<result property="product_pick" column="product_pick" />
+		<result property="product_view_type" column="product_view_type" />
+		<result property="frfr_category1" column="frfr_category1" />
+		<result property="frfr_category2" column="frfr_category2" />
+	</resultMap>
+	
+	<select id="selectProduct" resultMap="product">
+		select * 
+		from product 
+		where product_num=#{product_num}
+	</select>
+	
+	<select id="selectAllProduct" resultMap="product">
+		select * 
+		from product 
+		where product_num=#{product_num}
+	</select>
+
+	<insert id="insertProduct" parameterType="com.project.fruitfruit.product.Product">
+		insert into product 
+		values (
+			seq_product.nextval, 
+			#{product_seller_id}, 
+			#{product_title},
+			#{product_path}, 
+			#{product_content}, 
+			#{product_inner_path}, 
+			#{product_price}, 
+			#{produt_quantity}, 
+			sysdate, 
+			0,
+			False,
+			1
+			#{frfr_category1}, 
+			#{frfr_category2}
+		)
+	</insert>
+	
+	<update id="updateProduct" parameterType="com.project.fruitfruit.product.Product">
+		update product 
+		set 
+			product_title = #{product_title},
+			product_path = #{product_path}, 
+			product_content = #{product_content}, 
+			product_inner_path = #{product_inner_path}, 
+			product_price = #{product_price}, 
+			frfr_category1 = #{frfr_category1}, 
+			frfr_category2 = #{frfr_category2}
+		where product_num=#{product_num}
+	</update>
+	
+	<delete id="deleteProduct" parameterType="int">
+		delete 
+		from product 
+		where product_num=#{product_num}
+	</delete>
+	
+	<update id="updateProductPickTrue" parameterType="int">
+		update product 
+		set 
+			product_pick=True,
+		where product_num=#{product_num}
+	</update>
+	
+	<update id="updateProductPickFalse" parameterType="int">
+		update product 
+		set 
+			product_pick=False,
+		where product_num=#{product_num}
+	</update>
+	
+	<update id="updateProductViewTypeBlind" parameterType="int">
+		update product 
+		set 
+			product_pick=False,
+		where product_num=#{product_num}
+	</update>
+	
+	<update id="updateProductViewTypeUnblind" parameterType="int">
+		update product 
+		set 
+			product_pick=False,
+		where product_num=#{product_num}
+	</update>
+	
+	<update id="addProductHit" parameterType="int">
+		update product 
+		set 
+			product_hit=product_hit+1,
+		where product_num=#{product_num}
+	</update>
+	
+	<update id="updateProductQuantity" parameterType="com.project.fruitfruit.product.Product">
+		update product 
+		set 
+			produt_quantity=#{produt_quantity},
+		where product_num=#{product_num}
+	</update>
+	
+	<select id="orderByProductHitDesc" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				order by product_hit desc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+	</select>
+	
+	<select id="orderByProductPriceDesc" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				order by product_price desc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+	</select>
+	
+	<select id="orderByProductPriceAsc" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				order by product_price asc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+	</select>
+	
+	<select id="orderByProductDate" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				order by product_date desc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+	</select>
+	
+	<select id="onlyProductPick" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				where product_pick=True
+				order by product_num desc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+	</select>
+	
+	<select id="onlyProductViewTypeBlind" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				where product_view_type=0
+				order by product_num desc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+	</select>
+	
+	<select id="selectProductListByLimit" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				order by product_num desc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+	</select>
+	
+	<select id="selectProductBySellerId" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				where product_seller_id=#{product_seller_id}
+				order by product_num desc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+	</select>
+	
+	
+	
+	<select id="selectSeqProductCurrval" resultType="int">
+		select
+		seq_product.currval from dual
+	</select>
+	
+	<select id="selectListSize" resultType="int">
+		select count(*) from
+		sadare_product
+	</select>
+</mapper>
