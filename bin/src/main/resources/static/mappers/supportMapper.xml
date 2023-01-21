@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.fruitfruit.support.SupportMapper">
+	<resultMap type="com.project.fruitfruit.support.Support" id="support">
+		<result column="support_num" property="support_num" />
+		<result column="support_parent_num" property="support_parent_num" />
+		<result column="support_product_num" property="support_product_num" />
+		<result column="support_writer" property="support_writer" />
+		<result column="support_content" property="support_content" />
+		<result column="support_date" property="support_date" />
+	</resultMap>
+	
+	<select id="selectSupportByProductNum" parameterType="int" resultMap="support">
+		select * 
+		from support 
+		where support_product_num=#{support_product_num}
+	</select>
+	
+	<select id="selectSupport" parameterType="int" resultMap="support">
+		select * 
+		from support 
+		where support_num=#{support_num}
+	</select>
+	
+	<select id="selectSupportListByParentNum" parameterType="int" resultMap="support">
+		select * 
+		from support 
+		where support_parent_num=#{support_parent_num}
+	</select>
+
+	
+	<insert id="insertSupport" parameterType="com.project.fruitfruit.support.Support">
+		insert into support 
+		values (
+			seq_support.nextval, 
+			#{support_parent_num}, 
+			#{support_product_num}, 
+			#{support_writer}, 
+			#{support_content}, 
+			sysdate
+		)
+	</insert>
+	
+		<update id="updateSupport" parameterType="com.project.fruitfruit.support.Support">
+		update support 
+		set 
+			support_parent_num = #{support_parent_num},
+			support_product_num = #{support_product_num},
+			support_parent_num = #{support_writer},
+			support_parent_num = #{support_content},
+			support_parent_num = #{support_parent_num},
+			support_date = sysdate
+		where support_num=#{support_num}
+	</update>
+	
+	<delete id="deleteSupport" parameterType="int">
+		delete 
+		from support 
+		where support_num=#{support_num}
+	</delete>
+	
+	<delete id="deleteSupportByParentNum" parameterType="int">
+		delete 
+		from support 
+		where support_parent_num=#{support_parent_num}
+	</delete>
+	
+	<select id="selectSeqSupportCurrval" resultType="int">
+		select
+		seq_Support.currval from dual
+	</select>
+	
+</mapper>
+
