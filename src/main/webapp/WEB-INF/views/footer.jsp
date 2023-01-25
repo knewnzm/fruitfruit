@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 
 <footer>
     <div class="wrap">
@@ -42,3 +43,15 @@
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/footer.css">
     <script src="/src/main/webapp/static/js/footer.js"></script>
+=======
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; sadaRe 2021</p>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="${pageContext.request.contextPath}/static/js/scripts.js"></script>
+>>>>>>> 210f661ccc9e2144ff1f8dfa1b692f42429135dd
