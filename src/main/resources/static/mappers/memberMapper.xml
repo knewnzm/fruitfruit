@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.fruitfruit.member.MemberMapper">
+	<resultMap type="com.project.fruitfruit.member.Member"
+		id="member">
+		<result property="user_id" column="user_id" />
+		<result property="user_pwd" column="user_pwd" />
+		<result property="user_name" column="user_name" />
+		<result property="user_nick" column="user_nick" />
+		<result property="user_tel" column="user_tel" />
+		<result property="user_postcode" column="user_postcode" />
+		<result property="user_addr1" column="user_addr1" />
+		<result property="user_addr2" column="user_addr2" />
+		<result property="user_type" column="user_type" />
+		<result property="user_grade" column="user_grade" />
+		<result property="user_account" column="user_account" />
+		<result property="user_bank" column="user_bank" />
+	</resultMap>
+	<insert id="insert"
+		parameterType="com.project.fruitfruit.member.Member">
+		insert into member values(#{user_id}, #{user_pwd},
+		#{user_name}, #{user_nick},#{user_tel},
+		#{user_postcode}, #{user_addr1}, #{user_addr2},#{user_type}, 
+		0,#{user_account},#{user_bank})
+	</insert>
+	<select id="select" parameterType="String" resultMap="member">
+		select *
+		from member where user_id=#{user_id}
+	</select>
+	<select id="list" resultMap="member">
+		select * from member
+	</select>
+	<update id="update"
+		parameterType="com.project.fruitfruit.member.Member">
+		update member set user_pwd=#{user_pwd},
+		user_nick=#{user_nick},
+		user_tel=#{user_tel}, 
+		user_postcode=#{user_postcode},
+		user_addr1=#{user_addr1}, 
+		user_addr2=#{user_addr2},
+		user_account=#{user_account} where
+		user_bank=#{user_bank} where
+		user_id=#{user_id}
+	</update>
+	<update id="changePwd" parameterType="com.project.fruitfruit.member.Member">
+		update member set user_pwd=#{user_pwd}
+		where user_id=#{user_id}
+	</update>
+	<delete id="delete" parameterType="String">
+		delete member where
+		user_id=#{user_id}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.fruitfruit.wish.WishMapper">
+	<resultMap type="com.project.fruitfruit.wish.Wish" id="wish">
+		<result column="wish_num" property="wish_num" />
+		<result column="wish_product_num" property="wish_product_num" />
+		<result column="wish_user_id" property="wish_user_id" />
+	</resultMap>
+	
+	<select id="selectAllWish" resultMap="wish">
+		select * 
+		from wish 
+		order by wish_num
+	</select>
+	
+	<select id="selectWishByUserId" parameterType="String" resultMap="wish">
+		select * 
+		from wish 
+		where wish_user_id = #{wish_user_id}
+	</select>
+	
+	<select id="selectWishByUserNum" parameterType="int" resultMap="wish">
+		select * 
+		from wish 
+		where wish_product_num = #{wish_product_num}
+	</select>
+	
+	<select id="selectWishByUserIdAndProductNum" resultMap="wish">
+		select * 
+		from wish 
+		where 
+			user_id=#{wish_user_id} and 
+			product_num=#{wish_product_num} 
+		order by wish_num
+	</select>
+	
+	
+	<insert id="insertWish" parameterType="com.project.fruitfruit.wish.Wish">
+		insert into wish 
+		values (
+			seq_wish.nextval, 
+			#{wish_product_num}, 
+			#{wish_user_id}
+		)
+	</insert>
+	
+	<delete id="deleteWish" parameterType="int">
+		delete 
+		from wish 
+		where wish_num=#{wish_num}
+	</delete>
+	
+	<delete id="deleteWishByProductNum" parameterType="int">
+		delete 
+		from wish 
+		where wish_num=#{wish_num}
+	</delete>
+	
+	<select id="selectSeqWishCurrval" resultType="int">
+		select seq_wish.currval 
+		from dual
+	</select>
+</mapper>

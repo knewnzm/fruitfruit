@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.fruitfruit.alarm.AlarmMapper">
+	<resultMap type="com.project.fruitfruit.alarm.Alarm" id="alram">
+		<result column="alarm_num" property="alarm_num" />
+		<result column="alarm_product_num" property="alarm_product_num" />
+		<result column="alarm_support_num" property="alarm_support_num" />
+		<result column="alarm_user_id" property="alarm_user_id" />
+		<result column="alarm_string_type" property="alarm_string_type" />
+		<result column="alarm_url" property="alarm_url" />
+		<result column="alarm_help_num" property="alarm_help_num" />
+		<result column="alarm_quntity" property="alarm_quntity" />
+		<result column="alram_add_date" property="alram_add_date" />
+		<result column="alarm_read" property="alarm_read" />
+		
+		
+		
+		
+
+	</resultMap>
+</mapper>
