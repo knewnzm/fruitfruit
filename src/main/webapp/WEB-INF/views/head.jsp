@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 
 
-=======
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/static/assets/favicon.ico" />
->>>>>>> 210f661ccc9e2144ff1f8dfa1b692f42429135dd
 <!-- Font Awesome CSS -->
 <link
     rel="stylesheet"
@@ -14,7 +9,6 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
 />
-<<<<<<< HEAD
 
 
 <!-- wish button CSS -->
@@ -33,14 +27,3 @@
 
 
 
-=======
-<!-- Bootstrap icons-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link href="${pageContext.request.contextPath}/static/css/styles.css" rel="stylesheet" />
-<!-- wish button CSS -->
-<link href="${pageContext.request.contextPath}/static/css/wish.css" rel="stylesheet" />
-
-<!-- JQuery js -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
->>>>>>> 210f661ccc9e2144ff1f8dfa1b692f42429135dd
