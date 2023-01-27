@@ -38,7 +38,8 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <body>
 <div class="wrap">
 	<header>
-		<h3>헤더 입니다</h3>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
 	</header>
 	<main id="cantainer" class="container">
 		<div id="content" class="content">
@@ -127,7 +128,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 		</div>
 	</main>
 	<footer>
-		<h3>footer 자리 입니다</h3>
+		<%-- <c:import url="../footer.jsp"></c:import> --%>
 	</footer>
 <!-- wrap end -->
 </div>

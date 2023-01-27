@@ -21,34 +21,14 @@ public class MemberController {
 @Autowired
 private MemberService service;
 
-@GetMapping(value = "/member/joinForm")
+@GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
 public String joinForm(HttpServletRequest req) {
 	HttpSession session = req.getSession(false);
 	String id = (String) session.getAttribute("user_id");
 	if (id != null) {
-		return "redirect:/index";
+		return "redirect:/ ";
 	} else {
 		return req.getRequestURI();
-	}
-}
-
-@GetMapping(value = "/member/loginForm") //로그인 페이지로 가기
-public String loginForm(HttpServletRequest req) {
-//	model.addAttribute("r", "로그인");
-
-//	sessionChk(req);
-	HttpSession session = req.getSession(false);
-	if (session != null) {
-		if (session.getAttribute("user_id") != null) {
-			return "redirect:/index";
-		} else {
-			return req.getRequestURI();
-//			return "/member/loginForm";
-		}
-
-	} else {
-		return req.getRequestURI();
-//		return "/member/loginForm";
 	}
 }
 
@@ -68,14 +48,35 @@ public ModelAndView idCheck(HttpServletRequest req, //아이디 중복확인
 	mav.addObject("result", result);
 	return mav;
 }
-@PostMapping(value = "/member/joinForm")
+
+@PostMapping(value = "/member/joinForm")//회원가입 하기
 public String join(Member m) {
 	System.out.println(m);
 
 	service.insert(m);
 	return "redirect:/member/loginForm";
 }
-@PostMapping(value = "/member/login")
+@GetMapping(value = "/member/loginForm") //로그인 페이지로 가기
+public String loginForm(HttpServletRequest req) {
+//	model.addAttribute("r", "로그인");
+
+//	sessionChk(req);
+	HttpSession session = req.getSession(false);
+	if (session != null) {
+		if (session.getAttribute("user_id") != null) {
+			return "redirect:/ ";
+		} else {
+			return req.getRequestURI();
+//			return "/member/loginForm";
+		}
+
+	} else {
+		return req.getRequestURI();
+//		return "/member/loginForm";
+	}
+}
+
+@PostMapping(value = "/member/login") //로그인 하기
 //@ResponseBody
 public ModelAndView login(HttpServletRequest req, String user_id, String user_pwd) {
 //	@RequestParam(value="refer", required=false) 
@@ -84,18 +85,18 @@ public ModelAndView login(HttpServletRequest req, String user_id, String user_pw
 	Member m = service.select(user_id);
 	System.out.println("login() : " + m + "\n");
 
-	if (m != null && m.getUser_pwd().equals(user_pwd)) {
+
 		HttpSession session = req.getSession();
 		session.setAttribute("user_id", m.getUser_id());
 		session.setAttribute("user_type", m.getUser_type());
 
-		String destination = "/index";
+		String destination = "/ ";
 		System.out.println("로그인 확인" + m.getUser_id());
 		mav.setViewName("redirect:" + destination);
 
-	} else if (req.getSession(false) != null) {
+        if (req.getSession(false) != null) {
 		if (req.getSession(false).getAttribute("user_id") != null) {
-			mav.setViewName("redirect:/index");
+			mav.setViewName("redirect:/ ");
 		} else {
 			mav.setViewName("redirect:/member/loginForm");
 		}
@@ -103,7 +104,7 @@ public ModelAndView login(HttpServletRequest req, String user_id, String user_pw
 	return mav;
 }
 
-@PostMapping(value = "/member/loginChk")
+@PostMapping(value = "/member/loginChk") //로그인 계정 확인
 @ResponseBody
 public JSONObject loginChk(@RequestParam String id, @RequestParam String pwd) {
 	JSONObject jo = new JSONObject();
@@ -116,7 +117,13 @@ public JSONObject loginChk(@RequestParam String id, @RequestParam String pwd) {
 	return jo;
 }
 
-@GetMapping(value = "/index")
-public void index() {}
-
+@RequestMapping(value = "/member/logout")
+public String logout(HttpServletRequest req) {
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id");
+	System.out.println(id + " 로그아웃");
+	session.removeAttribute("user_id");
+	session.invalidate();
+	return "redirect:/";
+}
 }
