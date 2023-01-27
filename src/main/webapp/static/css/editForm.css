@@ -45,17 +45,6 @@ button{
   border-radius:5px;
   background:none;
 }
-header{
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
-footer{
-	margin-top:80px;
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
 .container{
 	width:auto;
  	height:auto;
@@ -260,4 +249,4 @@ input[type="submit"] {
   border-radius:5px;
   padding-left: 0px;
   background:#f02c11;
-}
+} 

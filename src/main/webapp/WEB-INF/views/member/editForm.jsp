@@ -10,7 +10,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <body>
 <div class="wrap">
 	<header>
-		<h3>헤더 입니다</h3>
+		
 	</header>
 	<main class="container">
 		<div id="content" class="content">
@@ -160,7 +160,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 		</div>
 	</main>
 	<footer>
-		<h1>footer 입니다</h1>
+		
 	</footer>
 <!-- wrap end -->
 </div>

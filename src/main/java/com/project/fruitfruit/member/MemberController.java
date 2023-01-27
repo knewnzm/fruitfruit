@@ -126,4 +126,9 @@ public String logout(HttpServletRequest req) {
 	session.invalidate();
 	return "redirect:/";
 }
+
+@GetMapping(value = "/member/editForm")//회원가입 페이지 가기
+public void editForm() {
+
+}
 }
