@@ -89,6 +89,9 @@ input_text{
     border: 1px solid #D1D0CE;
 	border-radius: 5px;
 }
+.edit_readonly{
+	color:#777;
+}
 .edit_pwd_wrap{
 	display: flex;
 	flex-direction: column;

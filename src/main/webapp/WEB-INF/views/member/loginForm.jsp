@@ -5,6 +5,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>프룻프룻 - 로그인</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
@@ -26,7 +27,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                                 document.getElementById("msg").innerHTML = "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.<br>";
                             } else {
                                 $("form").submit();
-                                /* location.href="/member/joinForm"; */
+                                /*location.href="/member/joinForm";  */
                             }
                         },
                     });
@@ -80,7 +81,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						</div>
 					</div>
 					<div class="login_btn_wrap">
-						<button type="button" id="login_btn" onclick="location.href='/member/edit'">
+						<button type="button" id="login_btn">
 							<span class="login_btn_text">로그인</span>
 						</button>
 					</div>

@@ -21,7 +21,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 			<div class="line">
 				<hr>
 			</div>
-			<%-- <form name="E" action="${pageContext.request.ContextPath }/member/edit" action="post"> --%>
+			<form action="${pageContext.request.contextPath }/member/editForm" method="post">
 			<div class="edit_wrap">
 				<div class="edit_content">
 					<div class="edit_box">
@@ -33,6 +33,9 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 							</div>
 							<div class="edit_readonly">
 								<input type="text" name="user_type" id="user_type" value="${ m.user_type}" readonly>
+								   <c:if test="${m.user_type ==1}"> 구매자 </c:if>
+                   				   <c:if test="${m.user_type ==2}"> 판매자 </c:if>
+                   				   <c:if test="${m.user_type ==3}"> 관리자 </c:if>
 							</div>
 						</div>
 					</div>	
@@ -131,7 +134,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 							</label>
 						</div>
 						<div class="account_select">
-							<select name="user_bank" id="user_bank" class="user_bank" onchange="selectBoxChange(this.value);">
+							<select name="user_bank" id="user_bank" class="user_bank"  onchange="selectBoxChange(this.value);">
 								<option value="1">국민은행
 								<option value="2">우리은행
 								<option value="3">농협은행
@@ -157,7 +160,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 				</div>
 			<!-- edit wrap -->
 			</div>
-	<!-- 	</form>	 -->
+		</form>
 		<!-- content -->
 		</div>
 	</main>
