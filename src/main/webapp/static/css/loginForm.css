@@ -1,6 +1,6 @@
 @charset "UTF-8";
 *{
-  padding: 0;
+  padding:0;
   margin: 0;
   box-sizing: border-box; 
   border: 0;
@@ -23,7 +23,7 @@ input_text{
 	width:330px;
 	position: relative;
 }
-button{
+#login_btn, #join_btn{
   width:352px;
   height:45px;
   font-size:16px;
@@ -33,37 +33,18 @@ button{
   border: 1px solid #D1D0CE;
   border-radius:5px;
 }
-header{
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
-footer{
-	margin-top: 0px;
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
-.wrap{
-  padding: 0;
-   margin: 0;
-   box-sizing: border-box; 
-   border: 0;
-   font-family: 'Noto Sans KR', sans-serif;
-   font-weight: 400;
-}
 .container{
-	width:auto;
- 	height:auto;
-	display: flex;
-	justify-content: center;
+	width:1200px;
+ 	height:1300px;
 }
 .content{
 	width:430px;
- 	height:70vh;
+	margin-left: 390px;
  	background-color:white;
     text-align : center;
     padding : 0px;
+    display: flex;
+	justify-content: center;
     grid-template-columns: 
         [left-navbar-start] 20%
         [left-navbar-end content-start] 60%
@@ -73,6 +54,9 @@ footer{
         [body-start] 80%
         [body-end footer-start] 20%
         [footer-end];
+}
+.login_wrap{
+	margin-top:30px;
 }
 .login_panner{
   	padding: 25px;
@@ -125,7 +109,7 @@ input[type=checkbox]{
 input[type=checkbox] + label { 
 	cursor: pointer; 
 	/* opacity:0.5; */
-	background-image : url('${pageContext.request.contextPath}/static/css/image/check.png');
+	background-image : url('${pageContext.request.contextPath}/static/img/login_check.png');
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;
@@ -133,7 +117,7 @@ input[type=checkbox] + label {
 }
 input[type="checkbox"]:checked + label{
 	cursor: pointer; 
-	background-image : url('${pageContext.request.contextPath}/static/css/image/tick.png');
+	background-image : url('${pageContext.request.contextPath}/static/img/login_tick.png');
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;
@@ -164,10 +148,8 @@ input[type="checkbox"]:checked + label{
 	font-size:16px;
 }
 .logo{
-	height:100px;
-	margin-bottom: 15px;
+	margin: 30px 0 10px 0;
 }
 .fruit_Logo{
-	width: 200px;
-  	height:150px;
+	width: 170px;
 }

@@ -53,4 +53,8 @@ public ModelAndView idCheck(HttpServletRequest req,
 public void go() { //로그인 페이지 가기
 	
 }
+@GetMapping(value="/member/editForm")
+public void editForm() { //회원정보 수정 페이지 가기
+	
+}
 }

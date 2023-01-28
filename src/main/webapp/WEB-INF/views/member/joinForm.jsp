@@ -9,7 +9,7 @@
 <title>join form</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/joinForm.css" />
 <script type="text/javascript">
-$(document).ready(function() {
+/* $(document).ready(function() {
 	$(".id_check_btn").click(function() {
 		$.post( "/member/idCheck", { user_id: $("#user_id").val()} )
 	    .done(function( data ) {
@@ -24,13 +24,14 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-});
+}); */
 </script>
 </head>
 <body>
 <div class="wrap">
 	<header>
-		<h3>헤더 입니다</h3>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
 	</header>
 	<main class="container">
 		<div id="content" class="content">
@@ -40,7 +41,6 @@ $(document).ready(function() {
 			<div class="line">
 				<hr>
 			</div>
-
 			<form name="j" action="${pageContext.request.contextPath }/member/joinForm" method="post">
 			<div class="join_wrap">
 				<div class="join_content">
@@ -145,7 +145,7 @@ $(document).ready(function() {
 								<div class="addr_btn">
 									<button class="addr_search_btn" type="button" name="addr_search_btn">
 										<span class="search_text">주소 검색</span>
-										<img src="${pageContext.request.contextPath}/static/image/search.png" class="search_img">
+										<img src="${pageContext.request.contextPath}/static/img/join_edit_search.png" class="search_img">
 									</button>	
 								</div>
 							</div>
@@ -194,7 +194,7 @@ $(document).ready(function() {
 		</div>
 	</main>
 	<footer>
-		<h1>footer 입니다</h1>
+		 <c:import url="../footer.jsp"></c:import>
 	</footer>
 <!-- wrap end -->
 </div>
