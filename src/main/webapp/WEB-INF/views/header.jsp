@@ -450,7 +450,7 @@
                 </div>
                 <div class="trending">
                     <button type="button" class="moreView">
-                        <span class="blind">전체 순위 보기</span>
+                        <span class="blind">확인용 메시지 ${m.user_grade }</span>
                     </button>
                     <div class="preview">
                         <div class="swiper-container swiper-container ">

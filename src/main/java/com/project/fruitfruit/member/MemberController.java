@@ -21,6 +21,17 @@ public class MemberController {
 @Autowired
 private MemberService service;
 
+@RequestMapping(value = "/")
+public ModelAndView index(HttpServletRequest req) {
+	ModelAndView mav = new ModelAndView("/index");
+	HttpSession session = req.getSession(false);
+	if(session!=null) {
+	String id = (String) session.getAttribute("user_id");
+	Member m = service.select(id);
+	mav.addObject("m", m);
+	}
+	return mav;
+}
 @GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
 public String joinForm(HttpServletRequest req) {
 	HttpSession session = req.getSession(false);
@@ -117,7 +128,7 @@ public JSONObject loginChk(@RequestParam String id, @RequestParam String pwd) {
 	return jo;
 }
 
-@RequestMapping(value = "/member/logout")
+@RequestMapping(value = "/member/logout") //로그아웃하기
 public String logout(HttpServletRequest req) {
 	HttpSession session = req.getSession(false);
 	String id = (String) session.getAttribute("user_id");
@@ -127,7 +138,7 @@ public String logout(HttpServletRequest req) {
 	return "redirect:/";
 }
 
-@RequestMapping(value = "/member/editForm")
+@RequestMapping(value = "/member/editForm") //회원정보 수정 페이지 가기
 public ModelAndView editForm(HttpServletRequest req) {
 	ModelAndView mav = new ModelAndView("/member/editForm");
 	HttpSession session = req.getSession(false);
@@ -135,6 +146,12 @@ public ModelAndView editForm(HttpServletRequest req) {
 	Member m = service.select(id);
 	mav.addObject("m", m);
 	return mav;
+}
+
+@PostMapping(value = "/member/edit") //회원정보 수정하기
+public String edit(Member m) {
+	service.update(m);
+	return "redirect:/";
 }
 
 }

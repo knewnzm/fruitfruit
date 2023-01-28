@@ -164,7 +164,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 									<input type="text" name="user_postcode" id="user_postcode" value="${m.user_postcode }">
 								</div>
 								<div class="addr_btn">
-									<button class="addr_search_btn" name="addr_search_btn" >
+									<button type="button" class="addr_search_btn" name="addr_search_btn" >
 										<span class="search_text">주소 검색</span>
 										<img src="${pageContext.request.contextPath}/static/css/image/search.png" class="search_img">
 									</button>	
@@ -186,17 +186,17 @@ $(document).ready(function () {    // enter submit 방지 함수
 						</div>
 						<div class="account_select">
 							<select name="user_bank" id="user_bank" class="user_bank" onchange="selectBoxChange(this.value);">
-								<option value="국민은행">국민은행
-								<option value="우리은행">우리은행
-								<option value="농협은행">농협은행
-								<option value="신한은행">신한은행
-								<option value="기업은행">기업은행
-								<option value="하나은행">KEB 하나은행
-								<option value="외한은행">외환은행
-								<option value="제일은행">제일은행
-								<option value="시티은행">한국시티은행
-								<option value="카카오뱅크">카카오뱅크
-								<option value="케이뱅크">케이뱅크
+								<option value="1">국민은행
+								<option value="2">우리은행
+								<option value="3">농협은행
+								<option value="4">신한은행
+								<option value="5">기업은행
+								<option value="6">KEB 하나은행
+								<option value="7">외환은행
+								<option value="8">제일은행
+								<option value="9">한국시티은행
+								<option value="10">카카오뱅크
+								<option value="11">케이뱅크
 							</select>
 						</div>
 						<div class="account_input">
