@@ -127,8 +127,14 @@ public String logout(HttpServletRequest req) {
 	return "redirect:/";
 }
 
-@GetMapping(value = "/member/editForm")//회원가입 페이지 가기
-public void editForm() {
-
+@RequestMapping(value = "/member/editForm")
+public ModelAndView editForm(HttpServletRequest req) {
+	ModelAndView mav = new ModelAndView("/member/editForm");
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id");
+	Member m = service.select(id);
+	mav.addObject("m", m);
+	return mav;
 }
+
 }

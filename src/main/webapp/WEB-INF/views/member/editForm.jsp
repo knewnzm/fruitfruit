@@ -5,7 +5,62 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
 <meta charset="UTF-8"">
 <title>edit form</title>
+   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/editForm.css" />
+<script type="text/javascript">
+$(document).ready(function () {    // enter submit 방지 함수
+    $('input').keydown(function () {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+        }       
+    });
+    ///
+      document.getElementById("submit").disabled = true;
+                var chkp = false;
+///
+                function join() {
+                    $("#submit").attr("disabled", true);
+                    if (chkp) {                       
+                            $("#submit").attr("disabled", false);                  
+                    }
+                }
+                ///
+    function chkPwd() {
+        if ($("#user_pwd").val() != $("#pwdCheck").val()) {
+            $(".pwd_check_text").text("비밀번호가 일치하지 않습니다.");
+            chkp = false;
+            $("#submit").attr("disabled", true);
+        } else {
+            $(".pwd_check_text").empty();
+            chkp = true;             
+                    $("#submit").attr("disabled", false);                  
+        }
+    }
+
+    $("#user_pwd").on("propertychange change keyup paste input blur", function () {
+        chkp = false;
+        $("#submit").attr("disabled", true);
+        $(".pwd_check_text").empty();
+        if ($("#user_pwd").val() == "") {
+            $(".pwd_check_text").text("비밀번호를 입력해주세요");
+        } else if ($("#pwdCheck").val() != "") {
+            chkPwd();
+        }
+    });
+
+    $("#pwdCheck").on("propertychange change keyup paste input blur", function () {
+        chkp = false;
+        $(".pwd_check_text").empty();
+        if ($("#pwdCheck").val() == "") {
+            $(".pwd_check_text").text("비밀번호 확인란을 입력해주세요");
+        } else {
+            chkPwd();
+        }
+    });
+    
+    ////
+});
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -20,7 +75,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 			<div class="line">
 				<hr>
 			</div>
-			<%-- <form name="E" action="${pageContext.request.ContextPath }/member/edit" action="post"> --%>
+			<form name="e" action="${pageContext.request.contextPath }/member/edit" method="post">
 			<div class="edit_wrap">
 				<div class="edit_content">
 					<div class="edit_box">
@@ -54,12 +109,12 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 									</label>
 								</div>
 								<div class="edit_input">
-									<input type="password" name="user_pwd" value="${m.user_pwd }" placeholder="비밀번호를 입력해주세요">
+									<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요">
 								</div>
 							</div>
 							<div class="pwd_check_wrap">
 								<div class="check_box">
-									<input type="password" name="pwd_check" >
+									<input type="password" name="pwd_check" id="pwdCheck" >
 								</div>
 								<div class="check_text_box">
 									<span class="pwd_check_text">비밀번호 확인 문구 들어갈 자리</span>
@@ -149,13 +204,13 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						</div>
 					</div>
 					<div class="submit_wrap">
-						<input type="submit" name="submit" id="submit" value="수정하기">
+						<button type="submit" name="submit" id="submit" disabled="disabled">수정하기</button>
 					</div>
 				<!-- ↓edit content -->	
 				</div>
 			<!-- edit wrap -->
 			</div>
-	<!-- 	</form>	 -->
+	</form>
 		<!-- content -->
 		</div>
 	</main>
