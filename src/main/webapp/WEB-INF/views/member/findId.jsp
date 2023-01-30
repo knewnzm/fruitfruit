@@ -6,7 +6,12 @@
 <meta charset="EUC-KR">
 <title>findId</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/find.css" />
-
+<style type="text/css">
+body{
+	line-height: 11px;
+	margin: 0;
+}
+</style>
 </head>
 
 <body>

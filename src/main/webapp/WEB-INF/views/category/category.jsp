@@ -6,6 +6,11 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/category.css" />
+<style type="text/css">
+body{
+	margin: 0;
+}
+</style>
 </head>
 <header>
 <h3>헤더</h3>
