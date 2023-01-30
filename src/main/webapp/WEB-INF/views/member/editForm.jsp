@@ -3,9 +3,90 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"">
+<meta charset="UTF-8">
 <title>edit form</title>
+   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/editForm.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
+<script type="text/javascript">
+$(document).ready(function () {    // enter submit 방지 함수
+    $('input').keydown(function () {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+        }       
+    });
+    ///
+      document.getElementById("submit").disabled = true;
+                var chkp = false;
+///
+                function join() {
+                    $("#submit").attr("disabled", true);
+                    if (chkp) {                       
+                            $("#submit").attr("disabled", false);                  
+                    }
+                }
+                ///
+    function chkPwd() {
+        if ($("#user_pwd").val() != $("#pwdCheck").val()) {
+            $(".pwd_check_text").text("비밀번호가 일치하지 않습니다.");
+            chkp = false;
+            $("#submit").attr("disabled", true);
+        } else {
+            $(".pwd_check_text").empty();
+            chkp = true;             
+                    $("#submit").attr("disabled", false);                  
+        }
+    }
+
+    $("#user_pwd").on("propertychange change keyup paste input blur", function () {
+        chkp = false;
+        $("#submit").attr("disabled", true);
+        $(".pwd_check_text").empty();
+        if ($("#user_pwd").val() == "") {
+            $(".pwd_check_text").text("비밀번호를 입력해주세요");
+        } else if ($("#pwdCheck").val() != "") {
+            chkPwd();
+        }
+    });
+
+    $("#pwdCheck").on("propertychange change keyup paste input blur", function () {
+        chkp = false;
+        $(".pwd_check_text").empty();
+        if ($("#pwdCheck").val() == "") {
+            $(".pwd_check_text").text("비밀번호 확인란을 입력해주세요");
+        } else {
+            chkPwd();
+        }
+    });
+    $("#memberOut").click(function () {
+        alert("탈퇴처리 되었습니다.\n이용해주셔서 감사합니다.");
+        location.href = `${pageContext.request.contextPath}/member/out`;
+    });
+    /* 모달 */
+      const body = document.querySelector('body');
+      const modal = document.querySelector('.modal');
+      const btnOpenPopup = document.querySelector('.modal_btn');
+
+      btnOpenPopup.addEventListener('click', () => {
+        modal.classList.toggle('show');
+
+        if (modal.classList.contains('show')) {
+          body.style.overflow = 'hidden';
+        }
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          modal.classList.toggle('show');
+
+          if (!modal.classList.contains('show')) {
+            body.style.overflow = 'auto';
+          }
+        }
+      });
+    ////
+});
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -21,7 +102,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 			<div class="line">
 				<hr>
 			</div>
-			<form action="${pageContext.request.contextPath }/member/editForm" method="post">
+			<form name="e" action="${pageContext.request.contextPath }/member/edit" method="post">
 			<div class="edit_wrap">
 				<div class="edit_content">
 					<div class="edit_box">
@@ -32,10 +113,10 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 								</label>
 							</div>
 							<div class="edit_readonly">
-								<input type="text" name="user_type" id="user_type" value="${ m.user_type}" readonly>
-								   <c:if test="${m.user_type ==1}"> 구매자 </c:if>
-                   				   <c:if test="${m.user_type ==2}"> 판매자 </c:if>
-                   				   <c:if test="${m.user_type ==3}"> 관리자 </c:if>
+								<input type="text" name="user_type" class="readonly" id="user_type" value="${ m.user_type}" readonly>
+								  <c:if test="${m.user_type ==1}"> 구매자 </c:if>
+                   				  <c:if test="${m.user_type ==2}"> 판매자 </c:if>
+                   				  <c:if test="${m.user_type ==3}"> 관리자 </c:if>
 							</div>
 						</div>
 					</div>	
@@ -43,32 +124,35 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						<div class="edit_title">
 							<label for="user_id">
 									아이디
-								</label>
+							</label>
 						</div>
 						<div class="edit_readonly">
-							<input type="text" name="user_id" id="user_id" value="${m.user_id }" readonly>
+							<input type="text" name="user_id" id="user_id" class="readonly"  value="${m.user_id }" readonly>
 						</div>
 					</div>
 					<div class="edit_box">
-						<div class="edit_title" >
-							<label for="user_pwd" id="pwd_title">
+						<div class="edit_title">
+							<label for="user_pwd">
 								비밀번호
 							</label>
 						</div>
-						<div class="edit_pwd_wrap">
-							<div class="edit_pwd">
-								<div class="edit_input">
-									<input type="password" name="user_pwd" id="pwd_input1">
-								</div>
+						<div class="edit_input">
+							<input type="password" name="user_pwd" id="user_pwd"  class="ed_input" placeholder="비밀번호를 입력해주세요">
+						</div>
+					</div>
+					<div class="edit_check_wrap">
+						<div class="edit_box" id="check_wrap">
+							<div class="edit_title">
+									<label for="pwd_check">
+										비밀번호 확인
+									</label>
 							</div>
-							<div class="pwd_check_wrap">
-								<div class="check_box">
-									<input type="password" name="pwd_check">
-								</div>
-								<div class="check_text_box">
-									<span class="pwd_check_text">비밀번호 확인 문구 들어갈 자리</span>
-								</div>
+							<div class="edit_input">
+								<input type="password" name="pwd_check" id="pwdCheck" class="ed_input"placeholder="비밀번호를 확인해주세요" >
 							</div>
+						</div>
+						<div class="check_text_box">
+							<span class="pwd_check_text">비밀번호 확인 문구 들어갈 자리</span>
 						</div>
 					</div>
 					<div class="edit_box">
@@ -78,7 +162,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 							</label>
 						</div>
 						<div class="edit_readonly">
-							<input type="text" name="user_name" id="user_name"  value="${m.user_name }" readonly>
+							<input type="text" name="user_name" id="user_name"  class="readonly" value="${m.user_name }" readonly>
 						</div>
 					</div>
 					<div class="edit_box">
@@ -88,7 +172,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 							</label>
 						</div>
 						<div class="edit_input">
-							<input type="text" name="user_nick" id="user_nick"  value="${m.user_nick }">
+							<input type="text" name="user_nick" id="user_nick"  class="ed_input" value="${m.user_nick }">
 						</div>
 					</div>
 					<div class="edit_box">
@@ -98,7 +182,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 							</label>
 						</div>
 						<div class="edit_input">
-							<input type="text" name="user_tel" id="user_tel"  value="${m.user_tel }">
+							<input type="text" name="user_tel" id="user_tel" class="ed_input"  value="${m.user_tel }">
 						</div>
 					</div>
 					<div class="edit_box">
@@ -110,20 +194,20 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 									</label>	
 								</div>
 								<div class="addr_postcode">
-									<input type="text" name="user_postcode" id="user_postcode" value="${m.user_postcode }">
+									<input type="text" name="user_postcode" class="ed_input" id="user_postcode" value="${m.user_postcode }">
 								</div>
 								<div class="addr_btn">
-									<button class="addr_search_btn" name="addr_search_btn" >
+									<button type="button" class="addr_search_btn" name="addr_search_btn" >
 										<span class="search_text">주소 검색</span>
 										<img src="${pageContext.request.contextPath}/static/img/join_edit_search.png" class="search_img">
 									</button>	
 								</div>
 							</div>
 							<div class="addr_wrap1">
-								<input type="text" name="user_addr1" id="user_addr1"  value="${m.user_addr1 }">
+								<input type="text" name="user_addr1" id="user_addr1" class="ed_input" value="${m.user_addr1 }">
 							</div>
 							<div class="addr_wrap2">
-								<input type="text" name="user_addr2" id="user_addr2"  value="${m.user_addr2 }">
+								<input type="text" name="user_addr2" id="user_addr2" class="ed_input" value="${m.user_addr2 }">
 							</div>
 						</div>
 					</div>
@@ -135,32 +219,50 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						</div>
 						<div class="account_select">
 							<select name="user_bank" id="user_bank" class="user_bank"  onchange="selectBoxChange(this.value);">
-								<option value="1">국민은행
-								<option value="2">우리은행
-								<option value="3">농협은행
-								<option value="4">신한은행
-								<option value="5">기업은행
-								<option value="6">KEB 하나은행
-								<option value="7">외환은행
-								<option value="8">제일은행
-								<option value="9">한국시티은행
-								<option value="10">카카오뱅크
-								<option value="11">케이뱅크
+								<option value="" disabled selected>선택</option>
+								<option value="1">국민은행</option>
+								<option value="2">우리은행</option>
+								<option value="3">농협은행</option>
+								<option value="4">신한은행</option>
+								<option value="5">기업은행</option>
+								<option value="6">KEB 하나은행</option>
+								<option value="7">외환은행</option>
+								<option value="8">제일은행</option>
+								<option value="9">한국시티은행</option>
+								<option value="10">카카오뱅크</option>
+								<option value="11">케이뱅크</option>
 							</select>
 						</div>
 						<div class="account_input">
-							<input type="text" name="user_account" id="user_account" value="${m.user_account }">
+							<input type="text" name="user_account" id="user_account" class="ed_input" value="${m.user_account }">
 						</div>
 					</div>
 					<div class="submit_wrap">
-						<input type="submit" name="submit" id="submit" value="수정하기">
-						<button type="button" class="del_btn">탈퇴하기</button>
+						<button type="submit" name="submit" id="submit" disabled="disabled">수정하기</button>
+						<button type="button" class="modal_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">탈퇴하기</button>
 					</div>
+					<!--탈퇴 Modal -->
+					 <div class="modal">
+    					 <div class="modal_container">
+    					 	<div class="modal_header">
+      							<h2>탈퇴하기</h2>
+      						</div>
+      						<div class="modal_body">
+      							탈퇴 시 철회할 수 없으며 가입하신 아이디로<br> 
+      							작성한 글/댓글은 모두 삭제처리됩니다. <br>
+                          	 	탈퇴하시겠습니까?
+      						</div>
+      						<div class="modal_footer">
+                        	    <button type="button" class="modal_close_btn" data-bs-dismiss="modal">취소</button>
+                              	<button type="button" class="del_btn" id="memberOut">탈퇴</button>
+      						</div>
+    					 </div>
+    				</div>
 				<!-- ↓edit content -->	
 				</div>
 			<!-- edit wrap -->
 			</div>
-		</form>
+	</form>
 		<!-- content -->
 		</div>
 	</main>

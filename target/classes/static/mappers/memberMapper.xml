@@ -40,7 +40,7 @@
 		user_postcode=#{user_postcode},
 		user_addr1=#{user_addr1}, 
 		user_addr2=#{user_addr2},
-		user_account=#{user_account} where
+		user_account=#{user_account},
 		user_bank=#{user_bank} where
 		user_id=#{user_id}
 	</update>

@@ -3,10 +3,11 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>프룻프룻 - 로그인</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
+ <head>
+ <title>notice List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
         $(document).ready(function () {
@@ -27,7 +28,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                                 document.getElementById("msg").innerHTML = "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.<br>";
                             } else {
                                 $("form").submit();
-                                /*location.href="/member/joinForm";  */
+                                /* location.href="/member/joinForm"; */
                             }
                         },
                     });

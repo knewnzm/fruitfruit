@@ -8,23 +8,58 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>join form</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/joinForm.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript">
-/* $(document).ready(function() {
+$(document).ready(function() {
+	var chkid = false;
+	
+	// 엔터를 눌렀을때 submit 하는 것을 막기
+	$('input[type="text"]').keydown(function () { 
+        if (event.keyCode === 13) { //keyCode 13은 enter를 의미함
+            event.preventDefault(); //기본 설정대로 실행되는것을 막는다는뜻
+        }
+    });
+	
+	//아이디 중복체크 여부 검사
+	function join() {
+        $("#submit").attr("disabled", true); 
+        if (chkid) {           
+            	$("#submit").attr("disabled", false);            
+        }
+    }
+	
+	//아이디 중복 확인
 	$(".id_check_btn").click(function() {
+		
 		$.post( "/member/idCheck", { user_id: $("#user_id").val()} )
 	    .done(function( data ) {
 	    	$(".id_check_text").text(data);
 	  });
 	});
+	
+	//중복체크 여부 확인
 	$("#submit").click(function() {		
-		if($(".id_check_text").text().trim()=="사용가능"){
+		if($(".id_check_text").text().trim()=="사용 가능한 이메일입니다"){
 			$("form").submit();
 		}else{
-			alert("id 중복체크 먼저");
+			alert("id 중복확인을 먼저 완료해주세요");
 			return false;
 		}
+		//빈값 확인
+		if ($("#user_pwd").val() == ""||
+			$("#user_name").val() == ""||
+			$("#user_nick").val() == ""||
+			$("#user_tel").val() == ""||
+			$("#user_postcode").val() == ""||
+			$("#user_addr1").val() == ""||
+			$("#user_addr2").val() == ""||
+			$("#user_user_bank").val() == ""||
+			$("#user_account").val() == "") {
+            alert("입력되지 않은 값이 존재합니다 다시 확인해주세요");
+            return false;
+		}
 	});
-}); */
+});
 </script>
 </head>
 <body>
@@ -165,17 +200,18 @@
 						</div>
 						<div class="account_select">
 							<select name="user_bank" id="user_bank" class="user_bank">
-								<option value="1">국민은행
-								<option value="2">우리은행
-								<option value="3">농협은행
-								<option value="4">신한은행
-								<option value="5">기업은행
-								<option value="6">KEB 하나은행
-								<option value="7">외환은행
-								<option value="8">제일은행
-								<option value="9">한국시티은행
-								<option value="10">카카오뱅크
-								<option value="11">케이뱅크
+								<option value="" disabled selected>--선택--</option>
+								<option value="1">국민은행</option>
+								<option value="2">우리은행</option>
+								<option value="3">농협은행</option>
+								<option value="4">신한은행</option>
+								<option value="5">기업은행</option>
+								<option value="6">KEB 하나은행</option>
+								<option value="7">외환은행</option>
+								<option value="8">제일은행</option>
+								<option value="9">한국시티은행</option>
+								<option value="10">카카오뱅크</option>
+								<option value="11">케이뱅크</option>
 							</select>
 						</div>
 						<div class="account_input">
