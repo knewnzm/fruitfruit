@@ -1,5 +1,12 @@
 @charset "EUC-KR";
-
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box; 
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+}
 header{
 	text-align : center;
 	height:150px;
