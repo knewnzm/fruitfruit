@@ -26,7 +26,7 @@
     </div> <br> <input type="text" class="f_id_line" id="user_name" name="user_name" placeholder="이름을 입력해 주세요."><br>
     <div class="f_tel_title">전화번호
     </div> <br> <input type="text" class="f_id_line" id="user_tel" name="user_tel" placeholder="숫자만 입력해 주세요."><br>
-<button type="submit" id="find" class="f_button">확인</button>
+<input type="submit" id="find" class="f_button" value="확인">
    </div>
 </form>
 </div>
