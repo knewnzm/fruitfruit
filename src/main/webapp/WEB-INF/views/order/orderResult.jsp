@@ -31,7 +31,7 @@ hr{
  <div class="or_box">
    <div class="or_title">주문정보</div>
   <hr>
-  <div class="or_result"></div>
+  <div class="or_result">(결과창)</div>
  </div>
  
 </div>
