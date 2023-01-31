@@ -220,17 +220,17 @@ $(document).ready(function () {    // enter submit 방지 함수
 						<div class="account_select">
 							<select name="user_bank" id="user_bank" class="user_bank"  onchange="selectBoxChange(this.value);">
 								<option value="" disabled selected>선택</option>
-								<option value="1">국민은행</option>
-								<option value="2">우리은행</option>
-								<option value="3">농협은행</option>
-								<option value="4">신한은행</option>
-								<option value="5">기업은행</option>
-								<option value="6">KEB 하나은행</option>
-								<option value="7">외환은행</option>
-								<option value="8">제일은행</option>
-								<option value="9">한국시티은행</option>
-								<option value="10">카카오뱅크</option>
-								<option value="11">케이뱅크</option>
+								<option value="1"  <c:if test="${m.user_bank==1}">selected</c:if>>국민은행</option>
+								<option value="2" <c:if test="${m.user_bank==2}">selected</c:if>>우리은행</option>
+								<option value="3" <c:if test="${m.user_bank==3}">selected</c:if>>농협은행</option>
+								<option value="4" <c:if test="${m.user_bank==4}">selected</c:if>>신한은행</option>
+								<option value="5" <c:if test="${m.user_bank==5}">selected</c:if>>기업은행</option>
+								<option value="6" <c:if test="${m.user_bank==6}">selected</c:if>>KEB 하나은행</option>
+								<option value="7" <c:if test="${m.user_bank==7}">selected</c:if> >외환은행</option>
+								<option value="8" <c:if test="${m.user_bank==8}">selected</c:if>>제일은행</option>
+								<option value="9" <c:if test="${m.user_bank==9}">selected</c:if> >한국시티은행</option>
+								<option value="10" <c:if test="${m.user_bank==10}">selected</c:if>>카카오뱅크</option>
+								<option value="11" <c:if test="${m.user_bank==11}">selected</c:if>>케이뱅크</option>
 							</select>
 						</div>
 						<div class="account_input">
