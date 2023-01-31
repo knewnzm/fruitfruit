@@ -21,16 +21,16 @@ public class MemberController {
 @Autowired
 private MemberService service;
 
-@RequestMapping(value = "/")
-public ModelAndView index(HttpServletRequest req) {
-	ModelAndView mav = new ModelAndView("/index");
-	HttpSession session = req.getSession(false);
-	if(session!=null) {
-	String id = (String) session.getAttribute("user_id");
-	Member m = service.select(id);
-	mav.addObject("m", m);
-	}
-	return mav;
+/* @RequestMapping(value = "/") */
+/*
+ * public ModelAndView index(HttpServletRequest req) { ModelAndView mav = new
+ * ModelAndView("/index"); HttpSession session = req.getSession(false); String
+ * id = (String) session.getAttribute("user_id"); if(session!=null&&id!=null) {
+ * Member m = service.select(id); mav.addObject("m", m); } return mav; }
+ */
+@RequestMapping(value = "/") //홈으로 가기
+public String index() { 
+	return "/index";
 }
 @GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
 public String joinForm(HttpServletRequest req) {
@@ -154,4 +154,20 @@ public String edit(Member m) {
 	return "redirect:/";
 }
 
+@GetMapping(value = "/member/findId") //아이디 찾기 페이지 가기
+public void findIdForm() { 
+	
+}
+@GetMapping(value = "/member/findPwd") //비밀번호 찾기 페이지 가기
+public void findPwdForm() { 
+	
+}
+@GetMapping(value = "/member/changePwd") //비밀번호 변경 페이지 가기
+public void changePwdForm() { 
+	
+}
+@GetMapping(value = "/order/orderResult") //비밀번호 변경 페이지 가기
+public void orderResult() { 
+	
+}
 }

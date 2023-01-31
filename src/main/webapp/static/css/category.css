@@ -1,0 +1,48 @@
+@charset "EUC-KR";
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box; 
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+}
+header{
+	text-align : center;
+	height:150px;
+}
+footer{
+	text-align : center;
+	height:150px;
+}
+
+.c_container{
+	padding-top: 3rem ;
+    padding-bottom: 3rem ;
+    display: flex;
+    padding-right: 125px;
+    padding-left: 125px;
+    
+}
+
+.c_box{
+	width: 1098px;
+    height: 536px;
+    display:inline;
+}
+.c_h{
+	padding-top: 1rem ;
+    padding-bottom: 1rem ;
+    font-size: 22px;
+    
+}
+.c1_box{
+	width: 280px;
+    height: 200px;
+    padding: 16px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+    box-sizing: border-box;
+   	display: inline-block;
+}

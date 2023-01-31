@@ -57,6 +57,12 @@
                 });
             });
         </script>
+<style type="text/css">
+body{
+	line-height: 11px;
+	margin: 0;
+}
+</style>
     </head>
     <body>
         <c:import url="../header.jsp"></c:import>
