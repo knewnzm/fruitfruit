@@ -1,15 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%> <%@ taglib
 uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $("#login_btn").click(function () {
+                if ($("#user_id").val() == "") {
+                    document.getElementById("msg").innerHTML = "이메일을 입력해주세요.";
+                } else if ($("#user_pwd").val() == "") {
+                    document.getElementById("msg").innerHTML = "패스워드를 입력해주세요.<br>";
+                } else {
+                    id = $("#user_id").val();
+                    pwd = $("#user_pwd").val();
+                    $.ajax({
+                        url: "/member/loginChk",
+                        type: "post",
+                        data: { id, pwd },
+                        success: function (data) {
+                            if (data.res == "fail") {
+                                document.getElementById("msg").innerHTML = "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.<br>";
+                            } else {
+                                $("form").submit();
+                                /* location.href="/member/joinForm"; */
+                            }
+                        },
+                    });
+                }
+            });
+        });
+        </script>
     </head>
     <body>
 <div class="wrap">
 	<header>
-		<h3>헤더 입니다</h3>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
 	</header>
 	<main id="cantainer" class="container">
 		<div id="content" class="content">
@@ -35,6 +65,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요.">
 						</div>
 					</div>
+					<span id="msg" class="my-3 py-2 msg">아이디 비번 공백 확인 메시지</span>
 					<div class="login_option">
 						<div class="keep_wrap">
 							<input type="checkbox"  id="id_keep" name="id_keep" value="off">
@@ -44,13 +75,13 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						</div>
 						<div class="login_find">
 							<ul class="find_inner" id="find_inner">
-								<li><a target="_parent" href="" class="find_text">아이디 찾기</a></li> |
+								<li><a target="_parent" href="" class="find_text">아이디 찾기</a></li> 
 								<li><a target="_parent" href="" class="find_text">비밀번호 찾기</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="login_btn_wrap">
-						<button type="submit" id="login_btn"  id="login_btn" >
+						<button type="button" id="login_btn" >
 							<span class="login_btn_text">로그인</span>
 						</button>
 					</div>
@@ -59,8 +90,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 				</form>
 				<div class="join_wrap">
 					<button type="button" id="join_btn"  id="join_btn" 
-						onclick="location.href='joinForm.jsp'">
-					<!-- 	onclick="location.href='{pageContext.request.contextPath }/member/joinForm.jsp'"> -->
+						onclick="location.href='/member/joinForm'">
 						<span class="join_btn_text">회원가입</span>
 					</button>
 				</div>
@@ -98,7 +128,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 		</div>
 	</main>
 	<footer>
-		<h3>footer 자리 입니다</h3>
+		<%-- <c:import url="../footer.jsp"></c:import> --%>
 	</footer>
 <!-- wrap end -->
 </div>

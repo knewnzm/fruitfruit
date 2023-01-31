@@ -5,12 +5,67 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
 <meta charset="UTF-8"">
 <title>edit form</title>
+   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/editForm.css" />
+<script type="text/javascript">
+$(document).ready(function () {    // enter submit 방지 함수
+    $('input').keydown(function () {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+        }       
+    });
+    ///
+      document.getElementById("submit").disabled = true;
+                var chkp = false;
+///
+                function join() {
+                    $("#submit").attr("disabled", true);
+                    if (chkp) {                       
+                            $("#submit").attr("disabled", false);                  
+                    }
+                }
+                ///
+    function chkPwd() {
+        if ($("#user_pwd").val() != $("#pwdCheck").val()) {
+            $(".pwd_check_text").text("비밀번호가 일치하지 않습니다.");
+            chkp = false;
+            $("#submit").attr("disabled", true);
+        } else {
+            $(".pwd_check_text").empty();
+            chkp = true;             
+                    $("#submit").attr("disabled", false);                  
+        }
+    }
+
+    $("#user_pwd").on("propertychange change keyup paste input blur", function () {
+        chkp = false;
+        $("#submit").attr("disabled", true);
+        $(".pwd_check_text").empty();
+        if ($("#user_pwd").val() == "") {
+            $(".pwd_check_text").text("비밀번호를 입력해주세요");
+        } else if ($("#pwdCheck").val() != "") {
+            chkPwd();
+        }
+    });
+
+    $("#pwdCheck").on("propertychange change keyup paste input blur", function () {
+        chkp = false;
+        $(".pwd_check_text").empty();
+        if ($("#pwdCheck").val() == "") {
+            $(".pwd_check_text").text("비밀번호 확인란을 입력해주세요");
+        } else {
+            chkPwd();
+        }
+    });
+    
+    ////
+});
+</script>
 </head>
 <body>
 <div class="wrap">
 	<header>
-		<h3>헤더 입니다</h3>
+		
 	</header>
 	<main class="container">
 		<div id="content" class="content">
@@ -20,7 +75,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 			<div class="line">
 				<hr>
 			</div>
-			<%-- <form name="E" action="${pageContext.request.ContextPath }/member/edit" action="post"> --%>
+			<form name="e" action="${pageContext.request.contextPath }/member/edit" method="post">
 			<div class="edit_wrap">
 				<div class="edit_content">
 					<div class="edit_box">
@@ -54,12 +109,12 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 									</label>
 								</div>
 								<div class="edit_input">
-									<input type="password" name="user_pwd" value="${m.user_pwd }" placeholder="비밀번호를 입력해주세요">
+									<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요">
 								</div>
 							</div>
 							<div class="pwd_check_wrap">
 								<div class="check_box">
-									<input type="password" name="pwd_check" >
+									<input type="password" name="pwd_check" id="pwdCheck" >
 								</div>
 								<div class="check_text_box">
 									<span class="pwd_check_text">비밀번호 확인 문구 들어갈 자리</span>
@@ -109,7 +164,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 									<input type="text" name="user_postcode" id="user_postcode" value="${m.user_postcode }">
 								</div>
 								<div class="addr_btn">
-									<button class="addr_search_btn" name="addr_search_btn" >
+									<button type="button" class="addr_search_btn" name="addr_search_btn" >
 										<span class="search_text">주소 검색</span>
 										<img src="${pageContext.request.contextPath}/static/css/image/search.png" class="search_img">
 									</button>	
@@ -131,17 +186,17 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						</div>
 						<div class="account_select">
 							<select name="user_bank" id="user_bank" class="user_bank" onchange="selectBoxChange(this.value);">
-								<option value="국민은행">국민은행
-								<option value="우리은행">우리은행
-								<option value="농협은행">농협은행
-								<option value="신한은행">신한은행
-								<option value="기업은행">기업은행
-								<option value="하나은행">KEB 하나은행
-								<option value="외한은행">외환은행
-								<option value="제일은행">제일은행
-								<option value="시티은행">한국시티은행
-								<option value="카카오뱅크">카카오뱅크
-								<option value="케이뱅크">케이뱅크
+								<option value="1">국민은행
+								<option value="2">우리은행
+								<option value="3">농협은행
+								<option value="4">신한은행
+								<option value="5">기업은행
+								<option value="6">KEB 하나은행
+								<option value="7">외환은행
+								<option value="8">제일은행
+								<option value="9">한국시티은행
+								<option value="10">카카오뱅크
+								<option value="11">케이뱅크
 							</select>
 						</div>
 						<div class="account_input">
@@ -149,18 +204,18 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						</div>
 					</div>
 					<div class="submit_wrap">
-						<input type="submit" name="submit" id="submit" value="수정하기">
+						<button type="submit" name="submit" id="submit" disabled="disabled">수정하기</button>
 					</div>
 				<!-- ↓edit content -->	
 				</div>
 			<!-- edit wrap -->
 			</div>
-	<!-- 	</form>	 -->
+	</form>
 		<!-- content -->
 		</div>
 	</main>
 	<footer>
-		<h1>footer 입니다</h1>
+		
 	</footer>
 <!-- wrap end -->
 </div>

@@ -33,17 +33,6 @@ button{
   border: 1px solid #D1D0CE;
   border-radius:5px;
 }
-header{
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
-footer{
-	margin-top: 0px;
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
 .wrap{
   padding: 0;
    margin: 0;
@@ -125,7 +114,7 @@ input[type=checkbox]{
 input[type=checkbox] + label { 
 	cursor: pointer; 
 	/* opacity:0.5; */
-	background-image : url('${pageContext.request.contextPath}/static/css/image/check.png');
+	background-image : url('../image/check.png');
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;
@@ -133,7 +122,7 @@ input[type=checkbox] + label {
 }
 input[type="checkbox"]:checked + label{
 	cursor: pointer; 
-	background-image : url('${pageContext.request.contextPath}/static/css/image/tick.png');
+	background-image : url('../image/tick.png');
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;

@@ -11,13 +11,13 @@ public class Member {
 	private String user_addr2 ; //상세주소2
 	private int user_type; //가입유형
 	private int user_grade ; //회원등급
-	private int user_account; //계좌번호
+	private String user_account; //계좌번호
 	private String user_bank; //은행 이름
 	public Member() {
 		super();
 	}
 	public Member(String user_id, String user_pwd, String user_name, String user_nick, int user_tel, int user_postcode,
-			String user_addr1, String user_addr2, int user_type, int user_grade, int user_account, String user_bank) {
+			String user_addr1, String user_addr2, int user_type, int user_grade, String user_account, String user_bank) {
 		super();
 		this.user_id = user_id;
 		this.user_pwd = user_pwd;
@@ -33,7 +33,7 @@ public class Member {
 		this.user_bank = user_bank;
 	}
 	public Member(String user_id, String user_pwd, String user_name, String user_nick, int user_tel, int user_postcode,
-			String user_addr1, String user_addr2, int user_type, int user_account, String user_bank) {
+			String user_addr1, String user_addr2, int user_type, String user_account, String user_bank) {
 		super();
 		this.user_id = user_id;
 		this.user_pwd = user_pwd;
@@ -107,10 +107,10 @@ public class Member {
 	public void setUser_grade(int user_grade) {
 		this.user_grade = user_grade;
 	}
-	public int getUser_account() {
+	public String getUser_account() {
 		return user_account;
 	}
-	public void setUser_account(int user_account) {
+	public void setUser_account(String user_account) {
 		this.user_account = user_account;
 	}
 	public String getUser_bank() {
