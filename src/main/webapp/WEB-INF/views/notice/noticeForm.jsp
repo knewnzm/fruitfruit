@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ page trimDirectiveWhitespaces="true" %> <%@ taglib
+uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,77 +7,8 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/noticeForm.css" />
-<body>
-<div class="wrap">
-	<header>
-		
-	</header>
-	<main class="container">
-		<div class="content">
-			<div class="title_wrap">
-				<div class="main_title">
-					<h1 class="main_text">∞‘Ω√±€ ¿€º∫</h1>
-				</div>
-			</div>
-			<form name="" action="" method="post" enctype="multiple">
-			<div class="notice_form_wrap">
-				<div class="notice_box">
-						<div class="notice_title">
-							<label for="notice_type">
-								±∏∫–
-							</label>
-						</div>
-						<div class="notice_type">
-								<div class="type1">
-									<input type="radio" name="notice_type"  value="1" checked> 
-										<label for="notice_type" class="type_text">∞¯¡ˆ</label>
-								</div>
-								<div class="type2">
-									<input type="radio" name="notice_type"  value="2"> 
-										<label for="notice_type" class="type_text">¿Ã∫•∆Æ</label>
-								</div>
-						</div>
-				</div>		
-				<div class="notice_box">
-						<div class="notice_title">
-							<label for="notice_title">
-								¡¶∏Ò
-							</label>
-						</div>
-						<div class="notice_input">
-							<input type="text" name="notice_title" id="title" >
-						</div>
-					</div>
-				<div class="notice_box">
-					<div class="notice_title">
-						<label>
-							¿ÃπÃ¡ˆ
-						</label>
-					</div>
-					<div class="notice_path_wrap">
-						<input type="file" name="notice_path" id="notice_path" multiple>
-							<label for="notice_path" class="file_label">æ˜∑ŒµÂ</label>
-					</div>
-				</div>
-				<div class="path_wrap" >
-						<img src=""  id="preview"/>
-				</div>
-				<div class="content_wrap">
-					<textarea name="notice_content" class="notice_content"></textarea>
-				</div>
-			<!-- notice_form_wrap end -->
-			</div>
-			<div class="submit_wrap">
-						<input type="submit" name="submit" id="submit" value="¿€º∫«œ±‚">
-			</div>
-			</form>
-		<!-- content end -->
-		</div>	
-	</main>
-	<footer>
-	</footer>
-</div>
-</body>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 $('input[name="notice_path"]').change(function(){
     setImageFromFile(this, '#preview');
@@ -93,4 +24,77 @@ function setImageFromFile(input, expression) {
   }
 }
 </script>
+<body>
+    <header>
+		<c:import url="../head.jsp"></c:import>
+   		 <c:import url="../header.jsp"></c:import>
+	</header>
+        <div class="wrap">
+            <main class="container">
+		<div class="content">
+			<div class="title_wrap">
+				<div class="main_title">
+					<h1 class="main_text">Í≥µÏßÄÏÇ¨Ìï≠ ÏûëÏÑ±</h1>
+				</div>
+			</div>
+			<form name="" action="" method="post" enctype="multiple">
+			<div class="notice_form_wrap">
+				<div class="notice_box">
+						<div class="notice_title">
+							<label for="notice_type">
+								Íµ¨Î∂Ñ
+							</label>
+						</div>
+						<div class="notice_type">
+								<div class="type1">
+									<input type="radio" name="notice_type"  value="1" checked> 
+										<label for="notice_type" class="type_text">Í≥µÏßÄ</label>
+								</div>
+								<div class="type2">
+									<input type="radio" name="notice_type"  value="2"> 
+										<label for="notice_type" class="type_text">Ïù¥Î≤§Ìä∏</label>
+								</div>
+						</div>
+				</div>		
+				<div class="notice_box">
+						<div class="notice_title">
+							<label for="notice_title">
+								Ï†úÎ™©
+							</label>
+						</div>
+						<div class="notice_input">
+							<input type="text" name="notice_title" id="title" >
+						</div>
+					</div>
+				<div class="notice_box">
+					<div class="notice_title">
+						<label>
+							Ïù¥ÎØ∏ÏßÄ
+						</label>
+					</div>
+					<div class="notice_path_wrap">
+						<input type="file" name="notice_path" id="notice_path" multiple>
+							<label for="notice_path" class="file_label">ÏóÖÎ°úÎìú</label>
+					</div>
+				</div>
+				<div class="path_wrap" >
+						<img src=""  id="preview" onerror="imgError()"/>
+				</div>
+				<div class="content_wrap">
+					<textarea name="notice_content" class="notice_content"></textarea>
+				</div>
+			<!-- notice_form_wrap end -->
+			</div>
+			<div class="submit_wrap">
+				 <button type="submit" name="submit" id="submit">ÏûëÏÑ±ÌïòÍ∏∞</button>
+			</div>
+			</form>
+		<!-- content end -->
+		</div>	
+	</main>
+        </div>
+	<footer>
+		 <c:import url="../footer.jsp"></c:import>
+	</footer>
+</body>
 </html>

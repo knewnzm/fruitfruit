@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ page trimDirectiveWhitespaces="true" %> <%@ taglib
+uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,92 +9,142 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/notice.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<body>
-<div class="wrap">
-	<header>
-		
-	</header>
-	<main class="container">
-		<div class="content">
-			<div class="title_wrap">
-				<div class="main_title">
-					<h1 class="main_text">∞‘Ω√±€ ¿€º∫</h1>
-				</div>
-			</div>
-			<form name="" action="" method="post" enctype="multiple">
-			<div class="notice_form_wrap">
-				<div class="notice_box">
-						<div class="notice_title">
-							<label for="notice_type">
-								±∏∫–
-							</label>
-						</div>
-						<div class="notice_type">
-								<div class="type1">
-									<input type="radio" name="notice_type"  value="1" checked> 
-										<label for="notice_type" class="type_text">∞¯¡ˆ</label>
-								</div>
-								<div class="type2">
-									<input type="radio" name="notice_type"  value="2"> 
-										<label for="notice_type" class="type_text">¿Ã∫•∆Æ</label>
-								</div>
-						</div>
-				</div>		
-				<div class="notice_box">
-						<div class="notice_title">
-							<label for="notice_title">
-								¡¶∏Ò
-							</label>
-						</div>
-						<div class="notice_input">
-							<input type="text" name="notice_title" id="title" >
-						</div>
-					</div>
-				<div class="notice_box">
-					<div class="notice_title">
-						<label>
-							¿ÃπÃ¡ˆ
-						</label>
-					</div>
-					<div class="notice_path_wrap">
-						<input type="file" name="notice_path" id="notice_path" multiple>
-							<label for="notice_path" class="file_label">æ˜∑ŒµÂ</label>
-					</div>
-				</div>
-				<div class="path_wrap" >
-						<img src=""  id="preview" onerror="imgError()"/>
-				</div>
-				<div class="content_wrap">
-					<textarea name="notice_content" class="notice_content"></textarea>
-				</div>
-			<!-- notice_form_wrap end -->
-			</div>
-			<div class="submit_wrap">
-						<input type="submit" name="submit" id="submit" value="¿€º∫«œ±‚">
-			</div>
-			</form>
-		<!-- content end -->
-		</div>	
-	</main>
-	<footer>
-	</footer>
-</div>
-</body>
 <script>
-$('input[name="notice_path"]').change(function(){
-    setImageFromFile(this, '#preview');
-});
+$(document).ready(function(){
+	  
+	  $('ul.tab_list li').click(function(){
+	    var tab_id = $(this).attr('data-tab');
 
-function setImageFromFile(input, expression) {
-    if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-    $(expression).attr('src', e.target.result);
-  }
-  reader.readAsDataURL(input.files[0]);
-/*   }else{
-	  ∆ƒ¿œ ∞™¿Ã æ¯¿ª ∂© hide..~  */
-  }
-}
+	    $('ul.tab_list li').removeClass('current');
+	    $('.tab_pannel').removeClass('current');
+
+	    $(this).addClass('current');
+	    $("#"+tab_id).addClass('current');
+	  })
+	})
 </script>
+<body>
+	<header>
+		<c:import url="../head.jsp"></c:import>
+   		 <c:import url="../header.jsp"></c:import>
+	</header>
+<div class="wrap">
+      <main class="container">
+        <div class="content">
+        	<!-- ÌÉÄÏù¥ÌãÄ -->
+        	<div class="title_wrap">
+				<div class="main_title">
+					<h1 class="main_text">Notice</h1>
+				</div>
+			</div>
+			
+			<div class="notice_wrap">
+				<div class="notice_tab_wrap">
+						<div class="menu_tab">
+							<ul class="tab_list" role="tablist">
+								<li class="tab current" role="tab" data-tab="tab1" >
+									Ï†ÑÏ≤¥
+								</li>
+								<li class="tab"  role="tab" data-tab="tab2">
+									Í≥µÏßÄ
+								</li>
+								<li class="tab"  role="tab" data-tab="tab3">
+									Ïù¥Î≤§Ìä∏
+								</li>
+							</ul>
+						</div>
+					
+						<div class="pannel_wrap">
+							<div class="tab_pannel current" id="tab1" role="tabpannel" >
+								<table  class="list" id="all_list">
+									<tbody>
+										 <c:if test="${empty list}">
+                            				<tr>
+                                			<th colspan="3">Îì±Î°ùÎêú Í≥µÏßÄÍ∞Ä ÏóÜÏäµÎãàÎã§.</th>
+                            				</tr>
+                        				</c:if>
+                        				<%-- <c:if test="${not empty list}">
+                           				 <c:forEach var="n" items="${list}" varStatus="status">
+                           				 	<tr>
+												<th class="list_type">${n.notice_type }</th>
+												<th class="list_title"> 
+													<a class="link" href="${pageContext.request.contextPath}/notice/notice_contentView?notice_num=${n.notice_num}">
+                                        	    	${n.notice_title}</a>
+                                        	    </th>
+												<th class="list_date">${n.notice_date }</th>
+											</tr>
+                           				 </c:forEach>
+                            			</c:if> --%>
+									</tbody>
+								</table>
+							</div>
+							
+							<div class="tab_pannel" id="tab2" role="tabpannel" >
+								<table  class="list" id="notice_list">
+									<tbody>
+										 <c:if test="${empty list}">
+                            				<tr>
+                                			<th colspan="3">Îì±Î°ùÎêú Í≥µÏßÄÍ∞Ä ÏóÜÏäµÎãàÎã§.</th>
+                            				</tr>
+                        				</c:if>
+                        				<%-- <c:if test="${noticeType == 1} list">
+										<c:forEach var="n" items="${list}" varStatus="status">
+                           				 	<tr>
+												<th class="list_type"> ${n.notice_type }</th>
+												<th class="list_title"> 
+													<a class="link" href="${pageContext.request.contextPath}/notice/notice_contentView?notice_num=${n.notice_num}">
+                                        	    	${n.notice_title}</a>
+                                        	    </th>
+												<th class="list_date">${n.notice_date }</th>
+												<td>${n.notice_hits}</td>
+											</tr>
+                           				 </c:forEach>
+                            			</c:if> --%>
+									</tbody>
+								</table>
+							</div>
+							
+							<div class="tab_pannel" id="tab3" role="tabpannel" >
+								<table  class="list" id="notice_list">
+									<tbody>
+										 <c:if test="${empty list}">
+                            				<tr>
+                                			<th colspan="3">Îì±Î°ùÎêú Í≥µÏßÄÍ∞Ä ÏóÜÏäµÎãàÎã§.</th>
+                            				</tr>
+                        				</c:if>
+                        				<%-- <c:if test="${noticeType == 2} list">
+                           				 <c:forEach var="n" items="${list}" varStatus="status">
+                           				 	<tr>
+												<th class="list_type">${n.notice_type }</th>
+												<th class="list_title">
+													<a class="link" href="${pageContext.request.contextPath}/notice/notice_contentView?notice_num=${n.notice_num}">
+                                        	    	${n.notice_title}</a>
+                                        	    </th>
+												<th class="list_date">${n.notice_date }</th>
+												<td>${n.notice_hits}</td>
+											</tr>
+                           				 </c:forEach>
+                            			</c:if> --%>
+									</tbody>
+								</table>
+							</div>
+							
+					</div> <!-- pannel wrap -->	
+				</div><!-- notice tab wrap -->
+			</div> <!-- notice wrap end -->
+				
+			<c:import url="${pageContext.request.contextPath}/api/member/getUserType" var="userType" />
+				<c:if test="${userType == 2}">
+					  	<div class="write_btn_box">
+						<button type="button" id="write_btn"  onclick="location.href='${pageContext.request.contextPath}/notice/notice_writing'">ÏûëÏÑ±ÌïòÍ∏∞</button>
+						</div>
+				 </c:if>
+					  
+        </div> <!-- content end -->
+      </main> <!-- container end -->
+  	</div> <!-- wrap end-->
+	<footer>
+		 <c:import url="../footer.jsp"></c:import>
+	</footer>
+</body>
 </html>
