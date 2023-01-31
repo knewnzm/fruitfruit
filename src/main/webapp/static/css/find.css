@@ -23,6 +23,11 @@ footer{
 	text-align: center;
 }
 
+.f_pd {
+    padding-top: 48px ;
+    padding-bottom: 74px ;
+}
+
 .fi_pd {
     padding-top: 72px ;
     padding-bottom: 78px ;
@@ -93,16 +98,16 @@ footer{
 }
 .cp_h {
 	padding-top: 24px ;
-    padding-bottom: 45px ;
+    padding-bottom: 62px ;
     font-size: 22px;
 }
 .cp_newPwd{
 	text-align: left;
-	padding-left: 150px;
+	padding-left: 155px;
 }
 .cp_editPwd{
 	text-align: left;
-	padding-left: 150px;
+	padding-left: 155px;
 	padding-top: 25px;
 }
 
