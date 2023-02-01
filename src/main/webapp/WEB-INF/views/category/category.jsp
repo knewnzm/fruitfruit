@@ -15,7 +15,7 @@
 <body>
 <div class="c_wrapper">
  <div class="c_container">
-  <div class="c_h"><h1>카데고리 관리</h1> 
+  <div class="c_h"><h1>카테고리 관리</h1> 
   </div>
   <div class="c_box">
   <div class="c1_box"><div class="c_title"><h1>대분류</h1></div>
@@ -28,7 +28,7 @@
                                     aria-describedby="c1-btn"
                                     name="cate_name"
                                 />
-                                <input type="hidden" name="category_type" value="1" />
+                                <input type="hidden" name="cate_type" value="1" />
                                 <input type="submit" class="c_btn" id="c1-btn" value="등록">
                             </form>
    </div> 
@@ -42,8 +42,8 @@
                                     aria-describedby="c2-btn"
                                     name="cate_name"
                                 />
-                                <input type="hidden" name="category_type" value="2" />
-                                <input type="hidden" name="parent_category_num" value="" id="c2-parent" />
+                                <input type="hidden" name="cate_type" value="2" />
+                                <input type="hidden" name="parent_cate_num" value="" id="c2-parent" />
                                 <input type="submit" class="c_btn" id="c1-btn" value="등록">
                             </form>
   </div>
