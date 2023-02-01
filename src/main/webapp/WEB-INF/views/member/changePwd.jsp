@@ -4,87 +4,33 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>sadaRe: 사다리 - 비밀번호 변경하기</title>
-        <c:import url="../head.jsp"></c:import>
-        <link rel="stylesheet" href="/static/css/member_msg.css" />
+        <title>비밀번호 변경하기</title>
+        
+        <link rel="stylesheet" href="/static/css/find.css" />
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script>
-            var chkp = false;
-            function join() {
-                $("#edit").attr("disabled", true);
-                if (chkp) {
-                    $("#edit").attr("disabled", false);
-                }
-            }
+        </head>
+<header>
+<h3>헤더</h3>
+</header>
+<body>
 
-            function chkPwd() {
-                if ($("#user_pwd").val() != $("#pwdCheck").val()) {
-                    $("#pwd2Result").text("비밀번호가 일치하지 않습니다.");
-                    chkp = false;
-                } else {
-                    $("#pwd2Result").empty();
-                    chkp = true;
-                }
-            }
-            $(document).ready(function () {
-                // enter 금지
-                $('input[type="text"]').keydown(function () {
-                    if (event.keyCode === 13) {
-                        event.preventDefault();
-                    }
-                });
-                $("#user_pwd").on("propertychange change keyup paste input blur", function () {
-                    chkp = false;
-                    $("#pwd1Result").empty();
-                    $("#pwd2Result").empty();
-                    if ($("#user_pwd").val() == "") {
-                        $("#pwd1Result").text("필수 정보입니다.");
-                    } else if ($("#pwdCheck").val() != "") {
-                        chkPwd();
-                    }
-                    join();
-                });
+	<section class="cp_container">
+	<div class="f_pd">
+<form name="f" action="" method="post">
+<div class="cp_h"><h1>비밀번호를 변경해 주세요.</h1></div>
+<div class="f_box">
+<div class="cp_newPwd">새 비밀번호</div><br> <input type="password" class="f_id_line" id="newPwd" name="newPwd" ><br>
+<div class="cp_editPwd">비밀번호 확인</div><br> <input type="password" class="f_id_line" id="editPwd" name="editPwd" ><br>
+<button type="submit" id="update" class="f_button">변경</button>
+                        </div>
+                      </form>
+                      </div>
+                      </section>
 
-                $("#pwdCheck").on("propertychange change keyup paste input blur", function () {
-                    chkp = false;
-                    $("#pwd2Result").empty();
-                    if ($("#pwdCheck").val() == "") {
-                        $("#pwd2Result").text("필수 정보입니다.");
-                    } else {
-                        chkPwd();
-                    }
-                    join();
-                });
-            });
-        </script>
-<style type="text/css">
-body{
-	line-height: 11px;
-	margin: 0;
-}
-</style>
-    </head>
-    <body>
-        <c:import url="../header.jsp"></c:import>
-        <section class="py-5">
-            <div class="container">
-                <form action="/member/changePwd" method="post">
-                    <div class="mb-3 col-md-3">
-                        <label for="user_pwd" class="form-label">새로운 비밀번호</label>
-                        <input type="password" class="form-control" id="user_pwd" name="user_pwd" />
-                        <span id="pwd1Result" class="msg"></span>
-                    </div>
-                    <div class="mb-3 col-md-3">
-                        <label for="user_pwd" class="form-label">비밀번호 확인</label>
-                        <input type="password" class="form-control" id="pwdCheck" />
-                        <span id="pwd2Result" class="msg"></span>
-                    </div>
-                    <button type="submit" id="edit" class="btn btn-primary btn" disabled="disabled">비밀번호 변경하기</button>
-                    <!-- <input type="submit" id="edit" disabled="disabled" value="submit" /> -->
-                    <input type="hidden" name="user_id" value="${user_id}" />
-                </form>
-            </div>
-        </section>
-        <c:import url="../footer.jsp"></c:import>
-    </body>
+	
+	
+</body>
+<footer>
+<h3>footer</h3>
+</footer>
 </html>
