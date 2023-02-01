@@ -178,7 +178,7 @@
                     <div class="main innerContent">
                         <!-- Logo -->
                         <h1 class="logoArea fruit">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath }/">
                                 <img src="${pageContext.request.contextPath}/static/img/프룻프룻d.png" alt="프룻프룻 로고" style="width:200px;">
                             </a>
                         </h1>
