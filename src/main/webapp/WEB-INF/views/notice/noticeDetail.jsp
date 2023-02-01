@@ -6,122 +6,8 @@
  <meta charset="UTF-8" />
  <title>ㅍㄿㄹ - ${n.notice_title}</title>
 </head>
-<style type="text/css">
-*{
-  padding:0;
-  margin: 0;
-  box-sizing: border-box; 
-  border: 0;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 400;
-}
-a {
-   text-decoration:none !important;
-   cursor: pointer;
-}
-a:hover { 
-	text-decoration:none !important;
-}
-li{
-display : inline-block;
-}
-ul{
-list-style:none;
-}
-.ntcontainer{
-	width:auto;
- 	height:1500px;
-	display: flex;
-	justify-content: center;
-}
-.content{
-	width:1000px;
-	margin-top:100px;
-    text-align : center;
-    padding : 0px;
-    grid-template-columns: 
-        [left-navbar-start] 20%
-        [left-navbar-end content-start] 60%
-        [content-end right-sidebar-start] 20%
-        [right-sidebar-end];
-    grid-template-rows: 
-        [body-start] 80%
-        [body-end footer-start] 20%
-        [footer-end];
-}
-.notice_wrap{
-	border: 1px solid #f02c11;
-	border-radius:8px;
-	padding-left: 30px;
-    padding-right: 30px;
-}
-.notice_line_1{
-	display: flex;
-	text-align : center;
-	align-items: center;
-	padding-top:30px;
-}
-.notice_line{
-	display: flex;
-	text-align : center;
-	align-items: center;
-	padding-bottom:10px;
-	border-bottom: 1px solid #B6B6B4;
-}
-.notice_type{
-	width:100px;
-	text-align:left;
-}
-.notice_title{
-	width:600px;
-	text-align:left;
-	margin-right:100px;
-}
-.notice_btn_wrap{
-	width:200px;
-}
-.notice_date{
-	width:180px;
-	color:#777;
-}
-.notice_hit{
-	width:90px;
-	color:#777;
-	margin-left:5px;
-}
-.notice_v_content{
-	padding-top:50px;
-	padding-bottom:50px;
-}
-.back_btn_box{
-	padding-top:50px;
-}
-.edit_btn{
-	width:80px;
-	height:35px;
-	background:#f02c11;
-  	color:white;
-  	font-size:13px;
-}
-.del_btn{
-	width:80px;
-	height:35px;
-	border:1px solid #f02c11;
-	background:white;
-	color:#f02c11;
-	font-size:13px;
-}
-.back_btn{
-  width:200px;
-  height: 50px;
-  background:#f02c11;
-  color:white;
-  border-radius:5px;
-  text-align:center;
-  cursor: pointer; 
-  font-size:15px;
-}
-</style>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/noticeDetail.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <body>
 	<header>
 		<c:import url="../head.jsp"></c:import>
@@ -136,9 +22,6 @@ list-style:none;
       			<div class="notice_type">
       					[공지사항]
       			</div>
-      			<div class="notice_title">
-      					<h1>${n.notice_title}</h1>
-      			</div>
       			<div class="notice_btn_wrap">
       					<c:if test="${user_type==2}">
             				<button  type="button" class="edit_btn" 
@@ -149,6 +32,9 @@ list-style:none;
              				</button>
             		 	</c:if>
             	</div>		 
+      			<div class="notice_title">
+      					<h1 class="title_text">${n.notice_title}</h1>
+      			</div>
         </div>     
         <div class="notice_line">
 				<div class="notice_date">
@@ -159,6 +45,9 @@ list-style:none;
 				</div>         
         </div>    
         <div class="notice_v_content">
+        		<div class="notice_path_box">
+        			이미지 들어 올 자리
+        		</div>
            		${n.notice_content}
         </div>    
        </div>   
