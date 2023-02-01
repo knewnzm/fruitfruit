@@ -37,6 +37,7 @@ $(document).ready(function () {    // enter submit 방지 함수
                     $("#submit").attr("disabled", false);                  
         }
     }
+
     $("#user_pwd").on("propertychange change keyup paste input blur", function () {
         chkp = false;
         $("#submit").attr("disabled", true);
@@ -47,6 +48,7 @@ $(document).ready(function () {    // enter submit 방지 함수
             chkPwd();
         }
     });
+
     $("#pwdCheck").on("propertychange change keyup paste input blur", function () {
         chkp = false;
         $(".pwd_check_text").empty();
@@ -58,21 +60,25 @@ $(document).ready(function () {    // enter submit 방지 함수
     });
     $("#memberOut").click(function () {
         alert("탈퇴처리 되었습니다.\n이용해주셔서 감사합니다.");
-        location.href = "${pageContext.request.contextPath}/member/out";
+        location.href = `${pageContext.request.contextPath}/member/out`;
     });
     /* 모달 */
       const body = document.querySelector('body');
       const modal = document.querySelector('.modal');
       const btnOpenPopup = document.querySelector('.modal_btn');
+
       btnOpenPopup.addEventListener('click', () => {
         modal.classList.toggle('show');
+
         if (modal.classList.contains('show')) {
           body.style.overflow = 'hidden';
         }
       });
+
       modal.addEventListener('click', (event) => {
         if (event.target === modal) {
           modal.classList.toggle('show');
+
           if (!modal.classList.contains('show')) {
             body.style.overflow = 'auto';
           }
@@ -214,17 +220,17 @@ $(document).ready(function () {    // enter submit 방지 함수
 						<div class="account_select">
 							<select name="user_bank" id="user_bank" class="user_bank"  onchange="selectBoxChange(this.value);">
 								<option value="" disabled selected>선택</option>
-								<option value="1">국민은행</option>
-								<option value="2">우리은행</option>
-								<option value="3">농협은행</option>
-								<option value="4">신한은행</option>
-								<option value="5">기업은행</option>
-								<option value="6">KEB 하나은행</option>
-								<option value="7">외환은행</option>
-								<option value="8">제일은행</option>
-								<option value="9">한국시티은행</option>
-								<option value="10">카카오뱅크</option>
-								<option value="11">케이뱅크</option>
+								<option value="1"  <c:if test="${m.user_bank==1}">selected</c:if>>국민은행</option>
+								<option value="2" <c:if test="${m.user_bank==2}">selected</c:if>>우리은행</option>
+								<option value="3" <c:if test="${m.user_bank==3}">selected</c:if>>농협은행</option>
+								<option value="4" <c:if test="${m.user_bank==4}">selected</c:if>>신한은행</option>
+								<option value="5" <c:if test="${m.user_bank==5}">selected</c:if>>기업은행</option>
+								<option value="6" <c:if test="${m.user_bank==6}">selected</c:if>>KEB 하나은행</option>
+								<option value="7" <c:if test="${m.user_bank==7}">selected</c:if> >외환은행</option>
+								<option value="8" <c:if test="${m.user_bank==8}">selected</c:if>>제일은행</option>
+								<option value="9" <c:if test="${m.user_bank==9}">selected</c:if> >한국시티은행</option>
+								<option value="10" <c:if test="${m.user_bank==10}">selected</c:if>>카카오뱅크</option>
+								<option value="11" <c:if test="${m.user_bank==11}">selected</c:if>>케이뱅크</option>
 							</select>
 						</div>
 						<div class="account_input">
@@ -236,7 +242,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 						<button type="button" class="modal_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">탈퇴하기</button>
 					</div>
 					<!--탈퇴 Modal -->
-					 <div class="modal ">
+					 <div class="modal">
     					 <div class="modal_container">
     					 	<div class="modal_header">
       							<h2>탈퇴하기</h2>

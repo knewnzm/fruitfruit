@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"
 %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<c:choose>
     <%-- 등록된 제품 목록이 있을 때 --%>
-    
+    <c:when test="${not empty plist}">
         <div class="list-group product-list">
             <!-- 1개의 제품 데이터 -->
             <c:forEach var="p" items="${plist}">
@@ -71,14 +71,14 @@
                 </div>
             </c:forEach>
         </div>
-    
+    </c:when>
     <%-- 등록된 제품이 없을 때 --%>
-    
+    <c:otherwise>
         <h3>등록된 제품이 없습니다.</h3>
-    
-
+    </c:otherwise>
+</c:choose>
 <!-- 페이지 목록 -->
-
+<c:if test="${not empty page}">
     <nav class="py-5 w-100 d-flex justify-content-center">
         <ul class="pagination">
             <li class="page-item ${page.prev?'':'disabled'}">
@@ -98,4 +98,4 @@
             </li>
         </ul>
     </nav>
-
+</c:if>

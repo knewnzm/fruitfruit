@@ -185,8 +185,28 @@ public void findPwdForm() {
 public void changePwdForm() { 
 	
 }
-@GetMapping(value = "/order/orderResult") //비밀번호 변경 페이지 가기
-public void orderResult() { 
+@GetMapping(value = "/notice/noticeList") // 이벤트 공고 리스트 페이지 가기
+public void noticeList() { 
+	
+}
+@GetMapping(value = "/product/mylist") //
+public void mylist() {
+	
+}
+@GetMapping(value = "/alram/mylist") //
+public void alram() {
+	
+}
+@GetMapping(value = "/myfruit") //
+public void myfruit() {
+	
+}
+@GetMapping(value = "/order/orderList") //
+public void b() {
+	
+}
+@GetMapping(value = "/notice/noticeForm") //
+public void c() {
 	
 }
 }

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"
-%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
 <body>
     <div id="wrapper">
         <div>
-          <a href="${pageContext.request.contextPath }/member/editForm">회원정보수정 링크</a> 
+          <a href="${pageContext.request.contextPath }/member/editForm">내정보수정</a> 
         </div>
       </div>
 </body>

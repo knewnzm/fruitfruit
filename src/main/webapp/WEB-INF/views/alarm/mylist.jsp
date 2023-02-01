@@ -8,30 +8,25 @@
     <script>
         if ("${sessionScope.user_id}" === "") {
             alert("로그인이 필요한 페이지입니다.");
-            location.href = `${pageContext.request.contextPath}/member/loginForm`;
+            location.href = `${pageContext.request.contextPath}/member/loginForm?refer=${"${location.href}"}`;
         }
     </script>
-    
+    <c:import url="../head.jsp"></c:import>
     <link rel="stylesheet" href="/static/css/product_list.css" />
 </head>
 <body>
-    
+    <c:import url="../header.jsp"></c:import>
      <div class="left">
         	<c:import url="../myfruit.jsp" />
         </div>
     <section class="py-5">
         <div class="container">
             <div class="py-3">
-                <h1>내가 등록한 제품 목록</h1>
-            </div>
-            <div class="py-2">
-                <button type="button" class="btn btn-outline-primary" onclick="location.href=`${pageContext.request.contextPath}/product/add`">
-                    제품 추가하기
-                </button>
+                <h1>내 알람 조회</h1>
             </div>
             <c:import url="./importList.jsp"></c:import>
         </div>
     </section>
-   
+    <c:import url="../footer.jsp"></c:import>
 </body>
 </html>
