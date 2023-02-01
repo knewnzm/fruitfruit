@@ -60,21 +60,21 @@ $(document).ready(function(){
 									<tbody>
 										 <c:if test="${empty list}">
                             				<tr>
-                                			<th colspan="3">등록된 공지가 없습니다.</th>
+                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지가 없습니다.</th>
                             				</tr>
                         				</c:if>
-                        				<%-- <c:if test="${not empty list}">
+                        				<c:if test="${not empty list}">
                            				 <c:forEach var="n" items="${list}" varStatus="status">
                            				 	<tr>
 												<th class="list_type">${n.notice_type }</th>
 												<th class="list_title"> 
-													<a class="link" href="${pageContext.request.contextPath}/notice/notice_contentView?notice_num=${n.notice_num}">
+													<a class="link" href="${pageContext.request.contextPath}/notice/noticeDetail?notice_num=${n.notice_num}">
                                         	    	${n.notice_title}</a>
                                         	    </th>
 												<th class="list_date">${n.notice_date }</th>
 											</tr>
                            				 </c:forEach>
-                            			</c:if> --%>
+                            			</c:if>
 									</tbody>
 								</table>
 							</div>
@@ -84,22 +84,21 @@ $(document).ready(function(){
 									<tbody>
 										 <c:if test="${empty list}">
                             				<tr>
-                                			<th colspan="3">등록된 공지가 없습니다.</th>
+                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지가 없습니다.</th>
                             				</tr>
                         				</c:if>
-                        				<%-- <c:if test="${noticeType == 1} list">
+                        				<c:if test="${noticeType == 1} list">
 										<c:forEach var="n" items="${list}" varStatus="status">
                            				 	<tr>
 												<th class="list_type"> ${n.notice_type }</th>
 												<th class="list_title"> 
-													<a class="link" href="${pageContext.request.contextPath}/notice/notice_contentView?notice_num=${n.notice_num}">
+													<a class="link" href="${pageContext.request.contextPath}/notice/noticeDetail?notice_num=${n.notice_num}">
                                         	    	${n.notice_title}</a>
                                         	    </th>
 												<th class="list_date">${n.notice_date }</th>
-												<td>${n.notice_hits}</td>
 											</tr>
                            				 </c:forEach>
-                            			</c:if> --%>
+                            			</c:if>
 									</tbody>
 								</table>
 							</div>
@@ -109,22 +108,21 @@ $(document).ready(function(){
 									<tbody>
 										 <c:if test="${empty list}">
                             				<tr>
-                                			<th colspan="3">등록된 공지가 없습니다.</th>
+                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지가 없습니다.</th>
                             				</tr>
                         				</c:if>
-                        				<%-- <c:if test="${noticeType == 2} list">
+                        				<c:if test="${noticeType == 2} list">
                            				 <c:forEach var="n" items="${list}" varStatus="status">
                            				 	<tr>
 												<th class="list_type">${n.notice_type }</th>
 												<th class="list_title">
-													<a class="link" href="${pageContext.request.contextPath}/notice/notice_contentView?notice_num=${n.notice_num}">
+													<a class="link" href="${pageContext.request.contextPath}/notice/noticeDetail?notice_num=${n.notice_num}">
                                         	    	${n.notice_title}</a>
                                         	    </th>
 												<th class="list_date">${n.notice_date }</th>
-												<td>${n.notice_hits}</td>
 											</tr>
                            				 </c:forEach>
-                            			</c:if> --%>
+                            			</c:if>
 									</tbody>
 								</table>
 							</div>
@@ -134,7 +132,7 @@ $(document).ready(function(){
 			</div> <!-- notice wrap end -->
 				
 			<c:import url="${pageContext.request.contextPath}/api/member/getUserType" var="userType" />
-				<c:if test="${userType == 2}">
+				<c:if test="${userType == 3}">
 					  	<div class="write_btn_box">
 						<button type="button" id="write_btn"  onclick="location.href='${pageContext.request.contextPath}/notice/notice_writing'">작성하기</button>
 						</div>

@@ -4,7 +4,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>noticeForm</title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/noticeForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
@@ -81,7 +81,7 @@ function setImageFromFile(input, expression) {
 						<img src=""  id="preview" onerror="imgError()"/>
 				</div>
 				<div class="content_wrap">
-					<textarea name="notice_content" class="notice_content"></textarea>
+					<textarea name="notice_content" class="notice_w_content"></textarea>
 				</div>
 			<!-- notice_form_wrap end -->
 			</div>

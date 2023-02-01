@@ -65,7 +65,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
-                                                href="${pageContext.request.contextPath}/notice/notice_board">공지사항</a>
+                                                href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"

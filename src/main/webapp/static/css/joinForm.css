@@ -21,7 +21,7 @@ hr{
 	background:#f02c11;
 	margin-bottom: 20px;
 }
-input{
+.j_input{
 	width:310px;
     height: 39px;
     border: none;
@@ -225,7 +225,7 @@ input[type="radio"]:checked {
 select{
 	width:120px;
   	height: 42.333334px;
-  	padding-left:8px;
+  	text-align : center;
     font-size:13px;
   	color:#777;
   	border: 1px solid #D1D0CE;
@@ -241,7 +241,7 @@ select{
 select:focus{
 	outline:none;
 }
-input[type="submit"] {
+button[type="submit"] {
   text-align : center;
   width:328px;
   height: 48px;

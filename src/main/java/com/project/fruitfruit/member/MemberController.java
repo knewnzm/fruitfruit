@@ -153,5 +153,9 @@ public String edit(Member m) {
 	service.update(m);
 	return "redirect:/";
 }
-
+//////////////////
+@RequestMapping(value = "/help/helpForm") //회원정보 수정하기
+public void a() {
+}
+//////////////////
 }
