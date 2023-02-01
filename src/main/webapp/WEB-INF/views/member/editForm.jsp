@@ -43,7 +43,7 @@ $(document).ready(function () {    // enter submit 방지 함수
         $("#submit").attr("disabled", true);
         $(".pwd_check_text").empty();
         if ($("#user_pwd").val() == "") {
-            $(".pwd_check_text").text("비밀번호를 입력해주세요");
+            $(".pwd_check_text").text("비밀번호를 입력해주세요.　　");
         } else if ($("#pwdCheck").val() != "") {
             chkPwd();
         }
@@ -53,7 +53,7 @@ $(document).ready(function () {    // enter submit 방지 함수
         chkp = false;
         $(".pwd_check_text").empty();
         if ($("#pwdCheck").val() == "") {
-            $(".pwd_check_text").text("비밀번호 확인란을 입력해주세요");
+            $(".pwd_check_text").text("　비밀번호 확인란을 입력해주세요.");
         } else {
             chkPwd();
         }
@@ -152,7 +152,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 							</div>
 						</div>
 						<div class="check_text_box">
-							<span class="pwd_check_text">비밀번호 확인 문구 들어갈 자리</span>
+							<span class="pwd_check_text"></span>
 						</div>
 					</div>
 					<div class="edit_box">
