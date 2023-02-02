@@ -185,10 +185,6 @@ public void findPwdForm() {
 public void changePwdForm() { 
 	
 }
-@GetMapping(value = "/notice/noticeList") // 이벤트 공고 리스트 페이지 가기
-public void noticeList() { 
-	
-}
 @GetMapping(value = "/product/mylist") //
 public void mylist() {
 	
@@ -205,8 +201,5 @@ public void myfruit() {
 public void b() {
 	
 }
-@GetMapping(value = "/notice/noticeForm") //
-public void c() {
-	
-}
+
 }

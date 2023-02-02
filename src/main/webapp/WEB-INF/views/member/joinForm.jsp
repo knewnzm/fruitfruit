@@ -111,7 +111,7 @@ $(document).ready(function() {
 									</label>
 								</div>
 								<div class="join_input">
-									<input type="text" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요.">
+									<input type="text" name="user_id" id="user_id"  class="j_input" placeholder="아이디를 입력해주세요.">
 								</div>
 								<div class="join_btn">
 									<button class="id_check_btn" type="button" >
@@ -133,7 +133,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요.">
+							<input type="password" name="user_pwd" id="user_pwd" class="j_input" placeholder="비밀번호를 입력해주세요.">
 						</div>
 					</div>
 					<div class="join_box">
@@ -143,7 +143,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="text" name="user_name" id="user_name"  placeholder="이름을 입력해주세요.">
+							<input type="text" name="user_name" id="user_name" class="j_input" placeholder="이름을 입력해주세요.">
 						</div>
 					</div>
 					<div class="join_box">
@@ -153,7 +153,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="text" name="user_nick" id="user_nick"  placeholder="닉네임을 입력해주세요.">
+							<input type="text" name="user_nick" id="user_nick" class="j_input" placeholder="닉네임을 입력해주세요.">
 						</div>
 					</div>
 					<div class="join_box">
@@ -163,7 +163,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="text" name="user_tel" id="user_tel"  placeholder="숫자만 입력해주세요.">
+							<input type="text" name="user_tel" id="user_tel" class="j_input" placeholder="숫자만 입력해주세요.">
 						</div>
 					</div>
 					<div class="join_box">
@@ -175,7 +175,7 @@ $(document).ready(function() {
 									</label>	
 								</div>
 								<div class="addr_postcode">
-									<input type="text" name="user_postcode" id="user_postcode"  placeholder="우편번호">
+									<input type="text" name="user_postcode" id="user_postcode"  class="j_input"placeholder="우편번호">
 								</div>
 								<div class="addr_btn">
 									<button class="addr_search_btn" type="button" name="addr_search_btn">
@@ -185,10 +185,10 @@ $(document).ready(function() {
 								</div>
 							</div>
 							<div class="addr_wrap1">
-								<input type="text" name="user_addr1" id="user_addr1"  placeholder="도로명 주소">
+								<input type="text" name="user_addr1" id="user_addr1" class="j_input" placeholder="도로명 주소">
 							</div>
 							<div class="addr_wrap2">
-								<input type="text" name="user_addr2" id="user_addr2"  placeholder="상세항목">
+								<input type="text" name="user_addr2" id="user_addr2" class="j_input" placeholder="상세항목">
 							</div>
 						</div>
 					</div>
@@ -200,7 +200,7 @@ $(document).ready(function() {
 						</div>
 						<div class="account_select">
 							<select name="user_bank" id="user_bank" class="user_bank">
-								<option value="" disabled selected>--선택--</option>
+								<option value="" disabled selected>선택</option>
 								<option value="1">국민은행</option>
 								<option value="2">우리은행</option>
 								<option value="3">농협은행</option>
@@ -215,11 +215,11 @@ $(document).ready(function() {
 							</select>
 						</div>
 						<div class="account_input">
-							<input type="text" name="user_account" id="user_account" placeholder="계좌번호를 입력해주세요.">
+							<input type="text" name="user_account" id="user_account" class="j_input"placeholder="계좌번호를 입력해주세요.">
 						</div>
 					</div>
 					<div class="submit_wrap">
-						<input type="submit" id="submit" value="가입하기">
+						<button type="submit" id="submit" value="가입하기">가입하기</button>
 					</div>
 				<!-- join content -->	
 				</div>

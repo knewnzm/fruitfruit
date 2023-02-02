@@ -18,6 +18,10 @@ public class MemberService {
 		return mapper.select(id);
 		
 	}
+	public Member selectbyname(String name) {
+		return mapper.select(name);
+		
+	}
 	public List list() {
 		return mapper.list();
 		

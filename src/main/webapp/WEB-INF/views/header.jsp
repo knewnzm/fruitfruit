@@ -2,23 +2,23 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="ko">
     
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="webapp/static/css/common.css">
-        <link rel="stylesheet" type="text/css" href="webapp/static/css/header.css">
-        <link rel="stylesheet" type="text/css" href="webapp/static/css/main.css">
+        <!-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/common.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/header.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
         <title>Document</title>
     </head>
 
 
     <body>
         <!-- Navigation-->
-        <header class="headArea fruit wrap">
-            <div class="util innerContent">
+        <header class="headArea fruit">
+            <div class="util innerContent wrap">
                 <ul class="accountArea">
                     <c:choose>
                         <%-- 비 로그인 상태 --%>
@@ -65,11 +65,11 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
-                                                href="${pageContext.request.contextPath}/notice/notice_board">공지사항</a>
+                                                href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
-                                                href="${pageContext.request.contextPath}/admin/category">카테고리
+                                                href="${pageContext.request.contextPath}/category/category">카테고리
                                                 관리</a>
                                             </li>
                                         </ul>
@@ -178,8 +178,8 @@
                     <div class="main innerContent">
                         <!-- Logo -->
                         <h1 class="logoArea fruit">
-                            <a href="${pageContext.request.contextPath }/">
-                                <img src="${pageContext.request.contextPath}/static/img/프룻프룻d.png" alt="프룻프룻 로고" style="width:200px;">
+                            <a href="${pageContext.request.contextPath}/">
+                                <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="프룻프룻 로고" style="width:150px;">
                             </a>
                         </h1>
                         <div class="searchAreaWrap">
@@ -193,13 +193,13 @@
                         </div>
                         <div class="buttonArea">
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/wish/wishList" class="heart">나의 찜</a>
+                                <a href="${pageContext.request.contextPath}/wish/wishList" class="heart"><span>나의 찜</span></a>
                             </div>
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/" class="mypage">마이페이지</a>
+                                <a href="${pageContext.request.contextPath}/" class="mypage"><span>마이페이지</span></a>
                             </div>
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/help/helpForm.jsp" class="chat">1:1 문의</a>
+                                <a href="${pageContext.request.contextPath}/help/helpForm.jsp" class="chat"><span>1:1문의</span></a>
                             </div>
                         </div>
                     </div>
@@ -210,6 +210,7 @@
                         <div class="moreViewWrap">
                             <button type="button" class="moreView">
                                 <span class="bar"></span>
+                                <span>카테고리</span>
                             </button>
                             <div class="dep1 hidden">
                                 <ul class="category-wrap">
@@ -432,7 +433,7 @@
                             <div id="menuInner" class="menuInner">
                                 <ul>
                                     <li class>
-                                        <a href="#">홈</a>
+                                        <a href="#">신상품</a>
                                     </li>
                                     <li class>
                                         <a href="#">MD PICK</a>
@@ -448,122 +449,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="trending">
-                    <button type="button" class="moreView">
-                        <span class="blind">확인용 메시지 ${m.user_grade }</span>
-                    </button>
-                    <div class="preview">
-                        <div class="swiper-container swiper-container ">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">1</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">2</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">3</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">4</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">5</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">6</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">7</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">8</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">9</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">10</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </header>
-
-        
     </body>
 
     </html>

@@ -66,7 +66,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요.">
 						</div>
 					</div>
-					<span id="msg" class="my-3 py-2 msg">아이디 비번 공백 확인 메시지</span>
+					<span id="msg" class="my-3 py-2 msg"></span>
 					<div class="login_option">
 						<div class="keep_wrap">
 							<input type="checkbox"  id="id_keep" name="id_keep" value="off">
