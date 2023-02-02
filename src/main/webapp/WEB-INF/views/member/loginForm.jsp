@@ -38,11 +38,11 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         </script>
     </head>
 <body>
-<div class="wrap">
 	<header>
 		<c:import url="../head.jsp"></c:import>
         <c:import url="../header.jsp"></c:import>
 	</header>
+<div class="wrap">
 	<main id="cantainer" class="container">
 		<div id="content" class="content">
 			<div class="login_wrap">
@@ -123,7 +123,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 					</div>
 				<!-- social end -->
 				</div>
-				</form>
+			</form>
 			</div>
 		<!-- content end -->
 		</div>

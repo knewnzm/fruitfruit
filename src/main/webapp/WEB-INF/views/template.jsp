@@ -4,7 +4,7 @@ prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>sadaRe: 사다리</title>
+        <title>fruitfruit</title>
         <c:import url="./head.jsp"></c:import>
     </head>
     <body>

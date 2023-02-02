@@ -66,6 +66,7 @@ $(document).ready(function () {    // enter submit 방지 함수
       const body = document.querySelector('body');
       const modal = document.querySelector('.modal');
       const btnOpenPopup = document.querySelector('.modal_btn');
+      const btnClose = document.querySelector('.modal_close_btn');
 
       btnOpenPopup.addEventListener('click', () => {
         modal.classList.toggle('show');
@@ -84,12 +85,15 @@ $(document).ready(function () {    // enter submit 방지 함수
           }
         }
       });
+      btnClose.addEventListener('click', () => {
+    	  modal.classList.remove('show');
+    	  body.style.overflow = 'auto';
+    	});
     ////
 });
 </script>
 </head>
 <body>
-<div class="wrap">
 	<header>
 		<c:import url="../head.jsp"></c:import>
         <c:import url="../header.jsp"></c:import>
@@ -241,6 +245,17 @@ $(document).ready(function () {    // enter submit 방지 함수
 						<button type="submit" name="submit" id="submit" disabled="disabled">수정하기</button>
 						<button type="button" class="modal_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">탈퇴하기</button>
 					</div>
+				<!-- ↓edit content -->	
+				</div>
+			<!-- edit wrap -->
+			</div>
+	</form>
+		<!-- content -->
+		</div>
+	</main>
+	<footer>
+		 <c:import url="../footer.jsp"></c:import>
+	</footer>
 					<!--탈퇴 Modal -->
 					 <div class="modal">
     					 <div class="modal_container">
@@ -253,23 +268,10 @@ $(document).ready(function () {    // enter submit 방지 함수
                           	 	탈퇴하시겠습니까?
       						</div>
       						<div class="modal_footer">
-                        	    <button type="button" class="modal_close_btn" data-bs-dismiss="modal">취소</button>
-                              	<button type="button" class="del_btn" id="memberOut">탈퇴</button>
+                        	    <button type="button" class="modal_close_btn"  data-bs-dismiss="modal" aria-label="Close">취소</button>
+                              	<button type="button" class="del_btn" id="memberOut" >탈퇴</button>
       						</div>
     					 </div>
     				</div>
-				<!-- ↓edit content -->	
-				</div>
-			<!-- edit wrap -->
-			</div>
-	</form>
-		<!-- content -->
-		</div>
-	</main>
-	<footer>
-		 <c:import url="../footer.jsp"></c:import>
-	</footer>
-<!-- wrap end -->
-</div>
 </body>
 </html>

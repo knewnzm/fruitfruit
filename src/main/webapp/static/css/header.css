@@ -13,7 +13,6 @@
 
 
 .headArea .innerContent {
-    width: 100%;
     height: 120px;
     /** border-top: 1px solid #f02c11; **/
 }
@@ -72,22 +71,32 @@
 }
 
 .headArea .main .logoArea {
+    position: absolute;
+    left: 0;
+    top: 20px;
     display: inline-block;
     float: left;
-    position: relative;
     z-index: 20;
 }
 
 /** 검색창 **/
 
+.headArea .innerContent .searchAreaWrap {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    width: 400px;
+    margin-left: -200px;
+}
+
 .headArea .innerContent .searchAreaWrap .searchArea {
     width: 400px;
     height: 48px;
-    border: 1px solid #f02c11;
-    border-radius: 6px;
+    border: 2px solid #f02c11;
+    border-radius: 25px;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 55px 8px 20px;
+    padding: 10px 55px 8px 25px;
     position: relative;
 }
 
@@ -101,12 +110,12 @@
     width: 30px;
     height: 30px;
     position: absolute;
+    right: 15px;
     background: url(../img/search_icon.png) no-repeat;
     line-height: 0;
     vertical-align: middle;
     color: transparent;
     border: none;
-    position: relative;
     color: #f02c11;
     background-size: 25px;
 }
@@ -115,7 +124,11 @@
 
 .headArea .innerContent .buttonArea {
     display: flex;
+    position: absolute;
+    right: 0;
+    top: 20px;
 }
+
 
 .headArea .innerContent .buttonArea ul {
     display: flex;
@@ -204,8 +217,15 @@ background-color: transparent;
     display: inline-block;
     background: url(../img/categoty_w.png) no-repeat;
     background-size: cover;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+    transform: translateY(20%);
+}
+
+.sub .inner .category .moreViewWrap .moreView span:last-child {
+    font-size: 16px;
+    color:#fff;
+    margin-left: 10px;
 }
 
 /** 카테고리 + 메뉴바 정렬**/
@@ -219,14 +239,18 @@ background-color: transparent;
 }
 
 .sub .category {
-    position: relative;
-    display: inline-block;
-    width: 900px;
+    display: flex;
+    width: 1200px;
+    margin: 0px auto;
+    justify-content: flex-start;
+    bottom: 0;
     height: 50px;
 }
 
 .moreViewWrap {
+    width: 100px;
     float: left;
+    z-index: 100;
 }
 
 /** 카테고리 메뉴 **/
@@ -252,11 +276,13 @@ background-color: transparent;
 
 .category-wrap {
     position: relative;
+    z-index: 100;
     width: 150px;
     height: 450px;
     background: #fff;
     border: 1px solid #f02c11;
 }
+
 
 ul.category-wrap > li {
     /** position: relative; **/
@@ -268,6 +294,11 @@ ul.category-wrap > li {
     font-size: 14px;
 }
 
+ul.category-wrap > li:hover {
+    background-color: #f02c11;
+    
+}
+
 ul.category-wrap > li > ul.category-wrap {
     display: none;
 }
@@ -275,9 +306,9 @@ ul.category-wrap > li > ul.category-wrap {
 ul.category-wrap > li:hover > ul.category-wrap {
     display: inline-block;
     position: absolute;
-    top: 0;
-    left: 150px;
-    width: 150px;
+    top: -1px;
+    left: 149px;
+    width: 160px;
     height: 450px;
     background: #fff;
     border: 1px solid #f02c11;
@@ -285,7 +316,9 @@ ul.category-wrap > li:hover > ul.category-wrap {
 
 .category-wrap > li a:hover {
     display: block;
+    color: #fff;
 }
+
 
 
 /** sub 메뉴 **/
@@ -302,7 +335,10 @@ ul.category-wrap > li:hover > ul.category-wrap {
 
 .sub .inner .category .menu .menuInner ul {
     position: absolute;
-    margin-left: 60px;
+    margin-left: 150px;
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .sub .inner .category .menu .menuInner ul li:first-child {

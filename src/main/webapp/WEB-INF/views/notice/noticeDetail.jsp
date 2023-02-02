@@ -23,7 +23,7 @@
       					[공지사항]
       			</div>
       			<div class="notice_btn_wrap">
-      					<c:if test="${user_type==2}">
+      					<c:if test="${user_type==3}">
             				<button  type="button" class="edit_btn" 
             				<%-- onclick="location.href=`${pageContext.request.contextPath}/notice/notice_edit?notice_num=${n.notice_num}`" --%>>수정하기
              				</button>

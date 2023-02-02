@@ -48,7 +48,7 @@ input_text{
 .container{
 	width:1200;
  	height:1600px;
-	display: flex;
+	display:flex;
 	justify-content: center;
 }
 .content{
