@@ -133,36 +133,49 @@ input[type="radio"]:checked {
 	width:660px;
 	padding-left:5px;
 }
-.notice_path_wrap{
-	width: 775px;
-    height:42px;
-    padding-top:12px;
-    border: none;
+.file_name_wrap{
+	width:180px;
+	height:42px;
+	margin-left: 5px;
+	border : 1px solid #f02c11;
+	border-radius: 8px 0px 0px  8px;
+	display:flex;
+	justify-content: center;
+    align-items: center;
 }
-.path_wrap{
-	width: 150px;
-    height: 150px;
-    margin-left: 85px;
+.notice_path_wrap{
+    height: 42px;
+    padding-top: 0px;
+    border : 1px solid #f02c11;
+	border-radius:0px 8px 8px  0px;
+	background-color: #f02c11;
+	display:flex;
 }
 input[type=file]{
 	display:none;
 } 
 input[type=file]+label {
-	margin-right:558px;
-	padding-left:40px;
-	padding-right:40px;
+	padding-left:20px;
+	padding-right:20px;
 	padding-top:10px;
 	padding-bottom:10px;
 	cursor: pointer;
 	color:white;
 	font-size: 15px;
 	letter-spacing: -1px;
-	border-radius:5px;
-	background-color: #f02c11;
+
+}
+.path_wrap{
+	width: 150px;
+    height: 180px;
+    margin-left: 95px;
 }
 #preview{
-	width: 150px;
-    height: 150px;
+	width: 180px;
+    height: 180px;
+}
+.file_name_label{
+	float:center;
 }
 .content_wrap{
 	margin-top:30px;
@@ -186,7 +199,7 @@ input[type=file]+label {
 	margin-left:140px;
 }
 #submit{
-  width:328px;
+  width:150px;
   height: 48px;
   letter-spacing:1px;
   cursor: pointer; 
@@ -197,4 +210,17 @@ input[type=file]+label {
   border: none;
   border-radius:5px;
   background:#f02c11;
+}
+.back_btn{
+  width:150px;
+  height: 48px;
+  letter-spacing:1px;
+  cursor: pointer; 
+  font-size:15px;
+  padding-left:8px;
+  padding-right:8px;
+  color:#f02c11;
+  border: 1px solid #f02c11;
+  border-radius:5px;
+  background:white;
 }

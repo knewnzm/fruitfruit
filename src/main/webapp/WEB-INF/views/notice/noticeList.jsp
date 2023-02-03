@@ -132,9 +132,9 @@ $(document).ready(function(){
 			</div> <!-- notice wrap end -->
 				
 			<c:import url="${pageContext.request.contextPath}/api/member/getUserType" var="userType" />
-				<c:if test="${userType == 3}">
+				<c:if test="${user_type == 3}">
 					  	<div class="write_btn_box">
-						<button type="button" id="write_btn"  onclick="location.href='${pageContext.request.contextPath}/notice/notice_writing'">작성하기</button>
+						<button type="button" id="write_btn"  onclick="location.href='${pageContext.request.contextPath}/notice/noticeForm'">작성하기</button>
 						</div>
 				 </c:if>
 					  

@@ -104,7 +104,6 @@
 
 #write-btn-wrap{
     padding-bottom: 300px;
-
     position: fixed;
     z-index: 10;
     right: 31px;
@@ -148,16 +147,17 @@
 /** 상품 카드 **/
 
 .product-list .list-title {
-  margin:50px 0 50px;
-  font-size:28px;
-  color:#000;
-  font-weight:500;
-  text-align:center;
+  text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+    display: block;
+    margin:50px 0 50px;
+    color:#000;
 }
 
 .product-list {
   padding: 40px 0px;
-  margin: 0px auto;
+  margin: 0px auto 50px auto;
   width: 1200px;
 }
 

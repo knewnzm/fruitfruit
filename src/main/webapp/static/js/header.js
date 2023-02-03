@@ -6,6 +6,7 @@ const btn = document.querySelector(".moreView");
 const wrap = document.querySelector(".moreViewWrap");
 
 
+
 function categoryHover() {
     category.classList.remove("hidden");
 

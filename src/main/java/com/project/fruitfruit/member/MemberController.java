@@ -154,8 +154,8 @@ public String edit(Member m) {
 	return "redirect:/";
 }
 //////////////////
-@RequestMapping(value = "/help/helpDetail") //회원정보 수정하기
-public void a() {
-}
+ @RequestMapping(value = "/help/helpForm") //회원정보 수정하기 
+ public void a() { }
+ 
 //////////////////
 }

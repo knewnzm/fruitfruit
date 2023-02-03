@@ -69,7 +69,7 @@ ul.tab_list{
   margin-top: 20px;
   padding: 0px;
   display:flex;
-  aligh-items:center;
+  align-items:center;
   justify-content: space-between;
   border-radius:8px;
 }

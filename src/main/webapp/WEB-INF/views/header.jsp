@@ -23,13 +23,13 @@
                     <c:choose>
                         <%-- 비 로그인 상태 --%>
                         <c:when test="${empty sessionScope.user_id}">
-                            <li>
+                            <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/member/loginForm">로그인</a>
                             </li>
-                            <li>
+                            <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/member/joinForm">회원가입</a>
                             </li>
-                            <li>
+                            <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/help/helpList">1:1문의</a>
                             </li>
                         </c:when>
@@ -38,37 +38,36 @@
                             <c:choose>
                                 <%-- 관리자 로그인 시 --%>
                                 <c:when test="${sessionScope.user_type == 3}">
-                                    <li>
+                                    <li class="nav-item">
                                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
                                         role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">관리자 메뉴</a>
+                                        aria-expanded="false">
+                                        <span class="type-wrap"><span class="mem-type">관리자</span>내 메뉴</span>
+                                    </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/member/main">내정보</a>
                                             </li>
-                                            <li>
-                                                <hr class="dropdown-divider" />
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/member/list">회원관리</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/product/list">제품관리</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/report/reportList">신고
                                                 목록 확인</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
-                                                href="${pageContext.request.contextPath}/notice/notice_board">공지사항</a>
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
+                                                href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/admin/category">카테고리
                                                 관리</a>
                                             </li>
@@ -85,7 +84,7 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            내 메뉴
+                                        <span class="type-wrap"><span class="mem-type">판매자</span>내 메뉴</span>
                                             <c:if test="${alram_size >= 1}">
                                                 <span class="
                                                 position-absolute
@@ -102,19 +101,19 @@
                                             </c:if>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/member/main">내정보
                                                     <c:if test="${alram_size >= 1}">
                                                         <span class="badge bg-danger">${alram_size}</span>
                                                     </c:if>
                                                 </a>
                                             </li>
-                                            <li>
+                                            <li class="dropdown-item">
                                                 <hr class="dropdown-divider" />
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/product/add">제품
                                                 추가하기</a>
                                             </li>
@@ -131,7 +130,7 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            내 메뉴
+                                                            <span class="type-wrap"><span class="mem-type">구매자</span>내 메뉴</span>
                                             <c:if test="${alram_size >= 1}">
                                                 <span class="
                                                 position-absolute
@@ -148,19 +147,21 @@
                                             </c:if>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/member/main">내정보
                                                     <c:if test="${alram_size >= 1}">
                                                         <span class="badge bg-danger">${alram_size}</span>
                                                     </c:if>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <hr class="dropdown-divider" />
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
+                                                href="${pageContext.request.contextPath}/product/add">제품
+                                                추가하기</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/product/add">제품
                                                 추가하기</a>
                                             </li>
@@ -451,6 +452,8 @@
                 </div>
             </div>
         </header>
+
+        
     </body>
 
     </html>

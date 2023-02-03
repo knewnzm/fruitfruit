@@ -12,6 +12,7 @@
 
 html, body {
     height: 100%;
+    min-width: 1200px;
 }
 
 .clearfix:after { clear: both; display: block; content: ""; }
@@ -20,9 +21,13 @@ li { list-style: none;}
 
 a { text-decoration: none; color: #000; }
 
-a:hover { text-decoration: underline; }
+a:hover { text-decoration: none; }
 
 button {cursor: pointer;}
+
+input:focus{
+	outline:none;
+}
 
 
 /*.wrap { width: 1400px; position: relative; margin: 0 auto;  }

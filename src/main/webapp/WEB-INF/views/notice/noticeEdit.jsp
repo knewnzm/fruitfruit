@@ -86,7 +86,7 @@ function setImageFromFile(input, expression) {
 			<!-- notice_form_wrap end -->
 			</div>
 			<div class="submit_wrap">
-				 <button type="submit" name="submit" id="submit">작성하기</button>
+				 <button type="submit" name="submit" id="submit">수정하기</button>
 			</div>
 			</form>
 		<!-- content end -->

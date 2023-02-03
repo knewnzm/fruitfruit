@@ -19,12 +19,15 @@
 	<div class="content">
 	  <div class="help_wrap">
       	<input type="hidden" name="help_num" value="${h.help_num}" />
-      	<div class="help_line_1">
+      	<div class="help_line">
       			<div class="help_type">
-      					[배송]
+      					[회원정보]
+      			</div>
+      			<div class="help_title">
+      					<h1 class="title_text">제목입니다${h.help_title}</h1>
       			</div>
       			<div class="help_btn_wrap">
-      					<c:if test="${user_type==3}">
+      					<c:if test="${user_type==3}"> <!-- sesseionScope -->
             				<button  type="button" class="edit_btn" 
             				onclick="location.href=`${pageContext.request.contextPath}/help/help_edit?help_num=${h.help_num}`" >수정하기
              				</button>
@@ -33,18 +36,17 @@
              				</button>
             		 	</c:if>
             	</div>		 
-      			<div class="help_title">
-      					<h1 class="title_text">제목입니다${h.help_title}</h1>
-      			</div>
         </div>     
-        <div class="help_line">
+        <div class="help_line2">
 				<div class="help_id_box">
-			       	  	회원아이디 | ${h.writer_id}
+			       	  	회원아이디 ${h.writer_id}
 				</div>         
+        </div>
+         <div class="help_line2">    
 				<div class="help_date">
-         				<fmt:formatDate value="${h.help_date}" pattern="YYYY년 MM월 dd일 hh:mm" />
+         				등록일 <fmt:formatDate value="${h.help_date}" pattern="YYYY년 MM월 dd일 hh:mm" />
 				</div>
-        </div>    
+		</div>		
         <div class="help_v_content">
         		<div class="help_path_box">
         			이미지 들어 올 자리

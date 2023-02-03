@@ -60,15 +60,14 @@ input_text{
 	margin-top:30px;
 }
 .login_panner{
-  	padding: 25px;
+	width:350px;
   	padding-bottom:10px;
 }
 .id_line,.pwd_line{
 	border-radius: 5px;
 	border: 1px solid #f02c11;
 	height:44px;
-    width: 352px;
-    margin-left: 14px;
+    width: 350px;
 	margin-bottom: 10px;
     padding-top:7px;
     padding-left:8px;
@@ -96,11 +95,9 @@ input_text{
 	color:#777;
 	text-align : center;
 	font-size:13px;
-	width:362px;
+	width:350px;
 	height:50px;
 	display: flex;
-	margin-left:2px;
-	padding-left:10px;
     justify-content: space-between;
     line-height:45px;
 }
@@ -109,8 +106,7 @@ input[type=checkbox]{
 }
 input[type=checkbox] + label { 
 	cursor: pointer; 
-	/* opacity:0.5; */
-	background-image : url('${pageContext.request.contextPath}/static/img/login_check.png');
+	background-image : url('../img/login_check.png');
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;
@@ -118,7 +114,7 @@ input[type=checkbox] + label {
 }
 input[type="checkbox"]:checked + label{
 	cursor: pointer; 
-	background-image : url('${pageContext.request.contextPath}/static/img/login_tick.png');
+	background-image : url('../img/login_tick.png');
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;
@@ -153,4 +149,9 @@ input[type="checkbox"]:checked + label{
 }
 .fruit_Logo{
 	width: 170px;
+}
+#msg{
+	font-size:11px;
+	color:red;
+	letter-spacing:1px;
 }
