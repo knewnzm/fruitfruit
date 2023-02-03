@@ -21,16 +21,16 @@ public class MemberController {
 @Autowired
 private MemberService service;
 
-@RequestMapping(value = "/")
-public ModelAndView index(HttpServletRequest req) {
-	ModelAndView mav = new ModelAndView("/index");
-	HttpSession session = req.getSession(false);
-	if(session!=null) {
-	String id = (String) session.getAttribute("user_id");
-	Member m = service.select(id);
-	mav.addObject("m", m);
-	}
-	return mav;
+/* @RequestMapping(value = "/") */
+/*
+ * public ModelAndView index(HttpServletRequest req) { ModelAndView mav = new
+ * ModelAndView("/index"); HttpSession session = req.getSession(false); String
+ * id = (String) session.getAttribute("user_id"); if(session!=null&&id!=null) {
+ * Member m = service.select(id); mav.addObject("m", m); } return mav; }
+ */
+@RequestMapping(value = "/") //홈으로 가기
+public String index() { 
+	return "/index";
 }
 @GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
 public String joinForm(HttpServletRequest req) {
@@ -153,9 +153,57 @@ public String edit(Member m) {
 	service.update(m);
 	return "redirect:/";
 }
-//////////////////
- @RequestMapping(value = "/help/helpForm") //회원정보 수정하기 
- public void a() { }
- 
-//////////////////
+
+@RequestMapping(value = "/member/out") //회원탈퇴&회원삭제
+public String out(HttpServletRequest req, @RequestParam(value = "user_id", required = false) String user_id) {
+	System.out.println(user_id + " 아이디 확인");
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id"); //회원탈퇴
+	if (user_id == null) {
+		System.out.println(id + " 회원 탈퇴");
+		service.delete(id);
+		session.removeAttribute("user_id");
+		session.invalidate();
+
+	} else { //회원 삭제
+		System.out.println(user_id + " 관리자 권한으로 회원 탈퇴");
+		service.delete(user_id);
+	}
+
+	return "redirect:/member/loginForm";
+}
+
+@GetMapping(value = "/member/findId") //아이디 찾기 페이지 가기
+public void findIdForm() { 
+	
+}
+@GetMapping(value = "/member/findPwd") //비밀번호 찾기 페이지 가기
+public void findPwdForm() { 
+	
+}
+@GetMapping(value = "/member/changePwd") //비밀번호 변경 페이지 가기
+public void changePwdForm() { 
+	
+}
+@GetMapping(value = "/product/mylist") //
+public void mylist() {
+	
+}
+@GetMapping(value = "/alram/mylist") //
+public void alram() {
+	
+}
+@GetMapping(value = "/myfruit") //
+public void myfruit() {
+	
+}
+@GetMapping(value = "/order/orderList") //
+public void b() {
+	
+}
+///
+@RequestMapping(value = "/help/helpForm") //회원정보 수정 페이지 가기
+public void a() {
+}
+///
 }

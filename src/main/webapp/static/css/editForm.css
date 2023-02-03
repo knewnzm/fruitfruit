@@ -79,7 +79,7 @@ input_text{
 }
 .edit_title{
 	display: flex;
-	width:100px;
+	width:80px;
 	height:43px;
 	font-size:15px;
 	text-align:left;
@@ -106,12 +106,13 @@ input_text{
 	display: flex;
 	flex-direction: column;
 	text-align : center;
-	align-items: center;
 	margin-bottom:10px;
-	padding-right:110px;
 }
 #pwd_title{
 	 margin-bottom: 93px;
+}
+#pwd_c_label{
+	display:none;
 }
 .check_text_box{
 	width:595px;
@@ -119,6 +120,7 @@ input_text{
 	font-size:11px;
 	color:red;
 	letter-spacing:1px;
+	padding-right:150px;
 }
 .edit_btn{
 	width:128px;
@@ -169,7 +171,7 @@ input_text{
 }
 .addr_wrap1,.addr_wrap2{
     width: 325px;
-    margin-left:158px;
+    margin-left:138px;
     margin-bottom:20px;
     border: 1px solid #D1D0CE;
 	border-radius: 5px;

@@ -126,16 +126,20 @@ table{
 	margin-right:30px;
 	margin-bottom:30px;
 	width:860px;
+	border-collapse: collapse;
 	border-top: 1px solid #B6B6B4;
-	border-bottom: 1px solid #B6B6B4;
 }
-
+tr{
+	border-bottom:1px solid #B6B6B4;
+}
 th,td {
 	padding:18px;
-	border-bottom: 1px solid #B6B6B4;
   }
 .list_type{
 	width:150px;
+}
+.link{
+	color:#777;
 }
 .list_date{
 	width:196px;

@@ -11,7 +11,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 $(document).ready(function(){
-    $('input[name="notice_path"]').change(function(){
+    $('input[name="file1"]').change(function(){
         setImageAndFileNameFromFile(this);
     });
 });
@@ -27,7 +27,7 @@ function setImageAndFileNameFromFile(input) {
   }
 }
 window.onload = function(){
-	document.getElementById("notice_path").addEventListener("change", function(event){
+	document.getElementById("file1").addEventListener("change", function(event){
 		var preview = document.getElementById("preview");
 		var file = event.target.files[0];
 		var reader = new FileReader();
@@ -57,7 +57,7 @@ window.onload = function(){
 					<h1 class="main_text">공지사항 작성</h1>
 				</div>
 			</div>
-			<form name="" action="" method="post" enctype="multiple">
+			<form action="${pageContext.request.contextPath}/notice/noticeForm" method="post" enctype="multipart/form-data">
 			<div class="notice_form_wrap">
 				<div class="notice_box">
 						<div class="notice_title">
@@ -96,8 +96,8 @@ window.onload = function(){
 						<label for="notice_path" class="file_name_label"></label>
 					</div>
 					<div class="notice_path_wrap">
-						<input type="file" name="notice_path" id="notice_path" multiple>
-							<label for="notice_path" class="file_label">업로드</label>
+						<input class="form-control" type="file" name="file1" id="file1" accept="image/*"  multiple>
+							<label for="file1" class="file_label">업로드</label>
 					</div>
 				</div>
 				<div class="path_wrap" >

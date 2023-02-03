@@ -66,7 +66,10 @@ $(document).ready(function(){
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="n" items="${list}" varStatus="status">
                            				 	<tr>
-												<th class="list_type">${n.notice_type }</th>
+												<th class="list_type">
+													<c:if test="${n.notice_type ==1}"> 공지사항 </c:if>
+                   							    	<c:if test="${n.notice_type ==2}"> 이벤트 </c:if>
+												</th>
 												<th class="list_title"> 
 													<a class="link" href="${pageContext.request.contextPath}/notice/noticeDetail?notice_num=${n.notice_num}">
                                         	    	${n.notice_title}</a>
@@ -87,16 +90,20 @@ $(document).ready(function(){
                                 			<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지가 없습니다.</th>
                             				</tr>
                         				</c:if>
-                        				<c:if test="${noticeType == 1} list">
+                        				<c:if test="${not empty list}">
 										<c:forEach var="n" items="${list}" varStatus="status">
-                           				 	<tr>
-												<th class="list_type"> ${n.notice_type }</th>
+										<c:if test="${n.notice_type==1 }">
+                           				 	<tr>     				 	
+												 <th class="list_type">
+													<c:if test="${n.notice_type ==1}"> 공지사항 </c:if>
+												</th>
 												<th class="list_title"> 
 													<a class="link" href="${pageContext.request.contextPath}/notice/noticeDetail?notice_num=${n.notice_num}">
                                         	    	${n.notice_title}</a>
                                         	    </th>
 												<th class="list_date">${n.notice_date }</th>
 											</tr>
+											</c:if>
                            				 </c:forEach>
                             			</c:if>
 									</tbody>
@@ -111,16 +118,20 @@ $(document).ready(function(){
                                 			<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지가 없습니다.</th>
                             				</tr>
                         				</c:if>
-                        				<c:if test="${noticeType == 2} list">
+                        				<c:if test="${not empty list}">
                            				 <c:forEach var="n" items="${list}" varStatus="status">
+                           				 <c:if test="${n.notice_type==2 }">
                            				 	<tr>
-												<th class="list_type">${n.notice_type }</th>
+												<th class="list_type">
+                   							    	<c:if test="${n.notice_type ==2}"> 이벤트 </c:if>
+												</th>
 												<th class="list_title">
 													<a class="link" href="${pageContext.request.contextPath}/notice/noticeDetail?notice_num=${n.notice_num}">
                                         	    	${n.notice_title}</a>
                                         	    </th>
 												<th class="list_date">${n.notice_date }</th>
 											</tr>
+											</c:if>
                            				 </c:forEach>
                             			</c:if>
 									</tbody>

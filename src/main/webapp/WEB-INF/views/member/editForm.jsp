@@ -147,7 +147,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 					<div class="edit_check_wrap">
 						<div class="edit_box" id="check_wrap">
 							<div class="edit_title">
-									<label for="pwd_check">
+									<label for="pwd_check" id="pwd_c_label">
 										비밀번호 확인
 									</label>
 							</div>

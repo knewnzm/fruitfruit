@@ -8,32 +8,4 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ProductMapper {
 
-	public Product selectProduct(int product_num);
-//	public ArrayList<Product> selectAllProduct();
-	public void insertProduct(Product p);
-	public void updateProduct(Product p);
-	public void deleteProduct(int product_num);
-	
-	public void updateProductPickTrue(int product_num);
-	public void updateProductPickFalse(int product_num);
-	public void updateProductViewTypeBlind(int product_num);
-	public void updateProductViewTypeUnblind(int product_num);
-	public void addProductHit(int product_num);
-	public void updateProductQuantity(Product p);
-	
-	public ArrayList<Product> orderByProductHitDesc(int start, int end);
-	public ArrayList<Product> orderByProductPriceDesc(int start, int end);
-	public ArrayList<Product> orderByProductPriceAsc(int start, int end);
-	public ArrayList<Product> orderByProductDate(int start, int end);
-	public ArrayList<Product> onlyProductPick(int start, int end);
-	public ArrayList<Product> onlyProductViewTypeBlind(int start, int end);
-	public ArrayList<Product> selectProductBySellerId(int start, int end);
-	
-	
-//	public ArrayList<Product> selectProductListByLimit(int start, int end);
-	
-	public int selectSeqProductCurrval();
-	
-	public int selectListSize();
-	
 }
