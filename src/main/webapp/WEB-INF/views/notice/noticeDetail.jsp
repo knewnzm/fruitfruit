@@ -46,7 +46,13 @@
         </div>    
         <div class="notice_v_content">
         		<div class="notice_path_box">
-        			이미지 들어 올 자리
+        			<c:if test="${not empty n.notice_path}">
+                                <div class="carousel-item active">
+                                    <a href="${n.notice_path}" target="blank">
+                                        <img src="${n.notice_path}" alt="${n.notice_title}" id="img1" class="d-block w-100 product-img" itemid="0" />
+                                    </a>
+                                </div>
+                            </c:if>
         		</div>
            		${n.notice_content}
         </div>    

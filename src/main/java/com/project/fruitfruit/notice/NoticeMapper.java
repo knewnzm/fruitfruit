@@ -18,4 +18,6 @@ void insertNotice(Notice n);
 	void noticeHits(int notice_num);
 	
 	void deleteNotice(int notice_num);
+//	현재 시퀀스 값 가져오기
+	int selectSeqCurrval();
 }

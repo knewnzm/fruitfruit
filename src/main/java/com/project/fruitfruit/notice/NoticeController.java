@@ -1,9 +1,9 @@
 package com.project.fruitfruit.notice;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.fruitfruit.member.Member;
@@ -19,6 +20,9 @@ import com.project.fruitfruit.member.MemberService;
 
 @Controller
 public class NoticeController {
+	private String projectPath = new File("").getAbsolutePath().toString() + "\\src\\main\\webapp";
+	private String webPath = "\\static\\notice\\";
+	
 	@Autowired
 	private NoticeService nService;
 	@Autowired
@@ -40,17 +44,40 @@ public class NoticeController {
 			Member m = mService.select(user_id);
 			if (m.getUser_type() == 3) {
 				nService.addNotice(n);
+				int notice_num = nService.getProductSeqCurrval();
+				uploadFile(n.getFile1(), notice_num, 1);
 				path = "redirect:/notice/noticeList";
 			}
 		}
 		return path;
 	}
+	
+	//프로젝트 파일에 파일 업로드하기
+	private void uploadFile(MultipartFile file, int notice_num, int img_num) {
+		File dir = new File(projectPath + webPath + notice_num);
+		System.out.println(projectPath);
+		System.out.println(webPath);
+		
+		if (!dir.exists()) {
+			dir.mkdir();
+		}
+		if (!file.isEmpty()) {
+			String uploadPath = webPath + notice_num + "\\" + img_num + "_" + file.getOriginalFilename();
+			File f = new File(projectPath + uploadPath);
+			try {
+				file.transferTo(f);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
-	// 컨텐츠로 이동
+	// 상세페이지로 이동
 	@RequestMapping(value = "/notice/noticeDetail")
 	public ModelAndView content(@RequestParam(value = "notice_num") int notice_num) {
 		ModelAndView mav = new ModelAndView("/notice/noticeDetail");
-		Notice n = nService.selectNoticeByNum(notice_num);
+		Notice n = nService.getNotice(notice_num);
+		/* Notice n = nService.selectNoticeByNum(notice_num); */
 		mav.addObject("n", n);
 		nService.noticeHits(notice_num);
 		return mav;
@@ -88,4 +115,5 @@ public class NoticeController {
 	@GetMapping(value = "/notice/noticeEdit")
 	public void noticeEdit() {
 	}
+
 }

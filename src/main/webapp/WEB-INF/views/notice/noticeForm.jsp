@@ -10,7 +10,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
-$('input[name="notice_path"]').change(function(){
+$('input[name="file1"]').change(function(){
     setImageFromFile(this, '#preview');
 });
 
@@ -73,8 +73,8 @@ function setImageFromFile(input, expression) {
 						</label>
 					</div>
 					<div class="notice_path_wrap">
-					<input class="form-control" type="file" name="notice_path" id="notice_path" accept="image/*" />
-							<label for="notice_path" class="file_label">업로드</label>
+					<input class="form-control" type="file" name="file1" id="file1" accept="image/*" />
+							<label for="file1" class="file_label">업로드</label>
 					</div>
 				</div>
 				<div class="path_wrap" >
