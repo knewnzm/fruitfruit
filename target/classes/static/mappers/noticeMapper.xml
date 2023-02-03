@@ -44,7 +44,9 @@
 	<!-- 공지사항 수정 -->
 	<update id = "updateNotice" parameterType="com.project.fruitfruit.notice.Notice">
 		UPDATE	notice
-		SET		notice_title = #{notice_title},
+		SET		
+		notice_type =#{notice_type},
+		notice_title = #{notice_title},
 				notice_content = #{notice_content}
 		WHERE notice_num = #{notice_num}
 	</update>

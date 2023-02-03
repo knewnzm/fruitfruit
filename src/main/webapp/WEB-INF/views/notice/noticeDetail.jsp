@@ -14,7 +14,7 @@
         <c:import url="../header.jsp"></c:import>
 	</header>
 <main class="ntcontainer"> <!-- 프룻프룻 옮길 때 수정 -->
-<form id="contentForm" action="${pageContext.request.contextPath}">
+<form id="contentForm" action="${pageContext.request.contextPath}/notice/noticeEdit">
 	<div class="content">
 	  <div class="notice_wrap">
       	<input type="hidden" name="notice_num" value="${n.notice_num}" />
@@ -24,11 +24,12 @@
       			</div>
       			<div class="notice_btn_wrap">
       					<c:if test="${user_type==3}">
-            				<button  type="button" class="edit_btn" 
-            				<%-- onclick="location.href=`${pageContext.request.contextPath}/notice/notice_edit?notice_num=${n.notice_num}`" --%>>수정하기
+            				<button  type="submit" class="edit_btn" 
+            				>수정하기
              				</button>
              				<button  type="button" class="del_btn" 
-            				onclick="location.href=`${pageContext.request.contextPath}/notice/notice_delete?notice_num=${n.notice_num}`">삭제하기
+            				onclick="location.href=`${pageContext.request.contextPath}/notice/noticeDelete?notice_num=${n.notice_num}`">
+            				삭제하기
              				</button>
             		 	</c:if>
             	</div>		 

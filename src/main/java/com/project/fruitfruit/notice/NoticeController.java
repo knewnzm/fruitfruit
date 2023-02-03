@@ -94,15 +94,35 @@ public class NoticeController {
 		return mav;
 	}
 
-	// 공지사항 수정
-	@RequestMapping(value = "/notice/notice_edit")
-	public String edit(Notice n) {
-		nService.editNotice(n);
-		return "redirect:/notice/noticeList";
+	// 공지사항 수정페이지로 이동
+	@RequestMapping(value = "/notice/noticeEdit")
+	public ModelAndView editform(@RequestParam(value = "notice_num") int notice_num) {
+		ModelAndView mav = new ModelAndView("/notice/noticeEdit");
+		Notice n = nService.getNotice(notice_num);
+		/* Notice n = nService.selectNoticeByNum(notice_num); */
+		System.out.println(n);
+		mav.addObject("n", n);
+		nService.noticeHits(notice_num);
+		return mav;
 	}
 
+	@PostMapping(value = "/notice/Edit")
+	public String edit(Notice n) {
+		System.out.println(n);
+		String path = "redirect:/member/loginForm";
+		String user_id = (String) session.getAttribute("user_id");
+		if (user_id != null) {
+			Member m = mService.select(user_id);
+			if (m.getUser_type() == 3) {
+				nService.editNotice(n);
+				path = "redirect:/notice/noticeList";
+			}
+		}
+		return path;
+	} 
+	
 	// 공지사항 삭제
-	@RequestMapping(value = "/notice/notice_delete")
+	@RequestMapping(value = "/notice/noticeDelete")
 	public String delete(@RequestParam(value = "notice_num") int notice_num) {
 		nService.delete(notice_num);
 		return "redirect:/notice/noticeList";
@@ -112,8 +132,6 @@ public class NoticeController {
 	 * @GetMapping(value = "/notice/noticeDetail") public void noticeDetail() { }
 	 */
 	
-	@GetMapping(value = "/notice/noticeEdit")
-	public void noticeEdit() {
-	}
+	
 
 }
