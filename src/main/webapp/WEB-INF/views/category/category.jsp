@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html>
+<html lang=ko>
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/category.css" />
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
  <script>
             // Ïπ¥ÌÖåÍ≥†Î¶¨ Î≤ÑÌäº ÏÉùÏÑ±
@@ -129,26 +130,45 @@
 </head>
 <header>
 <h3>Ìó§Îçî</h3>
+=======
+
+</head>
+<header>
+<h3>«Ï¥ı</h3>
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
 </header>
 
 <body>
 <div class="c_wrapper">
  <div class="c_container">
+<<<<<<< HEAD
   <div class="c_h"><h1>Ïπ¥ÌÖåÍ≥†Î¶¨ Í¥ÄÎ¶¨</h1> 
   </div>
   <div class="c_box">
   <div class="c1_box"><div class="c_title"><h1>ÎåÄÎ∂ÑÎ•ò</h1></div>
   
+=======
+  <div class="c_h"><h1>ƒ´≈◊∞Ì∏Æ ∞¸∏Æ</h1> 
+  </div>
+  <div class="c_box">
+  <div class="c1_box"><div class="c_title"><h1>¥Î∫–∑˘</h1></div>
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
    <form  action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c1-list" class="c_form">
                                 <input
                                     type="text"
                                     class="c_text"
+<<<<<<< HEAD
                                     placeholder="ÎåÄÎ∂ÑÎ•ò Ï∂îÍ∞Ä"
                                     aria-label="ÎåÄÎ∂ÑÎ•ò Ï∂îÍ∞Ä"
+=======
+                                    placeholder="¥Î∫–∑˘ √ﬂ∞°"
+                                    aria-label="¥Î∫–∑˘ √ﬂ∞°"
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
                                     aria-describedby="c1-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="1" />
+<<<<<<< HEAD
                                  <input type="submit" class="c_btn" id="c1-btn" value="Îì±Î°ù">
                             </form>
                             <div>
@@ -157,22 +177,39 @@
    </div> 
    <div class="c1_box"><div class="c_title"><h1>ÏÜåÎ∂ÑÎ•ò</h1></div>
    
+=======
+                                <input type="submit" class="c_btn" id="c1-btn" value="µÓ∑œ">
+                            </form>
+   </div> 
+   <div class="c1_box"><div class="c_title"><h1>º“∫–∑˘</h1></div>
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
    <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c2-list" class="c_form">
                                 <input
                                     type="text"
                                     class="c_text"
+<<<<<<< HEAD
                                     placeholder="ÏÜåÎ∂ÑÎ•ò Ï∂îÍ∞Ä"
                                     aria-label="ÏÜåÎ∂ÑÎ•ò Ï∂îÍ∞Ä"
+=======
+                                    placeholder="º“∫–∑˘ √ﬂ∞°"
+                                    aria-label="º“∫–∑˘ √ﬂ∞°"
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
                                     aria-describedby="c2-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="2" />
+<<<<<<< HEAD
                                 <input type="hidden" name="cate_parent_num" value="" id="c2-parent" />
                                <input type="submit" class="c_btn" id="c2-btn" value="Îì±Î°ù">
                             </form>
                              <div>
   <form class = "list-group" id="c2-list"></form>
   </div>
+=======
+                                <input type="hidden" name="parent_cate_num" value="" id="c2-parent" />
+                                <input type="submit" class="c_btn" id="c1-btn" value="µÓ∑œ">
+                            </form>
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
   </div>
   </div>
  </div>
