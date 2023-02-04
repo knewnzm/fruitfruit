@@ -111,10 +111,14 @@ $(document).ready(function() {
 								</div>
 								<div class="join_input">
 <<<<<<< HEAD
+<<<<<<< HEAD
 									<input type="text" name="user_id" id="user_id"  placeholder="이메일을 입력해주세요.">
 =======
 									<input type="text" name="user_id" id="user_id"  class="j_input" placeholder="아이디를 입력해주세요.">
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+									<input type="text" name="user_id" id="user_id"  class="j_input" placeholder="아이디를 입력해주세요.">
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 								</div>
 								<div class="join_btn">
 									<button class="id_check_btn" type="button" >

@@ -42,6 +42,10 @@ public class ProductController {
 	}
 	
 
+	@GetMapping("/product/importList")
+	public void golist() {
+	}
+	
 	@GetMapping("/product/productForm")
 	public void addForm() {
 	}

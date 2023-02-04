@@ -4,15 +4,20 @@
     
     <!DOCTYPE html>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <html lang="en">
 =======
     <html lang="ko">
 >>>>>>> origin/jeongmin
+=======
+    <html lang="ko">
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <link rel="stylesheet" type="text/css" href="webapp/static/css/common.css">
         <link rel="stylesheet" type="text/css" href="webapp/static/css/header.css">
@@ -22,6 +27,11 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/header.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
 >>>>>>> origin/jeongmin
+=======
+        <!-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/common.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/header.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
         <title>Document</title>
     </head>
 
@@ -29,12 +39,17 @@
     <body>
         <!-- Navigation-->
 <<<<<<< HEAD
+<<<<<<< HEAD
         <header class="headArea fruit wrap">
             <div class="util innerContent">
 =======
         <header class="headArea fruit">
             <div class="util innerContent wrap">
 >>>>>>> origin/jeongmin
+=======
+        <header class="headArea fruit">
+            <div class="util innerContent wrap">
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
                 <ul class="accountArea">
                     <c:choose>
                         <%-- 비 로그인 상태 --%>
@@ -92,11 +107,11 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
-                                                href="${pageContext.request.contextPath}/notice/notice_board">공지사항</a>
+                                                href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
-                                                href="${pageContext.request.contextPath}/admin/category">카테고리
+                                                href="${pageContext.request.contextPath}/category/category">카테고리
                                                 관리</a>
                                             </li>
                                         </ul>
@@ -205,8 +220,8 @@
                     <div class="main innerContent">
                         <!-- Logo -->
                         <h1 class="logoArea fruit">
-                            <a href="#">
-                                <img src="${pageContext.request.contextPath}/static/img/프룻프룻d.png" alt="프룻프룻 로고" style="width:200px;">
+                            <a href="${pageContext.request.contextPath}/">
+                                <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="프룻프룻 로고" style="width:150px;">
                             </a>
                         </h1>
                         <div class="searchAreaWrap">
@@ -220,13 +235,13 @@
                         </div>
                         <div class="buttonArea">
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/wish/wishList" class="heart">나의 찜</a>
+                                <a href="${pageContext.request.contextPath}/wish/wishList" class="heart"><span>나의 찜</span></a>
                             </div>
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/" class="mypage">마이페이지</a>
+                                <a href="${pageContext.request.contextPath}/" class="mypage"><span>마이페이지</span></a>
                             </div>
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/help/helpForm.jsp" class="chat">1:1 문의</a>
+                                <a href="${pageContext.request.contextPath}/help/helpForm.jsp" class="chat"><span>1:1문의</span></a>
                             </div>
                         </div>
                     </div>
@@ -237,6 +252,7 @@
                         <div class="moreViewWrap">
                             <button type="button" class="moreView">
                                 <span class="bar"></span>
+                                <span>카테고리</span>
                             </button>
                             <div class="dep1 hidden">
                                 <ul class="category-wrap">
@@ -459,7 +475,7 @@
                             <div id="menuInner" class="menuInner">
                                 <ul>
                                     <li class>
-                                        <a href="#">홈</a>
+                                        <a href="#">신상품</a>
                                     </li>
                                     <li class>
                                         <a href="#">MD PICK</a>
@@ -475,6 +491,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="trending">
                     <button type="button" class="moreView">
                         <span class="blind">확인용 메시지 ${m.user_grade }</span>
@@ -1462,10 +1479,10 @@
                         </div>
                     </div>
                 </div>
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
             </div>
         </header>
-
-        
     </body>
 
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be

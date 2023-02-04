@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 @charset "UTF-8";
 *{
   padding:0;
@@ -81,7 +84,11 @@ input_text{
 }
 .edit_title{
 	display: flex;
+<<<<<<< HEAD
 	width:80px;
+=======
+	width:100px;
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 	height:43px;
 	font-size:15px;
 	text-align:left;
@@ -108,21 +115,33 @@ input_text{
 	display: flex;
 	flex-direction: column;
 	text-align : center;
+<<<<<<< HEAD
 	margin-bottom:10px;
+=======
+	align-items: center;
+	margin-bottom:10px;
+	padding-right:110px;
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 }
 #pwd_title{
 	 margin-bottom: 93px;
 }
+<<<<<<< HEAD
 #pwd_c_label{
 	display:none;
 }
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 .check_text_box{
 	width:595px;
 	float:left;
 	font-size:11px;
 	color:red;
 	letter-spacing:1px;
+<<<<<<< HEAD
 	padding-right:150px;
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 }
 .edit_btn{
 	width:128px;
@@ -173,7 +192,11 @@ input_text{
 }
 .addr_wrap1,.addr_wrap2{
     width: 325px;
+<<<<<<< HEAD
     margin-left:138px;
+=======
+    margin-left:158px;
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     margin-bottom:20px;
     border: 1px solid #D1D0CE;
 	border-radius: 5px;
@@ -328,5 +351,9 @@ button[type="submit"] {
 	background:#f02c11;
 	border-radius: 5px;
 	font-size:13px;
+<<<<<<< HEAD
 }
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+}
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258

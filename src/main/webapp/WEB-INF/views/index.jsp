@@ -12,8 +12,14 @@
         <c:import url="./header.jsp"></c:import>
         <!-- Section -- -->
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
         <c:import url="./main.jsp"></c:import>
+
         <c:import url="./footer.jsp"></c:import>
+<<<<<<< HEAD
 </body>
 =======
         
@@ -24,6 +30,11 @@
 
     </body>
 >>>>>>> origin/jeongmin
+=======
+
+
+    </body>
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 </html>
 =======
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"

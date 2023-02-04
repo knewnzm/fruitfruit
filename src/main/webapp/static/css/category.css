@@ -1,4 +1,15 @@
 @charset "EUC-KR";
+header{
+	text-align : center;
+	height:150px;
+}
+footer{
+	text-align : center;
+	height:150px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 *{
   padding:0;
   margin: 0;
@@ -7,42 +18,67 @@
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
 }
-header{
-	text-align : center;
-	height:150px;
+.c_wrapper{
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 150px;
 }
-footer{
-	text-align : center;
-	height:150px;
+.c_container{
+	height:519px;
+	padding-top:30px ;
+    padding-left:50px;
+   	padding-right:50px;
 }
 
-.c_container{
-	padding-top: 3rem ;
-    padding-bottom: 3rem ;
-    display: flex;
-    padding-right: 125px;
-    padding-left: 125px;
-    
+.c_h{
+    font-size: 22px;
+    margin-bottom:65px;
+    text-align: center;
 }
 
 .c_box{
-	width: 1098px;
-    height: 536px;
-    display:inline;
+	display: flex;
+	justify-content: center;
+	
 }
-.c_h{
-	padding-top: 1rem ;
-    padding-bottom: 1rem ;
-    font-size: 22px;
-    
-}
+
 .c1_box{
-	width: 280px;
-    height: 200px;
-    padding: 16px;
+	width: 335px;
+    height: auto;
     border-style: solid;
     border-width: 2px;
     border-color: lightgray;
+    border-radius: 5px;
     box-sizing: border-box;
-   	display: inline-block;
+   	padding:25px;
+   	margin: 0px 50px;
+   	
+   	
+}
+.c_title{
+    font-size: 17px;
+    
+}
+
+.c_text{
+    width: 200px;
+    height: 35px;
+    border: 1px solid #D1D0CE;
+    padding-left: 7px;
+    font-size: 16px;
+}
+.c_btn{
+	width: 50px;
+	height: 35px;
+	font-size: 16px;
+	cursor: pointer;
+    border: 1px solid #D1D0CE;
+	
+}
+.c_form{
+	width:250px;
+	display: flex;
+	border: 1px solid #D1D0CE;
+    border-radius: 5px;
+    margin: 10px 0px ;
 }

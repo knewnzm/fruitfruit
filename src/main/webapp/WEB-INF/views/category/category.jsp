@@ -124,65 +124,60 @@
                 });
             });
         </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/category.css" />
+
 </head>
 <header>
 <h3>헤더</h3>
 </header>
-        <!-- Section-->
-        <section class="py-5">
-            <div class="container">
-                <div class="py-3">
-                    <h1>카테고리 관리</h1>
-                </div>
-                <div class="grid my-3">
-                    <div class="c1 py-3 px-3 border">
-                        <div class="title">
-                            <h1>대분류</h1>
-                        </div>
-                        <div>
-                            <form class="list-group" id="c1-list"></form>
-                        </div>
-                        <div class="add-form">
-                            <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c1-list" class="input-group">
+
+<body>
+<div class="c_wrapper">
+ <div class="c_container">
+  <div class="c_h"><h1>카테고리 관리</h1> 
+  </div>
+  <div class="c_box">
+  <div class="c1_box"><div class="c_title"><h1>대분류</h1></div>
+  
+   <form  action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c1-list" class="c_form">
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="c_text"
                                     placeholder="대분류 추가"
                                     aria-label="대분류 추가"
                                     aria-describedby="c1-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="1" />
-                                <button class="btn-insert" type="submit" id="c1-btn">등록</button>
+                                 <input type="submit" class="c_btn" id="c1-btn" value="등록">
                             </form>
-                        </div>
-                    </div>
-                    <div class="align-items-center"><i class="arrow-right"></i></div>
-                    <div class="c2 py-3 px-3 border">
-                        <div class="title">
-                            <h1>중분류</h1>
-                        </div>
-                        <div class="list-group" id="c2-list"></div>
-                        <div class="add-form">
-                            <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c2-list" class="input-group">
+                            <div>
+  <form class = "list-group" id="c1-list"></form>
+  </div>
+   </div> 
+   <div class="c1_box"><div class="c_title"><h1>소분류</h1></div>
+   
+   <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c2-list" class="c_form">
                                 <input
                                     type="text"
-                                    class="form-control"
-                                    placeholder="중분류 추가"
-                                    aria-label="중분류 추가"
+                                    class="c_text"
+                                    placeholder="소분류 추가"
+                                    aria-label="소분류 추가"
                                     aria-describedby="c2-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="2" />
                                 <input type="hidden" name="cate_parent_num" value="" id="c2-parent" />
-                                <button class="btn-insert" type="submit" id="c2-btn">등록</button>
+                               <input type="submit" class="c_btn" id="c2-btn" value="등록">
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
+                             <div>
+  <form class = "list-group" id="c2-list"></form>
+  </div>
+  </div>
+  </div>
+ </div>
+</div>
+</body>
 
 <footer>
 <h3>footer</h3>

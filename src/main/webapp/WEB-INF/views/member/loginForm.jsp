@@ -4,6 +4,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<<<<<<< HEAD
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <<<<<<< HEAD
@@ -14,12 +15,17 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
  <head>
  <title>notice List</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
+<<<<<<< HEAD
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
         $(document).ready(function () {
@@ -50,6 +56,10 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         </script>
     </head>
 <body>
+<<<<<<< HEAD
+=======
+<div class="wrap">
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 	<header>
 		<c:import url="../head.jsp"></c:import>
         <c:import url="../header.jsp"></c:import>
@@ -79,10 +89,14 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						</div>
 					</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 					<span id="msg" class="my-3 py-2 msg">아이디 비번 공백 확인 메시지</span>
 =======
 					<span id="msg" class="my-3 py-2 msg"></span>
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+					<span id="msg" class="my-3 py-2 msg"></span>
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 					<div class="login_option">
 						<div class="keep_wrap">
 							<input type="checkbox"  id="id_keep" name="id_keep" value="off">
@@ -99,10 +113,14 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 					</div>
 					<div class="login_btn_wrap">
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<button type="button" id="login_btn" >
 =======
 						<button type="button" id="login_btn">
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+						<button type="button" id="login_btn">
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 							<span class="login_btn_text">로그인</span>
 						</button>
 					</div>
@@ -143,17 +161,24 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 					</div>
 				<!-- social end -->
 				</div>
+<<<<<<< HEAD
 			</form>
+=======
+				</form>
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 			</div>
 		<!-- content end -->
 		</div>
 	</main>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<footer>
 		<%-- <c:import url="../footer.jsp"></c:import> --%>
 	</footer>
 =======
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 <!-- wrap end -->
 </div>
 	<footer>

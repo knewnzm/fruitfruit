@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #wrapper{
     height: auto;
     min-height: 100%;
@@ -114,6 +115,115 @@
 
 #write-btn-wrap{
     padding-bottom: 300px;
+=======
+@charset "UTF-8";
+
+.slider-2 {
+  height:380px;
+  position:relative;
+}
+
+.slider-2 .slides > div {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-position:center;
+  /* 이미지를 최대한 안짤리게 한다. */
+  background-size:cover;
+  /* 배경 반복 금지 */
+  background-repeat:no-repeat;
+  opacity:0;
+  transition: opacity 0.5s;
+}
+
+.slider-2 .slides > div.active {
+  opacity:1;
+}
+
+@media ( max-width:700px ) {
+  .slider-2 {
+      height:300px;
+  }
+}
+
+.slider-2 .page-nav {
+  position:absolute;
+  width:100%;
+  text-align:center;
+  bottom:0;
+  left:0;
+}
+
+.slider-2 .page-nav > div {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-2 .page-nav > div.active {
+  background-color:rgba(255,255,255,1);
+}
+
+.slider-2>.side-btns>div{
+  position:absolute;
+  top:0;
+  left:0;
+  width:30%;
+  height:100%;
+  cursor:pointer;
+  z-index:10;
+
+}
+
+.slider-2>.side-btns>div>span:active{
+  transform:translatey(-40%);
+}
+.slider-2>.side-btns>div:last-child{
+  left:auto;
+  right:0;
+}
+
+.slider-2>.side-btns>div>span{
+  position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    left: inherit;
+    right: inherit;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 100%;
+    margin: 0 10px;
+}
+.slider-2>.side-btns>div>span > i{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    color: #9E9E9E;
+    transform: translateX(-60%) translateY(-50%);
+}
+
+.slider-2>.side-btns>div:last-child>span > i {
+  transform:translateX(-30%) translateY(-50%);
+}
+
+/* 슬라이드 버튼 끝 */
+
+
+
+
+/* 글 등록하기 버튼 */
+
+#write-btn-wrap{
+    padding-bottom: 300px;
+
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     position: fixed;
     z-index: 10;
     right: 31px;
@@ -157,17 +267,29 @@
 /** 상품 카드 **/
 
 .product-list .list-title {
+<<<<<<< HEAD
   text-align: center;
     font-size: 30px;
     font-weight: 300;
     display: block;
     margin:50px 0 50px;
     color:#000;
+=======
+  margin:50px 0 50px;
+  font-size:28px;
+  color:#000;
+  font-weight:500;
+  text-align:center;
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 }
 
 .product-list {
   padding: 40px 0px;
+<<<<<<< HEAD
   margin: 0px auto 50px auto;
+=======
+  margin: 0px auto;
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
   width: 1200px;
 }
 
@@ -211,8 +333,12 @@
   font-size:16px;
   color:#5c6a79;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 >>>>>>> origin/jeongmin
 =======
 }
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+}
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258

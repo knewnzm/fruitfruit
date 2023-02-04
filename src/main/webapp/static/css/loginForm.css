@@ -34,6 +34,7 @@ input_text{
   border-radius:5px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .wrap{
   padding: 0;
    margin: 0;
@@ -44,6 +45,8 @@ input_text{
 }
 =======
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 .container{
 	width:1200;
  	height:1600px;
@@ -119,10 +122,14 @@ input[type=checkbox] + label {
 	cursor: pointer; 
 <<<<<<< HEAD
 	/* opacity:0.5; */
+<<<<<<< HEAD
 	background-image : url('../image/check.png');
 =======
 	background-image : url('../img/login_check.png');
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+	background-image : url('${pageContext.request.contextPath}/static/img/login_check.png');
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;
@@ -131,10 +138,14 @@ input[type=checkbox] + label {
 input[type="checkbox"]:checked + label{
 	cursor: pointer; 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	background-image : url('../image/tick.png');
 =======
 	background-image : url('../img/login_tick.png');
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+	background-image : url('${pageContext.request.contextPath}/static/img/login_tick.png');
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;

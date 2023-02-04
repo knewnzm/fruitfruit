@@ -10,6 +10,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
 $('input[name="notice_path"]').change(function(){
     setImageFromFile(this, '#preview');
 });
@@ -23,6 +24,8 @@ function setImageFromFile(input, expression) {
   reader.readAsDataURL(input.files[0]);
   }
 }
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 </script>
 <body>
     <header>
@@ -37,7 +40,12 @@ function setImageFromFile(input, expression) {
 					<h1 class="main_text">공지사항/이벤트 게시글 수정</h1>
 				</div>
 			</div>
+<<<<<<< HEAD
 			<form name="" action="" method="post" enctype="multiple">
+=======
+			<form name="" action="${pageContext.request.contextPath }/notice/Edit" method="post">
+			<input type="hidden" name="notice_num" value="${n.notice_num }" >
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 			<div class="notice_form_wrap">
 				<div class="notice_box">
 						<div class="notice_title">
@@ -46,12 +54,27 @@ function setImageFromFile(input, expression) {
 							</label>
 						</div>
 						<div class="notice_type">
+<<<<<<< HEAD
 								<div class="type1">
 									<input type="radio" name="notice_type"  value="1" checked> 
 										<label for="notice_type" class="type_text">공지</label>
 								</div>
 								<div class="type2">
 									<input type="radio" name="notice_type"  value="2"> 
+=======
+						<c:if test="${n.notice_type==1 }">
+								<c:set var="type1">checked</c:set>
+								</c:if>
+								<c:if test="${n.notice_type==2 }">
+								<c:set var="type2">checked</c:set>
+								</c:if>
+								<div class="type1">								
+									<input type="radio" name="notice_type"  value="1" ${type1}> 
+										<label for="notice_type" class="type_text">공지</label>
+								</div>
+								<div class="type2">
+									<input type="radio" name="notice_type"  value="2" ${type2}> 
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 										<label for="notice_type" class="type_text">이벤트</label>
 								</div>
 						</div>
@@ -63,6 +86,7 @@ function setImageFromFile(input, expression) {
 							</label>
 						</div>
 						<div class="notice_input">
+<<<<<<< HEAD
 							<input type="text" name="notice_title" id="title" >
 						</div>
 					</div>
@@ -82,6 +106,14 @@ function setImageFromFile(input, expression) {
 				</div>
 				<div class="content_wrap">
 					<textarea name="notice_content" class="notice_w_content"></textarea>
+=======
+							<input type="text" name="notice_title" id="title" value="${n.notice_title }">
+						</div>
+					</div>
+				
+				<div class="content_wrap">
+					<textarea name="notice_content" class="notice_w_content">${n.notice_content }</textarea>
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 				</div>
 			<!-- notice_form_wrap end -->
 			</div>

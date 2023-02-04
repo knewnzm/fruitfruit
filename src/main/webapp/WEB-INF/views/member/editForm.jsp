@@ -8,9 +8,13 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/editForm.css" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 <script type="text/javascript">
 $(document).ready(function () {    // enter submit 방지 함수
     $('input').keydown(function () {
@@ -47,10 +51,14 @@ $(document).ready(function () {    // enter submit 방지 함수
         $(".pwd_check_text").empty();
         if ($("#user_pwd").val() == "") {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $(".pwd_check_text").text("비밀번호를 입력해주세요");
 =======
             $(".pwd_check_text").text("비밀번호를 입력해주세요.　　");
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+            $(".pwd_check_text").text("비밀번호를 입력해주세요.　　");
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
         } else if ($("#pwdCheck").val() != "") {
             chkPwd();
         }
@@ -61,17 +69,24 @@ $(document).ready(function () {    // enter submit 방지 함수
         $(".pwd_check_text").empty();
         if ($("#pwdCheck").val() == "") {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $(".pwd_check_text").text("비밀번호 확인란을 입력해주세요");
 =======
             $(".pwd_check_text").text("　비밀번호 확인란을 입력해주세요.");
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+            $(".pwd_check_text").text("　비밀번호 확인란을 입력해주세요.");
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
         } else {
             chkPwd();
         }
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     $("#memberOut").click(function () {
         alert("탈퇴처리 되었습니다.\n이용해주셔서 감사합니다.");
         location.href = `${pageContext.request.contextPath}/member/out`;
@@ -103,7 +118,10 @@ $(document).ready(function () {    // enter submit 방지 함수
     	  modal.classList.remove('show');
     	  body.style.overflow = 'auto';
     	});
+<<<<<<< HEAD
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     ////
 });
 </script>
@@ -111,11 +129,16 @@ $(document).ready(function () {    // enter submit 방지 함수
 <body>
 	<header>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		
 =======
 		<c:import url="../head.jsp"></c:import>
         <c:import url="../header.jsp"></c:import>
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 	</header>
 	<main class="container">
 		<div id="content" class="content">
@@ -166,6 +189,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 					<div class="edit_check_wrap">
 						<div class="edit_box" id="check_wrap">
 							<div class="edit_title">
+<<<<<<< HEAD
 									<label for="pwd_check" id="pwd_c_label">
 										비밀번호 확인
 									</label>
@@ -183,11 +207,22 @@ $(document).ready(function () {    // enter submit 방지 함수
 									<span class="pwd_check_text">비밀번호 확인 문구 들어갈 자리</span>
 								</div>
 =======
+=======
+									<label for="pwd_check">
+										비밀번호 확인
+									</label>
+							</div>
+							<div class="edit_input">
+								<input type="password" name="pwd_check" id="pwdCheck" class="ed_input"placeholder="비밀번호를 확인해주세요" >
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 							</div>
 							<div class="edit_input">
 								<input type="password" name="pwd_check" id="pwdCheck" class="ed_input"placeholder="비밀번호를 확인해주세요" >
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 							</div>
+						</div>
+						<div class="check_text_box">
+							<span class="pwd_check_text"></span>
 						</div>
 						<div class="check_text_box">
 							<span class="pwd_check_text"></span>
@@ -257,6 +292,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 						</div>
 						<div class="account_select">
 <<<<<<< HEAD
+<<<<<<< HEAD
 							<select name="user_bank" id="user_bank" class="user_bank" onchange="selectBoxChange(this.value);">
 								<option value="1">국민은행
 								<option value="2">우리은행
@@ -270,6 +306,8 @@ $(document).ready(function () {    // enter submit 방지 함수
 								<option value="10">카카오뱅크
 								<option value="11">케이뱅크
 =======
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 							<select name="user_bank" id="user_bank" class="user_bank"  onchange="selectBoxChange(this.value);">
 								<option value="" disabled selected>선택</option>
 								<option value="1"  <c:if test="${m.user_bank==1}">selected</c:if>>국민은행</option>
@@ -283,7 +321,10 @@ $(document).ready(function () {    // enter submit 방지 함수
 								<option value="9" <c:if test="${m.user_bank==9}">selected</c:if> >한국시티은행</option>
 								<option value="10" <c:if test="${m.user_bank==10}">selected</c:if>>카카오뱅크</option>
 								<option value="11" <c:if test="${m.user_bank==11}">selected</c:if>>케이뱅크</option>
+<<<<<<< HEAD
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 							</select>
 						</div>
 						<div class="account_input">
@@ -293,9 +334,13 @@ $(document).ready(function () {    // enter submit 방지 함수
 					<div class="submit_wrap">
 						<button type="submit" name="submit" id="submit" disabled="disabled">수정하기</button>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 						<button type="button" class="modal_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">탈퇴하기</button>
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+						<button type="button" class="modal_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">탈퇴하기</button>
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 					</div>
 				<!-- ↓edit content -->	
 				</div>
@@ -307,10 +352,14 @@ $(document).ready(function () {    // enter submit 방지 함수
 	</main>
 	<footer>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		
 =======
 		 <c:import url="../footer.jsp"></c:import>
 >>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
+=======
+		 <c:import url="../footer.jsp"></c:import>
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 	</footer>
 					<!--탈퇴 Modal -->
 					 <div class="modal">

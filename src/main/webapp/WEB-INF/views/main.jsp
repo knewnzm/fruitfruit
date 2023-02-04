@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 =======
@@ -10,20 +11,47 @@
 <html lang="ko">
 
 >>>>>>> origin/jeongmin
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html lang="ko">
+
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="webapp/static/css/main.css">
 </head>
+=======
+    <!-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+/>
+  </head>
+
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 <body>
-    <div id="wrapper">
-        <div>
-          content
-        </div>
+  
+  <!-- 이미지 슬라이드 -->
+  <div class="slider-2">
+      
+       <div class="side-btns">
+          <div><span><i class="fa fa-solid fa-angle-left"></i></span></div>
+          <div><span><i class="fa fa-solid fa-angle-right"></i></span></div>
       </div>
+<<<<<<< HEAD
 =======
     <!-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/common.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
@@ -46,6 +74,8 @@
           <div><span><i class="fa fa-solid fa-angle-left"></i></span></div>
           <div><span><i class="fa fa-solid fa-angle-right"></i></span></div>
       </div>
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
       
       <div class="slides">
           <div class="active" style="background-image:url(${pageContext.request.contextPath}/static/img/visual_img1.png);"></div>
@@ -202,7 +232,10 @@
       <script src="${pageContext.request.contextPath}/static/js/main.js" async></script>
       <script src="${pageContext.request.contextPath}/static/js/jquery-3.3.1.min.js" async></script>
       <script src="${pageContext.request.contextPath}/static/js/slick.min.js" async></script>
+<<<<<<< HEAD
 >>>>>>> origin/jeongmin
+=======
+>>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 </body>
 =======
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
