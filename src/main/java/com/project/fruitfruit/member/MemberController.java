@@ -154,6 +154,7 @@ public String edit(Member m) {
 	return "redirect:/";
 }
 
+<<<<<<< HEAD
 @GetMapping(value = "/member/findId") //아이디 찾기 페이지 가기
 public void findIdForm() { 
 	
@@ -168,6 +169,58 @@ public void changePwdForm() {
 }
 @GetMapping(value = "/order/orderResult") //비밀번호 변경 페이지 가기
 public void orderResult() { 
+=======
+@RequestMapping(value = "/member/out") //회원탈퇴&회원삭제
+public String out(HttpServletRequest req, @RequestParam(value = "user_id", required = false) String user_id) {
+	System.out.println(user_id + " 아이디 확인");
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id"); //회원탈퇴
+	if (user_id == null) {
+		System.out.println(id + " 회원 탈퇴");
+		service.delete(id);
+		session.removeAttribute("user_id");
+		session.invalidate();
+
+	} else { //회원 삭제
+		System.out.println(user_id + " 관리자 권한으로 회원 탈퇴");
+		service.delete(user_id);
+	}
+
+	return "redirect:/member/loginForm";
+}
+
+@GetMapping(value = "/member/findId") //아이디 찾기 페이지 가기
+public void findIdForm() { 
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 	
 }
+@GetMapping(value = "/member/findPwd") //비밀번호 찾기 페이지 가기
+public void findPwdForm() { 
+	
+}
+@GetMapping(value = "/member/changePwd") //비밀번호 변경 페이지 가기
+public void changePwdForm() { 
+	
+}
+@GetMapping(value = "/product/mylist") //
+public void mylist() {
+	
+}
+@GetMapping(value = "/alram/mylist") //
+public void alram() {
+	
+}
+@GetMapping(value = "/myfruit") //
+public void myfruit() {
+	
+}
+@GetMapping(value = "/order/orderList") //
+public void b() {
+	
+}
+///
+@RequestMapping(value = "/help/helpForm") //회원정보 수정 페이지 가기
+public void a() {
+}
+///
 }

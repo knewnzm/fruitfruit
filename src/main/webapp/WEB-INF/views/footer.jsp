@@ -13,6 +13,7 @@
             <li><a href="">한명빈</a></li>
         </ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <!--
         <div class="press_group">
             <button type="button" class="btn">프룻프룻 팀원</button>
@@ -32,11 +33,16 @@
             <ul class="clearfix">
                 <li>(주)프룻프룻</li>
 =======
+=======
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 
         <div class="address">
             <ul class="clearfix">
                 <li>(팀)프룻프룻</li>
+<<<<<<< HEAD
 >>>>>>> origin/jeongmin
+=======
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
                 <li>팀장: 한명빈</li>
                 <li>팀 프로젝트 기간: 2022.12.27-2023.02.</li>
                 <li>github: https..........</li>
@@ -49,7 +55,11 @@
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/footer.css">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script src="/src/main/webapp/static/js/footer.js"></script>
 =======
     <script src="${pageContext.request.contextPath}/static/js/footer.js"></script>
 >>>>>>> origin/jeongmin
+=======
+    <script src="${pageContext.request.contextPath}/static/js/footer.js"></script>
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be

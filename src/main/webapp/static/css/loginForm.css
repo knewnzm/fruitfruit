@@ -1,6 +1,6 @@
 @charset "UTF-8";
 *{
-  padding: 0;
+  padding:0;
   margin: 0;
   box-sizing: border-box; 
   border: 0;
@@ -23,7 +23,7 @@ input_text{
 	width:330px;
 	position: relative;
 }
-button{
+#login_btn, #join_btn{
   width:352px;
   height:45px;
   font-size:16px;
@@ -33,6 +33,7 @@ button{
   border: 1px solid #D1D0CE;
   border-radius:5px;
 }
+<<<<<<< HEAD
 .wrap{
   padding: 0;
    margin: 0;
@@ -41,18 +42,21 @@ button{
    font-family: 'Noto Sans KR', sans-serif;
    font-weight: 400;
 }
+=======
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 .container{
-	width:auto;
- 	height:auto;
-	display: flex;
+	width:1200;
+ 	height:1600px;
+	display:flex;
 	justify-content: center;
 }
 .content{
 	width:430px;
- 	height:70vh;
  	background-color:white;
     text-align : center;
     padding : 0px;
+    display: flex;
+	justify-content: center;
     grid-template-columns: 
         [left-navbar-start] 20%
         [left-navbar-end content-start] 60%
@@ -63,16 +67,18 @@ button{
         [body-end footer-start] 20%
         [footer-end];
 }
+.login_wrap{
+	margin-top:30px;
+}
 .login_panner{
-  	padding: 25px;
+	width:350px;
   	padding-bottom:10px;
 }
 .id_line,.pwd_line{
 	border-radius: 5px;
 	border: 1px solid #f02c11;
 	height:44px;
-    width: 352px;
-    margin-left: 14px;
+    width: 350px;
 	margin-bottom: 10px;
     padding-top:7px;
     padding-left:8px;
@@ -100,11 +106,9 @@ button{
 	color:#777;
 	text-align : center;
 	font-size:13px;
-	width:362px;
+	width:350px;
 	height:50px;
 	display: flex;
-	margin-left:2px;
-	padding-left:10px;
     justify-content: space-between;
     line-height:45px;
 }
@@ -113,8 +117,12 @@ input[type=checkbox]{
 }
 input[type=checkbox] + label { 
 	cursor: pointer; 
+<<<<<<< HEAD
 	/* opacity:0.5; */
 	background-image : url('../image/check.png');
+=======
+	background-image : url('../img/login_check.png');
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;
@@ -122,7 +130,11 @@ input[type=checkbox] + label {
 }
 input[type="checkbox"]:checked + label{
 	cursor: pointer; 
+<<<<<<< HEAD
 	background-image : url('../image/tick.png');
+=======
+	background-image : url('../img/login_tick.png');
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 	background-repeat : no-repeat;
     background-size : 15px;
     padding-left:20px;
@@ -153,10 +165,13 @@ input[type="checkbox"]:checked + label{
 	font-size:16px;
 }
 .logo{
-	height:100px;
-	margin-bottom: 15px;
+	margin: 30px 0 10px 0;
 }
 .fruit_Logo{
-	width: 200px;
-  	height:150px;
+	width: 170px;
+}
+#msg{
+	font-size:11px;
+	color:red;
+	letter-spacing:1px;
 }

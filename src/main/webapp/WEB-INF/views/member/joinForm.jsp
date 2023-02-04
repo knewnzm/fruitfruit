@@ -7,6 +7,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>join form</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/joinForm.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript">
 $(document).ready(function() {
 	var chkid = false;
@@ -63,7 +64,8 @@ $(document).ready(function() {
 <body>
 <div class="wrap">
 	<header>
-		<h3>헤더 입니다</h3>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
 	</header>
 	<main class="container">
 		<div id="content" class="content">
@@ -73,7 +75,6 @@ $(document).ready(function() {
 			<div class="line">
 				<hr>
 			</div>
-
 			<form name="j" action="${pageContext.request.contextPath }/member/joinForm" method="post">
 			<div class="join_wrap">
 				<div class="join_content">
@@ -109,7 +110,11 @@ $(document).ready(function() {
 									</label>
 								</div>
 								<div class="join_input">
+<<<<<<< HEAD
 									<input type="text" name="user_id" id="user_id"  placeholder="이메일을 입력해주세요.">
+=======
+									<input type="text" name="user_id" id="user_id"  class="j_input" placeholder="아이디를 입력해주세요.">
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 								</div>
 								<div class="join_btn">
 									<button class="id_check_btn" type="button" >
@@ -131,7 +136,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요.">
+							<input type="password" name="user_pwd" id="user_pwd" class="j_input" placeholder="비밀번호를 입력해주세요.">
 						</div>
 					</div>
 					<div class="join_box">
@@ -141,7 +146,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="text" name="user_name" id="user_name"  placeholder="이름을 입력해주세요.">
+							<input type="text" name="user_name" id="user_name" class="j_input" placeholder="이름을 입력해주세요.">
 						</div>
 					</div>
 					<div class="join_box">
@@ -151,7 +156,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="text" name="user_nick" id="user_nick"  placeholder="닉네임을 입력해주세요.">
+							<input type="text" name="user_nick" id="user_nick" class="j_input" placeholder="닉네임을 입력해주세요.">
 						</div>
 					</div>
 					<div class="join_box">
@@ -161,7 +166,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="text" name="user_tel" id="user_tel"  placeholder="숫자만 입력해주세요.">
+							<input type="text" name="user_tel" id="user_tel" class="j_input" placeholder="숫자만 입력해주세요.">
 						</div>
 					</div>
 					<div class="join_box">
@@ -173,20 +178,20 @@ $(document).ready(function() {
 									</label>	
 								</div>
 								<div class="addr_postcode">
-									<input type="text" name="user_postcode" id="user_postcode"  placeholder="우편번호">
+									<input type="text" name="user_postcode" id="user_postcode"  class="j_input"placeholder="우편번호">
 								</div>
 								<div class="addr_btn">
 									<button class="addr_search_btn" type="button" name="addr_search_btn">
 										<span class="search_text">주소 검색</span>
-										<img src="${pageContext.request.contextPath}/static/image/search.png" class="search_img">
+										<img src="${pageContext.request.contextPath}/static/img/join_edit_search.png" class="search_img">
 									</button>	
 								</div>
 							</div>
 							<div class="addr_wrap1">
-								<input type="text" name="user_addr1" id="user_addr1"  placeholder="도로명 주소">
+								<input type="text" name="user_addr1" id="user_addr1" class="j_input" placeholder="도로명 주소">
 							</div>
 							<div class="addr_wrap2">
-								<input type="text" name="user_addr2" id="user_addr2"  placeholder="상세항목">
+								<input type="text" name="user_addr2" id="user_addr2" class="j_input" placeholder="상세항목">
 							</div>
 						</div>
 					</div>
@@ -198,25 +203,26 @@ $(document).ready(function() {
 						</div>
 						<div class="account_select">
 							<select name="user_bank" id="user_bank" class="user_bank">
-								<option value="1">국민은행
-								<option value="2">우리은행
-								<option value="3">농협은행
-								<option value="4">신한은행
-								<option value="5">기업은행
-								<option value="6">KEB 하나은행
-								<option value="7">외환은행
-								<option value="8">제일은행
-								<option value="9">한국시티은행
-								<option value="10">카카오뱅크
-								<option value="11">케이뱅크
+								<option value="" disabled selected>선택</option>
+								<option value="1">국민은행</option>
+								<option value="2">우리은행</option>
+								<option value="3">농협은행</option>
+								<option value="4">신한은행</option>
+								<option value="5">기업은행</option>
+								<option value="6">KEB 하나은행</option>
+								<option value="7">외환은행</option>
+								<option value="8">제일은행</option>
+								<option value="9">한국시티은행</option>
+								<option value="10">카카오뱅크</option>
+								<option value="11">케이뱅크</option>
 							</select>
 						</div>
 						<div class="account_input">
-							<input type="text" name="user_account" id="user_account" placeholder="계좌번호를 입력해주세요.">
+							<input type="text" name="user_account" id="user_account" class="j_input"placeholder="계좌번호를 입력해주세요.">
 						</div>
 					</div>
 					<div class="submit_wrap">
-						<input type="submit" id="submit" value="가입하기">
+						<button type="submit" id="submit" value="가입하기">가입하기</button>
 					</div>
 				<!-- join content -->	
 				</div>
@@ -227,7 +233,7 @@ $(document).ready(function() {
 		</div>
 	</main>
 	<footer>
-		<h1>footer 입니다</h1>
+		 <c:import url="../footer.jsp"></c:import>
 	</footer>
 <!-- wrap end -->
 </div>

@@ -1,10 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #wrapper{
     height: auto;
     min-height: 100%;
     padding-bottom: 300px;
   }
 =======
+=======
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 @charset "UTF-8";
 
 .slider-2 {
@@ -207,5 +210,9 @@
   display:block;
   font-size:16px;
   color:#5c6a79;
+<<<<<<< HEAD
 }
 >>>>>>> origin/jeongmin
+=======
+}
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be

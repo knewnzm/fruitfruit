@@ -7,9 +7,13 @@ const wrap = document.querySelector(".moreViewWrap");
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> origin/jeongmin
+=======
+
+>>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 function categoryHover() {
     category.classList.remove("hidden");
 
