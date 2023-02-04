@@ -10,7 +10,17 @@
         <c:import url="./head.jsp"></c:import>
         <c:import url="./header.jsp"></c:import>
         <!-- Section -- -->
+<<<<<<< HEAD
         <c:import url="./main.jsp"></c:import>
         <c:import url="./footer.jsp"></c:import>
 </body>
+=======
+        
+        <c:import url="./main.jsp"></c:import>
+
+        <c:import url="./footer.jsp"></c:import>
+
+
+    </body>
+>>>>>>> origin/jeongmin
 </html>

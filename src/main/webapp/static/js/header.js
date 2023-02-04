@@ -6,6 +6,10 @@ const btn = document.querySelector(".moreView");
 const wrap = document.querySelector(".moreViewWrap");
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/jeongmin
 function categoryHover() {
     category.classList.remove("hidden");
 
