@@ -22,7 +22,7 @@ list-style:none;
 }
 .ntcontainer{
 	width:auto;
- 	height:1500px;
+ 	height:auto;
 	display: flex;
 	justify-content: center;
 }
@@ -112,6 +112,7 @@ list-style:none;
 }
 .back_btn_box{
 	margin-top:80px;
+	margin-bottom:100px;
 }
 .edit_btn{
 	width:80px;

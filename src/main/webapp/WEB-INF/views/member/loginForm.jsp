@@ -45,11 +45,11 @@
 <div class="wrap">
 	<main id="cantainer" class="container">
 		<div id="content" class="content">
+				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
 			<div class="login_wrap">
 				<div class="logo">
 					<a><img src="${pageContext.request.contextPath}/static/img/frLogo.png" class="fruit_Logo"></a> 
 				</div>
-				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
 					<!-- login -->
 					<div class="login_panner">
 					<div class="login_box">
@@ -123,8 +123,8 @@
 					</div>
 				<!-- social end -->
 				</div>
-			</form>
 			</div>
+			</form>
 		<!-- content end -->
 		</div>
 	</main>
