@@ -56,7 +56,7 @@
                      </c:if>
         		</div>
         		<div class="nt_d_content_box">
-           		${n.notice_content}
+           			${n.notice_content}
         		</div>
         </div>    
 		</div>
