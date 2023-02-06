@@ -84,7 +84,7 @@
        				<input type="hidden" name="reply_num" value="${hr.reply_num}" />
        				<input type="hidden"name="user_id" value="${hr.user_id}"/>
        				프룻프룻 | 등록일 2023.02.05 ${hr.reply_date}
-       				<c:if test="${user_type==3}"> <!-- sesseionScope -->
+       				<c:if test="${user_type==3}">
        					<div class="hr_btn_wrap">
             				<button type="button" class="modal_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">수정하기</button>
              				<button  type="button" class="del_btn" 
@@ -140,6 +140,7 @@
       const btnOpenPopup = document.querySelector('.modal_btn');
       const btnClose = document.querySelector('.modal_close_btn');
 
+      /* 버튼 눌렀을 때  */
       btnOpenPopup.addEventListener('click', () => {
         modal.classList.toggle('show');
 
@@ -147,7 +148,7 @@
           body.style.overflow = 'hidden';
         }
       });
-
+		/* esc 키 눌러서  */
       modal.addEventListener('click', (event) => {
         if (event.target === modal) {
           modal.classList.toggle('show');
@@ -157,9 +158,12 @@
           }
         }
       });
+		/* 취소 버튼 눌러서 */
       btnClose.addEventListener('click', () => {
     	  modal.classList.remove('show');
     	  body.style.overflow = 'auto';
     	});
+//
+
 </script>
 </html>
