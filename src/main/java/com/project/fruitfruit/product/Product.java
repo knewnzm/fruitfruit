@@ -6,9 +6,23 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Product {
 
+	private int product_num;
+	private String product_seller_id;
+	private String product_title;
+	private String product_path;
+	private String product_content;
+	private String product_inner_path1;
+	private String product_inner_path2;
+	private String product_inner_path3;
+	private int product_price;
+	private int produt_quantity;
+	private Date product_date;
+	private int product_hit;
+	private boolean product_pick;
+	private int product_view_type;
+	private String frfr_category1;
+	private String frfr_category2;
 	
-<<<<<<< HEAD
-=======
 	private MultipartFile file;
 	private MultipartFile inner_file1;
 	private MultipartFile inner_file2;
@@ -216,6 +230,5 @@ public class Product {
 	}
 
 
->>>>>>> 23092dd3b6ce8eb839ecacb8c7d9cdebe8575b23
 	
 }

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>helpDetail  ${h.help_title}</title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/helpDetail.css" />

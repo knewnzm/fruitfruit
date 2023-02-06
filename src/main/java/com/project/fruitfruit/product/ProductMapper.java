@@ -8,8 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ProductMapper {
 
-<<<<<<< HEAD
-=======
 	public Product selectProduct(int product_num);
 //	public ArrayList<Product> selectAllProduct();
 	public void insertProduct(Product p);
@@ -46,5 +44,4 @@ public interface ProductMapper {
 	
 
 	
->>>>>>> 23092dd3b6ce8eb839ecacb8c7d9cdebe8575b23
 }

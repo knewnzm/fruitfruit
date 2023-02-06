@@ -15,9 +15,6 @@ import com.project.fruitfruit.util.Page;
 
 @Service
 public class ProductService {
-<<<<<<< HEAD
-
-=======
 	
 	@Autowired
 	private ProductMapper mapper;
@@ -184,5 +181,4 @@ public class ProductService {
 		return mapper.selectProductListByUser_id(product_seller_id);
 	}
 	
->>>>>>> 23092dd3b6ce8eb839ecacb8c7d9cdebe8575b23
 }

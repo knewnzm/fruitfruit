@@ -20,8 +20,6 @@ import com.project.fruitfruit.util.Page;
 
 @Controller
 public class ProductController {
-<<<<<<< HEAD
-=======
 
 	@Autowired
 	private ProductService pService;
@@ -42,10 +40,6 @@ public class ProductController {
 	}
 	
 
-	@GetMapping("/product/importList")
-	public void golist() {
-	}
-	
 	@GetMapping("/product/productForm")
 	public void addForm() {
 	}
@@ -236,7 +230,6 @@ public class ProductController {
 	}
 	
 	
->>>>>>> 23092dd3b6ce8eb839ecacb8c7d9cdebe8575b23
 	
 	
 	
