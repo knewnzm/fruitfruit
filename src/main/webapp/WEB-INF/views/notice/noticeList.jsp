@@ -66,14 +66,10 @@ $(document).ready(function(){
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="n" items="${list}" varStatus="status">
                            				 	<tr>
-<<<<<<< HEAD
 												<th class="list_type">
 													<c:if test="${n.notice_type ==1}"> 공지사항 </c:if>
                    							    	<c:if test="${n.notice_type ==2}"> 이벤트 </c:if>
 												</th>
-=======
-												<th class="list_type">${n.notice_type }</th>
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 												<th class="list_title"> 
 													<a class="link" href="${pageContext.request.contextPath}/notice/noticeDetail?notice_num=${n.notice_num}">
                                         	    	${n.notice_title}</a>
@@ -98,13 +94,9 @@ $(document).ready(function(){
 										<c:forEach var="n" items="${list}" varStatus="status">
 										<c:if test="${n.notice_type==1 }">
                            				 	<tr>     				 	
-<<<<<<< HEAD
 												 <th class="list_type">
 													<c:if test="${n.notice_type ==1}"> 공지사항 </c:if>
 												</th>
-=======
-												<th class="list_type"> ${n.notice_type }</th>
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 												<th class="list_title"> 
 													<a class="link" href="${pageContext.request.contextPath}/notice/noticeDetail?notice_num=${n.notice_num}">
                                         	    	${n.notice_title}</a>
@@ -130,13 +122,9 @@ $(document).ready(function(){
                            				 <c:forEach var="n" items="${list}" varStatus="status">
                            				 <c:if test="${n.notice_type==2 }">
                            				 	<tr>
-<<<<<<< HEAD
 												<th class="list_type">
                    							    	<c:if test="${n.notice_type ==2}"> 이벤트 </c:if>
 												</th>
-=======
-												<th class="list_type">${n.notice_type }</th>
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 												<th class="list_title">
 													<a class="link" href="${pageContext.request.contextPath}/notice/noticeDetail?notice_num=${n.notice_num}">
                                         	    	${n.notice_title}</a>

@@ -10,7 +10,6 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
-<<<<<<< HEAD
 $(document).ready(function(){
     $('input[name="file1"]').change(function(){
         setImageAndFileNameFromFile(this);
@@ -43,20 +42,6 @@ window.onload = function(){
 			preview.style.display = "none";
 		}
 	});
-=======
-$('input[name="file1"]').change(function(){
-    setImageFromFile(this, '#preview');
-});
-
-function setImageFromFile(input, expression) {
-    if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-    $(expression).attr('src', e.target.result);
-  }
-  reader.readAsDataURL(input.files[0]);
-  }
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 }
 </script>
 <body>
@@ -107,25 +92,16 @@ function setImageFromFile(input, expression) {
 							이미지
 						</label>
 					</div>
-<<<<<<< HEAD
 					<div class="file_name_wrap">
 						<label for="notice_path" class="file_name_label"></label>
 					</div>
 					<div class="notice_path_wrap">
 						<input class="form-control" type="file" name="file1" id="file1" accept="image/*"  multiple>
-=======
-					<div class="notice_path_wrap">
-					<input class="form-control" type="file" name="file1" id="file1" accept="image/*" />
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 							<label for="file1" class="file_label">업로드</label>
 					</div>
 				</div>
 				<div class="path_wrap" >
-<<<<<<< HEAD
 						<img src=""  id="preview" style="display:none"/>
-=======
-						<img src=""  id="preview" onerror="imgError()"/>
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 				</div>
 				<div class="content_wrap">
 					<textarea name="notice_content" class="notice_w_content"></textarea>
@@ -134,10 +110,7 @@ function setImageFromFile(input, expression) {
 			</div>
 			<div class="submit_wrap">
 				 <button type="submit" name="submit" id="submit">작성하기</button>
-<<<<<<< HEAD
 				 <button class="back_btn" type="button" onClick="history.back();">목록으로</button>
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 			</div>
 			</form>
 		<!-- content end -->
