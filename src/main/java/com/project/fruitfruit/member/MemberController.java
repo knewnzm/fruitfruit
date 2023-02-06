@@ -202,7 +202,7 @@ public void b() {
 	
 }
 ///
-@RequestMapping(value = "/help/helpList") //회원정보 수정 페이지 가기
+@RequestMapping(value = "/help/helpEdit") //
 public void a() {
 }
 ///

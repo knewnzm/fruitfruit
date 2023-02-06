@@ -47,11 +47,11 @@ function setImageFromFile(input, expression) {
 						</div>
 						<div class="notice_type">
 								<div class="type1">
-									<input type="radio" name="notice_type"  value="1" checked> 
+									<input type="radio" name="notice_type"  value="1" <c:if test="${n.notice_type==1}">checked</c:if>> 
 										<label for="notice_type" class="type_text">공지</label>
 								</div>
 								<div class="type2">
-									<input type="radio" name="notice_type"  value="2"> 
+									<input type="radio" name="notice_type"  value="2" <c:if test="${n.notice_type==1}">checked</c:if>> 
 										<label for="notice_type" class="type_text">이벤트</label>
 								</div>
 						</div>

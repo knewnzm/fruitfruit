@@ -67,23 +67,23 @@ window.onload = function(){
 						</div>
 						<div class="help_type">
 								<div class="type1">
-									<input type="radio" name="help_type"  value="1" checked> 
+									<input type="radio" name="help_type"  value="1" <c:if test="${h.help_type==1}">checked</c:if>> 
 										<label for="help_type" class="type_text">회원정보</label>
 								</div>
 								<div class="type2">
-									<input type="radio" name="help_type"  value="2"> 
+									<input type="radio" name="help_type"  value="2" <c:if test="${h.help_type==2}">checked</c:if>> 
 										<label for="help_type" class="type_text">상품</label>
 								</div>
 								<div class="type3">
-									<input type="radio" name="help_type"  value="3"> 
+									<input type="radio" name="help_type"  value="3" <c:if test="${h.help_type==3}">checked</c:if>> 
 										<label for="help_type" class="type_text">주문</label>
 								</div>
 								<div class="type4">
-									<input type="radio" name="help_type"  value="4"> 
+									<input type="radio" name="help_type"  value="4" <c:if test="${h.help_type==4}">checked</c:if>> 
 										<label for="help_type" class="type_text">배송</label>
 								</div>
 								<div class="type5">
-									<input type="radio" name="help_type"  value="5"> 
+									<input type="radio" name="help_type"  value="5" <c:if test="${h.help_type==5}">checked</c:if>> 
 										<label for="help_type" class="type_text">기타</label>
 								</div>
 						</div>
