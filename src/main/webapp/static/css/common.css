@@ -12,14 +12,7 @@
 
 html, body {
     height: 100%;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     min-width: 1200px;
->>>>>>> origin/jeongmin
-=======
-    min-width: 1200px;
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 }
 
 .clearfix:after { clear: both; display: block; content: ""; }
@@ -28,15 +21,6 @@ li { list-style: none;}
 
 a { text-decoration: none; color: #000; }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-a:hover { text-decoration: underline; }
-
-button {cursor: pointer;}
-
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 a:hover { text-decoration: none; }
 
 button {cursor: pointer;}
@@ -45,10 +29,6 @@ input:focus{
 	outline:none;
 }
 
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 
 /*.wrap { width: 1400px; position: relative; margin: 0 auto;  }
 랩을 쌀 때는 100px 단위로 하는 게 좋고 애매하면 50px 단위, 보통 1200~1400 준다*/
