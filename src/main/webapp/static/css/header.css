@@ -13,16 +13,6 @@
 
 
 .headArea .innerContent {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    width: 100%;
-=======
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     height: 120px;
     /** border-top: 1px solid #f02c11; **/
 }
@@ -69,15 +59,7 @@
     font-size: 12px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-.accountArea li {
-=======
 .accountArea .nav-item {
->>>>>>> origin/jeongmin
-=======
-.accountArea .nav-item {
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
     display: inline-block;
     margin-left: 18px;
     font-size: 12px;
@@ -89,61 +71,16 @@
 }
 
 .headArea .main .logoArea {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    display: inline-block;
-    float: left;
-    position: relative;
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
     position: absolute;
     left: 0;
     top: 20px;
     display: inline-block;
     float: left;
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-    position: absolute;
-    left: 0;
-    top: 20px;
-    display: inline-block;
-    float: left;
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     z-index: 20;
 }
 
 /** 검색창 **/
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-.headArea .innerContent .searchAreaWrap {
-    position: absolute;
-    left: 50%;
-    top: 30px;
-    width: 400px;
-    margin-left: -200px;
-}
-
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
-.headArea .innerContent .searchAreaWrap .searchArea {
-    width: 400px;
-    height: 48px;
-    border: 2px solid #f02c11;
-    border-radius: 25px;
-    align-items: center;
-    justify-content: space-between;
-<<<<<<< HEAD
-    padding: 8px 55px 8px 20px;
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 .headArea .innerContent .searchAreaWrap {
     position: absolute;
     left: 50%;
@@ -160,13 +97,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 55px 8px 25px;
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-    padding: 10px 55px 8px 25px;
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     position: relative;
 }
 
@@ -180,33 +110,12 @@
     width: 30px;
     height: 30px;
     position: absolute;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     right: 15px;
->>>>>>> origin/jeongmin
-=======
-    right: 15px;
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-    right: 15px;
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     background: url(../img/search_icon.png) no-repeat;
     line-height: 0;
     vertical-align: middle;
     color: transparent;
     border: none;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    position: relative;
-=======
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     color: #f02c11;
     background-size: 25px;
 }
@@ -215,32 +124,12 @@
 
 .headArea .innerContent .buttonArea {
     display: flex;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-}
-
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
     position: absolute;
     right: 0;
     top: 20px;
 }
 
 
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-    position: absolute;
-    right: 0;
-    top: 20px;
-}
-
-
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 .headArea .innerContent .buttonArea ul {
     display: flex;
 }
@@ -314,11 +203,6 @@
     font-size: 14px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 
 /** 드롭다운 메뉴 **/
 
@@ -387,10 +271,6 @@
 
 
 
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
 /** 카테고리 아이콘bar **/
 
 .sub .inner .category .moreViewWrap .moreView {
@@ -405,16 +285,6 @@ background-color: transparent;
     display: inline-block;
     background: url(../img/categoty_w.png) no-repeat;
     background-size: cover;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    width: 30px;
-    height: 30px;
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     width: 25px;
     height: 25px;
     transform: translateY(20%);
@@ -424,13 +294,6 @@ background-color: transparent;
     font-size: 16px;
     color:#fff;
     margin-left: 10px;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 }
 
 /** 카테고리 + 메뉴바 정렬**/
@@ -444,52 +307,18 @@ background-color: transparent;
 }
 
 .sub .category {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    position: relative;
-    display: inline-block;
-    width: 900px;
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     display: flex;
     width: 1200px;
     margin: 0px auto;
     justify-content: flex-start;
     bottom: 0;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     height: 50px;
 }
 
 .moreViewWrap {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    float: left;
-=======
     width: 100px;
     float: left;
     z-index: 100;
->>>>>>> origin/jeongmin
-=======
-    width: 120px;
-    float: left;
-    z-index: 100;
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-    width: 100px;
-    float: left;
-    z-index: 100;
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 }
 
 /** 카테고리 메뉴 **/
@@ -515,36 +344,14 @@ background-color: transparent;
 
 .category-wrap {
     position: relative;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     z-index: 100;
->>>>>>> origin/jeongmin
-=======
-    z-index: 100;
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-    z-index: 100;
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     width: 150px;
     height: 450px;
     background: #fff;
     border: 1px solid #f02c11;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/jeongmin
-=======
-
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 ul.category-wrap > li {
     /** position: relative; **/
     width: 100%;
@@ -555,26 +362,11 @@ ul.category-wrap > li {
     font-size: 14px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 ul.category-wrap > li:hover {
     background-color: #f02c11;
     
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 ul.category-wrap > li > ul.category-wrap {
     display: none;
 }
@@ -582,27 +374,9 @@ ul.category-wrap > li > ul.category-wrap {
 ul.category-wrap > li:hover > ul.category-wrap {
     display: inline-block;
     position: absolute;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    top: 0;
-    left: 150px;
-    width: 150px;
-=======
     top: -1px;
     left: 149px;
     width: 160px;
->>>>>>> origin/jeongmin
-=======
-    top: -1px;
-    left: 149px;
-    width: 160px;
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-    top: -1px;
-    left: 149px;
-    width: 160px;
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     height: 450px;
     background: #fff;
     border: 1px solid #f02c11;
@@ -610,31 +384,11 @@ ul.category-wrap > li:hover > ul.category-wrap {
 
 .category-wrap > li a:hover {
     display: block;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-}
-
-
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
     color: #fff;
 }
 
 
 
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-    color: #fff;
-}
-
-
-
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 /** sub 메뉴 **/
 
 .sub {
@@ -649,26 +403,10 @@ ul.category-wrap > li:hover > ul.category-wrap {
 
 .sub .inner .category .menu .menuInner ul {
     position: absolute;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    margin-left: 60px;
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
     margin-left: 150px;
     width: 800px;
     display: flex;
     justify-content: space-around;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 }
 
 .sub .inner .category .menu .menuInner ul li:first-child {

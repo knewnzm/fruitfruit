@@ -1,13 +1,4 @@
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-footer {height:300px;padding:70px 0;border-top:1px solid #ddd;background-color:#f9f9f9;font-size:14px;color:#999;position : relative; transform : translateY(-100%);}
-=======
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 footer {
     height:300px;
     padding:70px 0;
@@ -18,13 +9,6 @@ footer {
     position : relative; 
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/jeongmin
-=======
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 .footer_info {margin-bottom:30px;}
 .footer_info li {float:left;position:relative;margin-left:16px;padding-left:16px;}
 .footer_info li:before {display:block;content:'';position:absolute;left:0;top:calc(50% - 6px);width:1px;height:12px;background-color:#ddd;}
