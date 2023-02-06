@@ -1,54 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>helpDetail  ${h.help_title}</title>
-</head>
- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-/* 모달 */
-	 const body = document.querySelector('body');
-      const modal = document.querySelector('.modal');
-      const btnOpenPopup = document.querySelector('.modal_btn');
-      const btnClose = document.querySelector('.modal_close_btn');
-
-      btnOpenPopup.addEventListener('click', () => {
-        modal.classList.toggle('show');
-
-        if (modal.classList.contains('show')) {
-          body.style.overflow = 'hidden';
-        }
-      });
-
-      modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
-          modal.classList.toggle('show');
-
-          if (!modal.classList.contains('show')) {
-            body.style.overflow = 'auto';
-          }
-        }
-      });
-      btnClose.addEventListener('click', () => {
-    	  modal.classList.remove('show');
-    	  body.style.overflow = 'auto';
-    	});
-	btnClose.addEventListener('click', () => {
-	  modal.classList.remove('show');
-	  body.style.overflow = 'auto';
-	});
-//
-</script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/helpDetail.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
+</head>
+<body>
 <header>
 	<c:import url="../head.jsp"></c:import>
 	<c:import url="../header.jsp"></c:import>
 </header>
-<body>
 <main class="hpcontainer"> 
 	<div class="content">
 	  <div class="help_wrap">
@@ -108,7 +73,7 @@
         <c:if test="${user_type==3}">
         		<div class="hp_d_r_box">
         			<textarea name="reply_content" class="reply_w_content">댓글 입력 칸</textarea>
-					<button type="button" class="hp_r_submit" >등록</button>
+					<button type="submit" class="hp_r_submit" >등록</button>
        		 	</div>
         </c:if>    
        </form>
@@ -143,7 +108,6 @@
            </div>
 	</div> 		     
  </main>
-</body>
 <footer>
 	<c:import url="../footer.jsp"></c:import>
 </footer>
@@ -151,15 +115,51 @@
 					 <div class="modal">
     					 <div class="modal_container">
     					 	<div class="modal_header">
-      							<h2>탈퇴하기</h2>
+      							<h2>문의 답글 수정</h2>
       						</div>
       						<div class="modal_body">
-      							모달 내용입니다
+      							<textarea name="reply_content" class="reply_e_content" value="">
+      								문의 답글 내용입니다 문의 답글 내용입니다 문의 답글 내용입니다 
+      								문의 답글 내용입니다 문의 답글 내용입니다 문의 답글 내용입니다 
+      								문의 답글 내용입니다 문의 답글 내용입니다 문의 답글 내용입니다 
+      								문의 답글 내용입니다 문의 답글 내용입니다 문의 답글 내용입니다
+      							</textarea>
       						</div>
       						<div class="modal_footer">
                         	    <button type="button" class="modal_close_btn"  data-bs-dismiss="modal" aria-label="Close">취소</button>
-                              	<button type="button" class="edit_btn" id="m_edit_btn" >수정</button>
+                              	<button type="button" class="modal_edit_btn" >수정</button>
       						</div>
     					 </div>
     				</div>
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+/* 모달 */
+      const body = document.querySelector('body');
+      const modal = document.querySelector('.modal');
+      const btnOpenPopup = document.querySelector('.modal_btn');
+      const btnClose = document.querySelector('.modal_close_btn');
+
+      btnOpenPopup.addEventListener('click', () => {
+        modal.classList.toggle('show');
+
+        if (modal.classList.contains('show')) {
+          body.style.overflow = 'hidden';
+        }
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          modal.classList.toggle('show');
+
+          if (!modal.classList.contains('show')) {
+            body.style.overflow = 'auto';
+          }
+        }
+      });
+      btnClose.addEventListener('click', () => {
+    	  modal.classList.remove('show');
+    	  body.style.overflow = 'auto';
+    	});
+</script>
 </html>

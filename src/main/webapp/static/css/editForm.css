@@ -298,7 +298,7 @@ button[type="submit"] {
   max-width: 500px;
   text-align: center;
   border-radius: 10px;
-  box-shadow: 0 0 10px #333;
+  box-shadow: 11px 7px 20px 0px #333333a3;
   z-index: 999;
 }
 

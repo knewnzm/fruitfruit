@@ -202,7 +202,7 @@ public void b() {
 	
 }
 ///
-@RequestMapping(value = "/help/helpEdit") //
+@RequestMapping(value = "/help/helpDetail") //
 public void a() {
 }
 ///

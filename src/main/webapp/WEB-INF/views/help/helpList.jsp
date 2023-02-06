@@ -298,7 +298,7 @@ $(function(){
 							</div>
 				</div> <!-- pannel end -->	
         	  <c:import url="${pageContext.request.contextPath}/api/member/getUserType" var="userType" />
-			  <c:if test="${user_type == 1}">
+			  <c:if test="${user_type == 1 || user_type == 2}">
 					 <div class="write_btn_box">
 							<button type="button" id="write_btn"  onclick="location.href='${pageContext.request.contextPath}/help/helpForm'">작성하기</button>
 					 </div>

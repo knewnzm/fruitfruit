@@ -95,7 +95,7 @@ window.onload = function(){
 							</label>
 						</div>
 						<div class="help_input">
-							<input type="text" name="help_title" id="title" >
+							<input type="text" name="help_title" id="title"  value="${h.help_title }">
 						</div>
 					</div>
 				<div class="help_box">
@@ -116,7 +116,7 @@ window.onload = function(){
 						<img src=""  id="preview" style="display:none"/>
 				</div>
 				<div class="content_wrap">
-					<textarea name="help_content" class="help_w_content"></textarea>
+					<textarea name="help_content" class="help_w_content" value="${h.help_content }"></textarea>
 				</div>
 			<!-- help_form_wrap end -->
 			</div>
