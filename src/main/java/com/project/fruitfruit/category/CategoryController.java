@@ -35,15 +35,7 @@ public class CategoryController {
 		return getCategory(cate_parent_num, cate_type);
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-//	화면에 출력
-=======
 //	카테고리 리스트 생성
->>>>>>> 09fa1094dfb85a9589b0bc4d496a1a4fde0f20be
-=======
-//	카테고리 리스트 생성
->>>>>>> 99ca4051e843273392edc4615f4b12587c1b6258
 	@RequestMapping(value = "/category/getCategory")
 	@ResponseBody
 	public String getCategory(@RequestParam(required = false, defaultValue = "-1") int cate_parent_num,
