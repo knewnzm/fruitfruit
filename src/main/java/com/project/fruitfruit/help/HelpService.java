@@ -1,12 +1,11 @@
 package com.project.fruitfruit.help;
 
 import java.io.File;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.project.fruitfruit.notice.Notice;
 
 @Service
 public class HelpService {
@@ -47,7 +46,15 @@ public class HelpService {
 				   mapper.deleteHelp(help_num);
 	}
 	
-	/* 문의 글에 파일 이미지 삽입 */
+	/* 1:1 문의글 상세보기 */
+	public Help getHelp(int help_num) {
+			 Help h = mapper.selectHelp(help_num);
+			 h = helpSetPath(h);
+			 return h;
+	}
+	
+	
+	/* 1:1 문의글에 파일 이미지 삽입 */
 	private Help helpSetPath(Help h) {
 			  String []files = getFileList(h.getHelp_num());
 			  if(files.length >= 1 && !files[0].equals("")) {

@@ -30,7 +30,7 @@
 	
 	<!-- 1:1 문의 전체 출력 -->
 	<select id="selectAllHelp" resultMap="help">
-				select * from 
+				select * from help
 				order by help_num
 	</select>
 	
@@ -41,7 +41,7 @@
 	</select>
 	
 	<!-- 1:1문의 시퀀스 현재 값 -->
-	<select id="selectSeqCurrval"  parameterType="int">
+	<select id="selectSeqCurrval"  resultType="int">
 				select 
 				seq_help.currval from dual
 	</select>
