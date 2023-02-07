@@ -192,7 +192,7 @@ public class Product {
 		this.file = file;
 	}
 
-	public MultipartFile getInner_file1() {
+	public MultipartFile getInnerFile1() {
 		return inner_file1;
 	}
 
@@ -200,7 +200,7 @@ public class Product {
 		this.inner_file1 = inner_file1;
 	}
 
-	public MultipartFile getInner_file2() {
+	public MultipartFile getInnerFile2() {
 		return inner_file2;
 	}
 
@@ -208,7 +208,7 @@ public class Product {
 		this.inner_file2 = inner_file2;
 	}
 
-	public MultipartFile getInner_file3() {
+	public MultipartFile getInnerFile3() {
 		return inner_file3;
 	}
 

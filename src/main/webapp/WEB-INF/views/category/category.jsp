@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html>
+<html lang=ko>
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/category.css" />
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
  <script>
             // 카테고리 버튼 생성
@@ -124,65 +125,96 @@
                 });
             });
         </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/category.css" />
+
 </head>
 <header>
 <h3>헤더</h3>
+=======
+
+</head>
+<header>
+<h3>���</h3>
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
 </header>
-        <!-- Section-->
-        <section class="py-5">
-            <div class="container">
-                <div class="py-3">
-                    <h1>카테고리 관리</h1>
-                </div>
-                <div class="grid my-3">
-                    <div class="c1 py-3 px-3 border">
-                        <div class="title">
-                            <h1>대분류</h1>
-                        </div>
-                        <div>
-                            <form class="list-group" id="c1-list"></form>
-                        </div>
-                        <div class="add-form">
-                            <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c1-list" class="input-group">
+
+<body>
+<div class="c_wrapper">
+ <div class="c_container">
+<<<<<<< HEAD
+  <div class="c_h"><h1>카테고리 관리</h1> 
+  </div>
+  <div class="c_box">
+  <div class="c1_box"><div class="c_title"><h1>대분류</h1></div>
+  
+=======
+  <div class="c_h"><h1>ī�װ��� ����</h1> 
+  </div>
+  <div class="c_box">
+  <div class="c1_box"><div class="c_title"><h1>��з�</h1></div>
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
+   <form  action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c1-list" class="c_form">
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="c_text"
+<<<<<<< HEAD
                                     placeholder="대분류 추가"
                                     aria-label="대분류 추가"
+=======
+                                    placeholder="��з� �߰�"
+                                    aria-label="��з� �߰�"
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
                                     aria-describedby="c1-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="1" />
-                                <button class="btn-insert" type="submit" id="c1-btn">등록</button>
+<<<<<<< HEAD
+                                 <input type="submit" class="c_btn" id="c1-btn" value="등록">
                             </form>
-                        </div>
-                    </div>
-                    <div class="align-items-center"><i class="arrow-right"></i></div>
-                    <div class="c2 py-3 px-3 border">
-                        <div class="title">
-                            <h1>중분류</h1>
-                        </div>
-                        <div class="list-group" id="c2-list"></div>
-                        <div class="add-form">
-                            <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c2-list" class="input-group">
+                            <div>
+  <form class = "list-group" id="c1-list"></form>
+  </div>
+   </div> 
+   <div class="c1_box"><div class="c_title"><h1>소분류</h1></div>
+   
+=======
+                                <input type="submit" class="c_btn" id="c1-btn" value="���">
+                            </form>
+   </div> 
+   <div class="c1_box"><div class="c_title"><h1>�Һз�</h1></div>
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
+   <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c2-list" class="c_form">
                                 <input
                                     type="text"
-                                    class="form-control"
-                                    placeholder="중분류 추가"
-                                    aria-label="중분류 추가"
+                                    class="c_text"
+<<<<<<< HEAD
+                                    placeholder="소분류 추가"
+                                    aria-label="소분류 추가"
+=======
+                                    placeholder="�Һз� �߰�"
+                                    aria-label="�Һз� �߰�"
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
                                     aria-describedby="c2-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="2" />
+<<<<<<< HEAD
                                 <input type="hidden" name="cate_parent_num" value="" id="c2-parent" />
-                                <button class="btn-insert" type="submit" id="c2-btn">등록</button>
+                               <input type="submit" class="c_btn" id="c2-btn" value="등록">
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
+                             <div>
+  <form class = "list-group" id="c2-list"></form>
+  </div>
+=======
+                                <input type="hidden" name="parent_cate_num" value="" id="c2-parent" />
+                                <input type="submit" class="c_btn" id="c1-btn" value="���">
+                            </form>
+>>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
+  </div>
+  </div>
+ </div>
+</div>
+</body>
 
 <footer>
 <h3>footer</h3>

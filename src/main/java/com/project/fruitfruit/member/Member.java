@@ -1,7 +1,7 @@
 package com.project.fruitfruit.member;
 
 public class Member {
-	private String user_id ; //아이디
+	private String user_id ; //아이디 {user_id : "user_id, user_pwd : "user_pwd"} 
 	private String user_pwd ; //비밀번호
 	private String user_name ; //이름
 	private String user_nick; //닉네임

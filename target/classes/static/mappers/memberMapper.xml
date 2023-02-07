@@ -29,6 +29,10 @@
 		select *
 		from member where user_id=#{user_id}
 	</select>
+	<select id="selectbyname" parameterType="String" resultMap="member">
+		select *
+		from member where user_name=#{user_name}
+	</select>
 	<select id="list" resultMap="member">
 		select * from member
 	</select>

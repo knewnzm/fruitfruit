@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 *{
   padding:0;
   margin: 0;
@@ -23,9 +23,14 @@ footer{
 	text-align: center;
 }
 
-.fi_pd {
+.f_pd {
     padding-top: 48px ;
-    padding-bottom: 34px ;
+    padding-bottom: 74px ;
+}
+
+.fi_pd {
+    padding-top: 72px ;
+    padding-bottom: 78px ;
 }
 
 .f_h {
@@ -37,6 +42,7 @@ footer{
 .fi_coment{
 	line-height: 25px ;
     padding-bottom: 45px ;
+    padding-top: 22px;
 }
 
 .f_box{
@@ -53,16 +59,16 @@ footer{
 }
 .f_name_title{
 	text-align: left;
-	padding-left: 150px;
+	padding-left: 155px;
 }
 .f_tel_title{
 	text-align: left;
-	padding-left: 150px;
+	padding-left: 155px;
 	padding-top: 25px;
 }
 .f_button{
-    width: 350px;
-    height: 39px;
+    width: 342px;
+    height: 37px;
     font-size: 16px;
     color: white;
     cursor: pointer;
@@ -72,16 +78,17 @@ footer{
     background: #F75D59;
 }
 .fp_pd {
-    padding-top: 27px ;
-    padding-bottom: 65px ;
+    padding-top: 64px ;
+    padding-bottom: 98px ;
 }
 .fp_coment{
 	line-height: 25px ;
     padding-bottom: 35px ;
+    padding-top: 20px;
 }
 .fp_id_title{
 	text-align: left;
-	padding-left: 150px;
+	padding-left: 155px;
 }
 .cp_container{
 	display: flex;
@@ -91,16 +98,16 @@ footer{
 }
 .cp_h {
 	padding-top: 24px ;
-    padding-bottom: 45px ;
+    padding-bottom: 62px ;
     font-size: 22px;
 }
 .cp_newPwd{
 	text-align: left;
-	padding-left: 150px;
+	padding-left: 155px;
 }
 .cp_editPwd{
 	text-align: left;
-	padding-left: 150px;
+	padding-left: 155px;
 	padding-top: 25px;
 }
 
