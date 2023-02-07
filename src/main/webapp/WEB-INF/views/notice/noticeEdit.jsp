@@ -3,7 +3,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>notice_edit</title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/noticeForm.css" />
@@ -37,7 +37,7 @@ function setImageFromFile(input, expression) {
 					<h1 class="main_text">공지사항/이벤트 게시글 수정</h1>
 				</div>
 			</div>
-			<form name="" action="" method="post" enctype="multiple">
+			<form name="" action="${pageContext.request.contextPath }/notice/Edit" method="post" enctype="multiple">
 			<div class="notice_form_wrap">
 				<div class="notice_box">
 						<div class="notice_title">
@@ -46,14 +46,20 @@ function setImageFromFile(input, expression) {
 							</label>
 						</div>
 						<div class="notice_type">
-								<div class="type1">
-									<input type="radio" name="notice_type"  value="1" <c:if test="${n.notice_type==1}">checked</c:if>> 
-										<label for="notice_type" class="type_text">공지</label>
-								</div>
-								<div class="type2">
-									<input type="radio" name="notice_type"  value="2" <c:if test="${n.notice_type==1}">checked</c:if>> 
-										<label for="notice_type" class="type_text">이벤트</label>
-								</div>
+									<c:if test="${n.notice_type==1 }">
+											<c:set var="type1">checked</c:set>
+									</c:if>
+									<c:if test="${n.notice_type==2 }">
+											<c:set var="type2">checked</c:set>
+									</c:if>
+									<div class="type1">								
+											<input type="radio" name="notice_type"  value="1" ${type1}> 
+											<label for="notice_type" class="type_text">공지</label>
+									</div>
+									<div class="type2">
+											<input type="radio" name="notice_type"  value="2" ${type2}> 
+											<label for="notice_type" class="type_text">이벤트</label>
+									</div>
 						</div>
 				</div>		
 				<div class="notice_box">
@@ -63,7 +69,7 @@ function setImageFromFile(input, expression) {
 							</label>
 						</div>
 						<div class="notice_input">
-							<input type="text" name="notice_title" id="title" >
+							<input type="text" name="notice_title" id="title" value="${n.notice_title }">
 						</div>
 					</div>
 				<div class="notice_box">
@@ -73,7 +79,7 @@ function setImageFromFile(input, expression) {
 						</label>
 					</div>
 					<div class="notice_path_wrap">
-						<input type="file" name="notice_path" id="notice_path" multiple>
+							<input type="file" name="notice_path" id="notice_path" multiple>
 							<label for="notice_path" class="file_label">업로드</label>
 					</div>
 				</div>
@@ -81,12 +87,12 @@ function setImageFromFile(input, expression) {
 						<img src=""  id="preview" onerror="imgError()"/>
 				</div>
 				<div class="content_wrap">
-					<textarea name="notice_content" class="notice_w_content"></textarea>
+					<textarea name="notice_content" class="notice_w_content">${n.notice_content }</textarea>
 				</div>
 			<!-- notice_form_wrap end -->
 			</div>
 			<div class="submit_wrap">
-				 <button type="submit" name="submit" id="submit">수정하기</button>
+				 	<button type="submit" name="submit" id="submit">수정하기</button>
 			</div>
 			</form>
 		<!-- content end -->

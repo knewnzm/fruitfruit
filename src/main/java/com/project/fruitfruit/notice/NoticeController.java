@@ -44,7 +44,7 @@ public class NoticeController {
 			Member m = mService.select(user_id);
 			if (m.getUser_type() == 3) {
 				nService.addNotice(n);
-				int notice_num = nService.getProductSeqCurrval();
+				int notice_num = nService.getNoticeSeqCurrval();
 				uploadFile(n.getFile1(), notice_num, 1);
 				path = "redirect:/notice/noticeList";
 			}

@@ -71,7 +71,7 @@ public class NoticeService {
 		return files;
 	}
 //	현재 시퀀스 값 가져오기
-	public int getProductSeqCurrval() {
+	public int getNoticeSeqCurrval() {
 		return mapper.selectSeqCurrval();
 	}
 }
