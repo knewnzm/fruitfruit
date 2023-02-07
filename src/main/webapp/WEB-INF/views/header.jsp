@@ -205,6 +205,7 @@
                         </div>
                     </div>
             </div>
+            </div>
             <div class="sub">
                 <div class="inner">
                     <div class="category fruit">
@@ -443,7 +444,7 @@
                                         <a href="#">인기베스트</a>
                                     </li>
                                     <li class>
-                                        <a href="#">이벤트/공지</a>
+                                        <a href="${pageContext.request.contextPath}/notice/noticeList">이벤트/공지</a>
                                     </li>
                                 </ul>
                             </div>

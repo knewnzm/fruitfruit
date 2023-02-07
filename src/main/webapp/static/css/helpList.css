@@ -52,7 +52,11 @@
 
 .faq_items {
   width:960px;
+<<<<<<< Upstream, based on origin/test
   font-size:17px;
+=======
+  font-size:19px;
+>>>>>>> 8661a35 0206
   display:flex;
   align-items: flex-start;
   flex-direction: column;

@@ -185,25 +185,7 @@ public void findPwdForm() {
 public void changePwdForm() { 
 	
 }
-@GetMapping(value = "/product/mylist") //
-public void mylist() {
-	
-}
-@GetMapping(value = "/alram/mylist") //
-public void alram() {
-	
-}
-@GetMapping(value = "/myfruit") //
-public void myfruit() {
-	
-}
-@GetMapping(value = "/order/orderList") //
-public void b() {
-	
-}
 ///
-@RequestMapping(value = "/help/helpDetail") //
-public void a() {
-}
+
 ///
 }
