@@ -1,6 +1,8 @@
 package com.project.fruitfruit.member;
 
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,13 +16,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.fruitfruit.category.Category;
+import com.project.fruitfruit.category.CategoryService;
+
 
 @Controller
 public class MemberController {
 	
 @Autowired
 private MemberService service;
-
+@Autowired
+private CategoryService cservice;
 /* @RequestMapping(value = "/") */
 /*
  * public ModelAndView index(HttpServletRequest req) { ModelAndView mav = new
@@ -28,9 +34,16 @@ private MemberService service;
  * id = (String) session.getAttribute("user_id"); if(session!=null&&id!=null) {
  * Member m = service.select(id); mav.addObject("m", m); } return mav; }
  */
-@RequestMapping(value = "/") //홈으로 가기
-public String index() { 
-	return "/index";
+/*
+ * @RequestMapping(value = "/") //홈으로 가기 public String index() { return
+ * "/index"; }
+ */
+@RequestMapping(value = "/") //카테고리 대분류 들고 인덱스 페이지 가기
+public ModelAndView home(HttpServletRequest req) {
+	ModelAndView mav = new ModelAndView("/index");
+	ArrayList<Category> cate_list=cservice.getCategoryList(1, 0);
+	mav.addObject("c", cate_list);
+	return mav;
 }
 @GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
 public String joinForm(HttpServletRequest req) {

@@ -174,18 +174,20 @@ $(document).ready(function() {
 										우편번호
 									</label>	
 								</div>
-								<div class="addr_postcode">
-									<input type="text" name="user_postcode" id="user_postcode"  class="j_input"placeholder="우편번호">
+								<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+										<script src="/static/js/postcode.js"></script>
+										<div class="addr_postcode">
+									<input type="text" name="user_postcode" id="user_postcode"  class="j_input" placeholder="우편번호" readonly>
 								</div>
 								<div class="addr_btn">
-									<button class="addr_search_btn" type="button" name="addr_search_btn">
+									<button class="addr_search_btn" type="button" name="addr_search_btn" onclick="sample6_execDaumPostcode()">
 										<span class="search_text">주소 검색</span>
 										<img src="${pageContext.request.contextPath}/static/img/join_edit_search.png" class="search_img">
 									</button>	
 								</div>
 							</div>
 							<div class="addr_wrap1">
-								<input type="text" name="user_addr1" id="user_addr1" class="j_input" placeholder="도로명 주소">
+								<input type="text" name="user_addr1" id="user_addr1" class="j_input" placeholder="도로명 주소" readonly>
 							</div>
 							<div class="addr_wrap2">
 								<input type="text" name="user_addr2" id="user_addr2" class="j_input" placeholder="상세항목">

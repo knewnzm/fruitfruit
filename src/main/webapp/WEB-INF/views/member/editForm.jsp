@@ -197,18 +197,20 @@ $(document).ready(function () {    // enter submit 방지 함수
 										우편번호
 									</label>	
 								</div>
+								<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+										<script src="/static/js/postcode.js"></script>
 								<div class="addr_postcode">
-									<input type="text" name="user_postcode" class="ed_input" id="user_postcode" value="${m.user_postcode }">
+									<input type="text" name="user_postcode" class="ed_input" id="user_postcode" value="${m.user_postcode }" readonly>
 								</div>
 								<div class="addr_btn">
-									<button type="button" class="addr_search_btn" name="addr_search_btn" >
+									<button type="button" class="addr_search_btn" name="addr_search_btn" onclick="sample6_execDaumPostcode()">
 										<span class="search_text">주소 검색</span>
 										<img src="${pageContext.request.contextPath}/static/img/join_edit_search.png" class="search_img">
 									</button>	
 								</div>
 							</div>
 							<div class="addr_wrap1">
-								<input type="text" name="user_addr1" id="user_addr1" class="ed_input" value="${m.user_addr1 }">
+								<input type="text" name="user_addr1" id="user_addr1" class="ed_input" value="${m.user_addr1 }" readonly>
 							</div>
 							<div class="addr_wrap2">
 								<input type="text" name="user_addr2" id="user_addr2" class="ed_input" value="${m.user_addr2 }">
