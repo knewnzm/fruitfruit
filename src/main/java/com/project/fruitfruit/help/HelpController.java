@@ -26,8 +26,8 @@ public class HelpController {
 	@Autowired 
 	private HelpService hService;
 	
-	@Autowired 
-	MemberService mService;
+	@Autowired
+	private MemberService mService;
 	
 	@Autowired
 	private HttpSession session;
@@ -37,8 +37,8 @@ public class HelpController {
 	public void helpForm() {
 	}
 	
-	/* helpForm 작송 */
-	@PostMapping(value ="help/helpForm")
+	/* helpForm 작성 */
+	@PostMapping(value ="/help/helpForm")
 	public String insert(Help h) {
 			String path = "redirect/member/loginForm";
 			String user_id = (String) session.getAttribute("user_id");
@@ -47,7 +47,7 @@ public class HelpController {
 					if(m.getUser_type()==3) {
 						hService.addHelp(h);
 						int help_num = hService.getHelpSeqCurrval();
-						uploadFile(h.getFile(), help_num,1);
+						uploadFile(h.getFile1(), help_num,1);
 						path ="redirect:/help/helpList";
 					}
 			}
@@ -56,29 +56,31 @@ public class HelpController {
 
 	/* 프로젝트에 파일 업로드 하기 */
 	private void uploadFile(MultipartFile file, int help_num, int img_num) {
-				File hpfile = new File(projectPath + webPath + help_num);	
-				System.out.println(projectPath);
-				System.out.println(webPath);
+					 File hpfile = new File(projectPath + webPath + help_num);	
+					 System.out.println(projectPath);
+					 System.out.println(webPath);
 		
-				if(!hpfile.exists()) {
-					hpfile.mkdir();
-				}
-				if(!file.isEmpty()) {
-					String uploadPath = webPath + help_num + "\\"+img_num+file.getOriginalFilename();
-					File f = new File(projectPath + uploadPath);
-					try {
-						file.transferTo(f);
-					}catch(Exception e) {
-						e.printStackTrace();
-					}
-			}
+					 if(!hpfile.exists()) {
+						 hpfile.mkdir();
+					 }
+					 if(!file.isEmpty()) {
+						 String uploadPath = webPath + help_num + "\\"+img_num+ "_"+file.getOriginalFilename();
+						 File f = new File(projectPath + uploadPath);
+						 try {
+							  file.transferTo(f);
+						 }catch(Exception e) {
+							    e.printStackTrace();
+						 }
+					 }
 	}
+	
 	/*1:1 문의 상세페이지*/
 	@RequestMapping(value = "/help/helpDetail")
 	public ModelAndView content(@RequestParam(value = "help_num") int help_num) {
-			 ModelAndView mav = new ModelAndView("/help/helpDetial");
+			 ModelAndView mav = new ModelAndView("/help/helpDetail");
 			 Help h = hService.selectHelpByNum(help_num);
 			 mav.addObject("h",h);
+			 hService.selectHelpByNum(help_num);
 			 return mav;
 	}
 	
@@ -112,16 +114,17 @@ public class HelpController {
 				 Member m = mService.select(user_id);
 				 if(m.getUser_type()==3) {
 					 hService.editHelp(h);
-					 path = "rediect:/help/helpList";
+					 path = "redirect:/help/helpList";
 				 }
 			 }
 			 return path;
 	}
 	
-	@RequestMapping(value = "help/helpDelect")
-	public String delete(@RequestParam(value = "notice_num") int help_num) {
+	/* 1:1 문의글 삭제 */
+	@RequestMapping(value = "/help/helpDelete")
+	public String deleteHelp(@RequestParam(value = "help_num") int help_num) {
 			 hService.deleteHelp(help_num);
-			 return "rediect:/help/helpList";
+			 return "redirect:/help/helpList";
 	}
 //	
 }

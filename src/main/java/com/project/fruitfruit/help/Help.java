@@ -10,12 +10,12 @@ public class Help {
 	private String help_title;
 	private String help_content;
 	private String help_path;
-	private MultipartFile file;
+	private MultipartFile file1;
 	public Help() {
 		super();
 	}
 	public Help(int help_num, int help_type, String help_writer_id, String help_date, String help_title,
-			String help_content, String help_path, MultipartFile file) {
+			String help_content, String help_path, MultipartFile file1) {
 		super();
 		this.help_num = help_num;
 		this.help_type = help_type;
@@ -24,7 +24,7 @@ public class Help {
 		this.help_title = help_title;
 		this.help_content = help_content;
 		this.help_path = help_path;
-		this.file = file;
+		this.file1 = file1;
 	}
 	public int getHelp_num() {
 		return help_num;
@@ -68,17 +68,17 @@ public class Help {
 	public void setHelp_path(String help_path) {
 		this.help_path = help_path;
 	}
-	public MultipartFile getFile() {
-		return file;
+	public MultipartFile getFile1() {
+		return file1;
 	}
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
 	}
 	@Override
 	public String toString() {
 		return "Help [help_num=" + help_num + ", help_type=" + help_type + ", help_writer_id=" + help_writer_id
 				+ ", help_date=" + help_date + ", help_title=" + help_title + ", help_content=" + help_content
-				+ ", help_path=" + help_path + ", file=" + file + "]";
+				+ ", help_path=" + help_path + ", file1=" + file1 + "]";
 	}
 	
 }

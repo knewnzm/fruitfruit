@@ -244,7 +244,6 @@ list-style:none;
   max-width: 500px;
   text-align: center;
   border-radius: 10px;
-<<<<<<< Upstream, based on origin/test
   box-shadow: 11px 7px 20px 0px #333333a3;
   z-index: 999;
 }
@@ -281,34 +280,4 @@ list-style:none;
 	outline:none;
 	color:#736F6E;
 	resize: none;
-=======
-  box-shadow: 0 0 10px #333;
-  z-index: 999;
-}
-
-.modal_header h2,
-.modal_body,
-.modal_footer {
-  padding: 20px;
-}
-.modal_header h2,.modal_body{
-	padding-bottom:0px;
-}
-.m_edit_btn{
-	width:80px;
-	height: 41.333334px;
-	color:white;
-	background:#f02c11; 
-	border-radius: 5px;
-	font-size:13px;
-}
-.modal_close_btn{
-	width:80px;
-	height: 41.333334px;
-	color:#f02c11;
-	background:white;
-	border: 1px solid #f02c11;
-	border-radius: 5px;
-	font-size:13px;
->>>>>>> 8cc4708 0205
 }

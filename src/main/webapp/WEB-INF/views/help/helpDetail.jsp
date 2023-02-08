@@ -6,45 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>helpDetail  ${h.help_title}</title>
-<<<<<<< Upstream, based on origin/test
-=======
-</head>
- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-/* 모달 */
-	 const body = document.querySelector('body');
-      const modal = document.querySelector('.modal');
-      const btnOpenPopup = document.querySelector('.modal_btn');
-      const btnClose = document.querySelector('.modal_close_btn');
-
-      btnOpenPopup.addEventListener('click', () => {
-        modal.classList.toggle('show');
-
-        if (modal.classList.contains('show')) {
-          body.style.overflow = 'hidden';
-        }
-      });
-
-      modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
-          modal.classList.toggle('show');
-
-          if (!modal.classList.contains('show')) {
-            body.style.overflow = 'auto';
-          }
-        }
-      });
-      btnClose.addEventListener('click', () => {
-    	  modal.classList.remove('show');
-    	  body.style.overflow = 'auto';
-    	});
-	btnClose.addEventListener('click', () => {
-	  modal.classList.remove('show');
-	  body.style.overflow = 'auto';
-	});
-//
-</script>
->>>>>>> 8cc4708 0205
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/helpDetail.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 </head>
@@ -53,10 +14,6 @@
 	<c:import url="../head.jsp"></c:import>
 	<c:import url="../header.jsp"></c:import>
 </header>
-<<<<<<< Upstream, based on origin/test
-=======
-<body>
->>>>>>> 8cc4708 0205
 <main class="hpcontainer"> 
 	<div class="content">
 	  <div class="help_wrap">
@@ -116,7 +73,6 @@
         <c:if test="${user_type==3}">
         		<div class="hp_d_r_box">
         			<textarea name="reply_content" class="reply_w_content">댓글 입력 칸</textarea>
-<<<<<<< Upstream, based on origin/test
 					<button type="submit" class="hp_r_submit" >등록</button>
        		 	</div>
         </c:if>    
@@ -129,20 +85,6 @@
        				<input type="hidden"name="user_id" value="${hr.user_id}"/>
        				프룻프룻 | 등록일 2023.02.05 ${hr.reply_date}
        				<c:if test="${user_type==3}">
-=======
-					<button type="button" class="hp_r_submit" >등록</button>
-       		 	</div>
-        </c:if>    
-       </form>
-       </div>
-     <%-- <form id="replyForm" action="${pageContext.request.contextPath}"> --%>
-       	<div class="reply_list">
-       		<div class="r_title_box">
-       				<input type="hidden" name="reply_num" value="${hr.reply_num}" />
-       				<input type="hidden"name="user_id" value="${hr.user_id}"/>
-       				프룻프룻 | 등록일 2023.02.05 ${hr.reply_date}
-       				<c:if test="${user_type==3}"> <!-- sesseionScope -->
->>>>>>> 8cc4708 0205
        					<div class="hr_btn_wrap">
             				<button type="button" class="modal_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">수정하기</button>
              				<button  type="button" class="del_btn" 
@@ -173,7 +115,6 @@
 					 <div class="modal">
     					 <div class="modal_container">
     					 	<div class="modal_header">
-<<<<<<< Upstream, based on origin/test
       							<h2>문의 답글 수정</h2>
       						</div>
       						<div class="modal_body">
@@ -225,17 +166,4 @@
 //
 
 </script>
-=======
-      							<h2>탈퇴하기</h2>
-      						</div>
-      						<div class="modal_body">
-      							모달 내용입니다
-      						</div>
-      						<div class="modal_footer">
-                        	    <button type="button" class="modal_close_btn"  data-bs-dismiss="modal" aria-label="Close">취소</button>
-                              	<button type="button" class="edit_btn" id="m_edit_btn" >수정</button>
-      						</div>
-    					 </div>
-    				</div>
->>>>>>> 8cc4708 0205
 </html>

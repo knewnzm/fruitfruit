@@ -16,7 +16,7 @@
 	</resultMap>
 
 	<!-- 1:1 문의 등록  -->
-	<insert id="insertHelp" parameterType="com.prohect.fruitfruit.help.Help">
+	<insert id="insertHelp" parameterType="com.project.fruitfruit.help.Help">
 		insert into help VALUES(
 				seq_help.nextval,
 				#{help_type},
