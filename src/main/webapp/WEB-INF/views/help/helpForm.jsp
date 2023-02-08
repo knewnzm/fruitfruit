@@ -87,7 +87,8 @@ window.onload = function(){
 										<label for="help_type" class="type_text">기타</label>
 								</div>
 						</div>
-				</div>		
+				</div>
+				<input type="hidden" name="help_writer_id" value="${user_id }"/>		
 				<div class="help_box">
 						<div class="help_title">
 							<label for="help_title">

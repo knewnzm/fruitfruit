@@ -40,11 +40,11 @@ public class HelpController {
 	/* helpForm 작성 */
 	@PostMapping(value ="/help/helpForm")
 	public String insert(Help h) {
-			String path = "redirect/member/loginForm";
+			String path = "redirect:/member/loginForm";
 			String user_id = (String) session.getAttribute("user_id");
 			if(user_id != null) {
 					Member m = mService.select(user_id);
-					if(m.getUser_type()==3) {
+					if(m.getUser_type() ==1 || m.getUser_type() ==2) {
 						hService.addHelp(h);
 						int help_num = hService.getHelpSeqCurrval();
 						uploadFile(h.getFile1(), help_num,1);
