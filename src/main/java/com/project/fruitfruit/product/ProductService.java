@@ -23,7 +23,10 @@ public class ProductService {
 	private String webPath = "\\static\\product\\";
 	
 	public Product selectProduct(int product_num) {
-		return mapper.selectProduct(product_num);
+		Product p = mapper.selectProduct(product_num);
+		p = setProductPath(p);
+		p = setProductInnerPath(p);
+		return p;
 	}
 	
 //	public ArrayList<Product> selectAllProduct() {
@@ -90,9 +93,9 @@ public class ProductService {
 		return mapper.onlyProductViewTypeBlind(start, end);
 	}
 	
-//	public ArrayList<Product> selectProductListByLimit(int start, int end){
-//		return mapper.selectProductListByLimit(start, end);
-//	}
+	public ArrayList<Product> selectProductListByLimit(int start, int end){
+		return mapper.selectProductListByLimit(start, end);
+	}
 
 	public int selectSeqProductCurrval() {
 		return mapper.selectSeqProductCurrval();
@@ -156,6 +159,26 @@ public class ProductService {
 
 	public int getProductListSize() {
 		return mapper.selectListSize();
+	}
+
+	public ArrayList<Product> selectProductListByProduct_title(String product_title) {
+		return mapper.selectProductListByProduct_title(product_title);
+	}
+
+	public ArrayList<Product> selectProductListByCategory1_num(int c1) {
+		return mapper.selectProductListByCategory1_num(c1);
+	}
+
+	public ArrayList<Product> selectProductListByCategory2_num(int c2) {
+		return mapper.selectProductListByCategory2_num(c2);
+	}
+
+	public ArrayList<Product> selectProductListByCategory3_num(int c3) {
+		return mapper.selectProductListByCategory3_num(c3);
+	}
+
+	public ArrayList<Product> selectProductListByUser_id(String product_seller_id) {
+		return mapper.selectProductListByUser_id(product_seller_id);
 	}
 	
 }

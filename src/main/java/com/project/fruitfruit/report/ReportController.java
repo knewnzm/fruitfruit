@@ -7,10 +7,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.fruitfruit.product.Product;
 import com.project.fruitfruit.product.ProductService;
 
 @Controller
@@ -23,8 +26,14 @@ public class ReportController {
 	@Autowired
 	private HttpSession session;
 	
-	@RequestMapping(value = "/report/write")
-	public void reportForm() {
+	@GetMapping(value = "/report/add")
+	public ModelAndView reportForm(@RequestParam int product_num, @RequestParam String product_seller_id) {
+		ModelAndView mav= new ModelAndView();
+		Product p=new Product();
+		p.setProduct_num(product_num);
+		p.setProduct_seller_id(product_seller_id);
+		mav.addObject("p", p);
+		return mav;
 		
 	}
 	
@@ -32,8 +41,9 @@ public class ReportController {
 	public String insertReport(Report r) {
 		System.out.println(r);
 		String writer_id = (String) session.getAttribute("user_id");
+		String seller_id = r.getReport_seller_id();
 		r.setReport_writer_id(writer_id);
-		r.setReport_seller_id("report_seller_id");
+		r.setReport_seller_id(seller_id);
 		rService.insertReport(r);
 		return "redirect:/";
 	}

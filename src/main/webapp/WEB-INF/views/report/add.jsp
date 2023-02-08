@@ -34,9 +34,8 @@ $(document).ready(function(){
 							<textarea class="form-control w-100" id="message-text"
 								name="report_content"></textarea>
 						</div>
-						샘플 product_num
-						<input type="text" id="product_num" name="product_num"
-							/>
+						<input type="hidden" id="product_num" name="product_num" value="${p.product_num }"/>
+						<input type="hidden" id="report_seller_id" name="report_seller_id" value="${p.product_seller_id }"/>						
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -44,9 +43,9 @@ $(document).ready(function(){
 						data-bs-dismiss="modal">닫기</button>
 					<button type="button" class="btn btn-primary" id="report">신고</button>
 				</div>
-			</div>
-		</div>
-	</div>
+
+
+
 	<!-- /신고하기 -->
 </body>
 </html>
