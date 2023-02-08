@@ -178,10 +178,12 @@
 			</div>
 	</div>
 
+  <!-- 판매자일 경우에만 상품 등록 버튼 보이기 -->
+  <c:if test="${sessionScope.user_type == 2}">
     <div id="write-btn-wrap">
-          <button id="write-btn">상품등록</button>
+          <button id="write-btn" onclick="location.href=`${pageContext.request.contextPath}/product/productForm`">상품등록</button>
       </div>
-
+  </c:if>
     
       <script src="${pageContext.request.contextPath}/static/js/main.js" async></script>
       <script src="${pageContext.request.contextPath}/static/js/jquery-3.3.1.min.js" async></script>

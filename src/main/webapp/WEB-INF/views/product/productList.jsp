@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -10,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/productList.css" />
     <script src="${pageContext.request.contextPath}/static/js/productList.js" async></script>
-    <title>fruitfruit 상품 검색</title>
+    <title>fruitfruit 검색 결과</title>
 </head>
 <body>
 
@@ -22,19 +23,26 @@
     <div class="new_list">
         <div class="product-card">
             <a href="#">
-            <img src="https://sitem.ssgcdn.com/48/72/42/item/1000456427248_i1_1100.jpg" alt="사과" class="product-img">
+                <c:forEach var="file" items="${files}">
+                    <img alt="${p.product_name}" src="${file}" class="product-img">
+                </c:forEach>
                 <div class="product-info">
-                    <strong class="product-title">홍로 사과</strong>
-                    <span class="product-price">50,000원</span>
+                    <strong class="product-title">${p.product-title}</strong>
+                    <span class="product-price"><fmt:formatNumber value="${p.product_price}" pattern="#,###원" /></span>
                 </div>
             </a>
         </div>
     </div>
 </div>
 
-<div id="write-btn-wrap">
-    <input type="button" id="write-btn" value="상품등록" onclick="create_card();"></input>
-</div>
+
+<!-- 판매자일 경우에만 상품 등록 버튼 보이기 -->
+<c:if test="${sessionScope.user_type == 2}">
+    <div id="write-btn-wrap">
+          <button id="write-btn" onclick="location.href=`${pageContext.request.contextPath}/product/productForm`">상품등록</button>
+      </div>
+  </c:if>
+
 
 <div class="page_wrap">
     <div class="page_nation">

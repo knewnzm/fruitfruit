@@ -34,20 +34,25 @@
     <body>
         <c:import url="../header.jsp"></c:import>
             <div class="container table-wrap">
-                    <h2 class="table-title">접수된 신고 리스트</h2>
+                    <h2 class="table-title">회원 리스트</h2>
                 <c:if test="${empty list }"> 
                     <table class="tablelist">
                         <thead>
                             <tr>
-                                <th>글 번호</th>
-                                <th>판매글 번호</th>
-                                <th>신고 제목</th>
-                                <th>신고 유저</th>
-                                <th>신고 날짜</th>
+                                <th>아이디</th>
+                                <th>이름</th>
+                                <th>닉네임</th>
+                                <th>email</th>
+                                <th>전화번호</th>
+                                <th>우편번호</th>
+                                <th>주소</th>
+                                <th>생년월일</th>
+                                <th>가입일</th>
+                                <th>전화번호</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <td colspan="5">접수된 신고가 없습니다.</td>
+                            <td colspan="10">접수된 신고가 없습니다.</td>
                         </tbody>
                     </table>
                 </c:if>
@@ -55,16 +60,21 @@
                     <table class="tablelist">
                         <thead>
                             <tr>
-                                <th>글 번호</th>
-                                <th>판매글 번호</th>
-                                <th>신고 제목</th>
-                                <th>신고 유저</th>
-                                <th>신고 날짜</th>
+                                <th>아이디</th>
+                                <th>이름</th>
+                                <th>닉네임</th>
+                                <th>email</th>
+                                <th>전화번호</th>
+                                <th>우편번호</th>
+                                <th>주소</th>
+                                <th>생년월일</th>
+                                <th>가입일</th>
+                                <th>전화번호</th>
                             </tr>
                         </thead>
                         <c:forEach var="report" items="${list }">
                             <tr id="trId_${report.report_num}">
-                                <td>${report.report_product_num}</td>
+                                <td>dd</td>
                                 <td> <!-- 신고제목 누를 경우 내용 모달창으로 뜸 -->
                                     <a
                                         id="report_${report.report_num}"
@@ -103,8 +113,14 @@
                                      </div>
                                  </div>
                                 </td>
-                                <td>${report.report_writer_id}</td>
-                                <td>${report.report_date}</td>
+                                <td>dd</td>
+                                <td>dd</td>
+                                <td>dd</td>
+                                <td>dd</td>
+                                <td>dd</td>
+                                <td>dd</td>
+                                <td>dd</td>
+                                <td>dd</td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -115,3 +131,5 @@
         <c:import url="../footer.jsp"></c:import>
     </body>
 </html>
+
+
