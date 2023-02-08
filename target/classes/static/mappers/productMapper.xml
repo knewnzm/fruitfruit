@@ -29,7 +29,6 @@
 	<select id="selectAllProduct" resultMap="product">
 		select * 
 		from product 
-		where product_num=#{product_num}
 	</select>
 
 	<insert id="insertProduct" parameterType="com.project.fruitfruit.product.Product">
@@ -193,19 +192,6 @@
 		num between #{start} and #{end}
 	</select>
 	
-	<select id="selectProductListByLimit" resultMap="product">
-		select data.* from (
-			select rownum as num, list.* 
-			from (
-				select * 
-				from product 
-				order by product_num desc
-				) list 
-			) data 
-		where 
-		num between #{start} and #{end}
-	</select>
-	
 	<select id="selectProductBySellerId" resultMap="product">
 		select data.* from (
 			select rownum as num, list.* 
@@ -220,7 +206,18 @@
 		num between #{start} and #{end}
 	</select>
 	
-	
+	<select id="selectProductListByLimit" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				order by product_num desc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+	</select>
 	
 	<select id="selectSeqProductCurrval" resultType="int">
 		select
@@ -231,4 +228,38 @@
 		select count(*) from
 		sadare_product
 	</select>
+	
+	<select id="selectProductListByProduct_title" parameterType="String"
+		resultMap="product">
+		select * 
+		from product 
+		where product_title like '%${product_title}%' 
+		order by product_num desc
+	</select>
+	<select id="selectProductListByCategory1_num" resultMap="product">
+		select * 
+		from product 
+		where frfr_category1=#{frfr_category1} 
+		order by product_num desc
+	</select>
+	<select id="selectListByCategory2_num" resultMap="product">
+		select * 
+		from product 
+		where frfr_category2=#{frfr_category2} 
+		order by product_num desc
+	</select>
+	<select id="selectListByCategory3_num" resultMap="product">
+		select * 
+		from product 
+		where frfr_category3=#{frfr_category3} 
+		order by product_num desc
+	</select>
+	<select id="selectListByUser_id" parameterType="String"
+		resultMap="product">
+		select * 
+		from product 
+		where product_seller_id=#{product_seller_id} 
+		order by product_num desc
+	</select>
+	
 </mapper>
