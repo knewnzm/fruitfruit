@@ -45,6 +45,12 @@
       WHERE   	cate_parent_num = #{cate_parent_num}
 	  ORDER BY  cate_num
    </select>
+   
+   <select id="Category2All" resultMap="category">
+      SELECT   	* 
+      FROM   	category2   
+	  ORDER BY  cate_num
+   </select>
 
    <delete id="deleteCategory1" parameterType="int">
       DELETE   FROM category1 

@@ -20,6 +20,8 @@ public interface CategoryMapper {
 	ArrayList<Category> selectAllCategory1();
 
 	ArrayList<Category> selectAllCategory2(int cate_parent_num);
+	
+	ArrayList<Category> Category2All();
 
 	// 카테고리 삭제
 	void deleteCategory1(int cate_num);

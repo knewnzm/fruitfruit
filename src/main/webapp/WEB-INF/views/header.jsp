@@ -214,218 +214,24 @@
                             </button>
                             <div class="dep1 hidden">
                                 <ul class="category-wrap">
+                                <c:forEach var="c1" items="${c1 }">
                                     <li class="menuArea">
                                         <a href="#" class="title on">
-                                            <span class="text">과일</span>
+                                            <span class="text">${c1.cate_name }</span>
                                         </a>
                                         <ul class="category-wrap">
+                                         <c:forEach var="c2" items="${c2 }">
+                                         <c:if test="${c1.cate_num==c2.cate_parent_num }">
                                             <li>
                                                 <a href="#" class="on title">
-                                                    <span class="text">사과/배</span>
+                                                    <span class="text">${c2.cate_name }</span>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">감귤/한라봉</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">감/밤/대추</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">토마토/수박/참외</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">딸기/블루베리/베리류</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">키위/참다래/매실</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">오렌지/자몽/레몬</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">포도/복숭아/자두</span>
-                                                </a>
-                                            </li>
+                                        </c:if>
+                                        </c:forEach>
                                         </ul>
                                     </li>
-                                    <li class="menuArea">
-                                        <a href="#" class="title on">
-                                            <span class="text">채소</span>
-                                        </a>
-                                        <ul class="category-wrap">
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">고구마/감자/당근</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">옥수수/오이/호박</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">파프리카/고추</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">양파/마늘/생강/파</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">쌈채소/샐러드</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">마/우엉/연근/인삼</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">배추/무/열무</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">양배추/양상추</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="title on">
-                                            <span class="text">축산물</span>
-                                        </a>
-                                        <ul class="category-wrap">
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">돼지고기</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">소고기</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">닭/기타</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="title on">
-                                            <span class="text">수산물</span>
-                                        </a>
-                                        <ul class="category-wrap">
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">새우/게/갑각류</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">멸치/건어물/기타</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">생선</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">전복/굴/조개류</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">오징어/문어</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">미역/김/해조류</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="title on">
-                                            <span class="text">쌀/잡곡</span>
-                                        </a>
-                                        <ul class="category-wrap">
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">쌀</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">현미/찹쌀/찰현미</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">콩/보리/귀리</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">흑미/팥/율무</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">기장/조/수수</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">기타잡곡</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="title on">
-                                            <span class="text">견과/약재</span>
-                                        </a>
-                                        <ul class="category-wrap">
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">밤/잣/은행</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">인삼/기타약재</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">땅콩/아몬드/호두/기타</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    </c:forEach>                                 
                                 </ul>
                             </div>
                         </div>

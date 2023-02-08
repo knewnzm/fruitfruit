@@ -41,8 +41,11 @@ private CategoryService cservice;
 @RequestMapping(value = "/") //카테고리 대분류 들고 인덱스 페이지 가기
 public ModelAndView home(HttpServletRequest req) {
 	ModelAndView mav = new ModelAndView("/index");
-	ArrayList<Category> cate_list=cservice.getCategoryList(1, 0);
-	mav.addObject("c", cate_list);
+	ArrayList<Category> cate1_list=cservice.getCategoryList(1, 0);
+	ArrayList<Category> cate2_list=cservice.Category2List();
+	System.out.println(cate2_list);
+	mav.addObject("c1", cate1_list);
+	mav.addObject("c2", cate2_list);
 	return mav;
 }
 @GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
