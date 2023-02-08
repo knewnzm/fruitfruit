@@ -2,34 +2,34 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="ko">
     
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="webapp/static/css/common.css">
-        <link rel="stylesheet" type="text/css" href="webapp/static/css/header.css">
-        <link rel="stylesheet" type="text/css" href="webapp/static/css/main.css">
+        <!-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/common.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/header.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
         <title>Document</title>
     </head>
 
 
     <body>
         <!-- Navigation-->
-        <header class="headArea fruit wrap">
-            <div class="util innerContent">
+        <header class="headArea fruit">
+            <div class="util innerContent wrap">
                 <ul class="accountArea">
                     <c:choose>
                         <%-- 비 로그인 상태 --%>
                         <c:when test="${empty sessionScope.user_id}">
-                            <li>
+                            <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/member/loginForm">로그인</a>
                             </li>
-                            <li>
+                            <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/member/joinForm">회원가입</a>
                             </li>
-                            <li>
+                            <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/help/helpList">1:1문의</a>
                             </li>
                         </c:when>
@@ -38,37 +38,36 @@
                             <c:choose>
                                 <%-- 관리자 로그인 시 --%>
                                 <c:when test="${sessionScope.user_type == 3}">
-                                    <li>
+                                    <li class="nav-item">
                                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
                                         role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">관리자 메뉴</a>
+                                        aria-expanded="false">
+                                        <span class="type-wrap"><span class="mem-type">관리자</span>내 메뉴</span>
+                                    </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/member/main">내정보</a>
                                             </li>
-                                            <li>
-                                                <hr class="dropdown-divider" />
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/member/list">회원관리</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/product/list">제품관리</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/report/reportList">신고
                                                 목록 확인</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
-                                                href="${pageContext.request.contextPath}/notice/notice_board">공지사항</a>
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
+                                                href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/admin/category">카테고리
                                                 관리</a>
                                             </li>
@@ -85,7 +84,7 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            내 메뉴
+                                        <span class="type-wrap"><span class="mem-type">판매자</span>내 메뉴</span>
                                             <c:if test="${alram_size >= 1}">
                                                 <span class="
                                                 position-absolute
@@ -102,19 +101,19 @@
                                             </c:if>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/member/main">내정보
                                                     <c:if test="${alram_size >= 1}">
                                                         <span class="badge bg-danger">${alram_size}</span>
                                                     </c:if>
                                                 </a>
                                             </li>
-                                            <li>
+                                            <li class="dropdown-item">
                                                 <hr class="dropdown-divider" />
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/product/add">제품
                                                 추가하기</a>
                                             </li>
@@ -131,7 +130,7 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            내 메뉴
+                                                            <span class="type-wrap"><span class="mem-type">구매자</span>내 메뉴</span>
                                             <c:if test="${alram_size >= 1}">
                                                 <span class="
                                                 position-absolute
@@ -148,19 +147,21 @@
                                             </c:if>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/member/main">내정보
                                                     <c:if test="${alram_size >= 1}">
                                                         <span class="badge bg-danger">${alram_size}</span>
                                                     </c:if>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <hr class="dropdown-divider" />
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
+                                                href="${pageContext.request.contextPath}/product/add">제품
+                                                추가하기</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item"
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item-a"
                                                 href="${pageContext.request.contextPath}/product/add">제품
                                                 추가하기</a>
                                             </li>
@@ -178,8 +179,8 @@
                     <div class="main innerContent">
                         <!-- Logo -->
                         <h1 class="logoArea fruit">
-                            <a href="#">
-                                <img src="${pageContext.request.contextPath}/static/img/프룻프룻d.png" alt="프룻프룻 로고" style="width:200px;">
+                            <a href="${pageContext.request.contextPath}/">
+                                <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="프룻프룻 로고" style="width:150px;">
                             </a>
                         </h1>
                         <div class="searchAreaWrap">
@@ -193,16 +194,17 @@
                         </div>
                         <div class="buttonArea">
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/wish/wishList" class="heart">나의 찜</a>
+                                <a href="${pageContext.request.contextPath}/wish/wishList" class="heart"><span>나의 찜</span></a>
                             </div>
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/" class="mypage">마이페이지</a>
+                                <a href="${pageContext.request.contextPath}/" class="mypage"><span>마이페이지</span></a>
                             </div>
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/help/helpForm.jsp" class="chat">1:1 문의</a>
+                                <a href="${pageContext.request.contextPath}/help/helpForm.jsp" class="chat"><span>1:1문의</span></a>
                             </div>
                         </div>
                     </div>
+            </div>
             </div>
             <div class="sub">
                 <div class="inner">
@@ -210,6 +212,7 @@
                         <div class="moreViewWrap">
                             <button type="button" class="moreView">
                                 <span class="bar"></span>
+                                <span>카테고리</span>
                             </button>
                             <div class="dep1 hidden">
                                 <ul class="category-wrap">
@@ -432,7 +435,7 @@
                             <div id="menuInner" class="menuInner">
                                 <ul>
                                     <li class>
-                                        <a href="#">홈</a>
+                                        <a href="#">신상품</a>
                                     </li>
                                     <li class>
                                         <a href="#">MD PICK</a>
@@ -441,126 +444,13 @@
                                         <a href="#">인기베스트</a>
                                     </li>
                                     <li class>
-                                        <a href="#">이벤트/공지</a>
+                                        <a href="${pageContext.request.contextPath}/notice/noticeList">이벤트/공지</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="trending">
-                    <button type="button" class="moreView">
-                        <span class="blind">전체 순위 보기</span>
-                    </button>
-                    <div class="preview">
-                        <div class="swiper-container swiper-container ">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">1</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">2</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">3</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">4</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">5</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">6</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">7</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">8</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">9</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="" class="">
-                                        <span class="rank">10</span>
-                                        <span class="keyword"></span>
-                                        <span class="rankup">
-                                            " 1 "
-                                            <span class="flag up"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
             </div>
         </header>
 

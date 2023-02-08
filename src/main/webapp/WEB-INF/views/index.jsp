@@ -12,7 +12,7 @@
         <!-- Section -- -->
         
         <c:import url="./main.jsp"></c:import>
-        
+
         <c:import url="./footer.jsp"></c:import>
 
 

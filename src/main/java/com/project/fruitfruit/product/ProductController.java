@@ -32,12 +32,12 @@ public class ProductController {
 	private String webPath = "\\static\\product\\";
 
 	
-	@RequestMapping("/")
-	public String index(Model model) {
-		List<Product> list = pService.selectProductListByLimit(0, 8);
-		model.addAttribute("list", list);
-		return "index";
-	}
+	// @RequestMapping("/")
+	// public String index(Model model) {
+	// 	List<Product> list = pService.selectProductListByLimit(0, 8);
+	// 	model.addAttribute("list", list);
+	// 	return "index";
+	// }
 	
 
 	@GetMapping("/product/productForm")
@@ -80,11 +80,14 @@ public class ProductController {
 	@PostMapping("/product/productForm")
 	public String addProduct(Product p) {
 		pService.insertProduct(p);
+
+		//이미지 처리
 		int product_num = pService.selectSeqProductCurrval();
-		uploadFile(p.getFile(), product_num);
-		uploadInnerFiles(p.getInnerFile1(), product_num, 1);
-		uploadInnerFiles(p.getInnerFile2(), product_num, 2);
-		uploadInnerFiles(p.getInnerFile3(), product_num, 3);
+		// uploadFile(p.getFile(), product_num);
+		// uploadInnerFiles(p.getInnerFile1(), product_num, 1);
+		// uploadInnerFiles(p.getInnerFile2(), product_num, 2);
+		// uploadInnerFiles(p.getInnerFile3(), product_num, 3);
+		
 		
 		return "redirect:/product/productDetail?product_num=" + product_num;
 	}
@@ -195,7 +198,7 @@ public class ProductController {
 	//select
 	@RequestMapping("/product/productDetail")
 	public void viewProduct(@RequestParam int product_num, Model model) {
-		pService.addProductHit(product_num);
+		pService.addProductHit(product_num);////
 		Product p = pService.selectProduct(product_num);
 		model.addAttribute("p", p);
 	}
@@ -206,6 +209,7 @@ public class ProductController {
 		String user_id = (String) session.getAttribute("user_id");
 		int user_type = (int) session.getAttribute("user_type");
 		Product p = pService.selectProduct(product_num);
+		
 		if (user_id.equals(p.getProduct_seller_id()) || user_type == 2) {
 			if (p.getProduct_view_type() == 0) {	//blinded
 				pService.deleteProduct(product_num);
@@ -216,6 +220,16 @@ public class ProductController {
 		} else {
 			return "redirect:/member/loginForm";
 		}
+	}
+	
+	@RequestMapping("/product/deleteTest")
+	public String deleteProductTest(@RequestParam int product_num) {
+		String user_id = (String) session.getAttribute("user_id");
+		int user_type = (int) session.getAttribute("user_type");
+		Product p = pService.selectProduct(product_num);
+		
+		pService.deleteProduct(product_num);
+		return "redirect:/product/productList";
 	}
 	
 

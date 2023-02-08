@@ -1,11 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%> <%@ taglib
-uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
+ <head>
+ <title>notice List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
         $(document).ready(function () {
@@ -35,36 +37,36 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         });
         </script>
     </head>
-    <body>
-<div class="wrap">
+<body>
 	<header>
-		<h3>헤더 입니다</h3>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
 	</header>
+<div class="wrap">
 	<main id="cantainer" class="container">
 		<div id="content" class="content">
+				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
 			<div class="login_wrap">
 				<div class="logo">
-					<a> 
-					<img src="${pageContext.request.contextPath}/static/image/Logo.png" class="fruit_Logo"></a> 
+					<a><img src="${pageContext.request.contextPath}/static/img/frLogo.png" class="fruit_Logo"></a> 
 				</div>
-				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
-				<!-- login -->
-				<div class="login_panner">
+					<!-- login -->
+					<div class="login_panner">
 					<div class="login_box">
 						<div class="id_line">
 							<div class="login_icon">
-								<img src="${pageContext.request.contextPath}/static/image/user.png" class="login_img">
+								<img src="${pageContext.request.contextPath}/static/img/login_user.png" class="login_img">
 							</div>
 							<input type="text" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요.">
 						</div>
 						<div class="pwd_line">
 							<div class="login_icon">
-								<img src="${pageContext.request.contextPath}/static/image/padlock.png" class="login_img">
+								<img src="${pageContext.request.contextPath}/static/img/login_padlock.png" class="login_img">
 							</div>
 							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요.">
 						</div>
 					</div>
-					<span id="msg" class="my-3 py-2 msg">아이디 비번 공백 확인 메시지</span>
+					<span id="msg" class="my-3 py-2 msg"></span>
 					<div class="login_option">
 						<div class="keep_wrap">
 							<input type="checkbox"  id="id_keep" name="id_keep" value="off">
@@ -80,7 +82,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						</div>
 					</div>
 					<div class="login_btn_wrap">
-						<button type="button" id="login_btn" >
+						<button type="button" id="login_btn">
 							<span class="login_btn_text">로그인</span>
 						</button>
 					</div>
@@ -99,21 +101,21 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 								<li class="social_btn">
 									<a href="" onclick="" >
 										<i class="icon_naver"></i>
-											<img src="${pageContext.request.contextPath}/static/image/naver_icon.png" class="social_icon"><br>
+											<img src="${pageContext.request.contextPath}/static/img/login_naver_icon.png" class="social_icon"><br>
 												<span class="social_text">네이버</span>
 									</a>
 								</li>
 								<li class="social_btn">
 									<a href="kakaotalk.png" onclick="" >
 										<i class="icon_kakao"></i>
-											<img src="${pageContext.request.contextPath}/static/image/kakaotalk_icon.png" class="social_icon"><br>
+											<img src="${pageContext.request.contextPath}/static/img/login_kakaotalk_icon.png" class="social_icon"><br>
 												<span class="social_text">카카오</span>
 									</a>
 								</li>
 								<li class="social_btn">
 									<a href="" onclick="" >
 										<i class="icon_google"></i>
-											<img src="${pageContext.request.contextPath}/static/image/google_icon.png"  class="social_icon"><br>
+											<img src="${pageContext.request.contextPath}/static/img/login_google_icon.png"  class="social_icon"><br>
 										<span class="social_text">구글</span>
 									</a>
 								</li>
@@ -121,15 +123,15 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 					</div>
 				<!-- social end -->
 				</div>
-			<!-- login_wrap -->
 			</div>
-		<!-- content -->
+			</form>
+		<!-- content end -->
 		</div>
 	</main>
-	<footer>
-		<h3>footer 자리 입니다</h3>
-	</footer>
 <!-- wrap end -->
 </div>
+	<footer>
+		 <c:import url="../footer.jsp"></c:import>
+	</footer>
 </body>
 </html>

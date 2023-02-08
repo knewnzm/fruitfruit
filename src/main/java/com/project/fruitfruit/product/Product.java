@@ -9,19 +9,20 @@ public class Product {
 	private int product_num;
 	private String product_seller_id;
 	private String product_title;
-	private String product_path;
 	private String product_content;
-	private String product_inner_path1;
-	private String product_inner_path2;
-	private String product_inner_path3;
 	private int product_price;
-	private int produt_quantity;
+	private int product_quantity;
 	private Date product_date;
 	private int product_hit;
-	private boolean product_pick;
+	private int product_pick;
 	private int product_view_type;
 	private String frfr_category1;
 	private String frfr_category2;
+
+	private String product_path;
+	private String product_inner_path1;
+	private String product_inner_path2;
+	private String product_inner_path3;
 	
 	private MultipartFile file;
 	private MultipartFile inner_file1;
@@ -35,7 +36,7 @@ public class Product {
 
 	public Product(int product_num, String product_seller_id, String product_title, String product_path,
 			String product_content, String product_inner_path1, String product_inner_path2, String product_inner_path3,
-			int product_price, int produt_quantity, Date product_date, int product_hit, boolean product_pick,
+			int product_price, int product_quantity, Date product_date, int product_hit, int product_pick,
 			int product_view_type, String frfr_category1, String frfr_category2) {
 		super();
 		this.product_num = product_num;
@@ -47,7 +48,7 @@ public class Product {
 		this.product_inner_path2 = product_inner_path2;
 		this.product_inner_path3 = product_inner_path3;
 		this.product_price = product_price;
-		this.produt_quantity = produt_quantity;
+		this.product_quantity = product_quantity;
 		this.product_date = product_date;
 		this.product_hit = product_hit;
 		this.product_pick = product_pick;
@@ -128,12 +129,12 @@ public class Product {
 		this.product_price = product_price;
 	}
 
-	public int getProdut_quantity() {
-		return produt_quantity;
+	public int getProduct_quantity() {
+		return this.product_quantity;
 	}
 
-	public void setProdut_quantity(int produt_quantity) {
-		this.produt_quantity = produt_quantity;
+	public void setProduct_quantity(int product_quantity) {
+		this.product_quantity = product_quantity;
 	}
 
 	public Date getProduct_date() {
@@ -152,11 +153,11 @@ public class Product {
 		this.product_hit = product_hit;
 	}
 
-	public boolean getProduct_pick() {
+	public int getProduct_pick() {
 		return product_pick;
 	}
 
-	public void setProduct_pick(boolean product_pick) {
+	public void setProduct_pick(int product_pick) {
 		this.product_pick = product_pick;
 	}
 
@@ -222,7 +223,7 @@ public class Product {
 				+ product_title + ", product_path=" + product_path + ", product_content=" + product_content
 				+ ", product_inner_path1=" + product_inner_path1 + ", product_inner_path2=" + product_inner_path2
 				+ ", product_inner_path3=" + product_inner_path3 + ", product_price=" + product_price
-				+ ", produt_quantity=" + produt_quantity + ", product_date=" + product_date + ", product_hit="
+				+ ", product_quantity=" + product_quantity + ", product_date=" + product_date + ", product_hit="
 				+ product_hit + ", product_pick=" + product_pick + ", product_view_type=" + product_view_type
 				+ ", frfr_category1=" + frfr_category1 + ", frfr_category2=" + frfr_category2 + ", file=" + file
 				+ ", inner_file1=" + inner_file1 + ", inner_file2=" + inner_file2 + ", inner_file3=" + inner_file3

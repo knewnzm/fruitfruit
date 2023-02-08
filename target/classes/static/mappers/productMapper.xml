@@ -7,11 +7,9 @@
 		<result property="product_num" column="product_num" />
 		<result property="product_seller_id" column="product_seller_id" />
 		<result property="product_title" column="product_title" />
-		<result property="product_path" column="product_path" />
 		<result property="product_content" column="product_content" />
-		<result property="product_inner_path" column="product_inner_path" />
 		<result property="product_price" column="product_price" />
-		<result property="produt_quantity" column="produt_quantity" />
+		<result property="product_quantity" column="product_quantity" />
 		<result property="product_date" column="product_date" />
 		<result property="product_hit" column="product_hit" />
 		<result property="product_pick" column="product_pick" />
@@ -31,21 +29,33 @@
 		from product 
 	</select>
 
-	<insert id="insertProduct" parameterType="com.project.fruitfruit.product.Product">
+<insert id="insertProduct" parameterType="com.project.fruitfruit.product.Product">
 		insert into product 
+		(
+			product_num, 
+			product_seller_id, 
+			product_title, 
+			product_content, 
+			product_price, 
+			product_quantity, 
+			product_date, 
+			product_hit, 
+			product_pick, 
+			product_view_type, 
+			frfr_category1, 
+			frfr_category2
+		) 
 		values (
-			seq_product.nextval, 
-			#{product_seller_id}, 
-			#{product_title},
-			#{product_path}, 
+			to_number(seq_product.nextval), 
+			#{product_seller_id},
+			#{product_title}, 
 			#{product_content}, 
-			#{product_inner_path}, 
-			#{product_price}, 
-			#{produt_quantity}, 
+			to_number(#{product_price}), 
+			to_number(#{product_quantity}), 
 			sysdate, 
-			0,
-			False,
-			1
+			to_number(0), 
+			to_number(0), 
+			to_number(1), 
 			#{frfr_category1}, 
 			#{frfr_category2}
 		)
@@ -73,42 +83,42 @@
 	<update id="updateProductPickTrue" parameterType="int">
 		update product 
 		set 
-			product_pick=True,
+			product_pick=1
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="updateProductPickFalse" parameterType="int">
 		update product 
 		set 
-			product_pick=False,
+			product_pick=0
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="updateProductViewTypeBlind" parameterType="int">
 		update product 
 		set 
-			product_pick=False,
+			product_view_type=0
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="updateProductViewTypeUnblind" parameterType="int">
 		update product 
 		set 
-			product_pick=False,
+			product_view_type=1
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="addProductHit" parameterType="int">
 		update product 
 		set 
-			product_hit=product_hit+1,
+			product_hit = product_hit + 1
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="updateProductQuantity" parameterType="com.project.fruitfruit.product.Product">
 		update product 
 		set 
-			produt_quantity=#{produt_quantity},
+			produt_quantity=#{produt_quantity}
 		where product_num=#{product_num}
 	</update>
 	
