@@ -14,8 +14,8 @@
  <div class="fr_box">
   <div class="fr_box1">
   <div class="fr_result">아이디  ${user_id } </div>
-   <button type="button" class="fr_button" onclick="${pageContext.request.contextPath}/member/loginForm">로그인 가기</button>
-   <button type="button" class="fr_button" onclick="${pageContext.request.contextPath}/member/findPwd">비밀번호 찾기</button>
+   <button type="button" class="fr_button" onclick="location.href='${pageContext.request.contextPath}/member/loginForm'">로그인 가기</button>
+   <button type="button" class="fr_button" onclick="location.href='${pageContext.request.contextPath}/member/findPwd'">비밀번호 찾기</button>
   </div>
  </div>
 </div>

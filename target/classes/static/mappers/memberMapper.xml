@@ -29,6 +29,10 @@
 		select *
 		from member where user_id=#{user_id}
 	</select>
+	<select id="selectbyname" parameterType="String" resultMap="member">
+		select *
+		from member where user_name=#{user_name}
+	</select>
 	<select id="list" resultMap="member">
 		select * from member
 	</select>
@@ -40,9 +44,9 @@
 		user_postcode=#{user_postcode},
 		user_addr1=#{user_addr1}, 
 		user_addr2=#{user_addr2},
-		user_account=#{user_account} where
-		user_bank=#{user_bank} where
-		user_id=#{user_id}
+		user_account=#{user_account},
+		user_bank=#{user_bank} 
+		where user_id=#{user_id}
 	</update>
 	<update id="changePwd" parameterType="com.project.fruitfruit.member.Member">
 		update member set user_pwd=#{user_pwd}

@@ -12,6 +12,9 @@ body{
 	margin: 0;
 }
 </style>
+
+
+
 </head>
 
 <body>
@@ -22,7 +25,7 @@ body{
 
 <section class="f_container">
 <div class="fi_pd">
-<form name="f" action="" method="post">
+<form name="f" action="${pageContext.request.contextPath}/member/findId" method="post">
  <div class="f_h"><h1>아이디 찾기</h1></div>
   <div class="fi_coment"> 아이디를 잊으셨나요?<br>회원가입 시 등록한 정보를 입력해 주세요.
   </div>
@@ -31,7 +34,8 @@ body{
     </div> <br> <input type="text" class="f_id_line" id="user_name" name="user_name" placeholder="이름을 입력해 주세요."><br>
     <div class="f_tel_title">전화번호
     </div> <br> <input type="text" class="f_id_line" id="user_tel" name="user_tel" placeholder="숫자만 입력해 주세요."><br>
-<input type="submit" id="find" class="f_button" value="확인">
+    <span id="msg"></span>
+<input type="submit" class="f_button" value="확인">
    </div>
 </form>
 </div>

@@ -9,4 +9,60 @@
       <result property="cate_name" column="cate_name"/>
       <result property="cate_parent_num" column="cate_parent_num"/>
    </resultMap>
+    <insert id="insertCategory1" parameterType="com.project.fruitfruit.category.Category">
+      INSERT   INTO category1 
+      VALUES   (seq_category1.nextval, #{cate_name})
+   </insert>
+   
+   <insert id="insertCategory2" parameterType="com.project.fruitfruit.category.Category">
+      INSERT   INTO category2 
+      VALUES   (seq_category2.nextval, #{cate_name}, #{cate_parent_num})
+   </insert>
+   
+   <select id="selectCategory1" resultMap="category" parameterType="int">
+      SELECT   	* 
+      FROM   	category1 
+      WHERE   	cate_num = #{cate_num}
+      ORDER BY cate_num
+   </select>
+   
+   <select id="selectCategory2" resultMap="category" parameterType="int">
+      SELECT   	* 
+      FROM   	category2 
+      WHERE   	cate_num = #{cate_num}
+      ORDER BY cate_num
+   </select>
+   
+   <select id="selectAllCategory1" resultMap="category">
+      SELECT   	* 
+      FROM   	category1
+	  ORDER BY  cate_num
+   </select>
+   
+   <select id="selectAllCategory2" resultMap="category" parameterType="int">
+      SELECT   	* 
+      FROM   	category2 
+      WHERE   	cate_parent_num = #{cate_parent_num}
+	  ORDER BY  cate_num
+   </select>
+
+   <delete id="deleteCategory1" parameterType="int">
+      DELETE   FROM category1 
+      WHERE		cate_num = #{cate_num}
+   </delete>   
+   
+   <delete id="deleteCategory2" parameterType="int">
+      DELETE   FROM category2 
+      WHERE   	cate_num = #{cate_num}
+   </delete>   
+   
+   <select id="getNum1" resultType="int">
+      SELECT   seq_category1.currval
+      FROM   	dual
+   </select>
+   
+   <select id="getNum2" resultType="int">
+      SELECT   seq_category2.currval
+      FROM   	dual
+   </select>
 </mapper>
