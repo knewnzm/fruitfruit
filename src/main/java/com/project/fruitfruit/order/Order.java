@@ -4,21 +4,12 @@ public class Order {
 
 	private int order_num;
 	private String order_id;
-	private int order_product_num;
+	private String product_seller_id;
 	private int order_count;
 	private int order_type;
 	
 	public Order() {
 		super();
-	}
-
-	public Order(int order_num, String order_id, int order_product_num, int order_count, int order_type) {
-		super();
-		this.order_num = order_num;
-		this.order_id = order_id;
-		this.order_product_num = order_product_num;
-		this.order_count = order_count;
-		this.order_type = order_type;
 	}
 
 	public int getOrder_num() {
@@ -37,12 +28,12 @@ public class Order {
 		this.order_id = order_id;
 	}
 
-	public int getOrder_product_num() {
-		return order_product_num;
+	public String getProduct_seller_id() {
+		return product_seller_id;
 	}
 
-	public void setOrder_product_num(int order_product_num) {
-		this.order_product_num = order_product_num;
+	public void setProduct_seller_id(String product_seller_id) {
+		this.product_seller_id = product_seller_id;
 	}
 
 	public int getOrder_count() {
@@ -63,8 +54,10 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [order_num=" + order_num + ", order_id=" + order_id + ", order_product_num=" + order_product_num
+		return "Order [order_num=" + order_num + ", order_id=" + order_id + ", product_seller_id=" + product_seller_id
 				+ ", order_count=" + order_count + ", order_type=" + order_type + "]";
 	}
+
+	
 	
 }
