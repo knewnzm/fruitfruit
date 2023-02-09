@@ -1,7 +1,7 @@
 package com.project.fruitfruit.member;
 
 
-import java.sql.Date;
+
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.fruitfruit.category.Category;
 import com.project.fruitfruit.category.CategoryService;
+
 
 
 
@@ -188,9 +189,15 @@ public String out(HttpServletRequest req, @RequestParam(value = "user_id", requi
 	return "redirect:/member/loginForm";
 }
 
-@GetMapping(value = "/member/findId") //아이디 찾기 페이지 가기
-public void findIdForm() { 
-	
+@GetMapping(value = "/member/findId")   //아이디 찾기 가기
+public String findId(HttpServletRequest req) {
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id");
+	if (id != null) {
+		return "redirect:/ ";
+	} else {
+		return req.getRequestURI();
+	}
 }
 
 @RequestMapping(value = "/member/findId") //아이디 찾기
@@ -200,11 +207,11 @@ public ModelAndView findId(HttpServletRequest req, @RequestParam(value = "user_n
 
 	Member m = service.selectbyname(user_name);
 
-	if (m == null) {
+	if (m== null ) {
 		
 		mav.setViewName("/member/findId");
 		mav.addObject("error", "이름를 확인해주세요.");
-	} else if (m.getUser_name().equals(user_name) || m.getUser_tel()==user_tel) {
+	} else if (m.getUser_name().equals(user_name) && m.getUser_tel()==user_tel) {
 		mav.addObject("user_id", m.getUser_id());
 		mav.setViewName("/member/findIdResult");
 
@@ -214,19 +221,63 @@ public ModelAndView findId(HttpServletRequest req, @RequestParam(value = "user_n
 	}
 	return mav;
 }
-@GetMapping(value = "/member/findIdResult") //아이디 찾기 페이지 가기
-public void findIdResult() { 
-	
+
+
+@GetMapping(value = "/member/findPwd")   //비밀번호 찾기 가기
+public String findPwd(HttpServletRequest req) {
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id");
+	if (id != null) {
+		return "redirect:/ ";
+	} else {
+		return req.getRequestURI();
+	}
 }
 
-@GetMapping(value = "/member/findPwd") //비밀번호 찾기 페이지 가기
-public void findPwdForm() { 
-	
+@RequestMapping(value = "/member/findPwd") //비밀번호 찾기
+public ModelAndView findPwd(HttpServletRequest req,@RequestParam(value = "user_id") String user_id, 
+		@RequestParam(value = "user_name") String user_name, 
+		@RequestParam(value = "user_tel") int user_tel) {
+	ModelAndView mav = new ModelAndView();
+
+	Member m = service.select(user_id);
+
+	if (m== null ) {
+		
+		mav.setViewName("/member/findPwd");
+		mav.addObject("error", "이름를 확인해주세요.");
+	} else if (m.getUser_name().equals(user_name) && m.getUser_tel()==user_tel) {
+		mav.setViewName("/member/changePwd");
+		mav.addObject("user_id", user_id);
+		
+	} else {
+		mav.setViewName("/member/findPwd");
+		mav.addObject("error", "입력값을 확인해주세요.");
+	}
+	return mav;
 }
-@GetMapping(value = "/member/changePwd") //비밀번호 변경 페이지 가기
-public void changePwdForm() { 
-	
+
+
+@GetMapping(value = "/member/changePwd")   // 비밀번호 변경 페이지 가기
+public String changePwd(HttpServletRequest req) {
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id");
+	if (id != null) {
+		return "redirect:/ ";
+	} else {
+		return req.getRequestURI();
+	}
 }
+
+@PostMapping(value = "/member/changePwd") //비밀번호 변경하기
+public String changePwd(Member m) {
+	System.out.println("changePwd");
+	service.changePwd(m);
+	System.out.println("changePwd2");
+	return "redirect:/member/loginForm";
+}
+
+
 @GetMapping(value = "/product/mylist") //
 public void mylist() {
 	
