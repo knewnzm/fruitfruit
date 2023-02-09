@@ -30,3 +30,7 @@ const target = event.target;
     }
 });
 
+
+  document.getElementById("productOption").addEventListener("change", function() {
+    document.getElementById("productForm").submit();
+  });

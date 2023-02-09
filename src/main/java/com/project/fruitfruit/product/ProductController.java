@@ -114,19 +114,23 @@ public class ProductController {
 
 	//selectAll
 	@RequestMapping("/product/productList")
-	public String list(Model model, @RequestParam(defaultValue = "1", required = false) int p) {
+	public String list(	Model model, 
+						@RequestParam(defaultValue = "1", required = false) int p, 
+						@RequestParam(defaultValue = "0", required = false) int type) {
 		Page page = new Page(p, pService.getProductListSize());
 		page.pageInfo();
 		if (p > page.getMaxPage() && page.getMaxPage() != 0) {
 			return "redirect:/product/productList?p=" + page.getMaxPage();
 		} else {
 			List<Product> list = selectList(
-					0, 
+					type, 
 					page.getStartList(),
 					page.getStartList() + page.getListSize());
 			
 			model.addAttribute("plist", list);
 			model.addAttribute("page", page);
+			model.addAttribute("type", type);
+			
 			return request.getContextPath() + request.getRequestURI();
 		}
 	}
@@ -163,10 +167,10 @@ public class ProductController {
 			list = pService.onlyProductViewTypeBlind(start, end);
 			break;
 		}
-		case 7: {
-			list = pService.selectProductBySellerId(start, end);
-			break;
-		}
+//		case 7: {
+//			list = pService.selectProductBySellerId(start, end);
+//			break;
+//		}
 		default:
 //			list = pService.selectProductListByLimit(start, end);
 		}

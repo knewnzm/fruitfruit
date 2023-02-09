@@ -163,11 +163,13 @@
 
 .product-list .new_list {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: 65px;
 }
 
 .product-list .new_list .product-card {
   float:left;
+  
 }
 
 .product-list .product-img {

@@ -64,9 +64,9 @@
               <div class="description-value">상품설명/상세정보 참조</div>
             </div>
           </div>
-          <div class="info report-wrap">
+<!--           <div class="info report-wrap">
             <button class="report-btn">신고하기</button>
-          </div>
+          </div> -->
         </div>
 
           <div class="buttons">
