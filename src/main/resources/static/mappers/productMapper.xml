@@ -200,6 +200,7 @@
 			) data 
 		where 
 		num between #{start} and #{end}
+		order by product_num desc
 	</select>
 	
 	<select id="selectProductBySellerId" resultMap="product">
@@ -214,6 +215,7 @@
 			) data 
 		where 
 		num between #{start} and #{end}
+		order by product_num desc
 	</select>
 	
 	<select id="selectProductListByLimit" resultMap="product">
@@ -227,16 +229,17 @@
 			) data 
 		where 
 		num between #{start} and #{end}
+		order by product_num desc
 	</select>
 	
 	<select id="selectSeqProductCurrval" resultType="int">
-		select
-		seq_product.currval from dual
+		select seq_product.currval 
+		from dual
 	</select>
 	
 	<select id="selectListSize" resultType="int">
-		select count(*) from
-		sadare_product
+		select count(*) 
+		from product
 	</select>
 	
 	<select id="selectProductListByProduct_title" parameterType="String"

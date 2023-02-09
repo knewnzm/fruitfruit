@@ -49,9 +49,17 @@ public class ProductController {
 		if (!dir.exists()) {
 			dir.mkdir();
 		}
+		
 		if (!file.isEmpty()) {
-			String uploadPath = webPath + product_num + "\\" + /* img_num + "_" + */ file.getOriginalFilename();
+			String uploadPath = webPath + product_num + "/" + file.getOriginalFilename();
 			File f = new File(projectPath + uploadPath);
+			if (!f.exists()) {
+				try {
+					f.createNewFile();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 			try {
 				file.transferTo(f);
 			} catch (Exception e) {
@@ -81,9 +89,8 @@ public class ProductController {
 	public String addProduct(Product p) {
 		pService.insertProduct(p);
 
-		//이미지 처리
 		int product_num = pService.selectSeqProductCurrval();
-		// uploadFile(p.getFile(), product_num);
+		uploadFile(p.getFile(), product_num);
 		// uploadInnerFiles(p.getInnerFile1(), product_num, 1);
 		// uploadInnerFiles(p.getInnerFile2(), product_num, 2);
 		// uploadInnerFiles(p.getInnerFile3(), product_num, 3);
@@ -111,7 +118,7 @@ public class ProductController {
 		Page page = new Page(p, pService.getProductListSize());
 		page.pageInfo();
 		if (p > page.getMaxPage() && page.getMaxPage() != 0) {
-			return "redirect:/product/list?p=" + page.getMaxPage();
+			return "redirect:/product/productList?p=" + page.getMaxPage();
 		} else {
 			List<Product> list = selectList(
 					0, 
@@ -129,7 +136,7 @@ public class ProductController {
 		
 		switch (type) {
 		case 0: {
-//			list = pService.selectProductListByLimit(start, end);
+			list = pService.selectProductListByLimit(start, end);
 			break;
 		}
 		case 1: {
@@ -160,7 +167,6 @@ public class ProductController {
 			list = pService.selectProductBySellerId(start, end);
 			break;
 		}
-		
 		default:
 //			list = pService.selectProductListByLimit(start, end);
 		}
@@ -221,17 +227,6 @@ public class ProductController {
 			return "redirect:/member/loginForm";
 		}
 	}
-	
-	@RequestMapping("/product/deleteTest")
-	public String deleteProductTest(@RequestParam int product_num) {
-		String user_id = (String) session.getAttribute("user_id");
-		int user_type = (int) session.getAttribute("user_type");
-		Product p = pService.selectProduct(product_num);
-		
-		pService.deleteProduct(product_num);
-		return "redirect:/product/productList";
-	}
-	
 
 	
 	//관리자 픽 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -19,62 +20,63 @@
     <div class="product-detail-container">
       <div class="product-detail">
         <div class="product-image-section">
-            <img src="https://img-cf.kurly.com/shop/data/goods/1605153804702l0.jpg" alt="product.product_title">
+        	<img src="${p.product_path}" alt="${p.product_path}"/>
         </div>
         <div class="product-info-section">
-          <div class="title">[하리보] 메가룰렛 45gx24개 2종</div>
-          <div class="price">23,500원</div>
+          <div class="title">${p.product_title}</div>
+          <div class="price"><fmt:formatNumber value="${p.product_price}" pattern="#,###원" /></div>
 
           <div class="info-wrap">
           <div class="info delivery">
             <div class="title">배송</div>
             <div class="description">
-              <div class="description-value">샛별배송</div>
-              <div class="delivery-details">23시 전 주문 시 내일 아침 7시 전 도착(대구·부산·울산 샛별배송 운영시간 별도 확인)</div>
+              <div class="description-value">직접배송</div>
+              <div class="delivery-details">별도 문의</div>
             </div>
           </div>
           <div class="info seller">
             <div class="title">판매자</div>
             <div class="description">
-              <div class="description-value">컬리</div>
+              <div class="description-value">${p.product_seller_id}</div>
             </div>
           </div>
-          <div class="info packaging">
-            <div class="title">포장타입</div>
+          <div class="info quantity">
+            <div class="title">수량</div>
             <div class="description">
-              <div class="description-value">냉장 (종이포장)</div>
-              <div class="packaging-details">택배배송은 에코 포장이 스티로폼으로 대체됩니다.</div>
+              <div class="description-value"><fmt:formatNumber value="${p.product_quantity}" pattern="#,### 개" /></div>
+            </div>
+          </div>
+          <div class="info allergy-info">
+            <div class="title">조회수</div>
+            <div class="description">
+              <div class="description-value">${p.product_hit}</div>
             </div>
           </div>
           <div class="info selling-unit">
             <div class="title">판매단위</div>
             <div class="description">
-              <div class="description-value">1박스</div>
+              <div class="description-value">상품설명/상세정보 참조</div>
             </div>
           </div>
           <div class="info weight-volume">
             <div class="title">중량/용량</div>
             <div class="description">
-              <div class="description-value">1.08kg (45g X 24개입)</div>
-            </div>
-          </div>
-          <div class="info origin">
-            <div class="title">원산지</div>
-            <div class="description">
               <div class="description-value">상품설명/상세정보 참조</div>
             </div>
           </div>
-          <div class="info allergy-info">
-            <div class="title">알레르기정보</div>
-            <div class="description">
-              <div class="description-value">상품별 상이</div>
-            </div>
+          <div class="info report-wrap">
+            <button class="report-btn">신고하기</button>
           </div>
         </div>
 
           <div class="buttons">
             <button class="wishlist-btn">찜</button>
             <button class="cart-btn">장바구니 담기</button>
+            <form id="report_form" action="${pageContext.request.contextPath}/report/add">
+            <button type="submit" class="btn btn-primary" id="report">신고</button>
+            <input type="hidden" name="product_num" value="${p.product_num }">
+            <input type="hidden" name="product_seller_id" value="${p.product_seller_id }">
+            </form>
           </div>
 
         </div>

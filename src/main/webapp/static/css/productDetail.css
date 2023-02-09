@@ -6,6 +6,7 @@
 
 /* 제품 상세 전체(이미지 + 설명) */
 .product-detail {
+    position: relative;
     display: flex;
     justify-content: space-between;
 }
@@ -64,7 +65,6 @@ button {
     margin-bottom: 20px;
 }
 
-  
 
 .product-detail {
     display: flex;
@@ -90,6 +90,11 @@ width: 30%;
 width: 70%;
 }
 
+/* 신고하기 */
+.info .report-btn {
+    position: absolute;
+    right: 0;
+}
 
 /* 찜하기, 장바구니 */
 .buttons {
