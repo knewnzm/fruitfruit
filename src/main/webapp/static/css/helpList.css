@@ -165,19 +165,23 @@ tr{
 th,td {
 	padding:18px;
   }
+  .list_state{
+ 	 width:130px;
+}
 .list_type{
-	width:150px;
+	width:130px;
 }
 .link{
 	color:#777;
 }
-.list_date{
-	width:196px;
-}
 .list_title{
-	width:490px;
+	width:698px;
 	text-align: left;
 	padding-left:30px;
+}
+.list_date{
+	width:150px;
+	font-size:13px;
 }
 .write_btn_box{
   width:960px;
@@ -192,4 +196,13 @@ th,td {
   text-align:center;
   cursor: pointer; 
   font-size:15px;
+}
+.state_box{
+	width:90px;
+	padding-top:8px;
+	padding-bottom:8px;
+	font-size:14px;
+	text-align:center;
+	background:#f02c11;
+	color:white;
 }

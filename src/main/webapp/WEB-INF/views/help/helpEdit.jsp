@@ -116,7 +116,7 @@ window.onload = function(){
 						<img src=""  id="preview" style="display:none"/>
 				</div>
 				<div class="content_wrap">
-					<textarea name="help_content" class="help_w_content" value="${h.help_content }"></textarea>
+					<textarea name="help_content" class="help_w_content" >${h.help_content }</textarea>
 				</div>
 			<!-- help_form_wrap end -->
 			</div>

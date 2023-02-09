@@ -42,6 +42,7 @@ public class HelpController {
 	public String insert(Help h) {
 			String path = "redirect:/member/loginForm";
 			String user_id = (String) session.getAttribute("user_id");
+			String fileName = h.getFile1().getOriginalFilename();
 			if(user_id != null) {
 					Member m = mService.select(user_id);
 					if(m.getUser_type() ==1 || m.getUser_type() ==2) {

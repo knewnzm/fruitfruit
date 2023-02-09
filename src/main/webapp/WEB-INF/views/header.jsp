@@ -205,7 +205,6 @@
                         </div>
                     </div>
             </div>
-            </div>
             <div class="sub">
                 <div class="inner">
                     <div class="category fruit">

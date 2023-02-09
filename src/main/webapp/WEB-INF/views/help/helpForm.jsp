@@ -3,7 +3,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>1:1Form</title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/helpForm.css" />

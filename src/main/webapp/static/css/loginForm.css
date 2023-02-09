@@ -145,7 +145,8 @@ input[type="checkbox"]:checked + label{
 	font-size:16px;
 }
 .logo{
-	margin: 30px 0 10px 0;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 .fruit_Logo{
 	width: 170px;

@@ -51,6 +51,7 @@ $(function(){
     }
   };
 });
+/* 날짜 출력 */
 
 </script>
 <body>
@@ -142,8 +143,11 @@ $(function(){
                             				</tr>
                         				</c:if>
                         				<c:if test="${not empty list}">
-                           				 <c:forEach var="n" items="${list}" varStatus="status">
+                           				 <c:forEach var="h" items="${list}" varStatus="status">
                            				 	<tr>
+                           				 		<th class="list_state">
+                           				 			<div class="state_box">답변 완료</div>
+                           				 		</th>
 												<th class="list_type">
 													<c:if test="${h.help_type ==1}"> 회원정보 </c:if>
                    							    	<c:if test="${h.help_type ==2}"> 주문</c:if>
@@ -155,7 +159,7 @@ $(function(){
 													<a class="link" href="${pageContext.request.contextPath}/help/helpDetail?help_num=${h.help_num}">
                                         	    	${h.help_title}</a>
                                         	    </th>
-												<th class="list_date">${h.help_date }</th>
+												<th class="list_date" >${h.help_date } </th>
 											</tr>
                            				 </c:forEach>
                             			</c:if>

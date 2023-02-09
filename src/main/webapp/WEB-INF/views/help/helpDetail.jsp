@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>helpDetail  ${h.help_title}</title>
+<title>프룻프룻 1:1문의 | ${h.help_title}</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/helpDetail.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 </head>
@@ -17,7 +17,7 @@
 <main class="hpcontainer"> 
 	<div class="content">
 	  <div class="help_wrap">
-	  <form id="contentForm" action="${pageContext.request.contextPath}">
+	  <form id="contentForm" action="${pageContext.request.contextPath}" method="post">
       	<input type="hidden" name="help_num" value="${h.help_num}" />
       	<div class="help_line">
       			<div class="help_type">
@@ -29,30 +29,30 @@
       			<div class="help_btn_wrap">
       					<c:if test="${user_type==1}"> <!-- sesseionScope -->
             				<button  type="button" class="edit_btn" 
-            				onclick="location.href=`${pageContext.request.contextPath}/help/help_edit?help_num=${h.help_num}`" >수정하기
+            				onclick="location.href=`${pageContext.request.contextPath}/help/helpEdit?help_num=${h.help_num}`" >수정하기
              				</button>
              				<button  type="button" class="del_btn" 
-            				onclick="location.href=`${pageContext.request.contextPath}/help/help_delete?help_num=${h.help_num}`">삭제하기
+            				onclick="location.href=`${pageContext.request.contextPath}/help/helpDelete?help_num=${h.help_num}`">삭제하기
              				</button>
             		 	</c:if>
             		 	<c:if test="${user_type==2}"> <!-- sesseionScope -->
             				<button  type="button" class="edit_btn" 
-            				onclick="location.href=`${pageContext.request.contextPath}/help/help_edit?help_num=${h.help_num}`" >수정하기
+            				onclick="location.href=`${pageContext.request.contextPath}/help/helpEdit?help_num=${h.help_num}`" >수정하기
              				</button>
              				<button  type="button" class="del_btn" 
-            				onclick="location.href=`${pageContext.request.contextPath}/help/help_delete?help_num=${h.help_num}`">삭제하기
+            				onclick="location.href=`${pageContext.request.contextPath}/help/helpDelete?help_num=${h.help_num}`">삭제하기
              				</button>
             		 	</c:if>
             	</div>		 
         </div>     
         <div class="help_line2">
 				<div class="help_id_box">
-			       	  	회원아이디 ${h.writer_id}
+			       	  	회원아이디&nbsp;&nbsp;${h.help_writer_id}
 				</div>         
         </div>
          <div class="help_line2">    
 				<div class="help_date">
-         				등록일 <fmt:formatDate value="${h.help_date}" pattern="YYYY년 MM월 dd일 hh:mm" />
+         				등록일&nbsp;&nbsp;${h.help_date}
 				</div>
 		</div>		
         <div class="help_v_content">

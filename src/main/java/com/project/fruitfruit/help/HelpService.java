@@ -56,7 +56,7 @@ public class HelpService {
 	
 	/* 1:1 문의글에 파일 이미지 삽입 */
 	private Help helpSetPath(Help h) {
-			  String []files = getFileList(h.getHelp_num());
+			String[] files = getFileList(h.getHelp_num());
 			  if(files.length >= 1 && !files[0].equals("")) {
 				 h.setHelp_path(files[0]);
 			  }else {
