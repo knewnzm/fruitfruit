@@ -1,5 +1,7 @@
 package com.project.fruitfruit.order;
 
+import java.sql.Date;
+
 public class Order {
 
 	private int order_num;
@@ -7,9 +9,21 @@ public class Order {
 	private String product_seller_id;
 	private int order_count;
 	private int order_type;
+	private Date order_date;
 	
 	public Order() {
 		super();
+	}
+
+	public Order(int order_num, String order_id, String product_seller_id, int order_count, int order_type,
+			Date order_date) {
+		super();
+		this.order_num = order_num;
+		this.order_id = order_id;
+		this.product_seller_id = product_seller_id;
+		this.order_count = order_count;
+		this.order_type = order_type;
+		this.order_date = order_date;
 	}
 
 	public int getOrder_num() {
@@ -52,11 +66,21 @@ public class Order {
 		this.order_type = order_type;
 	}
 
+	public Date getOrder_date() {
+		return order_date;
+	}
+
+	public void setOrder_date(Date order_date) {
+		this.order_date = order_date;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [order_num=" + order_num + ", order_id=" + order_id + ", product_seller_id=" + product_seller_id
-				+ ", order_count=" + order_count + ", order_type=" + order_type + "]";
+				+ ", order_count=" + order_count + ", order_type=" + order_type + ", order_date=" + order_date + "]";
 	}
+
+	
 
 	
 	

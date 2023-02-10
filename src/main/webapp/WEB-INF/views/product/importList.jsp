@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"
 %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <c:choose>
     <%-- 등록된 제품 목록이 있을 때 --%>
-    <c:when test="${not empty plist}">
+    <c:when test="${sessionScope.user_type==2}">
+    <button class="add-btn" type="button" onclick="location.href=`${pageContext.request.contextPath}/product/productForm`">
+		                    제품 추가하기
+		                </button>
         <div class="list-group product-list">
             <!-- 1개의 제품 데이터 -->
             <c:forEach var="p" items="${plist}">
-                <%-- a 태그에 제품이 거래 완료(p.product_result == 2)일때는 disabled를 추가 --%>
+                <%-- a 태그에 제품이 거래 완료(o.order_type == 2)일때는 disabled를 추가 --%>
                 <div class="product-item">
+                
+		                
                     <c:if test="${sessionScope.user_type==2}">
                         <div class="admin">
                             <button
@@ -18,26 +24,26 @@
                         </div>
                     </c:if>
                     <a
-                        href="${pageContext.request.contextPath}/product/view?product_num=${p.product_num}"
-                        class="col-md-12 list-group-item list-group-item-action product-item ${p.product_result == 2 ? 'text-muted' : '' }"
+                        href="${pageContext.request.contextPath}/product/productDetail?product_num=${p.product_num}"
+                        class="col-md-12 list-group-item list-group-item-action product-item ${o.order_type == 2 ? 'text-muted' : '' }"
                     >
                         <div class="import-item">
                             <div class="img-box">
                                 <div>
-                                    <img class="product-img" src="${p.path1}" alt="${p.product_name}">
+                                    <img class="product-img" src="${p.product_path}" alt="${p.product_title}">
                                 </div>
                             </div>
                             <div class="desc-box">
                                 <div class="product-header">
                                     <h1 class="product-name">
-                                        ${p.product_name}&nbsp;
+                                        ${p.product_title}&nbsp;
                                         <c:choose>
-                                            <c:when test="${p.product_result == 0}">
+                                            <c:when test="${o.order_type == 0}">
                                                 <span class="badge"
                                                 	  style="background:white;
                                                 	  		 border:1px solid;">판매중</span>
                                             </c:when>
-                                            <c:when test="${p.product_result == 1}">
+                                            <c:when test="${o.order_type == 1}">
                                                 <span class="badge"
                                                 	  style="background:red;
                                                 	         border:1px solid;">거래 대기중</span>
@@ -50,20 +56,21 @@
                                         </c:choose>
                                     </h1>
                                 </div>
-
-                                <div class="product-detail">
+                           
+							<div class="product-detail">
                                     <fmt:formatNumber pattern="#,###원" value="${p.product_price}"></fmt:formatNumber>
-	                                <div>등록일 : ${p.stringDate}</div>
+	                                <div>등록일 : ${p.product_date}</div>
 	                                <div>조회수 : ${p.product_hit}</div>
 	                                <div>
-                                    <div>판매자 : ${p.member.user_nickname}</div>
+                                    <div>판매자 : ${p.product_seller_id }</div>
                                 </div>
                             </div>
                         </div>
                     </a>
-                </div>
+                </div>  
             </c:forEach>
         </div>
+  
     </c:when>
     <%-- 등록된 제품이 없을 때 --%>
     <c:otherwise>

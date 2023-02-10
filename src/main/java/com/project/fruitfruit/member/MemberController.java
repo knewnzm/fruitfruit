@@ -201,10 +201,6 @@ public void findPwdForm() {
 public void changePwdForm() { 
 	
 }
-@GetMapping(value = "/product/mylist") //
-public void mylist() {
-	
-}
 @GetMapping(value = "/alram/mylist") //
 public void alram() {
 	

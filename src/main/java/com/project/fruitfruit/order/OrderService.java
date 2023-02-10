@@ -1,5 +1,6 @@
 package com.project.fruitfruit.order;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,12 @@ public class OrderService {
 		mapper.insertOrder(o);
 	}
 	
-	public List selectOrderByOrderId(String order_id) {
+	public ArrayList<Order> selectOrderByOrderId(String order_id) {
 		return mapper.selectOrderByOrderId(order_id);
 		
 	}
 	
-	public List selectOrderBySellerId(String product_seller_id){
+	public ArrayList<Order> selectOrderBySellerId(String product_seller_id){
 		return mapper.selectOrderBySellerId(product_seller_id);
 	}
 	

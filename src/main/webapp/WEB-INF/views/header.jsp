@@ -196,7 +196,7 @@
                                 <a href="${pageContext.request.contextPath}/wish/wishList" class="heart"><span>나의 찜</span></a>
                             </div>
                             <div class="icon">
-                                <a href="${pageContext.request.contextPath}/" class="mypage"><span>마이페이지</span></a>
+                                <a href="${pageContext.request.contextPath}/product/mylist" class="mypage"><span>마이페이지</span></a>
                             </div>
                             <div class="icon">
                                 <a href="${pageContext.request.contextPath}/help/helpForm.jsp" class="chat"><span>1:1문의</span></a>

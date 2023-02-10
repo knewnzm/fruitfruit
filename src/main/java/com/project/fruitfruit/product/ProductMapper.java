@@ -27,7 +27,7 @@ public interface ProductMapper {
 	public ArrayList<Product> orderByProductDate(int start, int end);
 	public ArrayList<Product> onlyProductPick(int start, int end);
 	public ArrayList<Product> onlyProductViewTypeBlind(int start, int end);
-	public ArrayList<Product> selectProductBySellerId(int start, int end);
+	public ArrayList<Product> selectProductBySellerId(int start, int end, String product_seller_id);
 	
 	
 	public ArrayList<Product> selectProductListByLimit(int start, int end);
