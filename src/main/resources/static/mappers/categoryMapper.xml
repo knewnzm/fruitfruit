@@ -18,6 +18,7 @@
       INSERT   INTO category2 
       VALUES   (seq_category2.nextval, #{cate_name}, #{cate_parent_num})
    </insert>
+
    
    <select id="selectCategory1" resultMap="category" parameterType="int">
       SELECT   	* 
