@@ -26,7 +26,7 @@
       			<div class="notice_btn_wrap">
       					<c:if test="${user_type==3}">
             				<button  type="button" class="edit_btn" 
-            				onclick="location.href=`${pageContext.request.contextPath}/notice/noticeEdit?notice_num=${n.notice_num}`" >>수정하기
+            				onclick="location.href=`${pageContext.request.contextPath}/notice/noticeEdit?notice_num=${n.notice_num}`" >수정하기
              				</button>
              				<button  type="button" class="del_btn" 
             				onclick="location.href=`${pageContext.request.contextPath}/notice/noticeDelete?notice_num=${n.notice_num}`">삭제하기

@@ -102,11 +102,11 @@ public class HelpController {
 			 Help h = hService.selectHelpByNum(help_num);
 			 System.out.println(h);
 			 mav.addObject("h",h);
-			 hService.editHelp(h);
+			 hService.selectHelpByNum(help_num);
 			 return mav;
 	}
 	
-	@PostMapping(value ="/help/Edit")
+	@PostMapping(value = "/help/Edit")
 	public String edit(Help h) {
 			 System.out.println(h);
 			 String path = "redirect:/member/loginForm";

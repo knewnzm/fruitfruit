@@ -70,28 +70,29 @@ $(function(){
         					<li class="faq_items">
         						<div class="faq_q_title">
         					 			<span class="faq_icon">Q.</span>
-          								제목이 들어갑니다.
+          									ID를 변경하고 싶어요
         						</div>
         						<div class="faq_a_content">
-        								내용이 들어갑니다.
+        								아이디 변경을 원하실 경우, 탈퇴 후 재가입을 통한 아이디변경만 가능합니다.
     						  </div>
         					</li>
         					<li class="faq_items">
         						<div class="faq_q_title">
         					 			<span class="faq_icon">Q.</span>
-          								제목이 들어갑니다.
+          								개인정보 수정/변경은 어떻게 하나요?
         						</div>
         						<div class="faq_a_content">
-        								내용이 들어갑니다.
+        								 회원 정보 관리 > 개인정보 수정]에서 수정 및 변경이 가능합니다.
     						  </div>
         					</li>
         					<li class="faq_items">
         						<div class="faq_q_title">
         					 			<span class="faq_icon">Q.</span>
-          								제목이 들어갑니다.
+          								 수취인 연락처를 변경할수 있나요?
         						</div>
         						<div class="faq_a_content">
-        								내용이 들어갑니다.
+        								주문건에 대한 수취인 연락처 변경은 판매자에게 직접 문의해 주셔야 하며<br>
+        								그 외 등록된 배송지 리스트 관리는 [마이페이지 > 내정보 수정]에서 배송지 등록 및 변경이 가능합니다.
     						  </div>
         					</li>
         					<li class="faq_items">
@@ -176,7 +177,8 @@ $(function(){
                             				</tr>
                         				</c:if>
                         				<c:if test="${not empty list}">
-                           				 <c:forEach var="n" items="${list}" varStatus="status">
+                           				 <c:forEach var="h" items="${list}" varStatus="status">
+                           				   <c:if test="${h.help_type ==1}">
                            				 	<tr>
 												<th class="list_type">
 													<c:if test="${h.help_type ==1}"> 회원정보 </c:if>
@@ -187,6 +189,7 @@ $(function(){
                                         	    </th>
 												<th class="list_date">${h.help_date }</th>
 											</tr>
+											</c:if>
                            				 </c:forEach>
                             			</c:if>
 									</tbody>
@@ -203,7 +206,8 @@ $(function(){
                             				</tr>
                         				</c:if>
                         				<c:if test="${not empty list}">
-                           				 <c:forEach var="n" items="${list}" varStatus="status">
+                           				 <c:forEach var="h" items="${list}" varStatus="status">
+                           				   <c:if test="${h.help_type ==2}">
                            				 	<tr>
 												<th class="list_type">
                    							    	<c:if test="${h.help_type ==2}"> 주문</c:if>
@@ -214,6 +218,7 @@ $(function(){
                                         	    </th>
 												<th class="list_date">${h.help_date }</th>
 											</tr>
+											</c:if>
                            				 </c:forEach>
                             			</c:if>
 									</tbody>
@@ -230,7 +235,8 @@ $(function(){
                             				</tr>
                         				</c:if>
                         				<c:if test="${not empty list}">
-                           				 <c:forEach var="n" items="${list}" varStatus="status">
+                           				 <c:forEach var="h" items="${list}" varStatus="status">
+                           				   <c:if test="${h.help_type ==3}">
                            				 	<tr>
 												<th class="list_type">
                    							    	<c:if test="${h.help_type ==3}"> 상품</c:if>
@@ -241,6 +247,7 @@ $(function(){
                                         	    </th>
 												<th class="list_date">${h.help_date }</th>
 											</tr>
+											</c:if>
                            				 </c:forEach>
                             			</c:if>
 									</tbody>
@@ -257,7 +264,8 @@ $(function(){
                             				</tr>
                         				</c:if>
                         				<c:if test="${not empty list}">
-                           				 <c:forEach var="n" items="${list}" varStatus="status">
+                           				 <c:forEach var="h" items="${list}" varStatus="status">
+                           				    <c:if test="${h.help_type ==4}">
                            				 	<tr>
 												<th class="list_type">
                    							    	<c:if test="${h.help_type ==4}"> 배송</c:if>
@@ -268,6 +276,7 @@ $(function(){
                                         	    </th>
 												<th class="list_date">${h.help_date }</th>
 											</tr>
+											</c:if>
                            				 </c:forEach>
                             			</c:if>
 									</tbody>
@@ -284,7 +293,8 @@ $(function(){
                             				</tr>
                         				</c:if>
                         				<c:if test="${not empty list}">
-                           				 <c:forEach var="n" items="${list}" varStatus="status">
+                           				 <c:forEach var="h" items="${list}" varStatus="status">
+                           				   <c:if test="${h.help_type ==5}">
                            				 	<tr>
 												<th class="list_type">
                    							    	<c:if test="${h.help_type ==5}"> 기타</c:if>
@@ -295,6 +305,7 @@ $(function(){
                                         	    </th>
 												<th class="list_date">${h.help_date }</th>
 											</tr>
+										  </c:if>
                            				 </c:forEach>
                             			</c:if>
 									</tbody>

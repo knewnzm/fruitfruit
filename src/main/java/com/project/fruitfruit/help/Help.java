@@ -80,5 +80,6 @@ public class Help {
 				+ ", help_date=" + help_date + ", help_title=" + help_title + ", help_content=" + help_content
 				+ ", help_path=" + help_path + ", file1=" + file1 + "]";
 	}
+
 	
 }

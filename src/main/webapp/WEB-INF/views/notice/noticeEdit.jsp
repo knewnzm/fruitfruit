@@ -9,8 +9,6 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/noticeForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript">
-</script>
 <body>
     <header>
 		<c:import url="../head.jsp"></c:import>

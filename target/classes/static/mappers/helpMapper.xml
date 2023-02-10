@@ -23,8 +23,7 @@
 				#{help_writer_id},
 				sysdate,
 				#{help_title},
-				#{help_content},
-				0
+				#{help_content}
 		)
 	</insert>
 	
@@ -51,8 +50,7 @@
 				update help set 
 				help_type =#{help_type},
 				help_title =#{help_title},
-				help_content=#{help_content},
-				help_path =#{help_path}
+				help_content=#{help_content}
 				where help_num =#{help_num}
 	</update>
 	

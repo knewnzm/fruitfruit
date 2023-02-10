@@ -21,10 +21,14 @@
       	<input type="hidden" name="help_num" value="${h.help_num}" />
       	<div class="help_line">
       			<div class="help_type">
-      					[회원정보]
+      					 <c:if test="${h.help_type ==1}">[회원정보]</c:if>
+                   		 <c:if test="${h.help_type ==2}">[주문]</c:if>
+                   		 <c:if test="${h.help_type ==3}">[상품]</c:if>
+                   		 <c:if test="${h.help_type ==4}">[배송]</c:if>
+                   		 <c:if test="${h.help_type ==5}">[기타]</c:if>
       			</div>
       			<div class="help_title">
-      					<h1 class="title_text">제목입니다${h.help_title}</h1>
+      					<h1 class="title_text">${h.help_title}</h1>
       			</div>
       			<div class="help_btn_wrap">
       					<c:if test="${user_type==1}"> <!-- sesseionScope -->

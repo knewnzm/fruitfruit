@@ -15,7 +15,7 @@ public interface HelpMapper {
 	
 	int selectSeqCurrval();
 	
-	void updateHelp(Help n);
+	void updateHelp(Help h);
 	
 	void deleteHelp(int help_num);
 	
