@@ -21,7 +21,7 @@ hr{
 	background:#f02c11;
 	margin-bottom: 20px;
 }
-input{
+.j_input{
 	width:310px;
     height: 39px;
     border: none;
@@ -34,7 +34,7 @@ input_text{
 	width:150px;
 	position: relative;
 }
-button{
+.id_check_btn{
   width:120px;
   height: 41.333334px;
   letter-spacing:1px;
@@ -45,26 +45,15 @@ button{
   border-radius:5px;
   background:none;
 }
-header{
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
-footer{
-	margin-top:80px;
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
 .container{
-	width:auto;
- 	height:auto;
-	display: flex;
+	width:1200;
+ 	height:1600px;
+	display:flex;
 	justify-content: center;
 }
 .content{
 	width:650px;
- 	height:107vh;
+	margin-top:100px;
     text-align : center;
     padding : 0px;
     grid-template-columns: 
@@ -152,9 +141,17 @@ footer{
 #user_postcode{
 	width: 100px;
 }
-.addr_btn,.addr_search_btn{
+.addr_search_btn{
 	width:200px;
 	align-items: center;
+  	height: 41.333334px;
+	letter-spacing:1px;
+    cursor: pointer; 
+    font-size:15px;
+    color:#f02c11;
+    border: 1px solid #f02c11;
+    border-radius:5px;
+    background:none;
 }
 .search_img{
 	cursor: pointer; 
@@ -228,7 +225,7 @@ input[type="radio"]:checked {
 select{
 	width:120px;
   	height: 42.333334px;
-  	padding-left:8px;
+  	text-align : center;
     font-size:13px;
   	color:#777;
   	border: 1px solid #D1D0CE;
@@ -244,7 +241,7 @@ select{
 select:focus{
 	outline:none;
 }
-input[type="submit"] {
+button[type="submit"] {
   text-align : center;
   width:328px;
   height: 48px;

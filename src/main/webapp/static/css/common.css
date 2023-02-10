@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+	border: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 400;
+
+}
+
+html, body {
+    height: 100%;
+    min-width: 1200px;
+}
+
+.clearfix:after { clear: both; display: block; content: ""; }
+
+li { list-style: none;}
+
+a { text-decoration: none; color: #000; }
+
+a:hover { text-decoration: none; }
+
+button {cursor: pointer;}
+
+input:focus{
+	outline:none;
+}
+
+
+/*.wrap { width: 1400px; position: relative; margin: 0 auto;  }
+랩을 쌀 때는 100px 단위로 하는 게 좋고 애매하면 50px 단위, 보통 1200~1400 준다*/
+

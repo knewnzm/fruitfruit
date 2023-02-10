@@ -1,0 +1,139 @@
+.product-detail-container {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+/* 제품 상세 전체(이미지 + 설명) */
+.product-detail {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-image-section {
+    width: 40%;
+    height: 100%;
+}
+
+.product-info-section {
+    width: 60%;
+}
+
+/* 제품 대표 이미지*/
+.product-image-section img {
+    width: 90%;
+    height: 100%;
+}
+
+.product-info-section > .title {
+    padding: 10px 0;
+    font-size: 24px;
+}
+
+.product-info-section > .price {
+    padding: 10px 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* 버튼 초기화 */
+button {
+    background: inherit ; 
+    border:none; 
+    box-shadow:none; 
+    border-radius:0; 
+    padding:0; 
+    overflow:visible; 
+    cursor:pointer;
+
+    border: 1px solid gray;
+}
+
+
+/* 제품 상세정보 */
+
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+  
+.product-price {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.product-detail {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-wrap {
+    font-size: 14px;
+    padding: 17px 0px 18px;
+}
+
+.info {
+    display: flex;
+    border-top: 1px solid rgb(244, 244, 244);
+    padding: 10px 0;
+  }
+  
+.info > .title {
+width: 30%;
+}
+
+.info > .description {
+width: 70%;
+}
+
+/* 신고하기 */
+.info .report-btn {
+    position: absolute;
+    right: 0;
+}
+
+/* 찜하기, 장바구니 */
+.buttons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons > .wishlist-btn{
+    width: 10%;
+    margin-right: 5%;
+    padding: 10px 0;
+}
+
+.buttons > .cart-btn{
+    width: 85%;
+    padding: 10px 0;
+}
+
+/* 탭 */
+.tabs-container {
+    border: 1px solid black;
+
+    display: flex;
+    justify-content: center;
+}
+
+.tab{
+    width: 25%;
+    height: 50px;
+    text-align: center;
+}
+
+
+/* 탭에 해당하는 컨텐츠 내용들*/
+
+#product-description > .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+}

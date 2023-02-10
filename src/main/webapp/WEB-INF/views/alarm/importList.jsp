@@ -82,7 +82,6 @@
     });
 </script>
 
-<div class="py-3 my-3"></div>
 <div>
     <h5>알림</h5>
     <table class="w-100">

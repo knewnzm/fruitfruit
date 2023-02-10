@@ -5,24 +5,24 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>Insert title here</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/myfruit.css" />
+	<link rel="stylesheet" href="/static/css/myfruit.css" />
 </head>
 <body>
 	<c:choose>
 		<%-- 관리자 로그인 시 --%>
         <%-- <c:when test="${sessionScope.user_type == 3}">
-			<ul>
+			<ul class="myfruit">
 			  <li><a href="${pageContext.request.contextPath}/member/main">내 정보</a></li>
 			  <li><a href="${pageContext.request.contextPath}/member/list">회원관리</a></li>
 			  <li><a href="${pageContext.request.contextPath}/product/mylist">제품관리</a></li>
 			  <li><a href="${pageContext.request.contextPath}/report/reportList">신고 목록 확인</a></li>
 			  <li><a href="${pageContext.request.contextPath}/admin/category">카테고리 관리</a></li>
 			</ul>
-		</c:when> --%>
+		</c:when>
 		
-		<%-- 판매자 로그인 시 --%>
-		<%-- <c:when test="${sessionScope.user_type == 1}">
-			<ul>
+		판매자 로그인 시
+		<c:when test="${sessionScope.user_type == 2}">
+			<ul class="myfruit">
 			  <li><a href="${pageContext.request.contextPath}/member/main">내 정보</a></li>
 			  <li><a href="${pageContext.request.contextPath}/product/mylist">판매 목록</a></li>
 			  <li><a href="${pageContext.request.contextPath}/product/add">제품 추가하기</a></li>
