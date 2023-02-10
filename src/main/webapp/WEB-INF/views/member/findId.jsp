@@ -1,15 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang=ko>
 <head>
 <meta charset="UTF-8">
 <title>findId</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/find.css" />
+
 <style type="text/css">
 body{
 	line-height: 11px;
-	margin: 0;
+	
 }
 </style>
 
@@ -17,32 +19,34 @@ body{
 </head>
 
 <body>
-
 <header>
-<h3>Çì´õ</h3>
-</header>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
+	</header>
 
-<section class="f_container">
+<div class="wrap">
+<div class="f_container">
 <div class="fi_pd">
 <form name="f" action="${pageContext.request.contextPath}/member/findId" method="post">
- <div class="f_h"><h1>¾ÆÀÌµð Ã£±â</h1></div>
-  <div class="fi_coment"> ¾ÆÀÌµð¸¦ ÀØÀ¸¼Ì³ª¿ä?<br>È¸¿ø°¡ÀÔ ½Ã µî·ÏÇÑ Á¤º¸¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.
+ <div class="f_h"><h1>ì•„ì´ë”” ì°¾ê¸°</h1></div>
+  <div class="fi_coment"> ì•„ì´ë””ë¥¼ ìžŠìœ¼ì…¨ë‚˜ìš”?<br>íšŒì›ê°€ìž… ì‹œ ë“±ë¡í•œ ì •ë³´ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”.
   </div>
    <div class="f_box">
-    <div class="f_name_title">ÀÌ¸§
-    </div> <br> <input type="text" class="f_id_line" id="user_name" name="user_name" placeholder="ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä."><br>
-    <div class="f_tel_title">ÀüÈ­¹øÈ£
-    </div> <br> <input type="text" class="f_id_line" id="user_tel" name="user_tel" placeholder="¼ýÀÚ¸¸ ÀÔ·ÂÇØ ÁÖ¼¼¿ä."><br>
+    <div class="f_name_title">ì´ë¦„
+    </div> <br> <input type="text" class="f_id_line" id="user_name" name="user_name" placeholder="ì´ë¦„ì„ ìž…ë ¥í•´ ì£¼ì„¸ìš”."><br>
+    <div class="f_tel_title">ì „í™”ë²ˆí˜¸
+    </div> <br> <input type="text" class="f_id_line" id="user_tel" name="user_tel" placeholder="ìˆ«ìžë§Œ ìž…ë ¥í•´ ì£¼ì„¸ìš”."><br>
     <span class="" >${error }<br></span>
-<input type="submit" class="f_button" value="È®ÀÎ">
+<input type="submit" class="f_button" value="í™•ì¸">
    </div>
 </form>
 </div>
-</section>
+</div>
+</div>
 
 <footer>
-<h3>footer</h3>
-</footer>
+		 <c:import url="../footer.jsp"></c:import>
+	</footer>
 
 </body>
 

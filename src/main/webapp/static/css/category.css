@@ -1,16 +1,6 @@
 
 @charset "UTF-8";
-header{
-	text-align : center;
-	height:150px;
-}
-footer{
-	text-align : center;
-	height:150px;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
+
 *{
   padding:0;
   margin: 0;
@@ -19,14 +9,10 @@ footer{
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
 }
-.c_wrapper{
-  height: auto;
-  min-height: 100%;
-  padding-bottom: 150px;
-}
+.wrap { width: 1400px; position: relative; margin: 0 auto;  }
 .c_container{
 	height:519px;
-	padding-top:30px ;
+	padding-top:50px ;
     padding-left:50px;
    	padding-right:50px;
 }

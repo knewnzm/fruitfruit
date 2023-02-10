@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang=ko>
 <head>
@@ -128,13 +129,14 @@
 
 
 </head>
-<header>
 
-<h3>헤더</h3>
-</header>
 
 <body>
-<div class="c_wrapper">
+<header>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
+	</header>
+<div class="wrap">
  <div class="c_container">
   <div class="c_h"><h1>카테고리 관리</h1> 
   </div>
@@ -180,10 +182,11 @@
   </div>
  </div>
 </div>
+<footer>
+		 <c:import url="../footer.jsp"></c:import>
+	</footer>
+
 </body>
 
-<footer>
-<h3>footer</h3>
-</footer>
 
 </html>

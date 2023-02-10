@@ -8,14 +8,7 @@
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
 }
-header{
-	text-align : center;
-	height:150px;
-}
-footer{
-	text-align : center;
-	height:150px;
-} 
+
 
 .fr_container{
 	
@@ -38,9 +31,9 @@ footer{
     margin-bottom: 43px;
     margin-left: 38px;
     margin-right: 38px;
-    border: 1px solid #F75D59;
+    border: 1px solid #f02c11;
     border-radius: 5px;
-    background: #F75D59;
+    background: #f02c11;
 }
 .fr_box{
     display: flex;

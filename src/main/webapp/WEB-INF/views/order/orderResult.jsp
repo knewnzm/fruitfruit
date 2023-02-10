@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang=ko>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/orderR.css" />
 <style type="text/css">
@@ -20,26 +21,27 @@ hr{
 </head>
 <body>
 <header>
-<h3>���</h3>
-</header>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
+	</header>
 
-<body>
+
 <section class="or_container">
 <div class="f_pd">
- <div class="or_h"><h1>�ֹ���û�� �Ϸ�Ǿ����ϴ�.</h1>
+ <div class="or_h"><h1>주문요청이 완료되었습니다.</h1>
  </div>
  <div class="or_box">
-   <div class="or_title">�ֹ�����</div>
+   <div class="or_title">주문정보</div>
   <hr>
-  <div class="or_result">(���â)</div>
+  <div class="or_result">(결과창)</div>
  </div>
  
 </div>
 </section>
+<footer>
+		 <c:import url="../footer.jsp"></c:import>
+	</footer>
 </body>
 
-<footer>
-<h3>footer</h3>
-</footer>
 </body>
 </html>
