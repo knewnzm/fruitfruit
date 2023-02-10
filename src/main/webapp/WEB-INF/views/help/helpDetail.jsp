@@ -58,7 +58,6 @@
         <div class="help_v_content">
         		<div class="help_img_box">
         			<c:if test="${not empty h.help_path}">
-        						이미지 들어올 자리
                                 <div class="carousel-item active">
                                     <a href="${h.help_path}" target="blank">
                                         <img src="${h.help_path}" alt="${h.help_title}" id="img1" class="d-block w-100 product-img" itemid="0" />

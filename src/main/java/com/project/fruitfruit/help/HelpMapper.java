@@ -13,7 +13,7 @@ public interface HelpMapper {
 	
 	Help selectHelp(int help_num);
 	
-	int selectSeqCurrval(); //현재 시퀀스 값 가져오기
+	int selectSeqCurrval();
 	
 	void updateHelp(Help n);
 	

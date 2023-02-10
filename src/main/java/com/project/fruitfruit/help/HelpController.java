@@ -40,10 +40,10 @@ public class HelpController {
 	/* helpForm 작성 */
 	@PostMapping(value ="/help/helpForm")
 	public String insert(Help h) {
-			String path = "redirect:/member/loginForm";
-			String user_id = (String) session.getAttribute("user_id");
-			String fileName = h.getFile1().getOriginalFilename();
-			if(user_id != null) {
+			 String path = "redirect:/member/loginForm";
+			 String user_id = (String) session.getAttribute("user_id");
+			 
+			 if(user_id != null) {
 					Member m = mService.select(user_id);
 					if(m.getUser_type() ==1 || m.getUser_type() ==2) {
 						hService.addHelp(h);
@@ -79,7 +79,7 @@ public class HelpController {
 	@RequestMapping(value = "/help/helpDetail")
 	public ModelAndView content(@RequestParam(value = "help_num") int help_num) {
 			 ModelAndView mav = new ModelAndView("/help/helpDetail");
-			 Help h = hService.selectHelpByNum(help_num);
+			 Help h = hService.getHelp(help_num);
 			 mav.addObject("h",h);
 			 hService.selectHelpByNum(help_num);
 			 return mav;
@@ -111,9 +111,10 @@ public class HelpController {
 			 System.out.println(h);
 			 String path = "redirect:/member/loginForm";
 			 String user_id = (String)session.getAttribute("user_id");
+			 
 			 if(user_id != null) {
 				 Member m = mService.select(user_id);
-				 if(m.getUser_type()==3) {
+				 if(m.getUser_type() ==1 || m.getUser_type() ==2) {
 					 hService.editHelp(h);
 					 path = "redirect:/help/helpList";
 				 }
