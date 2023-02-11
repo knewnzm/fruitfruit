@@ -7,12 +7,57 @@
 <mapper namespace="com.project.fruitfruit.help.HelpMapper">
 	<resultMap type = "com.project.fruitfruit.help.Help" id="help">
 		<result property="help_num" column="help_num"/>
+		<result property="help_type" column="help_type"/>
+		<result property="help_writer_id" column="help_writer_id"/>
+		<result property="help_date" column="help_date"/>
 		<result property="help_title" column="help_title"/>
 		<result property="help_content" column="help_content"/>
 		<result property="help_path" column="help_path"/>
-		<result property="help_date" column="help_date"/>
-		<result property="help_writer_id" column="help_writer_id"/>
-		<result property="help_type" column="help_type"/>
 	</resultMap>
 
+	<!-- 1:1 문의 등록  -->
+	<insert id="insertHelp" parameterType="com.project.fruitfruit.help.Help">
+		insert into help VALUES(
+				seq_help.nextval,
+				#{help_type},
+				#{help_writer_id},
+				sysdate,
+				#{help_title},
+				#{help_content}
+		)
+	</insert>
+	
+	<!-- 1:1 문의 전체 출력 -->
+	<select id="selectAllHelp" resultMap="help">
+				select * from help
+				order by help_num
+	</select>
+	
+	<!-- 1:1 문의 help_num으로 출력 --> 
+	<select id="selectHelp" parameterType="int" resultMap="help">
+				select * from help 
+				where help_num =#{help_num}
+	</select>
+	
+	<!-- 1:1문의 시퀀스 현재 값 -->
+	<select id="selectSeqCurrval"  resultType="int">
+				select 
+				seq_help.currval from dual
+	</select>
+	
+	<!-- 1:1문의 수정 -->
+	<update id="updateHelp" parameterType="com.project.fruitfruit.help.Help">
+				update help set 
+				help_type =#{help_type},
+				help_title =#{help_title},
+				help_content=#{help_content}
+				where help_num =#{help_num}
+	</update>
+	
+	<!-- 1:1문의 삭제 -->
+	<delete id="deleteHelp"  parameterType="int">
+				delete from help 
+				where help_num =#{help_num}
+	</delete>
+	
 </mapper>	

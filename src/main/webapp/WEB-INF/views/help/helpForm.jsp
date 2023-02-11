@@ -3,7 +3,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"">
+<meta charset="UTF-8">
 <title>1:1Form</title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/helpForm.css" />
@@ -57,7 +57,7 @@ window.onload = function(){
 					<h1 class="main_text">1:1 문의글 작성</h1>
 				</div>
 			</div>
-			<form name="" action="" method="post" enctype="multiple">
+			<form action="${pageContext.request.contextPath}/help/helpForm" method="post" enctype="multipart/form-data">
 			<div class="help_form_wrap">
 				<div class="help_box">
 						<div class="help_title">
@@ -87,7 +87,8 @@ window.onload = function(){
 										<label for="help_type" class="type_text">기타</label>
 								</div>
 						</div>
-				</div>		
+				</div>
+				<input type="hidden" name="help_writer_id" value="${user_id }"/>		
 				<div class="help_box">
 						<div class="help_title">
 							<label for="help_title">
