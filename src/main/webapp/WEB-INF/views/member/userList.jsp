@@ -4,7 +4,6 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>sadaRe: 사다리 - 회원관리 페이지</title>
         <c:import url="../head.jsp"></c:import>
         <style>
             .member-data td {
@@ -15,7 +14,7 @@
         <script>
             $(document).ready(function () {
                 $.ajax({
-                    url: "/member/list",
+                    url: "/member/List",
                     type: "post",
                     success: function (obj) {
                         /* console.log(obj) */
@@ -34,10 +33,8 @@
                                 "</a><td>" +
                                 obj[i].user_name +
                                 "</td><td>" +
-                                obj[i].user_nickname +
-                                "</td><td>" +
-                                obj[i].user_email +
-                                "</td><td>" +
+                                obj[i].user_nick +
+                                "</td><td>" +      
                                 obj[i].user_tel +
                                 "</td><td>" +
                                 obj[i].user_postcode +
@@ -45,16 +42,9 @@
                                 obj[i].user_addr1 +
                                 " " +
                                 obj[i].user_addr2 +
-                                "</td><td style='width:100px'>" +
-                                obj[i].user_birth +
-                                "</td><td style='width:100px'>" +
-                                obj[i].user_regdate +
-                                "</td><td>" +
-                                obj[i].user_score / obj[i].user_scorecount +
                                 "</td><td><button style='width:90px' type='button' name='del' class='btn btn-outline-danger' itemid='" +
-                                obj[i].user_id +
-                                "'>회원삭제</button></td></tr>";
-
+                                    obj[i].user_id +
+                                    "'>회원삭제</button></td></tr>";
                             $("#m_list").append(html);
                         }
                     },
@@ -65,14 +55,14 @@
                     console.log($(this));
                     var con = confirm($(this).attr("itemid") + " 삭제 하시겠습니까?");
                     if (con) {
-                        var id = $(this).attr("itemid");
+                        var user_id = $(this).attr("itemid");
                         $.ajax({
                             url: "/member/out",
                             type: "post",
-                            data: { id },
+                            data: { user_id },
 
                             success: function (data) {
-                                document.getElementById("m_" + id).remove();
+                                document.getElementById("m_" + user_id).remove();
                             },
                         });
                     }
@@ -90,17 +80,13 @@
                 <table class="table table-sm table-hover" id="m_list">
                     <thead>
                         <tr>
-                            <td style="width: 70px">아이디</td>
-                            <td style="width: 70px">이름</td>
-                            <td style="width: 70px">닉네임</td>
+                            <td>아이디</td>
+                            <td>이름</td>
+                            <td>닉네임</td>
                             <td>email</td>
-                            <td style="width: 70px">전화번호</td>
-                            <td style="width: 70px">우편번호</td>
+                            <td>전화번호</td>
+                            <td>우편번호</td>
                             <td>주소</td>
-                            <td>생년월일</td>
-                            <td>가입일</td>
-                            <td style="width: 70px">거래점수</td>
-                            <td></td>
                         </tr>
                     </thead>
                 </table>

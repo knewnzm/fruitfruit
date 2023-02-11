@@ -52,7 +52,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
-                                                href="${pageContext.request.contextPath}/member/list">회원관리</a>
+                                                href="${pageContext.request.contextPath}/member/userList">회원관리</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"

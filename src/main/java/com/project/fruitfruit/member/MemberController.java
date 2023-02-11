@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -189,22 +190,20 @@ public String out(HttpServletRequest req, @RequestParam(value = "user_id", requi
 	return "redirect:/member/loginForm";
 }
 
-@GetMapping(value = "/member/findId") //아이디 찾기 페이지 가기
-public void findIdForm() { 
-	
+@SuppressWarnings("unchecked")
+@PostMapping(value = "/member/List")
+@ResponseBody
+public JSONArray list() {
+	JSONArray jarray = new JSONArray();
+	ArrayList<Member> ml = (ArrayList<Member>) service.list();
+	for (Member i : ml) {
+		jarray.add(i);
+	}
+	System.out.println(jarray);
+	return jarray;
 }
-@GetMapping(value = "/member/findPwd") //비밀번호 찾기 페이지 가기
-public void findPwdForm() { 
-	
-}
-@GetMapping(value = "/member/changePwd") //비밀번호 변경 페이지 가기
-public void changePwdForm() { 
-	
-}
-/*
- * @GetMapping(value = "/alram/mylist") // public void alram() {
- * 
- * }
- */
+@RequestMapping(value="/member/userList")
+public void userList() {
 
+}
 }
