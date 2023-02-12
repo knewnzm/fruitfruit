@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.fruitfruit.review.ReviewMapper">
+	<resultMap type="com.project.fruitfruit.review.Review" id="review">
+		<result property="review_num" column="review_num" />
+		<result property="review_title" column="review_title" />
+		<result property="review_content" column="review_content" />
+		<result property="review_path" column="review_path" />
+		<result property="review_writer" column="review_writer" />
+		<result property="review_date" column="review_date" />
+		<result property="review_product_num" column="review_product_num" />
+		<result property="review_score" column="review_score" />
+		<result property="review_like_hit" column="review_like_hit" />
+	</resultMap>
+	
+	<select id="selectAllReview" resultMap="review">
+		select * 
+		from review 
+		order by review_num desc
+	</select>
+	
+	<insert id="insertReview" parameterType="com.project.fruitfruit.review.Review">
+		insert into review 
+		values (
+			seq_review.nextval, 
+			#{review_title}, 
+			#{review_content}, 
+			#{review_path}, 
+			#{review_writer}, 
+			sysdate,
+			#{review_product_num}, 
+			#{review_score}, 
+			#{review_like_hit}
+		)
+	</insert>
+	
+	<update id="updateReview" parameterType="com.project.fruitfruit.review.Review">
+		update review 
+		set 
+			review_title = #{review_title},
+			review_content = #{review_content},
+			review_path = #{review_path},
+			review_writer = #{review_writer},
+			review_date = #{sysdate},
+			review_product_num = #{review_product_num},
+			review_score = #{review_score}
+		where support_num = #{support_num}
+	</update>
+	
+	<delete id="deleteReview" parameterType="int">
+		delete 
+		from review 
+		where review_num=#{review_num}
+	</delete>
+	
+	<update id="increaseReviewLikeHit" parameterType="int">
+		update review 
+		set 
+			review_like_hit=review_like_hit+1,
+		where review_num=#{review_num}
+	</update>
+	
+	<update id="decreaseReviewLikeHit" parameterType="int">
+		update review 
+		set 
+			review_like_hit=review_like_hit-1,
+		where review_num=#{review_num}
+	</update>
+	
+	<select id="countReviewLike" resultMap="review">
+		select review_like_hit
+		from review
+		where review_num=#{review_num}
+	</select>
+	
+	<select id="orderReviewByReviewLike" resultMap="review">
+		select * 
+		from review 
+		order by review_like_hit desc
+	</select>
+	
+	<select id="orderReviewByReviewScore" resultMap="review">
+		select * 
+		from review 
+		order by review_score desc
+	</select>
+	
+	<select id="orderReviewByReviewDate" resultMap="review">
+		select * 
+		from review 
+		order by review_date desc
+	</select>
+</mapper>

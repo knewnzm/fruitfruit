@@ -1,0 +1,441 @@
+@charset "utf-8";
+
+.wrap {
+        width: 1200px;
+        margin: 0 auto;
+}
+
+.headArea {
+    position: relative;
+    height: 200px;
+    padding-top: 30px;
+}
+
+
+.headArea .innerContent {
+    height: 120px;
+    /** border-top: 1px solid #f02c11; **/
+}
+
+.headArea .util {
+    /** width: 1400px; **/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/** .headArea .util {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    width: 100%;
+    height: 35px;
+    text-align: left;
+} **/
+
+.headArea .util .main {
+    /** width: 1400px; **/
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.headArea .innerContent .accountArea {
+    position: absolute;
+    right: 50%;
+    top: 8px;
+    margin-right: -600px;
+}
+
+
+
+.headArea .innerContent .accountArea {
+    position: absolute;
+    right: 50%;
+    top: 8px;
+    margin-right:  -600px;
+    font-size: 12px;
+}
+
+.accountArea .nav-item {
+    display: inline-block;
+    margin-left: 18px;
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.headArea .main {
+    position: relative;
+}
+
+.headArea .main .logoArea {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    display: inline-block;
+    float: left;
+    z-index: 20;
+}
+
+/** 검색창 **/
+
+.headArea .innerContent .searchAreaWrap {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    width: 400px;
+    margin-left: -200px;
+}
+
+.headArea .innerContent .searchAreaWrap .searchArea {
+    width: 400px;
+    height: 48px;
+    border: 2px solid #f02c11;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 55px 8px 25px;
+    position: relative;
+}
+
+.headArea .innerContent .searchAreaWrap .searchArea input {
+    /** padding: 0 28px 0 0; **/
+    width: 80%;
+    font-size: 16px;
+}
+
+.headArea .innerContent .searchAreaWrap .searchArea .btnSearchInner {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 15px;
+    background: url(../img/search_icon.png) no-repeat;
+    line-height: 0;
+    vertical-align: middle;
+    color: transparent;
+    border: none;
+    color: #f02c11;
+    background-size: 25px;
+}
+
+/** 나의찜,마이페이지,1:1문의 **/
+
+.headArea .innerContent .buttonArea {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+
+.headArea .innerContent .buttonArea ul {
+    display: flex;
+}
+
+.headArea .innerContent .buttonArea ul li {
+    position: relative;
+    width: 70px;
+    font-size: 13px;
+    line-height: 1.46;
+}
+
+.headArea .innerContent .searchAreaWrap .searchArea .buttonArea ul li a {
+    display: block;
+    width: 100%;
+    padding-top: 37px;
+}
+
+.buttonArea {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+}
+
+
+.buttonArea .icon li {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    font-size: 14px;
+    justify-content: center;
+    padding: 0 10px;
+    align-items: center;
+}
+
+
+.buttonArea .icon a.heart {
+    background: url("../img/heart.png") no-repeat;
+    display: block;
+    width: 100%;
+    padding-top: 30px;
+    background-size: 30px 30px;
+    background-position: center -1px;
+    font-size: 14px;
+}
+
+.buttonArea .icon a.mypage {
+    background: url("../img/user.png") no-repeat;
+    display: block;
+    width: 100%;
+    padding-top: 30px;
+    background-size: 30px 30px;
+    background-position: center -1px;
+    font-size: 14px;
+}
+
+.buttonArea .icon a.chat {
+    background: url("../img/bubble.png") no-repeat;
+    display: block;
+    width: 100%;
+    padding-top: 30px;
+    background-size: 30px 30px;
+    background-position: center -1px;
+    font-size: 14px;
+}
+
+
+
+.buttonArea .icon span {
+    padding-top: 5px;
+    font-size: 14px;
+}
+
+
+/** 드롭다운 메뉴 **/
+
+.mem-type {
+    display: inline-block;
+    min-width: 38px;
+    height: 16px;
+    margin-right: 4px;
+    padding: 0px 4px;
+    border-radius: 30px;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: -0.3px;
+    vertical-align: 0px;
+    color: #f02c11;
+    border: 1px solid #f02c11;
+    background-color: rgb(255, 255, 255);
+}
+
+.accountArea:after {
+    display:block; content:''; clear:both;
+}
+
+.nav-item {
+    position:  relative;
+    display : inline-block;
+}
+
+
+.dropdown-item {
+  display : none;
+  position : relative;
+  z-index : 1; /*다른 요소들보다 앞에 배치*/
+  font-weight: 400;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  min-width : 100px;
+}
+
+.dropdown-item-a:hover {
+    color: #f02c11;
+    font-weight: 500;
+}
+
+.nav-item:hover .dropdown-item {
+    display: block;
+  }
+
+.nav-item:hover .dropdown-menu {
+    display:block;
+    position: absolute;
+}
+
+.dropdown-menu {
+    display:none; position:absolute; left:0; right:0;
+}
+
+.dropdown-item-a {
+    display : block;
+  text-decoration : none;
+  color : rgb(37, 37, 37);
+  font-size: 12px;
+    padding: 5px;
+}
+
+
+
+/** 카테고리 아이콘bar **/
+
+.sub .inner .category .moreViewWrap .moreView {
+background-color: transparent;
+}
+
+.sub .inner .category .moreViewWrap .moreView .blind {
+    display: none;
+}
+
+.sub .inner .category .moreViewWrap .moreView .bar {
+    display: inline-block;
+    background: url(../img/categoty_w.png) no-repeat;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    transform: translateY(20%);
+}
+
+.sub .inner .category .moreViewWrap .moreView span:last-child {
+    font-size: 16px;
+    color:#fff;
+    margin-left: 10px;
+}
+
+/** 카테고리 + 메뉴바 정렬**/
+
+.sub {
+    background-color: #f02c11;
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+.sub .category {
+    display: flex;
+    width: 1200px;
+    margin: 0px auto;
+    justify-content: flex-start;
+    bottom: 0;
+    height: 50px;
+}
+
+.moreViewWrap {
+    width: 100px;
+    float: left;
+    z-index: 100;
+}
+
+/** 카테고리 메뉴 **/
+
+
+.hidden {
+    display: none;
+}
+
+.dep1 {
+   /** height: 50px;
+    width: 100%;
+    max-width: 1024px;
+  
+    margin: 0 auto; 
+    border-left: 10px solid black;**/
+}
+
+.dep1 a {
+    display: block;
+    color: #f02c11;
+}
+
+.category-wrap {
+    position: relative;
+    z-index: 100;
+    width: 150px;
+    height: 450px;
+    background: #fff;
+    border: 1px solid #f02c11;
+}
+
+
+ul.category-wrap > li {
+    /** position: relative; **/
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    padding-left: 15px;
+    line-height: 50px;
+    font-size: 14px;
+}
+
+ul.category-wrap > li:hover {
+    background-color: #f02c11;
+    
+}
+
+ul.category-wrap > li > ul.category-wrap {
+    display: none;
+}
+
+ul.category-wrap > li:hover > ul.category-wrap {
+    display: inline-block;
+    position: absolute;
+    top: -1px;
+    left: 149px;
+    width: 160px;
+    height: 450px;
+    background: #fff;
+    border: 1px solid #f02c11;
+}
+
+.category-wrap > li a:hover {
+    display: block;
+    color: #fff;
+}
+
+
+
+/** sub 메뉴 **/
+
+.sub {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+}
+
+.sub .inner {
+    line-height: 50px;
+}
+
+.sub .inner .category .menu .menuInner ul {
+    position: absolute;
+    margin-left: 150px;
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sub .inner .category .menu .menuInner ul li:first-child {
+    margin-left: 0;
+}
+
+.sub .inner .category .menu .menuInner ul li {
+    display: inline;
+    margin-left: 30px;
+}
+
+.sub .inner .category .menu .menuInner ul li a {
+    color: #fff;
+    display: inline-block;
+}
+
+
+/** 검색어 순위 **/
+
+.sub .trending .preview {
+    display: none;
+}
+
+
+
+/**
+<!-- a.heart backgroud-image = url (하트이미지)-->
+
+                                    <!-- 레이아웃 display: block;
+                                        width: 100% padding-top: 37px; background-repeat: no-repeat;
+                                         background-size: 36px 36px; background-position: center -1px-->
+                                         **/
