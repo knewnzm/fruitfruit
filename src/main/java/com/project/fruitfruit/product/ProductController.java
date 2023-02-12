@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.project.fruitfruit.answer.AnswerService;
+import com.project.fruitfruit.review.Review;
+import com.project.fruitfruit.review.ReviewService;
 import com.project.fruitfruit.util.Page;
 
 @Controller
@@ -23,6 +26,13 @@ public class ProductController {
 
 	@Autowired
 	private ProductService pService;
+	@Autowired
+	private ReviewService rService;
+	@Autowired
+	private AnswerService aService;
+	
+
+	
 	@Autowired
 	private HttpServletRequest request;
 	@Autowired
@@ -177,32 +187,29 @@ public class ProductController {
 		return list;
 	}
 	
-	@GetMapping("/product/search")
-	public String search(@RequestParam(required = false) String q, @RequestParam(required = false) String value,
-			Model model) {
-		if (q != null && value != null) {
+	@GetMapping("/product/productSearch")
+	public String search(@RequestParam(required = false) String q, Model model) {
+		if (q != null) {
 			request.setAttribute("q", q);
-			request.setAttribute("value", value);
-			ArrayList<Product> list = null;
-			if (q.equals("product_name")) {
-				list = pService.selectProductListByProduct_title(value);
-			} else if (q.equals("c1")) {
-				int c1 = Integer.parseInt(value);
-				list = pService.selectProductListByCategory1_num(c1);
-			} else if (q.equals("c2")) {
-				int c2 = Integer.parseInt(value);
-				list = pService.selectProductListByCategory2_num(c2);
-			} else if (q.equals("c3")) {
-				int c3 = Integer.parseInt(value);
-				list = pService.selectProductListByCategory3_num(c3);
-			} else if (q.equals("user_id")) {
-				list = pService.selectProductListByUser_id(value);
+			
+			ArrayList<Product> list_by_title = pService.selectProductListByProduct_title(q);
+			ArrayList<Product> list_by_user_id = pService.selectProductListByUser_id(q);
+			
+			System.out.println("a");
+			ArrayList<Product> list_all = new ArrayList<>();
+			list_all.addAll(list_by_title);
+			list_all.addAll(list_by_user_id);
+			
+			System.out.println(list_all);
+
+			if (list_all != null) {
+				model.addAttribute("plist", list_all);
+				return "/product/productSearch";
 			}
-			model.addAttribute("plist", list);
-			return "/product/list";
-		} else {
-			return "redirect:/product/list";
 		}
+		
+		return "redirect:/product/productList";
+
 	}
 	
 	//select
@@ -211,6 +218,10 @@ public class ProductController {
 		pService.addProductHit(product_num);////
 		Product p = pService.selectProduct(product_num);
 		model.addAttribute("p", p);
+		
+		List<Review> reviews = rService.selectReviewAllByProductNum(product_num);
+		model.addAttribute("reviews", reviews);
+		
 	}
 	
 	//delete
@@ -242,7 +253,14 @@ public class ProductController {
 		}
 	}
 	
-	
+	@RequestMapping(value="/product/mylist")
+	public void go(Model model) {
+	   String product_seller_id = (String) session.getAttribute("user_id");
+	   System.out.println("세션아이디:"+product_seller_id);
+	   ArrayList<Product> p=pService.selectProductBySellerId(1, 10, product_seller_id);
+	   System.out.println(p);
+	   model.addAttribute("plist", p);
+	}
 	
 	
 	

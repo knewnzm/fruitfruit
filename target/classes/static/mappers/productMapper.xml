@@ -180,7 +180,7 @@
 			from (
 				select * 
 				from product 
-				where product_pick=True
+				where product_pick=1
 				order by product_num desc
 				) list 
 			) data 
@@ -203,7 +203,7 @@
 		order by product_num desc
 	</select>
 	
-	<select id="selectProductBySellerId" resultMap="product">
+	<select id="selectProductBySellerId" parameterType="String" resultMap="product">
 		select data.* from (
 			select rownum as num, list.* 
 			from (
@@ -246,7 +246,7 @@
 		resultMap="product">
 		select * 
 		from product 
-		where product_title like '%${product_title}%' 
+		where product_title like '%#{product_title}%' 
 		order by product_num desc
 	</select>
 	<select id="selectProductListByCategory1_num" resultMap="product">
@@ -271,7 +271,7 @@
 		resultMap="product">
 		select * 
 		from product 
-		where product_seller_id=#{product_seller_id} 
+		where product_seller_id like ='%#{product_seller_id} %'
 		order by product_num desc
 	</select>
 	

@@ -59,7 +59,11 @@ public class ReviewController {
 	}
 	
 	@GetMapping("review/reviewForm")
-	public void addForm(Review r) {
+	public void addForm(
+			Review r, 
+			@RequestParam int product_num, 
+			Model model) {
+		model.addAttribute("product_num", product_num);
 	}
 	
 	@PostMapping("review/reviewForm")

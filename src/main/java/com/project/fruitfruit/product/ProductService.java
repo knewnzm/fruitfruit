@@ -106,8 +106,8 @@ public class ProductService {
 		return setProductData(mapper.selectProductListByLimit(start, end));
 	}
 	
-	public ArrayList<Product> selectProductBySellerId(int start, int end){
-		return setProductData(mapper.selectProductBySellerId(start, end));
+	public ArrayList<Product> selectProductBySellerId(int start, int end, String product_seller_id){
+		return setProductData(mapper.selectProductBySellerId(start, end, product_seller_id));
 	}
 	
 	public int selectSeqProductCurrval() {

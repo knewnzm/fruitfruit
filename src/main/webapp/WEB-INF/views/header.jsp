@@ -12,6 +12,13 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/header.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
         <title>Document</title>
+        <script type="text/javascript">
+	       function search() {
+	           const keyword = document.getElementById("headerSearchId").value;
+	           window.location.href = "${pageContext.request.contextPath}/product/productSearch?keyword=" + keyword;
+	         }
+
+        </script>
     </head>
 
 
@@ -186,10 +193,9 @@
                         <div class="searchAreaWrap">
                             <form>
                                 <div class="searchArea fruit TXT">
-                                    <input title="검색어 입력" id="headerSearchId" placeholder="검색어를 입력하세요" class="TXT"
-                                        type="search">
-                                    <button type="button" class="btnSearchInner"></button>
-                                </div>
+                                  <input title="검색어 입력" id="headerSearchId" placeholder="검색어를 입력하세요" class="TXT" type="search" name="keyword">
+								  <button type="button" class="btnSearchInner" onclick="search()"></button>
+								</div>
                             </form>
                         </div>
                         <div class="buttonArea">

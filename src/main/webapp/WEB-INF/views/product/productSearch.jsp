@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/productList.css" />
     <script src="${pageContext.request.contextPath}/static/js/productList.js" async></script>
-    <title>fruitfruit 전체 상품</title>
+    <title>fruitfruit 상품 검색 결과</title>
 </head>
 <body>
 

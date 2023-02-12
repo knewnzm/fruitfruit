@@ -56,4 +56,8 @@ public class ReviewService {
 		return mapper.selectAllReview();
 	}
 
+	public List<Review> selectReviewAllByProductNum(int product_num) {
+		return mapper.selectReviewAllByProductNum(product_num);
+	}
+
 }
