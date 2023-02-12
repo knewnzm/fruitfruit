@@ -171,6 +171,8 @@ th,td {
 }
 .list_type{
 	width:130px;
+	padding-left:0px;
+	padding-right:0px;
 }
 .link{
 	color:#777;
@@ -178,7 +180,6 @@ th,td {
 .list_title{
 	width:698px;
 	text-align: left;
-	padding-left:30px;
 }
 .list_date{
 	width:150px;
@@ -197,6 +198,16 @@ th,td {
   text-align:center;
   cursor: pointer; 
   font-size:15px;
+}
+.state_box0{
+	width:90px;
+	padding-top:8px;
+	padding-bottom:8px;
+	font-size:14px;
+	text-align:center;
+	color:#f02c11;
+	border:1px solid #f02c11;
+	background-color:white;
 }
 .state_box{
 	width:90px;

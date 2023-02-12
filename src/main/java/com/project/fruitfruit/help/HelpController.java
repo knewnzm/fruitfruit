@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.fruitfruit.answer.Answer;
+import com.project.fruitfruit.answer.AnswerService;
 import com.project.fruitfruit.member.Member;
 import com.project.fruitfruit.member.MemberService;
 
@@ -25,6 +27,9 @@ public class HelpController {
 	
 	@Autowired 
 	private HelpService hService;
+	
+	@Autowired
+	private AnswerService aService;
 	
 	@Autowired
 	private MemberService mService;
@@ -81,7 +86,13 @@ public class HelpController {
 			 ModelAndView mav = new ModelAndView("/help/helpDetail");
 			 Help h = hService.getHelp(help_num);
 			 mav.addObject("h",h);
-			 hService.selectHelpByNum(help_num);
+			 Answer a = aService.selectAnswer(help_num);
+			 if(a!=null) {
+			 String id = a.getUser_id();
+			 Member m = mService.select(id);
+			 mav.addObject("a",a);
+			 mav.addObject("m",m);
+			 }
 			 return mav;
 	}
 	
@@ -90,6 +101,13 @@ public class HelpController {
 	public ModelAndView list() {
 			 ModelAndView mav = new ModelAndView("/help/helpList");
 			 ArrayList<Help> list = (ArrayList<Help>)hService.selectAllHelp();
+			 for(Help h:list) {
+				 if(aService.selectAnswer(h.getHelp_num())==null) { 
+					 h.setAnswer_status(0);
+				 } else {
+					 h.setAnswer_status(1);
+				 }
+			 }
 			 Collections.reverse(list);
 			 mav.addObject("list",list);
 			 return mav;

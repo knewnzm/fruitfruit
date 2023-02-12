@@ -15,10 +15,8 @@ $(document).ready(function(){
 	  
 	  $('ul.tab_list li').click(function(){
 	    var tab_id = $(this).attr('data-tab');
-
 	    $('ul.tab_list li').removeClass('current');
 	    $('.tab_pannel').removeClass('current');
-
 	    $(this).addClass('current');
 	    $("#"+tab_id).addClass('current');
 	  })
@@ -35,7 +33,6 @@ $(function(){
     var otherDescription = other.find('.faq_a_content');
     accordionToggle(target, description, other, otherDescription);
   });
-
   function accordionToggle(target, description, other, otherDescription){
     if (target.hasClass('active')) {
       target.removeClass('active');
@@ -44,7 +41,6 @@ $(function(){
       target.addClass('active');
       description.stop().slideDown(300);
     }
-
     if (other && otherDescription) {
       other.removeClass('active');
       otherDescription.stop().slideUp(300);
@@ -52,7 +48,6 @@ $(function(){
   };
 });
 /* 날짜 출력 */
-
 </script>
 <body>
 <header>
@@ -146,9 +141,16 @@ $(function(){
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				 	<tr>
+                           				 	<c:if test="${h.answer_status==0 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box0">답변 대기중</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
+                           				 	<c:if test="${h.answer_status==1 }">
                            				 		<th class="list_state">
                            				 			<div class="state_box">답변 완료</div>
-                           				 		</th>
+                           				 		</th>                       				 		
+                           				 		</c:if>
 												<th class="list_type">
 													<c:if test="${h.help_type ==1}"> 회원정보 </c:if>
                    							    	<c:if test="${h.help_type ==2}"> 주문</c:if>
@@ -180,6 +182,16 @@ $(function(){
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				   <c:if test="${h.help_type ==1}">
                            				 	<tr>
+                           				 	<c:if test="${h.answer_status==0 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box0">답변 대기중</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
+                           				 	<c:if test="${h.answer_status==1 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box">답변 완료</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
 												<th class="list_type">
 													<c:if test="${h.help_type ==1}"> 회원정보 </c:if>
 												</th>
@@ -209,6 +221,16 @@ $(function(){
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				   <c:if test="${h.help_type ==2}">
                            				 	<tr>
+                           				 	<c:if test="${h.answer_status==0 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box0">답변 대기중</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
+                           				 	<c:if test="${h.answer_status==1 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box">답변 완료</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
 												<th class="list_type">
                    							    	<c:if test="${h.help_type ==2}"> 주문</c:if>
 												</th>
@@ -238,6 +260,16 @@ $(function(){
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				   <c:if test="${h.help_type ==3}">
                            				 	<tr>
+                           				 	<c:if test="${h.answer_status==0 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box0">답변 대기중</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
+                           				 	<c:if test="${h.answer_status==1 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box">답변 완료</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
 												<th class="list_type">
                    							    	<c:if test="${h.help_type ==3}"> 상품</c:if>
 												</th>
@@ -267,6 +299,16 @@ $(function(){
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				    <c:if test="${h.help_type ==4}">
                            				 	<tr>
+                           				 	<c:if test="${h.answer_status==0 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box0">답변 대기중</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
+                           				 	<c:if test="${h.answer_status==1 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box">답변 완료</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
 												<th class="list_type">
                    							    	<c:if test="${h.help_type ==4}"> 배송</c:if>
 												</th>
@@ -296,6 +338,16 @@ $(function(){
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				   <c:if test="${h.help_type ==5}">
                            				 	<tr>
+                           				 	<c:if test="${h.answer_status==0 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box0">답변 대기중</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
+                           				 	<c:if test="${h.answer_status==1 }">
+                           				 		<th class="list_state">
+                           				 			<div class="state_box">답변 완료</div>
+                           				 		</th>                       				 		
+                           				 		</c:if>
 												<th class="list_type">
                    							    	<c:if test="${h.help_type ==5}"> 기타</c:if>
 												</th>
