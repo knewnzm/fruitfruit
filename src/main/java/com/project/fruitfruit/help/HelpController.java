@@ -114,17 +114,9 @@ public class HelpController {
 		 					 h.setAnswer_status(1);
 		 				 }
 		 			 }
-		 		 }else {
-		 			 if(list == null) {
-		 				if (m.getUser_id()==(h.getHelp_writer_id()) || m.getUser_type() == 3) {
-		 					if(h.setHelp_type() )
-		 				}
-		 			 	Collections.reverse(list);
-		 			 	mav.addObject("list",list);
-		 			 	return mav;
-		 			 	}	
 		 		 }
 		 }
+		 //
 		 Collections.reverse(list);
 		 mav.addObject("list",list);
 		 return mav;

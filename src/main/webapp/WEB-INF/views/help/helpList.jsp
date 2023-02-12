@@ -182,15 +182,15 @@ $(function(){
 							<div class="tab_pannel" id="tab2" role="tabpannel" >
 								<table  class="list" id="all_list">
 									<tbody>
-										 <c:if test="${empty list }">
+										<c:if test="${empty list && h.help_type==1}">
 										 	<c:forEach var="h" items="${list}" varStatus="status">
-										 		<c:if test="${h.help_type ==1 }">
-                            							<tr>
-                                							 <th colspan="4" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
-                            							</tr>
-                            					</c:if>
-                            				</c:forEach>
-                        				</c:if>
+															<c:if test="${status.first}">
+															<tr>
+																	<th colspan="4" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+															</tr>
+															</c:if>
+											</c:forEach>
+										</c:if>	
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				 	<c:if test="${user_type==3 or h.help_writer_id==sessionScope.user_id}">
@@ -227,17 +227,17 @@ $(function(){
 							<div class="tab_pannel" id="tab3" role="tabpannel" >
 								<table  class="list" id="all_list">
 									<tbody>
-										 	<c:forEach var="h" items="${list}"  varStatus="status">
-										 		<c:if test="${user_type==3 or h.help_writer_id==sessionScope.user_id}">
-												<c:if test="${empty list == (h.help_type==2)}" >
-                            							<tr>
-                                							 <th colspan="4" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
-                            							</tr>
-                            					</c:if>
-                            					</c:if>
-                            				</c:forEach>
-                        				<c:if test="${not empty list}">
-                           				 <c:forEach var="h" items="${list}" varStatus="status">
+											<c:if test="${empty list && h.help_type==2}">
+										 	<c:forEach var="h" items="${list}" varStatus="status">
+															<c:if test="${status.first}">
+															<tr>
+																	<th colspan="4" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+															</tr>
+															</c:if>
+											</c:forEach>
+											</c:if>	
+                        					<c:if test="${not empty list}">
+                           					 <c:forEach var="h" items="${list}" varStatus="status">
                            				 	<c:if test="${user_type==3 or h.help_writer_id==sessionScope.user_id}">
                            				 	<c:if test="${h.help_type ==2}">
                            				 				<tr>
@@ -262,14 +262,148 @@ $(function(){
 														</tr>
 											  </c:if>		
 											  </c:if>
-                           				   </c:forEach>
-                            			</c:if>
+                           				  	 </c:forEach>
+                            				 </c:if>
 									</tbody>
 								</table>
 							</div>												
 							
+
+							<div class="tab_pannel" id="tab4" role="tabpannel" >
+								<table  class="list" id="all_list">
+									<tbody>
+											<c:if test="${empty list && h.help_type==3}">
+										 	<c:forEach var="h" items="${list}" varStatus="status">
+															<c:if test="${status.first}">
+															<tr>
+																	<th colspan="4" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+															</tr>
+															</c:if>
+											</c:forEach>
+											</c:if>	
+                        					<c:if test="${not empty list}">
+                           					 <c:forEach var="h" items="${list}" varStatus="status">
+                           				 	<c:if test="${user_type==3 or h.help_writer_id==sessionScope.user_id}">
+                           				 	<c:if test="${h.help_type ==3}">
+                           				 				<tr>
+                           				 					<c:if test="${h.answer_status==0 }">
+                           				 					<th class="list_state">
+                           				 								<div class="state_box0">답변 대기중</div>
+                           				 						 </th>                       				 		
+                           				 					</c:if>
+                           				 					<c:if test="${h.answer_status==1 }">
+                           				 					<th class="list_state">
+                           				 								<div class="state_box">답변 완료</div>
+                           				 					</th>                       				 		
+                           				 					</c:if>
+															<th class="list_type">
+																	<c:if test="${h.help_type ==3}"> 상품 </c:if>
+															</th>
+															<th class="list_title"> 
+																	<a class="link" href="${pageContext.request.contextPath}/help/helpDetail?help_num=${h.help_num}">
+                                        	    					${h.help_title}</a>
+                                        	   			 	</th>
+															<th class="list_date" >${h.help_date}</th>
+														</tr>
+											  </c:if>		
+											  </c:if>
+                           				  	 </c:forEach>
+                            				 </c:if>
+									</tbody>
+								</table>
+							</div>							
 							
 							
+							<div class="tab_pannel" id="tab5" role="tabpannel" >
+								<table  class="list" id="all_list">
+									<tbody>
+											<c:if test="${empty list && h.help_type==4}">
+										 	<c:forEach var="h" items="${list}" varStatus="status">
+															<c:if test="${status.first}">
+															<tr>
+																	<th colspan="4" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+															</tr>
+															</c:if>
+											</c:forEach>
+											</c:if>	
+                        					<c:if test="${not empty list}">
+                           					 <c:forEach var="h" items="${list}" varStatus="status">
+                           				 	<c:if test="${user_type==3 or h.help_writer_id==sessionScope.user_id}">
+                           				 	<c:if test="${h.help_type ==4}">
+                           				 				<tr>
+                           				 					<c:if test="${h.answer_status==0 }">
+                           				 					<th class="list_state">
+                           				 								<div class="state_box0">답변 대기중</div>
+                           				 						 </th>                       				 		
+                           				 					</c:if>
+                           				 					<c:if test="${h.answer_status==1 }">
+                           				 					<th class="list_state">
+                           				 								<div class="state_box">답변 완료</div>
+                           				 					</th>                       				 		
+                           				 					</c:if>
+															<th class="list_type">
+																	<c:if test="${h.help_type ==4}"> 배송 </c:if>
+															</th>
+															<th class="list_title"> 
+																	<a class="link" href="${pageContext.request.contextPath}/help/helpDetail?help_num=${h.help_num}">
+                                        	    					${h.help_title}</a>
+                                        	   			 	</th>
+															<th class="list_date" >${h.help_date}</th>
+														</tr>
+											  </c:if>		
+											  </c:if>
+                           				  	 </c:forEach>
+                            				 </c:if>
+									</tbody>
+								</table>
+							</div>
+							
+							
+							<div class="tab_pannel" id="tab6" role="tabpannel" >
+								<table  class="list" id="all_list">
+									<tbody>
+											<c:if test="${empty list && (help_type==5)}">
+										 	<c:forEach var="h" items="${list}" varStatus="status">
+															<c:if test="${status.first}">
+															<tr>
+																	<th colspan="4" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+															</tr>
+															</c:if>
+											</c:forEach>
+											</c:if>	
+                        					<c:if test="${not empty list}">
+                           					 <c:forEach var="h" items="${list}" varStatus="status">
+                           				 	<c:if test="${user_type==3 or h.help_writer_id==sessionScope.user_id}">
+                           				 	<c:if test="${h.help_type ==2}">
+                           				 				<tr>
+                           				 					<c:if test="${h.answer_status==0 }">
+                           				 					<th class="list_state">
+                           				 								<div class="state_box0">답변 대기중</div>
+                           				 						 </th>                       				 		
+                           				 					</c:if>
+                           				 					<c:if test="${h.answer_status==1 }">
+                           				 					<th class="list_state">
+                           				 								<div class="state_box">답변 완료</div>
+                           				 					</th>                       				 		
+                           				 					</c:if>
+															<th class="list_type">
+																	<c:if test="${h.help_type ==5}"> 기타 </c:if>
+															</th>
+															<th class="list_title"> 
+																	<a class="link" href="${pageContext.request.contextPath}/help/helpDetail?help_num=${h.help_num}">
+                                        	    					${h.help_title}</a>
+                                        	   			 	</th>
+															<th class="list_date" >${h.help_date}</th>
+														</tr>
+											  </c:if>		
+											  </c:if>
+                           				  	 </c:forEach>
+                            				 </c:if>
+									</tbody>
+								</table>
+							</div>
+
+		
 				</div> <!-- pannel end -->	
 			  <c:if test="${user_type == 1 || user_type == 2}">
 					 <div class="write_btn_box">
