@@ -31,6 +31,7 @@ public class HelpService {
 			return mapper.selectHelp(help_num);
 	}
 	
+	
 	/* 현재 시퀀스 값 불러오기 */
 	public int getHelpSeqCurrval() {
 				 return mapper.selectSeqCurrval();

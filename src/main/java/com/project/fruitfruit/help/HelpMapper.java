@@ -18,5 +18,6 @@ public interface HelpMapper {
 	void updateHelp(Help h);
 	
 	void deleteHelp(int help_num);
+
 	
 }

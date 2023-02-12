@@ -39,6 +39,12 @@
 				where help_num =#{help_num}
 	</select>
 	
+	<!-- 1:1 문의 help_writer_id로 출력 --> 
+	<select id="selectHelpid" parameterType="string" >
+				select * from help 
+				where help_writer_id =#{help_writer_id}
+	</select>
+	
 	<!-- 1:1문의 시퀀스 현재 값 -->
 	<select id="selectSeqCurrval"  resultType="int">
 				select 
