@@ -105,4 +105,10 @@
 		from review 
 		order by review_date desc
 	</select>
+	
+	<select id="selectSeqReviewCurrval" resultType="int">
+		select seq_review.currval 
+		from dual
+	</select>
+	
 </mapper>

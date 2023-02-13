@@ -1,5 +1,6 @@
 package com.project.fruitfruit.review;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.project.fruitfruit.support.Support;
 
@@ -64,11 +66,14 @@ public class ReviewController {
 			@RequestParam int product_num, 
 			Model model) {
 		model.addAttribute("product_num", product_num);
+		
 	}
 	
 	@PostMapping("review/reviewForm")
 	public String addReview(Review r) {
 		rService.insertReview(r);
+		int review_num = rService.selectSeqReviewCurrval();
+		uploadFile(r.getFile(), review_num);
 		return "redirect:/product/productDetail?product_num=" + r.getReview_product_num();
 	}
 	
@@ -87,6 +92,35 @@ public class ReviewController {
 		rService.deleteReview(review_num);
 		return "redirect:/product/productList";
 	}
+	
+	private String projectPath = new File("").getAbsolutePath().toString() + "\\src\\main\\webapp";
+	private String webPath = "\\static\\review\\";
+	
+	private void uploadFile(MultipartFile file, int review_num) {
+		File dir = new File(projectPath + webPath + review_num);
+		if (!dir.exists()) {
+			dir.mkdir();
+		}
+		
+		if (!file.isEmpty()) {
+			String uploadPath = webPath + review_num + "/" + file.getOriginalFilename();
+			File f = new File(projectPath + uploadPath);
+			if (!f.exists()) {
+				try {
+					f.createNewFile();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			try {
+				file.transferTo(f);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 	
 	
 }

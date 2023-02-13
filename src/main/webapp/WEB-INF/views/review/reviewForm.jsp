@@ -47,6 +47,16 @@
 				<div class="notice_box">
 					<div class="notice_title">
 						<label for="notice_writer_id">
+							image
+						</label>
+					</div>
+					<div class="notice_input">
+						<input type="file" name="file" id="file" multiple>
+					</div>
+				</div>
+				<div class="notice_box">
+					<div class="notice_title">
+						<label for="notice_writer_id">
 							user id
 						</label>
 					</div>

@@ -213,10 +213,12 @@
                                                         <div class="review-form-contents-inner">
                                                             <div class="review-form-user-area">
                                                                 <div class="review-form-user-icon">
-                                                                    <img src="https://profile-phinf.pstatic.net/404/default.png?type=f80_80" data-src="https://profile-phinf.pstatic.net/404/default.png?type=f80_80" class="review-form-user-img" alt="프로필_image">
+                                                                
                                                                 </div>
                                                                 <div class="review-form-user-info">
-                                                                    
+                                                                	<img src="https://profile-phinf.pstatic.net/404/default.png?type=f80_80" data-src="https://profile-phinf.pstatic.net/404/default.png?type=f80_80" class="review-form-user-img" alt="프로필_image">
+                                                                
+                                                                    <img src="${review.review_path}" alt="${review.review_path}">
                                                                     <div class="review-form-user-info-area">
                                                                         <strong class="review-content">${review.review_writer }</strong>
                                                                         <span class="review-content">${review.review_date }</span>
