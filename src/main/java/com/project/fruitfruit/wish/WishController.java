@@ -60,21 +60,19 @@ public class WishController {
 
 		// 찜 추가
 		@RequestMapping("/wish/add")
-		public ModelAndView addWish(@RequestParam int product_num) {
-			ModelAndView mav = new ModelAndView("/wish/wishJSON");
+		public String addWish(@RequestParam int product_num) {
 			String user_id = (String) session.getAttribute("user_id");
 			System.out.println("addWish : " + user_id + " " + product_num);
 
 			Wish w = new Wish();
 
-			w.setWish_num(wService.selectSeqWishCurrval());
 			w.setWish_user_id(user_id);
 			w.setWish_product_num(product_num);
 
 			System.out.println("addWish w : " + w);
 			wService.insertWish(w);
 
-			return mav;
+			return "redirect:/wish/wishList";
 		}
 
 		// 찜 삭제

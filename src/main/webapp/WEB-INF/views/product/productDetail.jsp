@@ -165,7 +165,8 @@
 
           <div class="buttons">
             <form  class="wish-form" action="${pageContext.request.contextPath}/wish/add" method="post">
-            <button class="wishlist-btn" type="submit">찜</button>
+            	<input type="hidden" name="product_num" value="${p.product_num}">
+            	<button class="wishlist-btn" type="submit">찜</button>
             </form>
             <button class="cart-btn" onclick="orderform.submit();">주문 요청하기</button>
             <div class="report-wrap">

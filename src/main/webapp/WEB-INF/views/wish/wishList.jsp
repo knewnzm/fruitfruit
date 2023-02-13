@@ -59,9 +59,9 @@
                                     <a href="${pageContext.request.contextPath}/product/productDetail?product_num=${wish.p.product_num}">
                                     <img src="${wish.p.product_path}" alt="${wish.p.product_path}" class="product-img">
                                         <div class="product-info">
-                                            <strong class="product-title">${p.product_title}</strong>
+                                            <strong class="product-title">${wish.p.product_title}</strong>
                                             <span class="product-price">
-                                                <fmt:formatNumber value="${p.product_price}" pattern="#,###원"/>
+                                                <fmt:formatNumber value="${wish.p.product_price}" pattern="#,###원"/>
                                             </span>
                                         </div>
                                     </a>
