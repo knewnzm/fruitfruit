@@ -71,14 +71,14 @@
 	<update id="increaseReviewLikeHit" parameterType="int">
 		update review 
 		set 
-			review_like_hit=review_like_hit+1,
+			review_like_hit = review_like_hit + 1
 		where review_num=#{review_num}
 	</update>
 	
 	<update id="decreaseReviewLikeHit" parameterType="int">
 		update review 
 		set 
-			review_like_hit=review_like_hit-1,
+			review_like_hit=review_like_hit-1
 		where review_num=#{review_num}
 	</update>
 	

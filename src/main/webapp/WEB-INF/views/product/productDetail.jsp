@@ -241,9 +241,15 @@
                             
                                                         <div class="review-like-area">
                                                             <div class="review-like">
-                                                                <button type="button" class="review-like-btn">
+                                                            <form action="${pageContext.request.contextPath}/review_like/hit" method="post">
+                                                                <input type="hidden" name="review_like_user_id" value="${sessionScope.user_id}">
+                                                                <input type="hidden" name="review_like_review_num" value="${review.review_num }">
+                                                                
+                                                                <button type="submit" class="review-like-btn">
                                                                     <span class="count">${review.review_like_hit }</span>
                                                                 </button>
+                                                            </form>
+
                                                                 <div class="review-like-a">리뷰가 도움이 되었나요?</div>
                                                             </div>
                                                         </div>
