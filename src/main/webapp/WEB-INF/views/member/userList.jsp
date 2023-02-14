@@ -21,7 +21,6 @@
                         var obj = obj;
 
                         /* for(const obj in obj1){ */
-
                         for (const i in obj) {
                             var html =
                                 "<tr id=m_" +

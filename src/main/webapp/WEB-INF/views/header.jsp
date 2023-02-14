@@ -12,6 +12,30 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/header.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
         <title>Document</title>
+        <script type="text/javascript">
+        $(document).ready(function(){
+        	$.ajax({
+        		url:"/header",
+        		type:"post",
+        		success: function(data){
+        			var data = data;
+        			
+        			let html=`
+                            <li class="menuArea">
+                                <a href="#" class="title on">
+                                    <span class="text">${"${data[0].cate_name}"}</span>
+                                </a>
+                                </li>
+                	`;
+                	
+                	$(".category-wrap").append(html);
+        			}
+        		}
+        	});
+        	
+
+        });
+        </script>
     </head>
 
 
@@ -220,7 +244,7 @@
                                             <span class="text">${c1.cate_name }</span>
                                         </a>
                                         <ul class="category-wrap">
-                                         <c:forEach var="c2" items="${c2 }">
+                                        <%--  <c:forEach var="c2" items="${c2 }">
                                          <c:if test="${c1.cate_num==c2.cate_parent_num }">
                                             <li>
                                                 <a href="#" class="on title">
@@ -231,14 +255,14 @@
                                         </c:forEach>
                                         </ul>
                                     </li>
-                                    </c:forEach>                                 
-                                </ul>
+                                    </c:forEach> --%>                                 
+                                </ul> 
                             </div>
                         </div>
                         <div class="menu">
                             <div id="menuInner" class="menuInner">
                                 <ul>
-                                    <li class>
+                                    <li class="ddd">
                                         <a href="#">신상품</a>
                                     </li>
                                     <li class>

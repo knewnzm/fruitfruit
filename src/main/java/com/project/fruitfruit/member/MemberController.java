@@ -39,6 +39,20 @@ private CategoryService cservice;
  * @RequestMapping(value = "/") //홈으로 가기 public String index() { return
  * "/index"; }
  */
+
+@SuppressWarnings("unchecked")
+@PostMapping(value = "/header")
+@ResponseBody
+public JSONArray header() {
+	JSONArray jarray = new JSONArray();
+	ArrayList<Category> cl = (ArrayList<Category>) cservice.getCategoryList(1, 0);
+	for (Category i : cl) {
+		jarray.add(i);
+	}
+	System.out.println("테스트"+jarray);
+	return jarray;
+}
+
 @RequestMapping(value = "/") //카테고리 대분류 들고 인덱스 페이지 가기
 public ModelAndView home(HttpServletRequest req) {
 	ModelAndView mav = new ModelAndView("/index");

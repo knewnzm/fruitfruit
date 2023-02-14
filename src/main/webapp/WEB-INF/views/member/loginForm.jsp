@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%> <%@ taglib
-uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
  <head>
@@ -10,7 +10,65 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
+        
         $(document).ready(function () {
+        	 var userLoginId = getCookie("userLoginId");
+        	// 저장된 쿠키값을 가져와서 ID 칸에 넣어준다. 쿠키값 없으면 공백.
+       	    var userLoginId = getCookie("userLoginId");
+       	    $("input[name='user_id']").val(userLoginId); 
+       	    
+       	    // ID가 있는경우 아이디 저장 체크박스 체크
+       	    if($("input[name='user_id']").val() != ""){
+       	    	$("#id_keep").attr("checked", true);
+       	    }
+       	    
+       	    // 아이디 저장하기 체크박스 onchange
+       	    $("#id_keep").change(function(){
+       	    	if($("#id_keep").is(":checked")){  //checked true
+       	        	var userLoginId = $("input[name='user_id']").val();
+       	            setCookie("userLoginId", userLoginId, 30); // 30일 동안 쿠키 보관
+       	         }else{ //checked false
+       	         	deleteCookie("userLoginId");
+       	        }
+       	    });
+       	     
+       	     
+       	     // 아이디 저장하기가  눌린상태에서, ID를 입력한 경우
+       	     $("input[name='user_id']").keyup(function(){
+       	     	if($("#id_keep").is(":checked")){  //checked true
+       	            var userLoginId = $("input[name='user_id']").val();
+       	            setCookie("userLoginId", userLoginId, 30); // 30일 동안 쿠키 보관
+       	        }
+       	    });
+       	     
+	       	function setCookie(cookieName, value, exdays){
+	       	    var exdate = new Date();
+	       	    exdate.setDate(exdate.getDate() + exdays);
+	       	    var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + exdate.toGMTString());
+	       	    document.cookie = cookieName + "=" + cookieValue;
+	       	}
+	       	 
+	       	function deleteCookie(cookieName){
+	       	    var expireDate = new Date();
+	       	    expireDate.setDate(expireDate.getDate() - 1);
+	       	    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+	       	}
+	       	 
+	       	function getCookie(cookieName) {
+	       	    cookieName = cookieName + '=';
+	       	    var cookieData = document.cookie;
+	       	    var start = cookieData.indexOf(cookieName);
+	       	    var cookieValue = '';
+	       	    if(start != -1){
+	       	        start += cookieName.length;
+	       	        var end = cookieData.indexOf(';', start);
+	       	        if(end == -1)end = cookieData.length;
+	       	        cookieValue = cookieData.substring(start, end);
+	       	    }
+	       	    return unescape(cookieValue);
+	       	    
+	       	}
+       	
             $("#login_btn").click(function () {
                 if ($("#user_id").val() == "") {
                     document.getElementById("msg").innerHTML = "이메일을 입력해주세요.";
@@ -35,21 +93,23 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                 }
             });
         });
+        
+        
         </script>
     </head>
 <body>
-<div class="wrap">
 	<header>
 		<c:import url="../head.jsp"></c:import>
         <c:import url="../header.jsp"></c:import>
 	</header>
+<div class="wrap">
 	<main id="cantainer" class="container">
 		<div id="content" class="content">
+				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
 			<div class="login_wrap">
 				<div class="logo">
 					<a><img src="${pageContext.request.contextPath}/static/img/frLogo.png" class="fruit_Logo"></a> 
 				</div>
-				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
 					<!-- login -->
 					<div class="login_panner">
 					<div class="login_box">
@@ -71,7 +131,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						<div class="keep_wrap">
 							<input type="checkbox"  id="id_keep" name="id_keep" value="off">
 								<label for="id_keep" class="keep_text">
-									로그인 상태 유지
+									아이디 저장
 								</label>
 						</div>
 						<div class="login_find">
@@ -123,8 +183,8 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 					</div>
 				<!-- social end -->
 				</div>
-				</form>
 			</div>
+			</form>
 		<!-- content end -->
 		</div>
 	</main>

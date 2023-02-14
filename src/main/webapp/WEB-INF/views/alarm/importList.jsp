@@ -60,197 +60,100 @@
                 });
             }
         });
-        // modal 닫기 버튼
-        $("button[name='close']").click(function (e) {
-            e.preventDefault();
-            const btn = $(e.target);
-            console.log(btn);
-            $("div[role='dialog']").modal("hide");
-        });
-        // modal 저장 버튼
-        $("button[name='rate-submit']").click(function (e) {
-            e.preventDefault();
-            const btn = $(e.target);
-            const itemid = btn.attr("itemid");
-            const form = $("#rating-" + itemid);
-            if (form[0].score.value === "") {
-                alert("먼저 평점을 입력해주세요!");
-            } else {
-                form.submit();
-            }
-        });
     });
 </script>
 
-<div class="py-3 my-3"></div>
 <div>
-    <h5>알림</h5>
-    <table class="w-100">
-        <tbody class="list-group" id="alram_list">
-            <c:if test="${empty aList}"> 새로운 알림이 없습니다. </c:if>
-            <c:forEach var="alram" items="${aList}">
-                <tr class="w-100 list-group-item d-flex justify-content-between">
-                    <td>
-                        <a
-                            class="${alram.alram_read==1?'text-muted':''}"
-                            name="alram"
-                            itemid="${alram.alram_num}"
-                            itemref="${alram.alram_href}"
-                            itemtype="${alram.alram_type}"
-                            style="cursor: pointer"
-                            data-toggle="modal"
-                            data-target="#modal-${alram.alram_num}"
-                        >
+    <h1>내 알림</h1>
+    
+    <div class="pannel_wrap">
+		<div class="tab_pannel current">
+			<table  class="list">
+				<tbody>
+					<c:if test="${empty aList}"> 새로운 알림이 없습니다. </c:if>
+						<c:forEach var="alram" items="${aList}">
+							<tr>
+								<th>
+			                        <a
+			                            class="${alram.alram_read==1?'text-muted':''}"
+			                            name="alram"
+			                            itemid="${alram.alram_num}"
+			                            itemref="${alram.alram_href}"
+			                            itemtype="${alram.alram_type}"
+			                            style="cursor: pointer"
+			                            data-toggle="modal"
+			                            data-target="#modal-${alram.alram_num}"
+			                        >
                             <c:choose>
                                 <c:when test="${alram.alram_type==1}">
-                                    <span class="fw-bold">
+                                    <span>
                                         <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
-                                    >에 댓글이 <span class="fw-bold">${alram.alram_count}개</span> 달렸습니다!
-                                    <span class="text-right inline-block">${alram.stringDate}</span>
+                                    >에 댓글이 <span>${alram.alram_count}개</span> 달렸습니다!
+                                    <span>${alram.stringDate}</span>
                                 </c:when>
                                 <c:when test="${alram.alram_type==2}">
-                                    <span class="fw-bold">
+                                    <span>
                                         <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
-                                    >에 등록한 내 댓글에 추가 댓글이 <span class="fw-bold">${alram.alram_count}개</span> 달렸습니다!
-                                    <span class="text-right inline-block">${alram.stringDate}</span>
+                                    >에 등록한 내 댓글에 추가 댓글이 <span>${alram.alram_count}개</span> 달렸습니다!
+                                    <span>${alram.stringDate}</span>
                                 </c:when>
                                 <c:when test="${alram.alram_type==3}">
-                                    <span class="fw-bold">
+                                    <span>
                                         <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
-                                    >이 <span class="fw-bold">예약 상태가 취소</span>되었습니다. 어서 구매하세요!
-                                    <span class="text-right inline-block">${alram.stringDate}</span>
+                                    >이 <span>예약 상태가 취소</span>되었습니다. 어서 구매하세요!
+                                    <span>${alram.stringDate}</span>
                                 </c:when>
                                 <c:when test="${alram.alram_type==4}">
-                                    <span class="fw-bold">
+                                    <span>
                                         <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
-                                    >이 <span class="fw-bold">예약 상태</span>가 되었습니다.
-                                    <span class="text-right inline-block">${alram.stringDate}</span>
+                                    >이 <span>예약 상태</span>가 되었습니다.
+                                    <span>${alram.stringDate}</span>
                                 </c:when>
                                 <c:when test="${alram.alram_type==5}">
-                                    <span class="fw-bold">
+                                    <span>
                                         <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
-                                    >이 <span class="fw-bold">판매완료</span> 되었습니다. 구매하셨다면 판매자에 대한 평점을 매겨주세요!
-                                    <span class="text-right inline-block">${alram.stringDate}</span>
+                                    >이 <span>판매완료</span> 되었습니다.
+                                    <span>${alram.stringDate}</span>
                                 </c:when>
                                 <c:when test="${alram.alram_type==6}">
-                                    <span class="fw-bold">
+                                    <span>
                                         <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
-                                    >이 <span class="fw-bold">판매완료</span> 되었습니다. 평점을 매겨주셔서 감사합니다.
-                                    <span class="text-right inline-block">${alram.stringDate}</span>
+                                    >이 <span>판매완료</span> 되었습니다.
+                                    <span>${alram.stringDate}</span>
                                 </c:when>
                             </c:choose>
-                        </a>
-                    </td>
-                    <td>
-                        <div
-                            class="modal fade"
-                            id="modal-${alram.alram_num}"
-                            tabindex="-1"
-                            role="dialog"
-                            aria-labelledby="modal-${alram.alram_num}-label"
-                            aria-hidden="true"
-                        >
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modal-${alram.alram_num}-label">제품을 구매하셨나요?</h5>
-                                    </div>
-                                    <div class="modal-body text-center">
-                                        <div class="w-100 my-3">판매자에 대한 평점을 매겨주세요!</div>
-                                        <div class="d-flex justify-content-center w-100">
-                                            <div class="cont py-3 px-3">
-                                                <div class="stars">
-                                                    <form action="${pageContext.request.contextPath}/member/rate" id="rating-${alram.alram_num}" method="POST">
-                                                        <input
-                                                            class="star star-5"
-                                                            id="star-5-${alram.alram_num}"
-                                                            type="radio"
-                                                            name="score"
-                                                            value="5"
-                                                            required
-                                                        />
-                                                        <label class="star star-5" itemid="5" for="star-5-${alram.alram_num}"></label>
-                                                        <input
-                                                            class="star star-4"
-                                                            id="star-4-${alram.alram_num}"
-                                                            type="radio"
-                                                            name="score"
-                                                            value="4"
-                                                        />
-                                                        <label class="star star-4" itemid="4" for="star-4-${alram.alram_num}"></label>
-                                                        <input
-                                                            class="star star-3"
-                                                            id="star-3-${alram.alram_num}"
-                                                            type="radio"
-                                                            name="score"
-                                                            value="3"
-                                                        />
-                                                        <label class="star star-3" itemid="3" for="star-3-${alram.alram_num}"></label>
-                                                        <input
-                                                            class="star star-2"
-                                                            id="star-2-${alram.alram_num}"
-                                                            type="radio"
-                                                            name="score"
-                                                            value="2"
-                                                        />
-                                                        <label class="star star-2" itemid="2" for="star-2-${alram.alram_num}"></label>
-                                                        <input
-                                                            class="star star-1"
-                                                            id="star-1-${alram.alram_num}"
-                                                            type="radio"
-                                                            name="score"
-                                                            value="1"
-                                                        />
-                                                        <label class="star star-1" itemid="1" for="star-1-${alram.alram_num}"></label>
-                                                        <c:import
-                                                            url="${pageContext.request.contextPath}/api/member/getUserIdByProductNum"
-                                                            var="rate_user_id"
-                                                        >
-                                                            <c:param name="product_num" value="${alram.product_num}"></c:param>
-                                                        </c:import>
-                                                        <input type="hidden" name="alram_num" value="${alram.alram_num}">
-                                                        <input type="hidden" name="user_id" value="${rate_user_id}">
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" name="close" data-dismiss="modal">취소</button>
-                                        <button type="button" class="btn btn-primary" name="rate-submit" itemid="${alram.alram_num}">저장</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn-close" type="button" itemid="${alram.alram_num}"></button>
-                    </td>
-                </tr>
-            </c:forEach>
-            <tr>
-                <td class="w-100 d-flex justify-content-end" colspan="2">
-                    <c:if test="${not empty aList}">
-                        <button class="btn btn-link my-1">알림 전체 삭제</button>
-                    </c:if>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                       			 </a>
+							</th>
+		                </tr>
+					</c:forEach>
+					<tr class="del-tr">
+						<th>
+							<c:if test="${not empty aList}">
+								<button class="add-btn">알림 전체 삭제</button>
+							</c:if>
+						</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
+
