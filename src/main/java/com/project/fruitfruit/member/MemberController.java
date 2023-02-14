@@ -207,18 +207,11 @@ public ModelAndView findId(HttpServletRequest req, @RequestParam(value = "user_n
 
 	Member m = service.selectbyname(user_name);
 
-	if (m== null ) {
-		
-		mav.setViewName("/member/findId");
-		mav.addObject("error", "이름를 확인해주세요.");
-	} else if (m.getUser_name().equals(user_name) && m.getUser_tel()==user_tel) {
+	if (m.getUser_name().equals(user_name) && m.getUser_tel()==user_tel) {
 		mav.addObject("user_id", m.getUser_id());
 		mav.setViewName("/member/findIdResult");
 
-	} else {
-		mav.setViewName("/member/findId");
-		mav.addObject("error", "입력값을 확인해주세요.");
-	}
+	} 
 	return mav;
 }
 
@@ -242,18 +235,11 @@ public ModelAndView findPwd(HttpServletRequest req,@RequestParam(value = "user_i
 
 	Member m = service.select(user_id);
 
-	if (m== null ) {
-		
-		mav.setViewName("/member/findPwd");
-		mav.addObject("error", "이름를 확인해주세요.");
-	} else if (m.getUser_name().equals(user_name) && m.getUser_tel()==user_tel) {
+	if (m.getUser_name().equals(user_name) && m.getUser_tel()==user_tel) {
 		mav.setViewName("/member/changePwd");
 		mav.addObject("user_id", user_id);
 		
-	} else {
-		mav.setViewName("/member/findPwd");
-		mav.addObject("error", "입력값을 확인해주세요.");
-	}
+	} 
 	return mav;
 }
 
