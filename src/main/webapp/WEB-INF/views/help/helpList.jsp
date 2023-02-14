@@ -178,11 +178,17 @@ $(function(){
 							<div class="tab_pannel " id="tab2" role="tabpannel" >
 								<table  class="list" id="all_list">
 									<tbody>
-										 <c:if test="${empty list}">
-                            				<tr>
-                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
-                            				</tr>
-                        				</c:if>
+									<c:set var="st">
+									  <tr>
+                                	    <th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+                            		  </tr>
+									</c:set>
+										<c:forEach var="h" items="${list}" varStatus="status">
+										<c:if test="${ h.help_type==1}">
+										<c:set var="st"></c:set>
+										</c:if>
+										</c:forEach>
+                            				${st }	
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				   <c:if test="${h.help_type ==1}">
@@ -217,11 +223,17 @@ $(function(){
 							<div class="tab_pannel " id="tab3" role="tabpannel" >
 								<table  class="list" id="all_list">
 									<tbody>
-										 <c:if test="${empty list}">
-                            				<tr>
-                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
-                            				</tr>
-                        				</c:if>
+										 <c:set var="st">
+									  <tr>
+                                	    <th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+                            		  </tr>
+									</c:set>
+										<c:forEach var="h" items="${list}" varStatus="status">
+										<c:if test="${ h.help_type==2}">
+										<c:set var="st"></c:set>
+										</c:if>
+										</c:forEach>
+                            				${st }	
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				   <c:if test="${h.help_type ==2}">
@@ -256,11 +268,17 @@ $(function(){
 							<div class="tab_pannel " id="tab4" role="tabpannel" >
 								<table  class="list" id="all_list">
 									<tbody>
-										 <c:if test="${empty list}">
-                            				<tr>
-                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
-                            				</tr>
-                        				</c:if>
+										<c:set var="st">
+									  <tr>
+                                	    <th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+                            		  </tr>
+									</c:set>
+										<c:forEach var="h" items="${list}" varStatus="status">
+										<c:if test="${ h.help_type==3}">
+										<c:set var="st"></c:set>
+										</c:if>
+										</c:forEach>
+                            				${st }	
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				   <c:if test="${h.help_type ==3}">
@@ -295,11 +313,17 @@ $(function(){
 							<div class="tab_pannel " id="tab5" role="tabpannel" >
 								<table  class="list" id="all_list">
 									<tbody>
-										 <c:if test="${empty list}">
-                            				<tr>
-                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
-                            				</tr>
-                        				</c:if>
+										<c:set var="st">
+									  <tr>
+                                	    <th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+                            		  </tr>
+									</c:set>
+										<c:forEach var="h" items="${list}" varStatus="status">
+										<c:if test="${ h.help_type==4}">
+										<c:set var="st"></c:set>
+										</c:if>
+										</c:forEach>
+                            				${st }	
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				    <c:if test="${h.help_type ==4}">
@@ -334,11 +358,17 @@ $(function(){
 							<div class="tab_pannel" id="tab6" role="tabpannel" >
 								<table  class="list" id="all_list">
 									<tbody>
-										 <c:if test="${empty list}">
-                            				<tr>
-                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
-                            				</tr>
-                        				</c:if>
+										<c:set var="st">
+									  <tr>
+                                	    <th colspan="3" style=" border-bottom-width: 0px;">등록된 문의가 없습니다.</th>
+                            		  </tr>
+									</c:set>
+										<c:forEach var="h" items="${list}" varStatus="status">
+										<c:if test="${ h.help_type==5}">
+										<c:set var="st"></c:set>
+										</c:if>
+										</c:forEach>
+                            				${st }	
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="h" items="${list}" varStatus="status">
                            				   <c:if test="${h.help_type ==5}">
