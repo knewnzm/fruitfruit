@@ -89,6 +89,5 @@ public class Help {
 				+ ", help_path=" + help_path + ", file1=" + file1 + ", answer_status=" + answer_status + "]";
 	}
 	
-
 	
 }

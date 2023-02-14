@@ -177,6 +177,7 @@ list-style:none;
     border-bottom: 1px solid #B6B6B4;
 }
 .r_content_box{
+	width:1000px;
 	padding-top:10px;
 	padding-left:20px;
 	padding-right:20px;
@@ -185,6 +186,8 @@ list-style:none;
 	color:#736F6E;
     text-align: left;
     letter-spacing:0.3px;
+    overflow: auto;
+    word-break:break-all;
 }
 .reply_e_content{
 	padding:20px;

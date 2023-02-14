@@ -116,12 +116,11 @@ public class HelpController {
 		 			 }
 		 		 }
 		 }
-		 //
 		 Collections.reverse(list);
 		 mav.addObject("list",list);
 		 return mav;
 	}
-	
+
 	/* 1:1 문의 수정페이지 이동 */
 	@RequestMapping(value = "/help/helpEdit")
 	public ModelAndView ediform(@RequestParam(value = "help_num") int help_num) {
