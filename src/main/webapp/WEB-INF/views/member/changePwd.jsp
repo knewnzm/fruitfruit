@@ -24,7 +24,7 @@ body{
             }
 
             function chkPwd() {
-                if ($("#newPwd").val() != $("#pwdCheck").val()) {
+                if ($("#user_pwd").val() != $("#pwdCheck").val()) {
                     $("#pwd2Result").text("비밀번호가 일치하지 않습니다.");
                     chkp = false;
                 } else {
@@ -43,7 +43,7 @@ body{
                     chkp = false;
                     $("#pwd1Result").empty();
                     $("#pwd2Result").empty();
-                    if ($("#newPwd").val() == "") {
+                    if ($("#user_pwd").val() == "") {
                         $("#pwd1Result").text("필수 정보입니다.");
                     } else if ($("#pwdCheck").val() != "") {
                         chkPwd();
@@ -76,7 +76,7 @@ body{
 <form name="f" action="${pageContext.request.contextPath}/member/changePwd" method="post">
 <div class="cp_h"><h1>비밀번호를 변경해 주세요.</h1></div>
 <div class="f_box">
-<div class="cp_newPwd">새 비밀번호</div><br> <input type="password" class="f_id_line" id="newPwd" name="newPwd" >
+<div class="cp_newPwd">새 비밀번호</div><br> <input type="password" class="f_id_line" id="user_pwd" name="user_pwd" >
 <div id="pwd1Result" class="cp_msg"></div><br>
 <div class="cp_editPwd">비밀번호 확인</div><br> <input type="password" class="f_id_line" id="pwdCheck" ><br>
  <div id="pwd2Result" class="cp_msg"></div>
