@@ -10,6 +10,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project.fruitfruit.category.Category;
 import com.project.fruitfruit.category.CategoryService;
 
 
@@ -40,28 +40,10 @@ private CategoryService cservice;
  * "/index"; }
  */
 
-@SuppressWarnings("unchecked")
-@PostMapping(value = "/header")
-@ResponseBody
-public JSONArray header() {
-	JSONArray jarray = new JSONArray();
-	ArrayList<Category> cl = (ArrayList<Category>) cservice.getCategoryList(1, 0);
-	for (Category i : cl) {
-		jarray.add(i);
-	}
-	System.out.println("테스트"+jarray);
-	return jarray;
-}
+@RequestMapping(value = "/") //인덱스 페이지 가기
+public String home() {
+	return "/index";
 
-@RequestMapping(value = "/") //카테고리 대분류 들고 인덱스 페이지 가기
-public ModelAndView home(HttpServletRequest req) {
-	ModelAndView mav = new ModelAndView("/index");
-	ArrayList<Category> cate1_list=cservice.getCategoryList(1, 0);
-	ArrayList<Category> cate2_list=cservice.Category2List();
-	System.out.println(cate2_list);
-	mav.addObject("c1", cate1_list);
-	mav.addObject("c2", cate2_list);
-	return mav;
 }
 @GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
 public String joinForm(HttpServletRequest req) {
@@ -205,7 +187,7 @@ public String out(HttpServletRequest req, @RequestParam(value = "user_id", requi
 }
 
 @SuppressWarnings("unchecked")
-@PostMapping(value = "/member/List")
+@PostMapping(value = "/member/userList")
 @ResponseBody
 public JSONArray list() {
 	JSONArray jarray = new JSONArray();
@@ -216,8 +198,12 @@ public JSONArray list() {
 	System.out.println(jarray);
 	return jarray;
 }
-@RequestMapping(value="/member/userList")
-public void userList() {
-
+@GetMapping(value="/member/userList")
+public void userList(Model model) {
+	ArrayList<Member> ml = (ArrayList<Member>) service.list();
+	if(ml==null) {
+		model.addAttribute("nothing", "nothing");
+	}
+	System.out.println("모델은"+model);
 }
 }

@@ -13,28 +13,77 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
         <title>Document</title>
         <script type="text/javascript">
+        /////////////////////////////////////////
+        function makeBtn(data, cate_type = 1) { //하나의 행 element를 data라 부르기로 하자
+        	/* 
+        	<div> id=c"${cate_type}"+"${cate_num}" ex)c1+1
+        	<input> name=c"${cate_type}" , id=c"${cate_type}"-"${cate_num}" ex) name=c1 ,id=c1-1
+        	<label> 
+            for=c"${cate_type}"-"${cate_num}" ex) c1-1 
+            */
+            
+          //class가 menuArea인 li태그를 만들고
+          //Mapping의 value가 /product/csearch이고 @RequestPram값으로 키값frfr_category1,밸류가 data의 cate_num값인
+          //컨트롤러로 가는 링크를 생성한다
+          //span 태그에 data의 cate_name값을 넣어준다
+            let html = ` 
+            	<li class="menuArea"> 
+                <a href="/product/csearch?frfr_category1=${"${data.cate_num}"}" id="c${'${cate_type}'}-${'${data.cate_num}'}" class="title on"> 
+                    <span class="text">${"${data.cate_name}"}</span>
+                </a>
+                <ul id="c2-list-${'${data.cate_num}'}" class="category-wrap">
+                </ul>
+                </li>
+            `;
+            return html; //그렇게 만든 하나의 html을 makeBtnList함수의 html값에 합쳐준다
+        }
+        ///////////////////////////////
+        function makeBtnList(array, cate_type = 1) {
+            let html = "";
+            for (let i = 0; i < array.length; i++) {
+                const element = array[i]; //array에 들어있는 각각의 행 element를 순서대로 꺼낸다 [object Object]
+                html += makeBtn(element, cate_type); //makeBtn함수에 element값을 순서대로 넣는다
+                                                                          //그 결과를 빈 html변수에 순서대로 합친다
+            }
+            return html; //합쳐진 html값을 getCategoryList함수로 다시 보내준다
+        }
+        /////////////////////////////////
+        function getCategoryList(cate_type, cate_parent_num = -1) {
+            $.ajax({
+                type: "post",
+                url: "${pageContext.request.contextPath}/category/getCategory",
+                data: { cate_type, cate_parent_num },
+                success: function (response) { //카테고리 대분류 전체 리스트가 들어있는 GSON값을 받는다
+                   const arr = $.parseJSON(response); //받아온 GSON값을 parseJSON하여 arr이라는 변수에 담는다
+                    let html = makeBtnList(arr, cate_type); //makeBtnList함수에 arr과 cate_type을 보내고,
+                                                                                 //보낸 결과값을 html이라는 변수에 담는다
+                                                                                 if(cate_parent_num==-1){
+                    $("#c" + cate_type + "-list").html(html);//아이디가 c1-list꼴인 form의 내용을 html로 교체한다
+                                                                                 } else if(cate_parent_num!=-1){
+                                                                                	 $("#c" + cate_type + "-list-" + cate_parent_num).html(html);
+                                                                                 }
+                }
+            });
+        }
+        ////////////////////
+         function categoryBtnHandler(e) {
+        	 const data = $(e.target).attr("id").split("-");// $(e.target)은 <a>태그, a태그의 id에서 "-"를 기준으로 값을 나눠 data에 담는다 ex)c1,2
+             const cate_type = parseInt(data[0].substr(1)); //그중 맨앞의 값인 data[0]값의 맨 앞의 하나를 뺀다 .substr(1) c1-> 1
+             const cate_num = data[1]; //그 다음값인 data[1]값을 cate_num변수에 담는다 ex)2 
+             getCategoryList(cate_type + 1, cate_num);
+             $("#c" + (cate_type + 1) + "-parent").val(cate_num);
+            }
+        //////////////////////
         $(document).ready(function(){
-        	$.ajax({
-        		url:"/header",
-        		type:"post",
-        		success: function(data){
-        			var data = data;
-        			
-        			let html=`
-                            <li class="menuArea">
-                                <a href="#" class="title on">
-                                    <span class="text">${"${data[0].cate_name}"}</span>
-                                </a>
-                                </li>
-                	`;
-                	
-                	$(".category-wrap").append(html);
-        			}
-        		}
+        	getCategoryList(1);
+        	
+        	$(document).on("mouseover", "li.menuArea", function (e) { //class가 menuArea인 li태그에 마우스를 올렸을때 
+        		categoryBtnHandler(e); //categoryBtnHandler함수를 실행한다
         	});
         	
-
         });
+        	
+        
         </script>
     </head>
 
@@ -237,32 +286,17 @@
                                 <span>카테고리</span>
                             </button>
                             <div class="dep1 hidden">
-                                <ul class="category-wrap">
-                                <c:forEach var="c1" items="${c1 }">
-                                    <li class="menuArea">
-                                        <a href="#" class="title on">
-                                            <span class="text">${c1.cate_name }</span>
-                                        </a>
-                                        <ul class="category-wrap">
-                                        <%--  <c:forEach var="c2" items="${c2 }">
-                                         <c:if test="${c1.cate_num==c2.cate_parent_num }">
-                                            <li>
-                                                <a href="#" class="on title">
-                                                    <span class="text">${c2.cate_name }</span>
-                                                </a>
-                                            </li>
-                                        </c:if>
-                                        </c:forEach>
-                                        </ul>
-                                    </li>
-                                    </c:forEach> --%>                                 
-                                </ul> 
+                                <ul id="c1-list" class="category-wrap">
+                                
+                                    
+                                                                  
+                                </ul>
                             </div>
                         </div>
                         <div class="menu">
                             <div id="menuInner" class="menuInner">
                                 <ul>
-                                    <li class="ddd">
+                                    <li class>
                                         <a href="#">신상품</a>
                                     </li>
                                     <li class>

@@ -100,9 +100,9 @@
             }
             // 카테고리 버튼 클릭 시 (하위 카테고리를 추가하기 위한 상위 카테고리 선택 시)
             function categoryBtnClickHandler(e) {
-                const data = $(e.target).attr("id").split("-"); //ex)c1,2
-                const cate_type = parseInt(data[0].substr(1)); 
-                const cate_num = data[1];
+                const data = $(e.target).attr("id").split("-"); // $(e.target)은 <a>태그, a태그의 id에서 "-"를 기준으로 값을 나눠 data에 담는다 ex)c1,2
+                const cate_type = parseInt(data[0].substr(1)); //그중 맨앞의 값인 data[0]값의 맨 앞의 하나를 뺀다 .substr(1) c1-> 1
+                const cate_num = data[1]; //그 다음값인 data[1]값
                 getCategoryList(cate_type + 1, cate_num);
                 $("#c" + (cate_type + 1) + "-parent").val(cate_num);
             }

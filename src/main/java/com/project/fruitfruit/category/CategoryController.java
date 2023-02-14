@@ -38,8 +38,8 @@ public class CategoryController {
 //	카테고리 리스트 생성
 	@RequestMapping(value = "/category/getCategory")
 	@ResponseBody
-	public String getCategory(@RequestParam(required = false, defaultValue = "-1") int cate_parent_num,
-			@RequestParam int cate_type) {
+	public String getCategory(@RequestParam int cate_type,
+			@RequestParam(required = false, defaultValue = "-1") int cate_parent_num) {
 		ArrayList<Category> cate_list = null;
 		switch (cate_type) {
 		case 1:
@@ -50,8 +50,8 @@ public class CategoryController {
 			break;
 		}
 		Gson g = new Gson();
-		System.out.println(g.toJson(cate_list));
-		return g.toJson(cate_list);
+		String gson = g.toJson(cate_list);
+		return gson;
 		
 	}
 
