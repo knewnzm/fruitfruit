@@ -29,11 +29,14 @@
       			</div>
       			<div class="help_btn_wrap">
       					<c:if test="${sessionScope.user_id==h.help_writer_id}"> <!-- sesseionScope -->
-            				<button  type="button" class="edit_btn" 
+            							<button  type="button" class="edit_btn" 
             							 onclick="location.href=`${pageContext.request.contextPath}/help/helpEdit?help_num=${h.help_num}`" >
             							 수정하기
-             				</button>
-             				<button  type="button" class="hd_modal_btn" data-bs-toggle="modal"  data-target="#hdModal"> 삭제하기 </button>
+             							</button>
+             							<button  type="button" class="hd_modal_btn" data-bs-toggle="modal"  data-target="#hdModal"> 삭제하기 </button>
+            		 	</c:if>
+            		 	<c:if test="${user_type==3}">
+            		 					<button  type="button" class="hd_modal_btn2" data-bs-toggle="modal"  data-target="#hdModal2"> 삭제하기 </button>
             		 	</c:if>
             	</div>		 
         </div>     
@@ -64,7 +67,7 @@
         <c:if test="${user_type==3&& empty a}">
         		<div class="hp_d_r_box">
         		<form id="answerForm" action="${pageContext.request.contextPath}/answer/insert" method="post">
-        			<textarea name="answer_content" class="reply_w_content">댓글 입력 칸</textarea>
+        			<textarea name="answer_content" class="reply_w_content" placeholder="답변을 입력해주세요." required></textarea>
         			<input type="hidden" name="help_num" value="${h.help_num }">
         			<input type="hidden" name="user_id" value="${sessionScope.user_id }">
 					<button type="submit" class="hp_r_submit" >등록</button>					
@@ -95,7 +98,7 @@
            				<button class="back_btn" type="button" onclick="location.href='${pageContext.request.contextPath}/help/helpList'">목록으로</button>
            </div>
 	</div> 		     
- </main>
+</main>
 <c:import url="../footer.jsp"></c:import>
 <!-- help 삭제 Modal -->
 <c:if test="${user_type==1|| user_type==2}">
@@ -116,8 +119,27 @@
     	</div>
  </form>  	
  </c:if>
-<!-- answer 수정 Modal -->
 <c:if test="${user_type==3}">
+
+<!-- help 삭제 -->
+<form name="hd2" action="${pageContext.request.contextPath}/help/helpDelete?help_num=${h.help_num}" method="post">
+	<div class="modal hd_modal2" id="hdModal2">
+    		<div class="modal_container">
+    				<div class="modal_header">
+      						<h2>삭제하기</h2>
+      				</div>
+      				<div class="modal_body">
+      							등록한 문의글을 삭제하시겠습니까?
+      				</div>
+      				<div class="modal_footer">
+                        	    <button type="button" class="modal_close_btn1"  data-bs-dismiss="modal" aria-label="Close">취소</button>
+                              	<button type="button" class="modal_del_btn" onclick="document.hd2.submit()">삭제</button>
+      				</div>
+    				</div>
+    	</div>
+ </form>  	
+
+<!-- answer 수정 Modal -->
 <form name="ae" action="${pageContext.request.contextPath }/answer/edit" method="post">
 			<div class="modal re_modal" id="reModal">
     					 <div class="modal_container">
@@ -129,7 +151,7 @@
       							</textarea>
       						</div>
       						<div class="modal_footer">
-                        	    <button type="button" class="modal_close_btn"  data-dismiss="modal" aria-label="Close">취소</button>
+                        	    <button type="button" class="modal_close_btn2"  data-dismiss="modal" aria-label="Close">취소</button>
                               	<button type="button" class="modal_edit_btn" onclick="document.ae.submit()">수정</button>
       						</div>
     					 </div>
@@ -147,24 +169,34 @@
                								 등록한 답변을 삭제하시겠습니까?
           					 </div>
            					 <div class="modal_footer">
-                							<button type="button" class="modal_close_btn2"  data-dismiss="modal" aria-label="Close">취소</button>
+                							<button type="button" class="modal_close_btn3"  data-dismiss="modal" aria-label="Close">취소</button>
                 							<button type="button" class="r_del_btn" onclick="location.href='${pageContext.request.contextPath}/answer/delete?answer_num=${a.answer_num }'">삭제</button>
             				</div>
        				 </div>
     		</div>
 </c:if>  	
+
 </body>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 /* 모달 */
 const userType = "${user_type}"
 const body = document.querySelector('body');
-const modal = document.querySelector('.modal');
-const modal2 = document.querySelector('.rd_modal');
-const btnOpenPopup = document.querySelector('.hd_modal_btn,.re_modal_btn');
-const btnOpenPopup2 = document.querySelector('.rd_modal_btn');
+
+const modal = document.querySelector('.hd_modal');
+const modal1 = document.querySelector('.hd_modal2');
+const modal2 = document.querySelector('.re_modal');
+const modal3 = document.querySelector('.rd_modal');
+
+const btnOpenPopup = document.querySelector('.hd_modal_btn');
+const btnOpenPopup1 = document.querySelector('.hd_modal_btn2');
+const btnOpenPopup2 = document.querySelector('.re_modal_btn');
+const btnOpenPopup3 = document.querySelector('.rd_modal_btn');
+
 const btnClose = document.querySelector('.modal_close_btn');
+const btnClose1 = document.querySelector('.modal_close_btn1');
 const btnClose2 = document.querySelector('.modal_close_btn2');
+const btnClose3 = document.querySelector('.modal_close_btn3');
 
  if (userType === "1" || userType === "2") {
   		 btnOpenPopup.addEventListener('click', () => {
@@ -187,8 +219,8 @@ const btnClose2 = document.querySelector('.modal_close_btn2');
 		});
  }
  if (userType === "3" ) {
-	 	btnOpenPopup.addEventListener('click', () => {
-			modal.classList.toggle('show');
+	 	btnOpenPopup1.addEventListener('click', () => {
+			modal1.classList.toggle('show');
 			   if (modal.classList.contains('show')) {
 	  			}
 		});
@@ -197,20 +229,49 @@ const btnClose2 = document.querySelector('.modal_close_btn2');
 	 		  if (modal.classList.contains('show')) {
 	 		  }
 	 	});
-		modal.addEventListener('click', (event) => {
-			 if (event.target === modal) {
-					 modal.classList.toggle('show');
-					 if (!modal.classList.contains('show')) {
+	 	btnOpenPopup3.addEventListener('click', () => {
+	 		  modal3.classList.toggle('show');
+	 		  if (modal.classList.contains('show')) {
+	 		  }
+	 	});
+	 	
+	 	modal1.addEventListener('click', (event) => {
+			 if (event.target === modal1) {
+					 modal1.classList.toggle('show');
+					 if (!modal1.classList.contains('show')) {
 					 body.style.overflow = 'auto';
 						 }
 				 }
 		});
-		btnClose.addEventListener('click', () => {
- 			modal.classList.remove('show');
+	 	
+	 	modal2.addEventListener('click', (event) => {
+			 if (event.target === modal2) {
+					 modal2.classList.toggle('show');
+					 if (!modal2.classList.contains('show')) {
+					 body.style.overflow = 'auto';
+						 }
+				 }
+		});
+	 	
+	 	modal3.addEventListener('click', (event) => {
+			 if (event.target === modal3) {
+					 modal3.classList.toggle('show');
+					 if (!modal3.classList.contains('show')) {
+					 body.style.overflow = 'auto';
+						 }
+				 }
+		});
+	 	
+		btnClose1.addEventListener('click', () => {
+ 			modal1.classList.remove('show');
 				 body.style.overflow = 'auto';
 		});
 		btnClose2.addEventListener('click', () => {
  			modal2.classList.remove('show');
+				 body.style.overflow = 'auto';
+		});
+		btnClose3.addEventListener('click', () => {
+ 			modal3.classList.remove('show');
 				 body.style.overflow = 'auto';
 		});
 }

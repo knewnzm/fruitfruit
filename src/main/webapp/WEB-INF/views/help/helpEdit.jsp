@@ -4,16 +4,14 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>1:1Form</title>
+<title>프룻프룻 1:1문의 수정 | ${h.help_title} </title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/helpForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <body>
-    <header>
-		<c:import url="../head.jsp"></c:import>
-   		 <c:import url="../header.jsp"></c:import>
-	</header>
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
         <div class="wrap">
             <main class="container">
 		<div class="content">
@@ -23,7 +21,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 				</div>
 			</div>
 			<form action="${pageContext.request.contextPath }/help/Edit" method="post">
-			<input type="hidden" name="help_num" value="${h.help_num }" >
+			<input type="hidden" name="help_num" value="${h.help_num }"  required>
 			<div class="help_form_wrap">
 				<div class="help_box">
 						<div class="help_title">
@@ -61,25 +59,23 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 							</label>
 						</div>
 						<div class="help_input">
-							<input type="text" name="help_title" id="title"  value="${h.help_title }">
+							<input type="text" name="help_title" id="title"  value="${h.help_title }" required>
 						</div>
 					</div>
 				<div class="content_wrap">
-					<textarea name="help_content" class="help_w_content" >${h.help_content }</textarea>
+					<textarea name="help_content" class="help_w_content"  required>${h.help_content }</textarea>
 				</div>
 			<!-- help_form_wrap end -->
 			</div>
 			<div class="submit_wrap">
 				 <button type="submit" name="submit" id="submit">수정하기</button>
-				 <button class="back_btn" type="button" onClick="history.back();">목록으로</button>
+				 <button class="back_btn" type="button" onClick="history.back();">돌아가기</button>
 			</div>
 			</form>
 		<!-- content end -->
 		</div>	
 	</main>
-        </div>
-	<footer>
-		 <c:import url="../footer.jsp"></c:import>
-	</footer>
+</div>
+<c:import url="../footer.jsp"></c:import>
 </body>
 </html>

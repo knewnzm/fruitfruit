@@ -4,7 +4,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>noticeForm</title>
+<title>프룻프룻 공지사항/이벤트 작성</title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/noticeForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
@@ -45,16 +45,14 @@ window.onload = function(){
 }
 </script>
 <body>
-    <header>
-		<c:import url="../head.jsp"></c:import>
-   		 <c:import url="../header.jsp"></c:import>
-	</header>
-        <div class="wrap">
-            <main class="container">
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
+<div class="nwrap">
+    <main class="container">
 		<div class="content">
 			<div class="title_wrap">
 				<div class="main_title">
-					<h1 class="main_text">공지사항 작성</h1>
+					<h1 class="main_text">공지사항/이벤트 작성</h1>
 				</div>
 			</div>
 			<form action="${pageContext.request.contextPath}/notice/noticeForm" method="post" enctype="multipart/form-data">
@@ -68,7 +66,7 @@ window.onload = function(){
 						<div class="notice_type">
 								<div class="type1">
 									<input type="radio" name="notice_type"  value="1" checked> 
-										<label for="notice_type" class="type_text">공지</label>
+										<label for="notice_type" class="type_text">공지사항</label>
 								</div>
 								<div class="type2">
 									<input type="radio" name="notice_type"  value="2"> 
@@ -83,7 +81,7 @@ window.onload = function(){
 							</label>
 						</div>
 						<div class="notice_input">
-							<input type="text" name="notice_title" id="title" >
+							<input type="text" name="notice_title" id="title"  required/>
 						</div>
 					</div>
 				<div class="notice_box">
@@ -104,21 +102,19 @@ window.onload = function(){
 						<img src=""  id="preview" style="display:none"/>
 				</div>
 				<div class="content_wrap">
-					<textarea name="notice_content" class="notice_w_content"></textarea>
+					<textarea name="notice_content" class="notice_w_content" placeholder="공지사항/이벤트 내용을 입력해주세요." required></textarea>
 				</div>
 			<!-- notice_form_wrap end -->
 			</div>
 			<div class="submit_wrap">
 				 <button type="submit" name="submit" id="submit">작성하기</button>
-				 <button class="back_btn" type="button" onClick="history.back();">목록으로</button>
+				 <button class="back_btn" type="button" onclick="location.href='${pageContext.request.contextPath}/notice/noticeList'">목록으로</button>
 			</div>
 			</form>
 		<!-- content end -->
 		</div>	
 	</main>
-        </div>
-	<footer>
-		 <c:import url="../footer.jsp"></c:import>
-	</footer>
+</div>
+<c:import url="../footer.jsp"></c:import>
 </body>
 </html>

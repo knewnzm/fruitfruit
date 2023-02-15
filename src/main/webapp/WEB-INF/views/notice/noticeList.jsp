@@ -4,10 +4,10 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>notice List</title>
+<title>프룻프룻  공지사항/이벤트 </title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/notice.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/noticeList.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 $(document).ready(function(){
@@ -24,17 +24,15 @@ $(document).ready(function(){
 	})
 </script>
 <body>
-	<header>
-		<c:import url="../head.jsp"></c:import>
-   		 <c:import url="../header.jsp"></c:import>
-	</header>
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
 <div class="wrap">
       <main class="container">
         <div class="content">
         	<!-- 타이틀 -->
         	<div class="title_wrap">
 				<div class="main_title">
-					<h1 class="main_text">Notice</h1>
+					<h1 class="main_text">공지사항/이벤트</h1>
 				</div>
 			</div>
 			
@@ -60,7 +58,7 @@ $(document).ready(function(){
 									<tbody>
 										 <c:if test="${empty list}">
                             				<tr>
-                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지가 없습니다.</th>
+                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지/이벤트 글이 없습니다.</th>
                             				</tr>
                         				</c:if>
                         				<c:if test="${not empty list}">
@@ -85,11 +83,17 @@ $(document).ready(function(){
 							<div class="tab_pannel" id="tab2" role="tabpannel" >
 								<table  class="list" id="notice_list">
 									<tbody>
-										 <c:if test="${empty list}">
-                            				<tr>
-                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지가 없습니다.</th>
-                            				</tr>
+										<c:set var="st">
+                             						 		<tr>
+                                       							<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지 글이 없습니다.</th>
+                                   							 </tr>
+                          				</c:set>	
+                          				<c:forEach var="n" items="${list}" varStatus="status">								
+										<c:if test="${n.notice_type==1 }">
+												<c:set var="st"></c:set>
                         				</c:if>
+                        				</c:forEach>
+                        				 		${st }   
                         				<c:if test="${not empty list}">
 										<c:forEach var="n" items="${list}" varStatus="status">
 										<c:if test="${n.notice_type==1 }">
@@ -113,11 +117,17 @@ $(document).ready(function(){
 							<div class="tab_pannel" id="tab3" role="tabpannel" >
 								<table  class="list" id="notice_list">
 									<tbody>
-										 <c:if test="${empty list}">
-                            				<tr>
-                                			<th colspan="3" style=" border-bottom-width: 0px;">등록된 공지가 없습니다.</th>
-                            				</tr>
+										<c:set var="st">
+                             						 		<tr>
+                                       							<th colspan="3" style=" border-bottom-width: 0px;">등록된 이벤트 글이  없습니다.</th>
+                                   							 </tr>
+                          				</c:set>	
+                          				<c:forEach var="n" items="${list}" varStatus="status">								
+										<c:if test="${n.notice_type==2 }">
+												<c:set var="st"></c:set>
                         				</c:if>
+                        				</c:forEach>
+                        				 		${st }   
                         				<c:if test="${not empty list}">
                            				 <c:forEach var="n" items="${list}" varStatus="status">
                            				 <c:if test="${n.notice_type==2 }">
@@ -152,8 +162,6 @@ $(document).ready(function(){
         </div> <!-- content end -->
       </main> <!-- container end -->
   	</div> <!-- wrap end-->
-	<footer>
 		 <c:import url="../footer.jsp"></c:import>
-	</footer>
 </body>
 </html>

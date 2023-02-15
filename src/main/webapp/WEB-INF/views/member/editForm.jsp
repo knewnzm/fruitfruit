@@ -4,8 +4,8 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>edit form</title>
-   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>프룻프룻 회원정보 수정</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/editForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript">
@@ -37,7 +37,6 @@ $(document).ready(function () {    // enter submit 방지 함수
                     $("#submit").attr("disabled", false);                  
         }
     }
-
     $("#user_pwd").on("propertychange change keyup paste input blur", function () {
         chkp = false;
         $("#submit").attr("disabled", true);
@@ -48,7 +47,6 @@ $(document).ready(function () {    // enter submit 방지 함수
             chkPwd();
         }
     });
-
     $("#pwdCheck").on("propertychange change keyup paste input blur", function () {
         chkp = false;
         $(".pwd_check_text").empty();
@@ -67,19 +65,15 @@ $(document).ready(function () {    // enter submit 방지 함수
       const modal = document.querySelector('.modal');
       const btnOpenPopup = document.querySelector('.modal_btn');
       const btnClose = document.querySelector('.modal_close_btn');
-
       btnOpenPopup.addEventListener('click', () => {
         modal.classList.toggle('show');
-
         if (modal.classList.contains('show')) {
           body.style.overflow = 'hidden';
         }
       });
-
       modal.addEventListener('click', (event) => {
         if (event.target === modal) {
           modal.classList.toggle('show');
-
           if (!modal.classList.contains('show')) {
             body.style.overflow = 'auto';
           }
@@ -94,12 +88,10 @@ $(document).ready(function () {    // enter submit 방지 함수
 </script>
 </head>
 <body>
-	<header>
-		<c:import url="../head.jsp"></c:import>
-        <c:import url="../header.jsp"></c:import>
-	</header>
-	<main class="container">
-		<div id="content" class="content">
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
+<main class="container">
+	<div id="content" class="content">
 			<div class="main_title_box">
 				<h1 class="main_title">회원정보 수정</h1>
 			</div>
@@ -141,18 +133,18 @@ $(document).ready(function () {    // enter submit 방지 함수
 							</label>
 						</div>
 						<div class="edit_input">
-							<input type="password" name="user_pwd" id="user_pwd"  class="ed_input" placeholder="비밀번호를 입력해주세요">
+							<input type="password" name="user_pwd" id="user_pwd"  class="ed_input" placeholder="비밀번호를 입력해주세요" required>
 						</div>
 					</div>
 					<div class="edit_check_wrap">
 						<div class="edit_box" id="check_wrap">
 							<div class="edit_title">
-									<label for="pwd_check" id="pwd_c_label">
+									<label for="pwd_check">
 										비밀번호 확인
 									</label>
 							</div>
 							<div class="edit_input">
-								<input type="password" name="pwd_check" id="pwdCheck" class="ed_input"placeholder="비밀번호를 확인해주세요" >
+								<input type="password" name="pwd_check" id="pwdCheck" class="ed_input"placeholder="비밀번호를 확인해주세요" required>
 							</div>
 						</div>
 						<div class="check_text_box">
@@ -176,7 +168,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 							</label>
 						</div>
 						<div class="edit_input">
-							<input type="text" name="user_nick" id="user_nick"  class="ed_input" value="${m.user_nick }">
+							<input type="text" name="user_nick" id="user_nick"  class="ed_input" value="${m.user_nick }" required>
 						</div>
 					</div>
 					<div class="edit_box">
@@ -186,7 +178,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 							</label>
 						</div>
 						<div class="edit_input">
-							<input type="text" name="user_tel" id="user_tel" class="ed_input"  value="${m.user_tel }">
+							<input type="text" name="user_tel" id="user_tel" class="ed_input"  value="${m.user_tel }"required>
 						</div>
 					</div>
 					<div class="edit_box">
@@ -197,21 +189,23 @@ $(document).ready(function () {    // enter submit 방지 함수
 										우편번호
 									</label>	
 								</div>
+								<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+										<script src="/static/js/postcode.js"></script>
 								<div class="addr_postcode">
-									<input type="text" name="user_postcode" class="ed_input" id="user_postcode" value="${m.user_postcode }">
+									<input type="text" name="user_postcode" class="ed_input" id="user_postcode" value="${m.user_postcode }" readonly>
 								</div>
 								<div class="addr_btn">
-									<button type="button" class="addr_search_btn" name="addr_search_btn" >
+									<button type="button" class="addr_search_btn" name="addr_search_btn" onclick="sample6_execDaumPostcode()">
 										<span class="search_text">주소 검색</span>
 										<img src="${pageContext.request.contextPath}/static/img/join_edit_search.png" class="search_img">
 									</button>	
 								</div>
 							</div>
 							<div class="addr_wrap1">
-								<input type="text" name="user_addr1" id="user_addr1" class="ed_input" value="${m.user_addr1 }">
+								<input type="text" name="user_addr1" id="user_addr1" class="ed_input" value="${m.user_addr1 }" readonly>
 							</div>
 							<div class="addr_wrap2">
-								<input type="text" name="user_addr2" id="user_addr2" class="ed_input" value="${m.user_addr2 }">
+								<input type="text" name="user_addr2" id="user_addr2" class="ed_input" value="${m.user_addr2 }" required>
 							</div>
 						</div>
 					</div>
@@ -238,7 +232,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 							</select>
 						</div>
 						<div class="account_input">
-							<input type="text" name="user_account" id="user_account" class="ed_input" value="${m.user_account }">
+							<input type="text" name="user_account" id="user_account" class="ed_input" value="${m.user_account }" required>
 						</div>
 					</div>
 					<div class="submit_wrap">
@@ -251,11 +245,9 @@ $(document).ready(function () {    // enter submit 방지 함수
 			</div>
 	</form>
 		<!-- content -->
-		</div>
-	</main>
-	<footer>
-		 <c:import url="../footer.jsp"></c:import>
-	</footer>
+</div>
+</main>
+<c:import url="../footer.jsp"></c:import>
 					<!--탈퇴 Modal -->
 					 <div class="modal">
     					 <div class="modal_container">

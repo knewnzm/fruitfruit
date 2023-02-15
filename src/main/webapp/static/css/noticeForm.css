@@ -31,8 +31,10 @@ input:focus{
     padding-right: 16px;
     font-size:30px;
 }
-.wrap{
-	height:2000px;
+.nwrap{
+	width:auto;
+ 	height:auto;
+ 	margin-bottom: 150px;
 }
 .container{
 	width:auto;
@@ -57,7 +59,7 @@ input:focus{
 .main_text{
 	width:860px;
 	margin-left:140px;
-	font-size:30px;
+	font-size:35px;
 	font-weight: 650;
 	padding-top:80px;
 	padding-bottom:80px;
@@ -134,14 +136,17 @@ input[type="radio"]:checked {
 	padding-left:5px;
 }
 .file_name_wrap{
-	width:180px;
+	width:250px;
 	height:42px;
 	margin-left: 5px;
+	padding-left:5px;
 	border : 1px solid #f02c11;
 	border-radius: 8px 0px 0px  8px;
 	display:flex;
 	justify-content: center;
     align-items: center;
+    text-overflow:ellipsis; 
+	overflow:hidden;
 }
 .notice_path_wrap{
     height: 42px;
@@ -176,6 +181,8 @@ input[type=file]+label {
 }
 .file_name_label{
 	float:center;
+	overflow: hidden;
+	white-space:nowrap;	
 }
 .content_wrap{
 	margin-top:30px;

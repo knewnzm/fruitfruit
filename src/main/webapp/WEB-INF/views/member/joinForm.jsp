@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<title>join form</title>
+<title>프룻프롯 | 회원가입</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/joinForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript">

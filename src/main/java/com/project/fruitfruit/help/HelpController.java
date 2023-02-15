@@ -101,18 +101,13 @@ public class HelpController {
 	public ModelAndView list() {
 		 	 ModelAndView mav = new ModelAndView("/help/helpList");
 		 
-		 	 String user_id = (String)session.getAttribute("user_id");
-		 	 Member m = mService.select(user_id);
-		 
 		 	 ArrayList<Help> list = (ArrayList<Help>)hService.selectAllHelp();
 		 	 for (Help h : list) {
 		 		 if(list != null) {
-		 			 if (m.getUser_id()==(h.getHelp_writer_id()) || m.getUser_type() == 3) {
 		 				 if (aService.selectAnswer(h.getHelp_num()) == null) { 
 		 					 h.setAnswer_status(0);
 		 				 } else {
 		 					 h.setAnswer_status(1);
-		 				 }
 		 			 }
 		 		 }
 		 }

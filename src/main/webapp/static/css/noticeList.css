@@ -25,10 +25,11 @@ list-style:none;
  	height:auto;
 	display: flex;
 	justify-content: center;
+	margin-bottom:150px;
 }
 .content{
 	width:1140px;
- 	height:1600px;
+ 	height:auto;
     text-align : center;
     padding : 0px;
     grid-template-columns: 
@@ -42,7 +43,7 @@ list-style:none;
         [footer-end];
 }
 .main_text{
-	font-size:45px;
+	font-size:35px;
 	font-weight:800;
 	padding-top:80px;
 	padding-bottom:80px;

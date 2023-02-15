@@ -4,7 +4,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>sadaRe: 사다리 - 비밀번호 찾기</title>
+        <title>프룻프룻 | 비밀번호 찾기</title>
         <c:import url="../head.jsp"></c:import>
         
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -113,6 +113,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                             />
                             <button class="btn btn-outline-secondary" type="submit">확인</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </section>
