@@ -17,6 +17,7 @@
 	  <div class="help_wrap"> 
       	<input type="hidden" name="help_num" value="${h.help_num}" />
       	<div class="help_line">
+      			<div class="help_1line">
       			<div class="help_type">
       					 <c:if test="${h.help_type ==1}">[회원정보]</c:if>
                    		 <c:if test="${h.help_type ==2}">[주문]</c:if>
@@ -26,6 +27,7 @@
       			</div>
       			<div class="help_title">
       					<h1 class="title_text">${h.help_title}</h1>
+      			</div>
       			</div>
       			<div class="help_btn_wrap">
       					<c:if test="${sessionScope.user_id==h.help_writer_id}"> <!-- sesseionScope -->

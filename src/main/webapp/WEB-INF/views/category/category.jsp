@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html lang=ko>
+<html>
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/category.css" />
-<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
  <script>
             // 카테고리 버튼 생성
@@ -101,9 +100,9 @@
             }
             // 카테고리 버튼 클릭 시 (하위 카테고리를 추가하기 위한 상위 카테고리 선택 시)
             function categoryBtnClickHandler(e) {
-                const data = $(e.target).attr("id").split("-"); //ex)c1,2
-                const cate_type = parseInt(data[0].substr(1)); 
-                const cate_num = data[1];
+                const data = $(e.target).attr("id").split("-"); // $(e.target)은 <a>태그, a태그의 id에서 "-"를 기준으로 값을 나눠 data에 담는다 ex)c1,2
+                const cate_type = parseInt(data[0].substr(1)); //그중 맨앞의 값인 data[0]값의 맨 앞의 하나를 뺀다 .substr(1) c1-> 1
+                const cate_num = data[1]; //그 다음값인 data[1]값
                 getCategoryList(cate_type + 1, cate_num);
                 $("#c" + (cate_type + 1) + "-parent").val(cate_num);
             }
@@ -130,45 +129,26 @@
 </head>
 <header>
 <h3>헤더</h3>
-=======
-
-</head>
-<header>
-<h3>���</h3>
->>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
 </header>
 
 <body>
 <div class="c_wrapper">
  <div class="c_container">
-<<<<<<< HEAD
   <div class="c_h"><h1>카테고리 관리</h1> 
   </div>
   <div class="c_box">
   <div class="c1_box"><div class="c_title"><h1>대분류</h1></div>
   
-=======
-  <div class="c_h"><h1>ī�װ��� ����</h1> 
-  </div>
-  <div class="c_box">
-  <div class="c1_box"><div class="c_title"><h1>��з�</h1></div>
->>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
    <form  action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c1-list" class="c_form">
                                 <input
                                     type="text"
                                     class="c_text"
-<<<<<<< HEAD
                                     placeholder="대분류 추가"
                                     aria-label="대분류 추가"
-=======
-                                    placeholder="��з� �߰�"
-                                    aria-label="��з� �߰�"
->>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
                                     aria-describedby="c1-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="1" />
-<<<<<<< HEAD
                                  <input type="submit" class="c_btn" id="c1-btn" value="등록">
                             </form>
                             <div>
@@ -177,39 +157,22 @@
    </div> 
    <div class="c1_box"><div class="c_title"><h1>소분류</h1></div>
    
-=======
-                                <input type="submit" class="c_btn" id="c1-btn" value="���">
-                            </form>
-   </div> 
-   <div class="c1_box"><div class="c_title"><h1>�Һз�</h1></div>
->>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
    <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c2-list" class="c_form">
                                 <input
                                     type="text"
                                     class="c_text"
-<<<<<<< HEAD
                                     placeholder="소분류 추가"
                                     aria-label="소분류 추가"
-=======
-                                    placeholder="�Һз� �߰�"
-                                    aria-label="�Һз� �߰�"
->>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
                                     aria-describedby="c2-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="2" />
-<<<<<<< HEAD
                                 <input type="hidden" name="cate_parent_num" value="" id="c2-parent" />
                                <input type="submit" class="c_btn" id="c2-btn" value="등록">
                             </form>
                              <div>
   <form class = "list-group" id="c2-list"></form>
   </div>
-=======
-                                <input type="hidden" name="parent_cate_num" value="" id="c2-parent" />
-                                <input type="submit" class="c_btn" id="c1-btn" value="���">
-                            </form>
->>>>>>> 0656509fb244ad6897691b52c9084777d7913ae0
   </div>
   </div>
  </div>

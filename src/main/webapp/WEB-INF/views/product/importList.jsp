@@ -29,8 +29,8 @@
                             </div>
                             <div class="desc-box">
                                 <div class="product-header">
-                                    <h1 class="product-name">
                                         ${p.product_name}&nbsp;
+                                    <h1 class="product-name">
                                         <c:choose>
                                             <c:when test="${p.product_result == 0}">
                                                 <span class="badge"
@@ -50,7 +50,7 @@
                                         </c:choose>
                                     </h1>
                                 </div>
-
+                                </div>
                                 <div class="product-detail">
                                     <fmt:formatNumber pattern="#,###원" value="${p.product_price}"></fmt:formatNumber>
 	                                <div>등록일 : ${p.stringDate}</div>

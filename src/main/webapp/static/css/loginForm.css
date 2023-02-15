@@ -34,10 +34,11 @@ input_text{
   border-radius:5px;
 }
 .container{
-	width:1200;
- 	height:1600px;
+	width:1200px;
+ 	height:auto;
 	display:flex;
 	justify-content: center;
+	margin-bottom:100px;
 }
 .content{
 	width:430px;

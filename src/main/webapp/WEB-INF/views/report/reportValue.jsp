@@ -16,11 +16,9 @@
     </head>
     <body>
         <h3>접수된 신고 내용</h3>
-        <form action="${pageContext.request.contextPath }/report/value" method="post">
             제목 : <input type="text" name="report_title" value="${r.report_title }" readonly /> <br /><br />
             내용 : <textarea name="report_content" rows="15" cols="50" readonly>${r.report_content }</textarea>
-        </form>
         <br />
-        <input type="button" id="ok" value="확인" />
+        <input type="button" id="ok" value="돌아가기" />
     </body>
 </html>

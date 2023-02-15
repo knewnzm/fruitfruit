@@ -1,0 +1,138 @@
+@charset "UTF-8";
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box; 
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+}
+a {
+   text-decoration:none !important;
+   cursor: pointer;
+}
+a:hover { 
+	text-decoration:none !important;
+}
+li{
+display : inline-block;
+}
+ul{
+list-style:none;
+}
+
+.report-container{
+	width:auto;
+ 	height:auto;
+	display: flex;
+	justify-content: center;
+}
+.content{
+	width:1000px;
+	margin-top:100px;
+    text-align : center;
+    padding : 0px;
+    grid-template-columns: 
+        [left-navbar-start] 20%
+        [left-navbar-end content-start] 60%
+        [content-end right-sidebar-start] 20%
+        [right-sidebar-end];
+    grid-template-rows: 
+        [body-start] 80%
+        [body-end footer-start] 20%
+        [footer-end];
+}
+.report_wrap{
+	border: 1px solid #f02c11;
+	border-radius:8px;
+	padding-left: 30px;
+    padding-right: 30px;
+}
+.report_line_1{
+	display: flex;
+	flex-wrap: wrap;
+	text-align : center;
+	align-items: flex-end;
+	padding-top:30px;
+	justify-content: space-between;
+	  
+}
+.report_line{
+	display: flex;
+	text-align : center;
+	align-items: center;
+	padding-bottom:10px;
+	border-bottom: 1px solid #B6B6B4;
+}
+
+.report_title{
+	width:600px;
+	text-align:left;
+	margin-right:100px;
+	padding-left:7px;
+}
+.title_text{
+	display:flex;
+	margin-bottom:15px;
+	font-weight: 500;
+    font-size: 45px;
+    letter-spacing: 0;
+}
+.report_btn_wrap{
+	width:170px;
+}
+.report_date{
+	width:180px;
+	color:#777;
+}
+.report_hit{
+	width:90px;
+	color:#777;
+	margin-left:5px;
+}
+.report_v_content{
+	padding-top:50px;
+	padding-bottom:50px;
+}
+.report_img_box,#img1{
+	max-width: 100%;
+    height: auto;
+	text-align:center;
+}
+.report_d_content_box{
+	max-width: 100%;
+    height: auto;
+    padding-top:50px;
+    padding-bottom:50px;
+	text-align:center;
+	font-size:20px;
+}
+.back_btn_box{
+	margin-top:80px;
+	margin-bottom:100px;
+}
+.edit_btn{
+	width:80px;
+	height:35px;
+	background:#f02c11;
+  	color:white;
+  	font-size:13px;
+}
+.del_btn{
+	width:80px;
+	height:35px;
+	border:1px solid #f02c11;
+	background:white;
+	color:#f02c11;
+	font-size:13px;
+}
+.back_btn{
+  width:200px;
+  height: 50px;
+  background:#f02c11;
+  color:white;
+  border-radius:5px;
+  text-align:center;
+  cursor: pointer; 
+  font-size:15px;
+}

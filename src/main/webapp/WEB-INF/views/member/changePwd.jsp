@@ -2,12 +2,13 @@
 %>
 <!DOCTYPE html>
 <html lang=ko>
-<head>
-<meta charset="UTF-8" />
-<title>프룻프룻 비밀번호 변경</title>
-<link rel="stylesheet" href="/static/css/find.css" />
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<style type="text/css">
+    <head>
+        <meta charset="UTF-8" />
+        <title>비밀번호 변경하기</title>
+        
+        <link rel="stylesheet" href="/static/css/find.css" />
+       <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+          <style type="text/css">
 body{
 	line-height: 11px;
 	
@@ -21,6 +22,7 @@ body{
                     $("#edit").attr("disabled", false);
                 }
             }
+
             function chkPwd() {
                 if ($("#user_pwd").val() != $("#pwdCheck").val()) {
                     $("#pwd2Result").text("비밀번호가 일치하지 않습니다.");
@@ -48,6 +50,7 @@ body{
                     }
                     join();
                 });
+
                 $("#pwdCheck").on("propertychange change keyup paste input blur", function () {
                     chkp = false;
                     $("#pwd2Result").empty();
@@ -59,14 +62,17 @@ body{
                     join();
                 });
             });
-</script>
-</head>
-<body>
-<c:import url="../head.jsp"></c:import>
-<c:import url="../header.jsp"></c:import>
+        </script>
+        </head>
+        <body>
+<header>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
+	</header>
 
-<section class="cp_container">
-<div class="f_pd">
+
+	<section class="cp_container">
+	<div class="f_pd">
 <form name="f" action="${pageContext.request.contextPath}/member/changePwd" method="post">
 <div class="cp_h"><h1>비밀번호를 변경해 주세요.</h1></div>
 <div class="f_box">
@@ -81,7 +87,9 @@ body{
                       </form>
                       </div>
                       </section>
+<footer>
 		 <c:import url="../footer.jsp"></c:import>
+	</footer>
 	
 	
 </body>

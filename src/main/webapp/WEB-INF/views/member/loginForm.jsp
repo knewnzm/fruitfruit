@@ -38,14 +38,12 @@
         </script>
     </head>
 <body>
-	<header>
-		<c:import url="../head.jsp"></c:import>
-        <c:import url="../header.jsp"></c:import>
-	</header>
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
 <div class="wrap">
 	<main id="cantainer" class="container">
 		<div id="content" class="content">
-				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
+			<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
 			<div class="login_wrap">
 				<div class="logo">
 					<a><img src="${pageContext.request.contextPath}/static/img/frLogo.png" class="fruit_Logo"></a> 
@@ -123,15 +121,13 @@
 					</div>
 				<!-- social end -->
 				</div>
-			</div>
 			</form>
 		<!-- content end -->
+			</div>
 		</div>
 	</main>
 <!-- wrap end -->
 </div>
-	<footer>
-		 <c:import url="../footer.jsp"></c:import>
-	</footer>
+<c:import url="../footer.jsp"></c:import>
 </body>
 </html>

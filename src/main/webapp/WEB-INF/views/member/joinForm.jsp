@@ -64,10 +64,8 @@ $(document).ready(function() {
 </head>
 <body>
 <div class="wrap">
-	<header>
-		<c:import url="../head.jsp"></c:import>
-        <c:import url="../header.jsp"></c:import>
-	</header>
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
 	<main class="container">
 		<div id="content" class="content">
 			<div class="main_title_box">
@@ -229,9 +227,7 @@ $(document).ready(function() {
 		</form>
 		</div>
 	</main>
-	<footer>
-		 <c:import url="../footer.jsp"></c:import>
-	</footer>
+<c:import url="../footer.jsp"></c:import>
 <!-- wrap end -->
 </div>
 </body>

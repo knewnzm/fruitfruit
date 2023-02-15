@@ -277,6 +277,7 @@ button[type="submit"] {
   align-items: center;
   overflow: auto;
   transition: all 0.3s ease-in-out;
+   z-index: 999;
 }
 
 .modal.show {
