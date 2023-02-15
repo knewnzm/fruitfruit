@@ -1,6 +1,8 @@
 div.left{
   	float: left;
-  	width: 6%;
+  	width: 115px;
+  	background: #F02c11;
+  	background-size: cover;
 }
 
 div.right{
@@ -31,7 +33,7 @@ div.right{
 }
 
 .p-wrap{
-	margin-right:100px;	
+	margin:20px 100px 30px 0px;	
 }
 
 .p-card{

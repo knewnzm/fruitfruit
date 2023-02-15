@@ -206,4 +206,61 @@ public void userList(Model model) {
 	}
 	System.out.println("모델은"+model);
 }
+@GetMapping(value = "/member/findId")   //아이디 찾기 가기
+public String findId(HttpServletRequest req) {
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id");
+	if (id != null) {
+		return "redirect:/";
+	} else {
+		return req.getRequestURI();
+	}
+}
+	@PostMapping(value = "/member/findId") //아이디 찾기
+	public ModelAndView findId(HttpServletRequest req, @RequestParam(value = "user_name") String user_name, 
+			@RequestParam(value = "user_tel") int user_tel) {
+		ModelAndView mav = new ModelAndView("/member/findIdResult");
+
+		Member m = service.selectbyname(user_name);
+
+		if (m!=null&&m.getUser_tel()==user_tel) {
+			mav.addObject("user_id", m.getUser_id());
+
+		} else {
+			mav.addObject("fail", "fail");
+			 mav.setViewName("/member/findId");
+		}
+		return mav;
+	
+}
+	@GetMapping(value = "/member/findPwd")   //비밀번호 찾기 가기
+	public String findPwd(HttpServletRequest req) {
+		HttpSession session = req.getSession(false);
+		String id = (String) session.getAttribute("user_id");
+		if (id != null) {
+			return "redirect:/";
+		} else {
+			return req.getRequestURI();
+		}
+	}
+	@PostMapping(value = "/member/findPwd") //비밀번호 찾기
+	public ModelAndView findPwd(HttpServletRequest req,@RequestParam(value = "user_id") String user_id, 
+			@RequestParam(value = "user_name") String user_name, 
+			@RequestParam(value = "user_tel") int user_tel) {
+		ModelAndView mav = new ModelAndView("/member/changePwd");
+		Member m = service.select(user_id);
+		if (m.getUser_name().equals(user_name) && m.getUser_tel()==user_tel) {
+			mav.addObject("user_id", user_id);
+			
+		}else {
+			mav.addObject("fail", "fail");
+			 mav.setViewName("/member/findPwd");
+		}
+		return mav;
+	}
+	@PostMapping(value = "/member/changePwd") //비밀번호 변경하기
+	public String changePwd(Member m) {
+		service.changePwd(m);
+		return "redirect:/member/loginForm";
+	}
 }

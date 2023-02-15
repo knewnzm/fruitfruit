@@ -1,0 +1,115 @@
+@charset "UTF-8";
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box; 
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+}
+
+
+.wrap { width: 1400px; position: relative; margin: 0 auto;  }
+
+
+.f_container{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.f_pd {
+    padding-top: 48px ;
+    padding-bottom: 74px ;
+}
+
+.fi_pd {
+    padding-top: 72px ;
+    
+}
+
+.f_h {
+	padding-top: 24px ;
+    padding-bottom: 15px ;
+    font-size: 21px;
+}
+
+.fi_coment{
+	line-height: 25px ;
+    padding-bottom: 45px ;
+    padding-top: 22px;
+}
+
+.f_box{
+	width: 650px;
+    height: 350px;
+}
+
+.f_id_line{
+    width: 342px;
+    height: 35px;
+    border: 1px solid #D1D0CE;
+    border-radius: 5px;
+    padding-left: 7px;
+}
+.f_name_title{
+	text-align: left;
+	padding-left: 155px;
+}
+.f_tel_title{
+	text-align: left;
+	padding-left: 155px;
+	padding-top: 25px;
+}
+.fp_name_title{
+	text-align: left;
+	padding-left: 155px;
+	padding-top: 25px;
+}
+.f_button{
+    width: 342px;
+    height: 37px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin: 33px;
+    border: 1px solid #f02c11;
+    border-radius: 5px;
+    background: #f02c11;
+}
+.fp_pd {
+    padding-top: 64px ;
+    padding-bottom: 78px ;
+}
+.fp_coment{
+	line-height: 25px ;
+    padding-bottom: 25px;
+    padding-top: 33px;
+}
+.fp_id_title{
+	text-align: left;
+	padding-left: 155px;
+}
+.cp_container{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	padding: 50px 0px;
+}
+.cp_h {
+	padding-top: 24px ;
+    padding-bottom: 58px ;
+    font-size: 22px;
+}
+.cp_newPwd{
+	text-align: left;
+	padding-left: 155px;
+}
+.cp_editPwd{
+	text-align: left;
+	padding-left: 155px;
+}
+.cp_msg{
+	margin: 15px;
+}
+

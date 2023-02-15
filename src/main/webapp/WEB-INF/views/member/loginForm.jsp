@@ -136,8 +136,8 @@
 						</div>
 						<div class="login_find">
 							<ul class="find_inner" id="find_inner">
-								<li><a target="_parent" href="" class="find_text">아이디 찾기</a></li> 
-								<li><a target="_parent" href="" class="find_text">비밀번호 찾기</a></li>
+								<li><a target="_parent" href="${pageContext.request.contextPath }/member/findId" class="find_text">아이디 찾기</a></li> 
+								<li><a target="_parent" href="${pageContext.request.contextPath }/member/findPwd" class="find_text">비밀번호 찾기</a></li>
 							</ul>
 						</div>
 					</div>
