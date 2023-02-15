@@ -3,14 +3,14 @@ package com.project.fruitfruit.order;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.fruitfruit.product.Product;
@@ -26,7 +26,7 @@ private OrderService service;
 private ProductService pservice;
 @Autowired
 private HttpSession session;
-@RequestMapping(value = "/order/orderResult")
+@RequestMapping(value = "/order/orderResult") //주문 요청 하기
 public ModelAndView insertOrder(Order o) {
 	ModelAndView mav = new ModelAndView();	
 	Product p=pservice.selectProduct(o.getProduct_num());
@@ -41,7 +41,7 @@ public ModelAndView insertOrder(Order o) {
 
 }
 
-@RequestMapping(value="/product/mylist")
+@RequestMapping(value="/product/mylist") //id에 해당하는 전체 주문목록/판매목록 불러오기
 public void go(Model model) {
 	String user_id = (String) session.getAttribute("user_id");
 	if(user_id!=null) {
@@ -61,5 +61,22 @@ public void go(Model model) {
 		model.addAttribute("plist", p);
 	}
 }
+}
+@RequestMapping(value="/order/change") //주문타입 다음단계로 하나 올리기
+public String change(@RequestParam int order_num) {
+service.updateOrderType(order_num);		
+	return "redirect:/product/mylist";
+}
+
+@RequestMapping(value="/order/cancel") //주문타입 다음단계로 하나 올리기
+public String cancel(@RequestParam int order_num) {
+service.cancelOrder(order_num);		
+	return "redirect:/product/mylist";
+}
+
+@RequestMapping(value="/order/orderDelete") //주문타입 다음단계로 하나 올리기
+public String delete(@RequestParam int order_num) {
+service.deleteOrder(order_num);		
+	return "redirect:/product/mylist";
 }
 }

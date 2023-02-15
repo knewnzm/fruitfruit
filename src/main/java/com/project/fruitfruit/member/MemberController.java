@@ -50,7 +50,7 @@ public String joinForm(HttpServletRequest req) {
 	HttpSession session = req.getSession(false);
 	String id = (String) session.getAttribute("user_id");
 	if (id != null) {
-		return "redirect:/ ";
+		return "redirect:/";
 	} else {
 		return req.getRequestURI();
 	}

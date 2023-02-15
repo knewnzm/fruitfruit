@@ -17,7 +17,7 @@ public interface OrderMapper {
 	
 	public void updateOrderType(int order_num); 
 	
-	public void updateOrderType0(int order_num);
+	public void cancelOrder(int order_num);
 	
 	public void deleteOrder(int order_num);
 	

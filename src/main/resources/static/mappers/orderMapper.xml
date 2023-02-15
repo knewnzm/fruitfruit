@@ -32,8 +32,8 @@
 	update frfr_order set order_type=order_type+1 where order_num=#{order_num}
 	</update>
 	
-	<update id="updateOrderType0" parameterType="int"> <!-- 주문번호에 해당하는 주문 취소 -->
-	update frfr_order set order_type=0 where order_num=#{order_num}
+	<update id="cancelOrder" parameterType="int"> <!-- 주문번호에 해당하는 주문 취소 -->
+	update frfr_order set order_type=3 where order_num=#{order_num}
 	</update>
 	
 	<delete id="deleteOrder" parameterType="int" > <!-- 주문번호에 해당하는 주문 데이터 삭제-->

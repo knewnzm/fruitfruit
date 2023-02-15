@@ -32,8 +32,8 @@ public class OrderService {
 		mapper.updateOrderType(order_num);
 	}
 	
-	public void updateOrderType0(int order_num){
-		mapper.updateOrderType(order_num);
+	public void cancelOrder(int order_num){
+		mapper.cancelOrder(order_num);
 	}
 	
 	public void deleteOrder(int order_num){

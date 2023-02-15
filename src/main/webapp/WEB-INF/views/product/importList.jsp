@@ -2,6 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <script language="javascript" type="text/javascript">
+function del(num){
+	if (confirm("주문취소상품을 주문 목록에서 삭제하시겠습니까? 이 작업은 복구할 수 없습니다")){
+	location.href=`${pageContext.request.contextPath}/order/orderDelete?order_num=${"${num}"}`;
+	}
+}
+
 	function buyer_list() {
 		var str = '<c:forEach var="p" items="${plist}"><table  class="list"><tbody>';
 			str += '<tr><th>제품 이름</th><th>구매 수량</th><th>구매자 주소</th><th>구매 수량</th><th>구매 수량</th><th>구매 수량</th></tr>';
@@ -125,10 +131,18 @@
 							</a>
 						</div> 
 						<div>
+						<c:if test="${o.order_type != 3}">
 							<button type="button" class="cancel_btn"
-										onclick="location.href=`${pageContext.request.contextPath}/product/delete?product_num=${p.product_num}`">구매취소</button> 
+										onclick="location.href=`${pageContext.request.contextPath}/order/cancel?order_num=${o.order_num}`">구매취소</button>
+										</c:if>
+										<c:if test="${o.order_type == 3}">
+										<button type="button" class="cancel_btn"
+										onclick="del(${o.order_num})">목록에서 삭제</button> 
+										</c:if>
+										<c:if test="${o.order_type == 1}"> 
 							<button type="button" class="comple_btn"
-										onclick="location.href=`${pageContext.request.contextPath}/product/delete?product_num=${p.product_num}`">구매확정</button>
+										onclick="location.href=`${pageContext.request.contextPath}/order/change?order_num=${o.order_num}`">구매확정</button>
+										</c:if>
 						</div>
 					</div>
 				</div>
