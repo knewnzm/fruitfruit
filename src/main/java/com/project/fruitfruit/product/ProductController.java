@@ -42,12 +42,24 @@ public class ProductController {
 	private String webPath = "\\static\\product\\";
 
 	
-	// @RequestMapping("/")
-	// public String index(Model model) {
-	// 	List<Product> list = pService.selectProductListByLimit(0, 8);
-	// 	model.addAttribute("list", list);
-	// 	return "index";
-	// }
+	 @RequestMapping("/")
+	 public String index(Model model) {
+	 	List<Product> list = pService.selectProductListByLimit(0, 4);
+	 	model.addAttribute("list", list);
+	 	
+	 	List<Product> list2 = pService.onlyProductPick(0, 4);
+	 	model.addAttribute("list2", list2);
+	 	
+	 	List<Product> list3 = pService.orderByProductHitDesc(0, 4);
+	 	model.addAttribute("list3", list3);
+	 	
+	 	return "index";
+	 }
+	
+//	@RequestMapping(value = "/") //홈으로 가기
+//	public String index() { 
+//		return "/index";
+//	}
 	
 
 	@GetMapping("/product/productForm")
@@ -188,28 +200,35 @@ public class ProductController {
 	}
 	
 	@GetMapping("/product/productSearch")
-	public String search(@RequestParam(required = false) String q, Model model) {
-		if (q != null) {
-			request.setAttribute("q", q);
+	public String search(@RequestParam(required = false) String keyword, Model model) {
+		if (!keyword.equals("")) {
+			request.setAttribute("keyword", keyword);
+			model.addAttribute("keyword", keyword);
 			
-			ArrayList<Product> list_by_title = pService.selectProductListByProduct_title(q);
-			ArrayList<Product> list_by_user_id = pService.selectProductListByUser_id(q);
+			ArrayList<Product> list = pService.selectProductListByTitleOrUserId(keyword);
+			model.addAttribute("plist", list);
 			
-			System.out.println("a");
-			ArrayList<Product> list_all = new ArrayList<>();
-			list_all.addAll(list_by_title);
-			list_all.addAll(list_by_user_id);
+//			ArrayList<Product> list_by_title = pService.selectProductListByProduct_title(keyword);
+//			ArrayList<Product> list_by_user_id = pService.selectProductListByUser_id(keyword);
 			
-			System.out.println(list_all);
-
-			if (list_all != null) {
-				model.addAttribute("plist", list_all);
-				return "/product/productSearch";
-			}
+//			System.out.println("a");
+//			ArrayList<Product> list_all = new ArrayList();
+//			list_all.addAll(list_by_title);
+//			list_all.addAll(list_by_user_id);
+			
+//			System.out.println(list_all);
+//			model.addAttribute("plist", list_all);
+			
+//			if (list_all.size() > 0) {
+//				model.addAttribute("plist", list_all);
+//				return "/product/productSearch";
+//			}
 		}
+//		else {
+//			return "redirect:/product/productList";
+//		}
 		
-		return "redirect:/product/productList";
-
+		return "/product/productSearch";
 	}
 	
 	//select

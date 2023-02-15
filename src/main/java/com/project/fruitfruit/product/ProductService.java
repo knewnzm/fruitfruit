@@ -106,8 +106,8 @@ public class ProductService {
 		return setProductData(mapper.selectProductListByLimit(start, end));
 	}
 	
-	public ArrayList<Product> selectProductBySellerId(int start, int end, String product_seller_id){
-		return setProductData(mapper.selectProductBySellerId(start, end, product_seller_id));
+	public ArrayList<Product> selectProductBySellerId(int start, int end, String seller_id){
+		return setProductData(mapper.selectProductBySellerId(start, end, seller_id));
 	}
 	
 	public int selectSeqProductCurrval() {
@@ -175,24 +175,17 @@ public class ProductService {
 		return mapper.selectListSize();
 	}
 
-	public ArrayList<Product> selectProductListByProduct_title(String product_title) {
-		return mapper.selectProductListByProduct_title(product_title);
-	}
 
 	public ArrayList<Product> selectProductListByCategory1_num(int c1) {
-		return mapper.selectProductListByCategory1_num(c1);
+		return setProductData(mapper.selectProductListByCategory1_num(c1));
 	}
 
 	public ArrayList<Product> selectProductListByCategory2_num(int c2) {
-		return mapper.selectProductListByCategory2_num(c2);
+		return setProductData(mapper.selectProductListByCategory2_num(c2));
 	}
 
-	public ArrayList<Product> selectProductListByCategory3_num(int c3) {
-		return mapper.selectProductListByCategory3_num(c3);
-	}
-
-	public ArrayList<Product> selectProductListByUser_id(String product_seller_id) {
-		return mapper.selectProductListByUser_id(product_seller_id);
+	public ArrayList<Product> selectProductListByTitleOrUserId(String keyword){
+		return setProductData(mapper.selectProductListByTitleOrUserId(keyword));
 	}
 	
 }

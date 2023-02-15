@@ -28,10 +28,10 @@ private MemberService service;
  * id = (String) session.getAttribute("user_id"); if(session!=null&&id!=null) {
  * Member m = service.select(id); mav.addObject("m", m); } return mav; }
  */
-@RequestMapping(value = "/") //홈으로 가기
-public String index() { 
-	return "/index";
-}
+//@RequestMapping(value = "/") //홈으로 가기
+//public String index() { 
+//	return "/index";
+//}
 @GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
 public String joinForm(HttpServletRequest req) {
 	HttpSession session = req.getSession(false);
