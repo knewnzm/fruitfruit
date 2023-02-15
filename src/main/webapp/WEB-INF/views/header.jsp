@@ -15,21 +15,10 @@
         <script type="text/javascript">
         ///////////////////////////////////
         function makeBtn2(data, cate_type = 2) { //하나의 행 element를 data라 부르기로 하자
-        	/* 
-        	<div> id=c"${cate_type}"+"${cate_num}" ex)c1+1
-        	<input> name=c"${cate_type}" , id=c"${cate_type}"-"${cate_num}" ex) name=c1 ,id=c1-1
-        	<label> 
-            for=c"${cate_type}"-"${cate_num}" ex) c1-1 
-            */
-            
-          //class가 menuArea인 li태그를 만들고
-          //Mapping의 value가 /product/csearch이고 @RequestPram값으로 키값frfr_category1,밸류가 data의 cate_num값인
-          //컨트롤러로 가는 링크를 생성한다
-          //span 태그에 data의 cate_name값을 넣어준다
             let html = ` 
             	<li>
-                <a href="#" class="on title">
-                    <span class="text">${"${data.cate_name}"}</span>
+                <a href="/product/csearch?frfr_category2=${"${data.cate_num}"}" class="on title">
+                    <span>${"${data.cate_name}"}</span>
                 </a>
             </li>
             `;
@@ -50,7 +39,7 @@
           //span 태그에 data의 cate_name값을 넣어준다
             let html = ` 
             	<li class="menuArea"> 
-                <a href="/product/csearch?frfr_category1=${"${data.cate_num}"}" id="c${'${cate_type}'}-${'${data.cate_num}'}" class="title on"> 
+                <a href="/product/csearch?frfr_category1=${"${data.cate_num}"}" class="title on"> 
                     <span id="c${'${cate_type}'}-${'${data.cate_num}'}" class="text">${"${data.cate_name}"}</span>
                 </a>
                 <ul id="c${'${cate_type}'}_${'${data.cate_num}'}" class="category-wrap">
@@ -101,13 +90,12 @@
              const cate_type = parseInt(data[0].substr(1)); //그중 맨앞의 값인 data[0]값의 맨 앞의 하나를 뺀다 .substr(1) c1-> 1
              const cate_num = data[1]; //그 다음값인 data[1]값을 cate_num변수에 담는다 ex)2 
              getCategoryList(cate_type + 1, cate_num);
-             /* $("#c" + (cate_type + 1) + "-parent").val(cate_num); */
             }
         //////////////////////
         $(document).ready(function(){
         	getCategoryList(1);
         	
-        	$(document).on("mouseover", "li.menuArea", function (e) { //class가 menuArea인 li태그에 마우스를 올렸을때 
+        	$(document).on("mouseover", "span.text", function (e) { //class가 menuArea인 li태그에 마우스를 올렸을때 
         		categoryBtnHandler(e); //categoryBtnHandler함수를 실행한다
         	});
         	
