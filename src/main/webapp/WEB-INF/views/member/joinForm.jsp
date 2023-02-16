@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<title>프룻프롯 | 회원가입</title>
+<title>join form</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/joinForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript">
@@ -64,8 +64,8 @@ $(document).ready(function() {
 </head>
 <body>
 <div class="wrap">
-<c:import url="../head.jsp"></c:import>
-<c:import url="../header.jsp"></c:import>
+		<c:import url="../head.jsp"></c:import>
+        <c:import url="../header.jsp"></c:import>
 	<main class="container">
 		<div id="content" class="content">
 			<div class="main_title_box">
@@ -172,18 +172,20 @@ $(document).ready(function() {
 										우편번호
 									</label>	
 								</div>
-								<div class="addr_postcode">
-									<input type="text" name="user_postcode" id="user_postcode"  class="j_input"placeholder="우편번호">
+								<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+										<script src="/static/js/postcode.js"></script>
+										<div class="addr_postcode">
+									<input type="text" name="user_postcode" id="user_postcode"  class="j_input" placeholder="우편번호" readonly>
 								</div>
 								<div class="addr_btn">
-									<button class="addr_search_btn" type="button" name="addr_search_btn">
+									<button class="addr_search_btn" type="button" name="addr_search_btn" onclick="sample6_execDaumPostcode()">
 										<span class="search_text">주소 검색</span>
 										<img src="${pageContext.request.contextPath}/static/img/join_edit_search.png" class="search_img">
 									</button>	
 								</div>
 							</div>
 							<div class="addr_wrap1">
-								<input type="text" name="user_addr1" id="user_addr1" class="j_input" placeholder="도로명 주소">
+								<input type="text" name="user_addr1" id="user_addr1" class="j_input" placeholder="도로명 주소" readonly>
 							</div>
 							<div class="addr_wrap2">
 								<input type="text" name="user_addr2" id="user_addr2" class="j_input" placeholder="상세항목">
@@ -218,6 +220,7 @@ $(document).ready(function() {
 					</div>
 					<div class="submit_wrap">
 						<button type="submit" id="submit" value="가입하기">가입하기</button>
+						<button class="back_btn" type="button" onClick="history.back();">목록으로</button>
 					</div>
 				<!-- join content -->	
 				</div>
@@ -227,9 +230,10 @@ $(document).ready(function() {
 		</form>
 		</div>
 	</main>
-<c:import url="../footer.jsp"></c:import>
+		 <c:import url="../footer.jsp"></c:import>
 <!-- wrap end -->
 </div>
 </body>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </html>
+
