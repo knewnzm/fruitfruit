@@ -76,19 +76,9 @@
     <nav class="page-nav">
         <ul class="page-nation">
             <li class="page-item ${page.prev?'':'disabled'}">
-            	<c:choose>
-	            	<c:when test="${page.currentPage-1 >= 1}"> 
-		            	<a class="page-link" href="${pageContext.request.contextPath}/product/productList?p=${page.currentPage-1}">
-		                    <i class="fas fa-chevron-left"></i>
-		                </a>
-	            	</c:when>
-	            	<c:otherwise>
-	            		<a class="page-link" href="${pageContext.request.contextPath}/product/productList?p=${page.startPage}">
-		                    <i class="fas fa-chevron-left"></i>
-		                </a>
-	            	</c:otherwise>
-            	</c:choose>
-
+                <a class="page-link" href="${pageContext.request.contextPath}/product/productList?p=${page.startPage-1}">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
             </li>
             <c:forEach begin="${page.startPage}" end="${page.endPage}" varStatus="status">
                 <li class="page-item ${page.currentPage==status.current?'active':''}">
@@ -96,19 +86,9 @@
                 </li>
             </c:forEach>
             <li class="page-item ${page.next?'':'disabled'}">
-                <c:choose>
-	            	<c:when test="${page.currentPage+1 <= page.endPage}"> 
-		            	<a class="page-link" href="${pageContext.request.contextPath}/product/productList?p=${page.currentPage+1}">
-		                    <i class="fas fa-chevron-right"></i>
-		                </a>
-	            	</c:when>
-	            	<c:otherwise>
-	            		<a class="page-link" href="${pageContext.request.contextPath}/product/productList?p=${page.endPage}">
-		                    <i class="fas fa-chevron-right"></i>
-		                </a>
-	            	</c:otherwise>
-            	</c:choose>
-            	
+                <a class="page-link" href="${pageContext.request.contextPath}/product/productList?p=${page.endPage+1}">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
             </li>
         </ul>
     </nav>

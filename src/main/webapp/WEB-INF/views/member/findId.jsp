@@ -40,9 +40,9 @@ body{
   </div>
    <div class="f_box">
     <div class="f_name_title">이름
-    </div> <br> <input type="text" class="f_id_line" id="user_name" name="user_name" placeholder="이름을 입력해 주세요."><br>
+    </div> <br> <input type="text" class="f_id_line" id="user_name" name="user_name" placeholder="이름을 입력해 주세요." required><br>
     <div class="f_tel_title">전화번호
-    </div> <br> <input type="number" class="f_id_line" id="user_tel" name="user_tel" placeholder="숫자만 입력해 주세요."><br>
+    </div> <br> <input type="number" class="f_id_line" id="user_tel" name="user_tel" placeholder="숫자만 입력해 주세요." required><br>
     
 <input type="submit" class="f_button" value="확인">
    </div>

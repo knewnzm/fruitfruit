@@ -1,4 +1,4 @@
-const tabs = document.querySelectorAll(".tab");
+
 
 // tabs.forEach(tab => {
 //   tab.addEventListener("click", ()=> {
@@ -14,15 +14,7 @@ const tabs = document.querySelectorAll(".tab");
 //   });
 // });
 
-tabs.forEach((tab) => {
-  console.log(this.dataset.content);
-  tab.addEventListener("click", test(this.dataset.content));
-});
 
-function goToScroll(name) {
-  var location = document.querySelector("#" + name).offsetTop;
-  window.scrollTo({top: location, behavior: 'smooth'});
-}
 
 // function test(contentId){
 //     const contentId = ;
@@ -38,3 +30,17 @@ function goToScroll(name) {
 // }
 
 // console.log("aa");
+
+const tabs = document.querySelectorAll(".tab");
+
+    tabs.forEach((tab) => {
+      console.log(this.dataset.content);
+      tab.addEventListener("click", test(this.dataset.content));
+    });
+    
+    function goToScroll(name) {
+      var location = document.querySelector("#" + name).offsetTop;
+      window.scrollTo({top: location, behavior: 'smooth'});
+    }
+
+

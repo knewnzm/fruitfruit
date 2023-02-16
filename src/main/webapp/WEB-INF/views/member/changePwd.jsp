@@ -76,9 +76,9 @@ body{
 <form name="f" action="${pageContext.request.contextPath}/member/changePwd" method="post">
 <div class="cp_h"><h1>비밀번호를 변경해 주세요.</h1></div>
 <div class="f_box">
-<div class="cp_newPwd">새 비밀번호</div><br> <input type="password" class="f_id_line" id="user_pwd" name="user_pwd" >
+<div class="cp_newPwd">새 비밀번호</div><br> <input type="password" class="f_id_line" id="user_pwd" name="user_pwd" required>
 <div id="pwd1Result" class="cp_msg"></div><br>
-<div class="cp_editPwd">비밀번호 확인</div><br> <input type="password" class="f_id_line" id="pwdCheck" ><br>
+<div class="cp_editPwd">비밀번호 확인</div><br> <input type="password" class="f_id_line" id="pwdCheck" required><br>
  <div id="pwd2Result" class="cp_msg"></div>
 <button type="submit" id="edit" class="f_button" disabled="disabled">변경</button>
                         </div>

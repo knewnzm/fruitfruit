@@ -34,9 +34,9 @@ body{
 </c:if>
 </div>
 <div class="f_box">
-<div class="fp_id_title">이메일</div><br> <input type="text" class="f_id_line" id="user_id" name="user_id" placeholder="이메일을 입력해 주세요."><br>
-<div class="fp_name_title">이름</div><br> <input type="text" class="f_id_line" id="user_name" name="user_name" placeholder="이름을 입력해 주세요."><br>
-<div class="f_tel_title">전화번호</div><br> <input type="text" class="f_id_line" id="user_tel" name="user_tel" placeholder="숫자만 입력해 주세요."><br>
+<div class="fp_id_title">이메일</div><br> <input type="text" class="f_id_line" id="user_id" name="user_id" placeholder="이메일을 입력해 주세요." required><br>
+<div class="fp_name_title">이름</div><br> <input type="text" class="f_id_line" id="user_name" name="user_name" placeholder="이름을 입력해 주세요." required><br>
+<div class="f_tel_title">전화번호</div><br> <input type="text" class="f_id_line" id="user_tel" name="user_tel" placeholder="숫자만 입력해 주세요." required><br>
 <button type="submit" class="f_button">확인</button>
                         </div>
                         

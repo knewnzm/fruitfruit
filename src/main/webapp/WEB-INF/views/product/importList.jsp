@@ -7,9 +7,6 @@ function del(num){
 	location.href=`${pageContext.request.contextPath}/order/orderDelete?order_num=${"${num}"}`;
 	}
 }
-
-
-
 </script>
 
 <c:choose>
