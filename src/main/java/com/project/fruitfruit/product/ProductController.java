@@ -19,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.project.fruitfruit.answer.AnswerService;
 import com.project.fruitfruit.review.Review;
 import com.project.fruitfruit.review.ReviewService;
+import com.project.fruitfruit.support.Support;
+import com.project.fruitfruit.support.SupportService;
 import com.project.fruitfruit.util.Page;
 
 @Controller
@@ -29,7 +31,8 @@ public class ProductController {
 	@Autowired
 	private ReviewService rService;
 	@Autowired
-	private AnswerService aService;
+	private SupportService sService;
+	
 	
 
 	
@@ -149,6 +152,7 @@ public class ProductController {
 					page.getStartList(),
 					page.getStartList() + page.getListSize());
 			
+			
 			model.addAttribute("plist", list);
 			model.addAttribute("page", page);
 			model.addAttribute("type", type);
@@ -208,25 +212,10 @@ public class ProductController {
 			ArrayList<Product> list = pService.selectProductListByTitleOrUserId(keyword);
 			model.addAttribute("plist", list);
 			
-//			ArrayList<Product> list_by_title = pService.selectProductListByProduct_title(keyword);
-//			ArrayList<Product> list_by_user_id = pService.selectProductListByUser_id(keyword);
-			
-//			System.out.println("a");
-//			ArrayList<Product> list_all = new ArrayList();
-//			list_all.addAll(list_by_title);
-//			list_all.addAll(list_by_user_id);
-			
-//			System.out.println(list_all);
-//			model.addAttribute("plist", list_all);
-			
-//			if (list_all.size() > 0) {
-//				model.addAttribute("plist", list_all);
-//				return "/product/productSearch";
-//			}
 		}
-//		else {
-//			return "redirect:/product/productList";
-//		}
+		else {
+			return "redirect:/product/productList";
+		}
 		
 		return "/product/productSearch";
 	}
@@ -240,6 +229,9 @@ public class ProductController {
 		
 		List<Review> reviews = rService.selectReviewAllByProductNum(product_num);
 		model.addAttribute("reviews", reviews);
+		
+		List<Support> supports = sService.selectSupportByProductNum(product_num);
+		model.addAttribute("supports", supports);
 		
 	}
 	

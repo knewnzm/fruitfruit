@@ -22,6 +22,7 @@
         	success: function(response){
         		alert("삭제되었습니다");
         		location.href=location.href;
+        		
         	},
  		});
 		
