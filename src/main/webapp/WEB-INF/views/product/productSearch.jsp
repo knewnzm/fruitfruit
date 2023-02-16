@@ -45,27 +45,6 @@
     </div>
 </div>
 
-<c:if test="${not empty page}">
-    <nav class="page-nav">
-        <ul class="page-nation">
-            <li class="page-item ${page.prev?'':'disabled'}">
-                <a class="page-link" href="${pageContext.request.contextPath}/product/productList?p=${page.startPage-1}">
-                    <i class="fas fa-chevron-left"></i>
-                </a>
-            </li>
-            <c:forEach begin="${page.startPage}" end="${page.endPage}" varStatus="status">
-                <li class="page-item ${page.currentPage==status.current?'active':''}">
-                    <a class="page-link" href="${pageContext.request.contextPath}/product/productList?p=${status.current}">${status.current}</a>
-                </li>
-            </c:forEach>
-            <li class="page-item ${page.next?'':'disabled'}">
-                <a class="page-link" href="${pageContext.request.contextPath}/product/productList?p=${page.endPage+1}">
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</c:if>
 
  <c:import url="../footer.jsp"></c:import>
 

@@ -204,17 +204,26 @@ public class ProductController {
 	}
 	
 	@GetMapping("/product/productSearch")
-	public String search(@RequestParam(required = false) String keyword, Model model) {
-		if (!keyword.equals("")) {
-			request.setAttribute("keyword", keyword);
-			model.addAttribute("keyword", keyword);
-			
-			ArrayList<Product> list = pService.selectProductListByTitleOrUserId(keyword);
-			model.addAttribute("plist", list);
-			
-		}
-		else {
-			return "redirect:/product/productList";
+	public String search(
+			@RequestParam(defaultValue = "1", required = false) int p, 
+			@RequestParam(required = false) String keyword, Model model) {
+		Page page = new Page(p, pService.getProductListSize());
+		page.pageInfo();
+		if (p > page.getMaxPage() && page.getMaxPage() != 0) {
+			return "redirect:/product/productSearch?p=" + page.getMaxPage();
+		} else {
+			if (!keyword.equals("")) {
+				request.setAttribute("keyword", keyword);
+				model.addAttribute("keyword", keyword);
+				
+				ArrayList<Product> list = pService.selectProductListByTitleOrUserId(keyword);
+				model.addAttribute("plist", list);
+				
+				model.addAttribute("page", page);
+			}
+			else {
+				return "redirect:/product/productList";
+			}
 		}
 		
 		return "/product/productSearch";

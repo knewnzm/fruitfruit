@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.fruitfruit.product.Product;
 import com.project.fruitfruit.product.ProductService;
+import com.project.fruitfruit.util.Page;
 
 @Controller
 public class WishController {
@@ -30,18 +31,20 @@ public class WishController {
 	@RequestMapping("/wish/wishList")
 	public String wishList(Model model) {
 		String user_id = (String) session.getAttribute("user_id");
+		
 		if (user_id != null) {
 			ArrayList<Wish> list = (ArrayList<Wish>) wService.selectWishByUserId(user_id);
 			ArrayList<Product> plist = new ArrayList<Product>();
 			for (int i = 0; i < list.size(); i++) {
 				Wish w = list.get(i);
-				Product p = pService.selectProduct(w.getWish_product_num());
-				w.setP(p);
-				plist.add(p);
+				Product product = pService.selectProduct(w.getWish_product_num());
+				w.setP(product);
+				plist.add(product);
 			}
 			model.addAttribute("list", list);
 			model.addAttribute("plist", plist);
 		}
+		
 		return "wish/wishList";
 	}
 	
