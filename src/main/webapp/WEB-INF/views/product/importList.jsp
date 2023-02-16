@@ -1,31 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<script language="javascript" type="text/javascript">
+<script>
 function del(num){
 	if (confirm("주문취소상품을 주문 목록에서 삭제하시겠습니까? 이 작업은 복구할 수 없습니다")){
 	location.href=`${pageContext.request.contextPath}/order/orderDelete?order_num=${"${num}"}`;
 	}
 }
 
-	function buyer_list() {
-		var str = '<c:forEach var="p" items="${plist}"><table  class="list"><tbody>';
-			str += '<tr><th>제품 이름</th><th>구매 수량</th><th>구매자 주소</th><th>구매 수량</th><th>구매 수량</th><th>구매 수량</th></tr>';
-			str += '<tr><td>';
-			str += `${p.product_title}`;
-			str += '</td><td>1111111</td><td>1111111</td><td>1111111</td><td>1111111</td><td>1111111</td><td><button class="cancel_btn">주문취소</button><button class="comple_btn">배송완료</button></td></tr>';
-			str += '</tbody></table></c:forEach>';
-		
-		$(str).appendTo('#product_buyer_list='+'${p.product_num}');
-		$('#btn').empty();
-		$('<button class="add-btn" onclick="buyer_list_del()">구매자 목록 닫기</button>').appendTo('#btn');
-	}
-	
-	function buyer_list_del() {
-		$('#product_buyer_list').empty();
-		$('#btn').empty();
-		$('<button class="add-btn" onclick="buyer_list()">구매자 목록 보기</button>').appendTo('#btn');
-	}
+
 
 </script>
 
@@ -67,10 +50,10 @@ function del(num){
 						</div>
 
 						<div id="btn">
-							<button class="add-btn" onclick="buyer_list()">구매자 목록 보기</button>
+							<button id="product_buyer_btn=${p.product_num}" class="add-btn" 
+							onclick="location.href=`${pageContext.request.contextPath}/product/orderList?product_num=${p.product_num}`">구매자 목록 보기</button>
 						</div>
 					</div>
-					<div id="product_buyer_list=${p.product_num}"></div>
 				</div>
 			</c:forEach>
 		</div>
@@ -131,7 +114,7 @@ function del(num){
 							</a>
 						</div> 
 						<div>
-						<c:if test="${o.order_type != 3}">
+							<c:if test="${o.order_type != 3}">
 							<button type="button" class="cancel_btn"
 										onclick="location.href=`${pageContext.request.contextPath}/order/cancel?order_num=${o.order_num}`">구매취소</button>
 										</c:if>

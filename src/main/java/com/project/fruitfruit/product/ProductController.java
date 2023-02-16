@@ -243,6 +243,14 @@ public class ProductController {
 	}
 	
 	
+	//select
+			@RequestMapping("/product/orderList")
+			public void orderProduct(@RequestParam int product_num, Model model) {
+				Product p = pService.selectProduct(product_num);
+				model.addAttribute("p", p);
+			}
+	
+	
 	
 	
 	
