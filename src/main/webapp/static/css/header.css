@@ -154,46 +154,39 @@
     height: 80px;
 }
 
-
-.buttonArea .icon li {
-    position: relative;
-    display: inline-block;
-    width: 70px;
-    font-size: 14px;
-    justify-content: center;
-    padding: 0 10px;
-    align-items: center;
+.buttonArea .icon {
+    margin-left: 13px;
 }
 
 
 .buttonArea .icon a.heart {
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
     background: url("../img/heart.png") no-repeat;
     display: block;
-    width: 100%;
-    padding-top: 30px;
-    background-size: 30px 30px;
-    background-position: center -1px;
-    font-size: 14px;
+    padding-top: 33px;
+    background-size: 32px;
 }
 
 .buttonArea .icon a.mypage {
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
     background: url("../img/user.png") no-repeat;
     display: block;
-    width: 100%;
     padding-top: 30px;
-    background-size: 30px 30px;
-    background-position: center -1px;
-    font-size: 14px;
+    background-size: 24px;
 }
 
 .buttonArea .icon a.chat {
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
     background: url("../img/bubble.png") no-repeat;
     display: block;
-    width: 100%;
     padding-top: 30px;
     background-size: 30px 30px;
-    background-position: center -1px;
-    font-size: 14px;
 }
 
 
@@ -385,6 +378,11 @@ ul.category-wrap > li:hover > ul.category-wrap {
 .category-wrap > li a:hover {
     display: block;
     color: #fff;
+}
+
+.dep1 .c1-list .text {
+    display: block;
+    width:120px;
 }
 
 

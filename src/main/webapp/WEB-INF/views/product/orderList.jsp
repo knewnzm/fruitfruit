@@ -4,7 +4,7 @@
 <html>
 	<head>
 	    <meta charset="UTF-8" />
-	    <title>fruitfruit - 제품목록</title>
+	    <title>fruitfruit - 구매자목록</title>
 	    <script>
 	        if ("${sessionScope.user_id}" === "") {
 	            alert("로그인이 필요한 페이지입니다.");
@@ -26,13 +26,11 @@
 		    <div class="right">
 				<div class="container">
 					<div>
-						<h1>내가 
-						<c:if test="${sessionScope.user_type==1 }">구매한</c:if>
-					    <c:if test="${sessionScope.user_type==2 }">등록한</c:if> 제품 목록</h1>
+						<h1>구매자 목록 조회하기</h1>
 					</div>		
 							
 					<div>
-		                <c:import url="./importList.jsp"></c:import>
+		                <c:import url="./orderImportList.jsp"></c:import>
 					</div>
 		        </div>
 		    </div>	

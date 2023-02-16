@@ -19,7 +19,9 @@ public interface ReviewMapper {
 	public ArrayList<Review> orderReviewByReviewLike();
 	public ArrayList<Review> orderReviewByReviewScore();
 	public ArrayList<Review> orderReviewByReviewDate();
+	public List<Review> selectReviewAllByProductNum(int product_num);
 	
+	public int selectSeqReviewCurrval();
 	
 	
 }

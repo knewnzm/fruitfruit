@@ -36,11 +36,13 @@ public interface ProductMapper {
 	
 	public int selectListSize();
 	
-	public ArrayList<Product> selectProductListByProduct_title(String product_title);
+	public ArrayList<Product> selectProductListByProduct_title(String title);
 	public ArrayList<Product> selectProductListByCategory1_num(int c1);
 	public ArrayList<Product> selectProductListByCategory2_num(int c2);
 	public ArrayList<Product> selectProductListByCategory3_num(int c3);
-	public ArrayList<Product> selectProductListByUser_id(String product_seller_id);
+	public ArrayList<Product> selectProductListByUser_id(String seller_id);
+	
+	public ArrayList<Product> selectProductListByTitleOrUserId(String keyword);
 	
 
 	

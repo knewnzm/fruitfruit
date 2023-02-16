@@ -56,13 +56,12 @@
 }
 
 
-.m-del, .btn {
+.del-btn {
     background: #fff;
-    right: 0px;
     border: 1px solid #f02c11;
     color: #f02c11;
     text-align: center;
-    width: 100px;
+    width: 80px;
     border-radius: 7px;
     padding: 10px 0;
 }

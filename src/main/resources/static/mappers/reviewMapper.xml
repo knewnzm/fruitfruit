@@ -6,13 +6,11 @@
 <mapper namespace="com.project.fruitfruit.review.ReviewMapper">
 	<resultMap type="com.project.fruitfruit.review.Review" id="review">
 		<result property="review_num" column="review_num" />
-		<result property="review_title" column="review_title" />
+		<result property="review_title" column="review_title" jdbcType="VARCHAR"/>
 		<result property="review_content" column="review_content" />
-		<result property="review_path" column="review_path" />
 		<result property="review_writer" column="review_writer" />
 		<result property="review_date" column="review_date" />
 		<result property="review_product_num" column="review_product_num" />
-		<result property="review_score" column="review_score" />
 		<result property="review_like_hit" column="review_like_hit" />
 	</resultMap>
 	
@@ -22,20 +20,34 @@
 		order by review_num desc
 	</select>
 	
-	<insert id="insertReview" parameterType="com.project.fruitfruit.review.Review">
-		insert into review 
-		values (
-			seq_review.nextval, 
-			#{review_title}, 
-			#{review_content}, 
-			#{review_path}, 
-			#{review_writer}, 
-			sysdate,
-			#{review_product_num}, 
-			#{review_score}, 
-			#{review_like_hit}
-		)
-	</insert>
+		<select id="selectReviewAllByProductNum" parameterType="int" resultMap="review">
+		select * 
+		from review 
+		where review_product_num = #{review_product_num}
+		order by review_num desc
+	</select>
+	
+	
+<insert id="insertReview" parameterType="com.project.fruitfruit.review.Review">
+  insert into review (
+  	review_num, 
+  	review_title, 
+  	review_content, 
+  	review_writer, 
+  	review_date, 
+  	review_product_num, 
+  	review_like_hit
+  )
+  values (
+    seq_review.nextval, 
+    #{review_title}, 
+    #{review_content}, 
+    #{review_writer}, 
+    sysdate,
+    #{review_product_num}, 
+    0
+  )
+</insert>
 	
 	<update id="updateReview" parameterType="com.project.fruitfruit.review.Review">
 		update review 
@@ -59,14 +71,14 @@
 	<update id="increaseReviewLikeHit" parameterType="int">
 		update review 
 		set 
-			review_like_hit=review_like_hit+1,
+			review_like_hit = review_like_hit + 1
 		where review_num=#{review_num}
 	</update>
 	
 	<update id="decreaseReviewLikeHit" parameterType="int">
 		update review 
 		set 
-			review_like_hit=review_like_hit-1,
+			review_like_hit=review_like_hit-1
 		where review_num=#{review_num}
 	</update>
 	
@@ -93,4 +105,10 @@
 		from review 
 		order by review_date desc
 	</select>
+	
+	<select id="selectSeqReviewCurrval" resultType="int">
+		select seq_review.currval 
+		from dual
+	</select>
+	
 </mapper>

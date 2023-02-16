@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.project.fruitfruit.answer.AnswerService;
+import com.project.fruitfruit.review.Review;
+import com.project.fruitfruit.review.ReviewService;
+import com.project.fruitfruit.support.Support;
+import com.project.fruitfruit.support.SupportService;
 import com.project.fruitfruit.util.Page;
 
 @Controller
@@ -23,6 +28,14 @@ public class ProductController {
 
 	@Autowired
 	private ProductService pService;
+	@Autowired
+	private ReviewService rService;
+	@Autowired
+	private SupportService sService;
+	
+	
+
+	
 	@Autowired
 	private HttpServletRequest request;
 	@Autowired
@@ -32,12 +45,23 @@ public class ProductController {
 	private String webPath = "\\static\\product\\";
 
 	
-	// @RequestMapping("/")
-	// public String index(Model model) {
-	// 	List<Product> list = pService.selectProductListByLimit(0, 8);
-	// 	model.addAttribute("list", list);
-	// 	return "index";
-	// }
+	/*
+	 * @RequestMapping("/") public String index(Model model) { List<Product> list =
+	 * pService.selectProductListByLimit(0, 4); model.addAttribute("list", list);
+	 * 
+	 * List<Product> list2 = pService.onlyProductPick(0, 4);
+	 * model.addAttribute("list2", list2);
+	 * 
+	 * List<Product> list3 = pService.orderByProductHitDesc(0, 4);
+	 * model.addAttribute("list3", list3);
+	 * 
+	 * return "index"; }
+	 */
+	
+//	@RequestMapping(value = "/") //홈으로 가기
+//	public String index() { 
+//		return "/index";
+//	}
 	
 
 	@GetMapping("/product/productForm")
@@ -127,6 +151,7 @@ public class ProductController {
 					page.getStartList(),
 					page.getStartList() + page.getListSize());
 			
+			
 			model.addAttribute("plist", list);
 			model.addAttribute("page", page);
 			model.addAttribute("type", type);
@@ -177,32 +202,30 @@ public class ProductController {
 		return list;
 	}
 	
-	@GetMapping("/product/search")
-	public String search(@RequestParam(required = false) String q, @RequestParam(required = false) String value,
-			Model model) {
-		if (q != null && value != null) {
-			request.setAttribute("q", q);
-			request.setAttribute("value", value);
-			ArrayList<Product> list = null;
-			if (q.equals("product_name")) {
-				list = pService.selectProductListByProduct_title(value);
-			} else if (q.equals("c1")) {
-				int c1 = Integer.parseInt(value);
-				list = pService.selectProductListByCategory1_num(c1);
-			} else if (q.equals("c2")) {
-				int c2 = Integer.parseInt(value);
-				list = pService.selectProductListByCategory2_num(c2);
-			} else if (q.equals("c3")) {
-				int c3 = Integer.parseInt(value);
-				list = pService.selectProductListByCategory3_num(c3);
-			} else if (q.equals("user_id")) {
-				list = pService.selectProductListByUser_id(value);
-			}
-			model.addAttribute("plist", list);
-			return "/product/list";
+	@GetMapping("/product/productSearch")
+	public String search(
+			@RequestParam(defaultValue = "1", required = false) int p, 
+			@RequestParam(required = false) String keyword, Model model) {
+		Page page = new Page(p, pService.getProductListSize());
+		page.pageInfo();
+		if (p > page.getMaxPage() && page.getMaxPage() != 0) {
+			return "redirect:/product/productSearch?p=" + page.getMaxPage();
 		} else {
-			return "redirect:/product/list";
+			if (!keyword.equals("")) {
+				request.setAttribute("keyword", keyword);
+				model.addAttribute("keyword", keyword);
+				
+				ArrayList<Product> list = pService.selectProductListByTitleOrUserId(keyword);
+				model.addAttribute("plist", list);
+				
+				model.addAttribute("page", page);
+			}
+			else {
+				return "redirect:/product/productList";
+			}
 		}
+		
+		return "/product/productSearch";
 	}
 	
 	//select
@@ -211,6 +234,13 @@ public class ProductController {
 		pService.addProductHit(product_num);////
 		Product p = pService.selectProduct(product_num);
 		model.addAttribute("p", p);
+		
+		List<Review> reviews = rService.selectReviewAllByProductNum(product_num);
+		model.addAttribute("reviews", reviews);
+		
+		List<Support> supports = sService.selectSupportByProductNum(product_num);
+		model.addAttribute("supports", supports);
+		
 	}
 	
 	//delete
@@ -242,8 +272,15 @@ public class ProductController {
 		}
 	}
 	
-	
-	
+
+	/*
+	 * @RequestMapping(value="/product/mylist") public void go(Model model) { String
+	 * product_seller_id = (String) session.getAttribute("user_id");
+	 * System.out.println("세션아이디:"+product_seller_id); ArrayList<Product>
+	 * p=pService.selectProductBySellerId(1, 10, product_seller_id);
+	 * System.out.println(p); model.addAttribute("plist", p); }
+	 * 
+	 */
 	
 	
 }

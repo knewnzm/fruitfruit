@@ -28,17 +28,6 @@ public class MemberController {
 private MemberService service;
 @Autowired
 private CategoryService cservice;
-/* @RequestMapping(value = "/") */
-/*
- * public ModelAndView index(HttpServletRequest req) { ModelAndView mav = new
- * ModelAndView("/index"); HttpSession session = req.getSession(false); String
- * id = (String) session.getAttribute("user_id"); if(session!=null&&id!=null) {
- * Member m = service.select(id); mav.addObject("m", m); } return mav; }
- */
-/*
- * @RequestMapping(value = "/") //홈으로 가기 public String index() { return
- * "/index"; }
- */
 
 @RequestMapping(value = "/") //인덱스 페이지 가기
 public String home() {
@@ -50,7 +39,7 @@ public String joinForm(HttpServletRequest req) {
 	HttpSession session = req.getSession(false);
 	String id = (String) session.getAttribute("user_id");
 	if (id != null) {
-		return "redirect:/ ";
+		return "redirect:/";
 	} else {
 		return req.getRequestURI();
 	}

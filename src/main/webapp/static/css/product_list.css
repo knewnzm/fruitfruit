@@ -1,12 +1,12 @@
 div.left{
-	position: fixed;
-  	height: 100%;
   	float: left;
-  	width: 6%;
+  	width: 115px;
+  	background: #F02c11;
+  	background-size: cover;
 }
 
 div.right{
-	margin-left: 6%;
+	margin-left: 140px;
 }
 
 .container{
@@ -22,7 +22,7 @@ div.right{
 	outline: none;
 	background: white;
 	border: 1px solid #F02c11;
-	border-radius: 15px;
+	border-radius: 5px;
 	font-size: 15px;
 	padding: 3px 5px;
 }
@@ -32,8 +32,18 @@ div.right{
 	color: white;
 }
 
+.p-wrap{
+	margin:20px 100px 30px 0px;	
+}
+
+.p-card{
+	display:flex;
+	justify-content:space-between;
+}
+
 .import-item{
 	height: 180px;
+	justify-content: space-between;
 }
 
 .import-item:hover{
@@ -44,13 +54,12 @@ div.right{
 	width: 180px;
 	height: 180px;
 	float: left;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
-.product-img{
-	width:100%;
+.product-pimg{
+	height: 100%;
+	width: 100%;
+  	object-fit: scale-down;
 }
 
 .desc-box{
@@ -76,4 +85,50 @@ div.right{
 
 .product-detail{
 	color: black;
+	
+}
+
+table{
+	margin-top: 10px;
+	width:860px;
+	border-collapse: collapse;
+	border-top: 1px solid #B6B6B4;
+}
+
+tr{
+	border:1px solid #B6B6B4;
+}
+
+td{
+	text-align: center;
+}
+
+.cancel_btn{
+	outline: none;
+	background: white;
+	border: 1px solid #F02c11;
+	border-radius: 5px;
+	font-size: 15px;
+	padding: 3px;
+	margin: 5px 15px;
+}
+
+.cancel_btn:hover{
+	background: #F02c11;
+	color: white;
+}
+
+.comple_btn{
+	outline: none;
+	background: white;
+	border: 1px solid #4BAF2C;
+	border-radius: 5px;
+	font-size: 15px;
+	padding: 3px;
+	margin: 5px 0px;
+}
+
+.comple_btn:hover{
+	background: #4BAF2C;
+	color: white;
 }

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.fruitfruit.product.Product;
 import com.project.fruitfruit.product.ProductService;
+import com.project.fruitfruit.util.Page;
 
 @Controller
 public class WishController {
@@ -30,18 +31,20 @@ public class WishController {
 	@RequestMapping("/wish/wishList")
 	public String wishList(Model model) {
 		String user_id = (String) session.getAttribute("user_id");
+		
 		if (user_id != null) {
 			ArrayList<Wish> list = (ArrayList<Wish>) wService.selectWishByUserId(user_id);
 			ArrayList<Product> plist = new ArrayList<Product>();
 			for (int i = 0; i < list.size(); i++) {
 				Wish w = list.get(i);
-				Product p = pService.selectProduct(w.getWish_product_num());
-				w.setP(p);
-				plist.add(p);
+				Product product = pService.selectProduct(w.getWish_product_num());
+				w.setP(product);
+				plist.add(product);
 			}
 			model.addAttribute("list", list);
 			model.addAttribute("plist", plist);
 		}
+		
 		return "wish/wishList";
 	}
 	
@@ -60,21 +63,19 @@ public class WishController {
 
 		// 찜 추가
 		@RequestMapping("/wish/add")
-		public ModelAndView addWish(@RequestParam int product_num) {
-			ModelAndView mav = new ModelAndView("/wish/wishJSON");
+		public String addWish(@RequestParam int product_num) {
 			String user_id = (String) session.getAttribute("user_id");
 			System.out.println("addWish : " + user_id + " " + product_num);
 
 			Wish w = new Wish();
 
-			w.setWish_num(wService.selectSeqWishCurrval());
 			w.setWish_user_id(user_id);
 			w.setWish_product_num(product_num);
 
 			System.out.println("addWish w : " + w);
 			wService.insertWish(w);
 
-			return mav;
+			return "redirect:/wish/wishList";
 		}
 
 		// 찜 삭제
