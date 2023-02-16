@@ -50,87 +50,60 @@
   <!-- 최신 등록 상품 -->
   <div class="product-list">
     <h2 class="list-title">최신 등록 상품</h2>
-			<div class="new_list clearfix">
-				<div class="product-card">
-          <a href="#">
-            <img src="${pageContext.request.contextPath}/static/img/apple1.jpg" alt="사과" class="product-img">
-					  <div class="product-info">
-						  <strong class="product-title">홍로 사과</strong>
-						  <span class="product-price">50,000원</span>
-					  </div>
-          </a>
-				</div>
-				<div class="product-card">
-          <a href="#">
-            <img src="${pageContext.request.contextPath}/static/img/apple2.jpg" alt="사과" class="product-img">
-					  <div class="product-info">
-						  <strong class="product-title">홍로 사과</strong>
-						  <span class="product-price">50,000원</span>
-					  </div>
-          </a>
-				</div>
-				<div class="product-card">
-          <a href="#">
-            <img src="${pageContext.request.contextPath}/static/img/apple3.jpg" alt="사과" class="product-img">
-					  <div class="product-info">
-						  <strong class="product-title">홍로 사과</strong>
-						  <span class="product-price">50,000원</span>
-					  </div>
-          </a>
-				</div>
-				<div class="product-card">
-          <a href="#">
-            <img src="${pageContext.request.contextPath}/static/img/apple4.jpg" alt="사과" class="product-img">
-					  <div class="product-info">
-						  <strong class="product-title">홍로 사과</strong>
-						  <span class="product-price">50,000원</span>
-					  </div>
-          </a>
-				</div>
-			</div>
-	</div>
+  <div class="new_list clearfix">
+    <c:choose>
+      <%-- 등록된 제품 목록이 있을 때 --%>
+        <c:when test="${not empty list}">
+             <c:forEach var="p" items="${list}">
+          <div class="product-card">
+                  <a href="${pageContext.request.contextPath}/product/productDetail?product_num=${p.product_num}">
+                  <img src="${p.product_path}" alt="${p.product_path}" class="product-img">
+                      <div class="product-info">
+                          <strong class="product-title">${p.product_title}</strong>
+                          <span class="product-price">
+                            <fmt:formatNumber value="${p.product_price}" pattern="#,###원"/>
+                          </span>
+                      </div>
+                  </a>
+              </div>
+             </c:forEach>
+        </c:when>
+      <%-- 등록된 제품이 없을 때 --%>
+        <c:otherwise>
+            <h3>등록된 제품이 없습니다.</h3>
+        </c:otherwise>
+    </c:choose>
+      
+  </div>
+</div>
 
 
     <!-- MD 추천 상품 -->
     <div class="product-list">
       <h2 class="list-title">MD 추천 상품</h2>
         <div class="new_list clearfix">
-          <div class="product-card">
-            <a href="#">
-              <img src="${pageContext.request.contextPath}/static/img/apple1.jpg" alt="사과" class="product-img">
-              <div class="product-info">
-                <strong class="product-title">홍로 사과</strong>
-                <span class="product-price">50,000원</span>
-              </div>
-            </a>
-          </div>
-          <div class="product-card">
-            <a href="#">
-              <img src="${pageContext.request.contextPath}/static/img/apple2.jpg" alt="사과" class="product-img">
-              <div class="product-info">
-                <strong class="product-title">홍로 사과</strong>
-                <span class="product-price">50,000원</span>
-              </div>
-            </a>
-          </div>
-          <div class="product-card">
-            <a href="#">
-              <img src="${pageContext.request.contextPath}/static/img/apple3.jpg" alt="사과" class="product-img">
-              <div class="product-info">
-                <strong class="product-title">홍로 사과</strong>
-                <span class="product-price">50,000원</span>
-              </div>
-            </a>
-          </div>
-          <div class="product-card">
-            <a href="#">
-              <img src="${pageContext.request.contextPath}/static/img/apple4.jpg" alt="사과" class="product-img">
-              <div class="product-info">
-                <strong class="product-title">홍로 사과</strong>
-                <span class="product-price">50,000원</span>
-              </div>
-            </a>
-          </div>
+          	<c:choose>
+	    	<%-- 등록된 제품 목록이 있을 때 --%>
+			    <c:when test="${not empty list2}">
+			         <c:forEach var="p" items="${list2}">
+						<div class="product-card">
+				            <a href="${pageContext.request.contextPath}/product/productDetail?product_num=${p.product_num}">
+				            <img src="${p.product_path}" alt="${p.product_path}" class="product-img">
+				                <div class="product-info">
+				                    <strong class="product-title">${p.product_title}</strong>
+				                    <span class="product-price">
+				                    	<fmt:formatNumber value="${p.product_price}" pattern="#,###원"/>
+				                    </span>
+				                </div>
+				            </a>
+				        </div>
+			         </c:forEach>
+			    </c:when>
+		    <%-- 등록된 제품이 없을 때 --%>
+			    <c:otherwise>
+			        <h3>등록된 제품이 없습니다.</h3>
+			    </c:otherwise>
+			</c:choose>
         </div>
     </div>
 

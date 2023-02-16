@@ -380,6 +380,11 @@ ul.category-wrap > li:hover > ul.category-wrap {
     color: #fff;
 }
 
+.dep1 .c1-list .text {
+    display: block;
+    width:120px;
+}
+
 
 
 /** sub 메뉴 **/

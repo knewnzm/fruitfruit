@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ page trimDirectiveWhitespaces="true" %> <%@ taglib
 uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>''
 
+
+
+
+삭제해도 되는 페이지
+
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,7 +42,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>''
 		<div class="content">
 			<div class="title_wrap">
 				<div class="main_title">
-					<h1 class="main_text">공지사항 작성</h1>
+					<h1 class="main_text">신고하기 작성</h1>
 				</div>
 			</div>
 			<form action="${pageContext.request.contextPath}/notice/noticeForm" method="post" enctype="multipart/form-data">

@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>sadaRe: 사다리</title>
+        <title>fruitfruit 찜 목록</title>
         <c:import url="../head.jsp"></c:import>
         <link rel="stylesheet" href="/static/css/product_list.css" />
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/report.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/wish.css">
         <script>
             if ("${sessionScope.user_id}" === "") {
                 alert("로그인이 필요한 페이지입니다.");
