@@ -12,6 +12,12 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/header.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
             <title>Document</title>
+            <script type="text/javascript">
+                function search() {
+                    const keyword = document.getElementById("headerSearchId").value;
+                    window.location.href = "${pageContext.request.contextPath}/product/productSearch?keyword=" + keyword;
+                  }
+             </script>
         </head>
 
 

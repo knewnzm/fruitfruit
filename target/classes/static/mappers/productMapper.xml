@@ -7,11 +7,9 @@
 		<result property="product_num" column="product_num" />
 		<result property="product_seller_id" column="product_seller_id" />
 		<result property="product_title" column="product_title" />
-		<result property="product_path" column="product_path" />
 		<result property="product_content" column="product_content" />
-		<result property="product_inner_path" column="product_inner_path" />
 		<result property="product_price" column="product_price" />
-		<result property="produt_quantity" column="produt_quantity" />
+		<result property="product_quantity" column="product_quantity" />
 		<result property="product_date" column="product_date" />
 		<result property="product_hit" column="product_hit" />
 		<result property="product_pick" column="product_pick" />
@@ -29,24 +27,35 @@
 	<select id="selectAllProduct" resultMap="product">
 		select * 
 		from product 
-		where product_num=#{product_num}
 	</select>
 
-	<insert id="insertProduct" parameterType="com.project.fruitfruit.product.Product">
+<insert id="insertProduct" parameterType="com.project.fruitfruit.product.Product">
 		insert into product 
+		(
+			product_num, 
+			product_seller_id, 
+			product_title, 
+			product_content, 
+			product_price, 
+			product_quantity, 
+			product_date, 
+			product_hit, 
+			product_pick, 
+			product_view_type, 
+			frfr_category1, 
+			frfr_category2
+		) 
 		values (
-			seq_product.nextval, 
-			#{product_seller_id}, 
-			#{product_title},
-			#{product_path}, 
+			to_number(seq_product.nextval), 
+			#{product_seller_id},
+			#{product_title}, 
 			#{product_content}, 
-			#{product_inner_path}, 
-			#{product_price}, 
-			#{produt_quantity}, 
+			to_number(#{product_price}), 
+			to_number(#{product_quantity}), 
 			sysdate, 
-			0,
-			False,
-			1
+			to_number(0), 
+			to_number(0), 
+			to_number(1), 
 			#{frfr_category1}, 
 			#{frfr_category2}
 		)
@@ -56,9 +65,7 @@
 		update product 
 		set 
 			product_title = #{product_title},
-			product_path = #{product_path}, 
 			product_content = #{product_content}, 
-			product_inner_path = #{product_inner_path}, 
 			product_price = #{product_price}, 
 			frfr_category1 = #{frfr_category1}, 
 			frfr_category2 = #{frfr_category2}
@@ -74,42 +81,42 @@
 	<update id="updateProductPickTrue" parameterType="int">
 		update product 
 		set 
-			product_pick=True,
+			product_pick=1
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="updateProductPickFalse" parameterType="int">
 		update product 
 		set 
-			product_pick=False,
+			product_pick=0
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="updateProductViewTypeBlind" parameterType="int">
 		update product 
 		set 
-			product_pick=False,
+			product_view_type=0
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="updateProductViewTypeUnblind" parameterType="int">
 		update product 
 		set 
-			product_pick=False,
+			product_view_type=1
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="addProductHit" parameterType="int">
 		update product 
 		set 
-			product_hit=product_hit+1,
+			product_hit = product_hit + 1
 		where product_num=#{product_num}
 	</update>
 	
 	<update id="updateProductQuantity" parameterType="com.project.fruitfruit.product.Product">
 		update product 
 		set 
-			produt_quantity=#{produt_quantity},
+			produt_quantity=#{produt_quantity}
 		where product_num=#{product_num}
 	</update>
 	
@@ -171,7 +178,7 @@
 			from (
 				select * 
 				from product 
-				where product_pick=True
+				where product_pick=1
 				order by product_num desc
 				) list 
 			) data 
@@ -191,6 +198,22 @@
 			) data 
 		where 
 		num between #{start} and #{end}
+		order by product_num desc
+	</select>
+	
+	<select id="selectProductBySellerId" parameterType="String" resultMap="product">
+		select data.* from (
+			select rownum as num, list.* 
+			from (
+				select * 
+				from product 
+				where product_seller_id=#{product_seller_id}
+				order by product_num desc
+				) list 
+			) data 
+		where 
+		num between #{start} and #{end}
+		order by product_num desc
 	</select>
 	
 	<select id="selectProductListByLimit" resultMap="product">
@@ -204,31 +227,61 @@
 			) data 
 		where 
 		num between #{start} and #{end}
+		order by product_num desc
 	</select>
-	
-	<select id="selectProductBySellerId" resultMap="product">
-		select data.* from (
-			select rownum as num, list.* 
-			from (
-				select * 
-				from product 
-				where product_seller_id=#{product_seller_id}
-				order by product_num desc
-				) list 
-			) data 
-		where 
-		num between #{start} and #{end}
-	</select>
-	
-	
 	
 	<select id="selectSeqProductCurrval" resultType="int">
-		select
-		seq_product.currval from dual
+		select seq_product.currval 
+		from dual
 	</select>
 	
 	<select id="selectListSize" resultType="int">
-		select count(*) from
-		sadare_product
+		select count(*) 
+		from product
 	</select>
+	
+	<select id="selectProductListByTitleOrUserId" parameterType="String" resultMap="product">
+	    SELECT *
+	    FROM product
+	    WHERE product_title LIKE '%' || #{keyword} || '%'
+	    OR product_seller_id LIKE '%' || #{keyword} || '%'
+	    ORDER BY product_num DESC
+	</select>
+
+	
+
+	
+	<select id="selectProductListByProduct_title" parameterType="String" resultMap="product">
+	  select * 
+	  from product 
+	  where product_title like '%' || #{title} || '%' 
+	  order by product_num desc
+	</select>
+
+	<select id="selectProductListByCategory1_num" resultMap="product">
+		select * 
+		from product 
+		where frfr_category1=#{frfr_category1} 
+		order by product_num desc
+	</select>
+	<select id="selectListByCategory2_num" resultMap="product">
+		select * 
+		from product 
+		where frfr_category2=#{frfr_category2} 
+		order by product_num desc
+	</select>
+	<select id="selectListByCategory3_num" resultMap="product">
+		select * 
+		from product 
+		where frfr_category3=#{frfr_category3} 
+		order by product_num desc
+	</select>
+	<select id="selectListByUser_id" parameterType="String"
+		resultMap="product">
+		select * 
+		from product 
+		where product_seller_id like ='%#{seller_id} %'
+		order by product_num desc
+	</select>
+	
 </mapper>

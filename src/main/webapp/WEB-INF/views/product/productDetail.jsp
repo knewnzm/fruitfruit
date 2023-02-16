@@ -356,6 +356,8 @@
                                       </div>
                                     </div>
                                     <div class="review-form-review-content">
+                                      <span class="review-img">리뷰 이미지</span>
+                                      <%-- 전체 연결 후에 ${review.review_img}로 변경 예정 --%>
                                       <span class="review-content">${review.review_content }</span>
                                     </div>
                                   </div>
@@ -400,38 +402,64 @@
                 </c:if>
                 <c:if test="${not empty supports }">
                   <tbody class="support-wrap">
+                    <!-- 모든 문의하기 리스트를 가지고 옴 -->
                     <c:forEach var="support" items="${supports }">
-                      <tr id="trId_${support.support_num}">
-                        <td><button class="open-support-btn" data-support-num="${support.support_num}"
-                            type="button">${support.support_title}</button></td>
-                        <td>${support.support_writer}</td>
-                        <td>${support.support_date}</td>
-                      </tr>
-                      <tr id="answer_${support.support_num}" class="support-content-wrap">
-                        <td class="support-content" data-support-con="${support.support_num}" colspan="3">
-                          ${support.support_content}
-                          <c:if test="${}">
-
-                          </c:if>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colspan="3">
-                          <form method="post" action="${pageContext.request.contextPath}/support/add">
-                            <input placeholder="댓글을 작성해주세요" type="text" name="support_content">
-                            <input type="hidden" name="support_parent_num" value="${support.support_num}" required />
-                            <input type="hidden" name="support_writer" value="${sessionScope.user_id}" required />
-                            <input type="hidden" name="support_product_num" value="${p.product_num}" required />
-                            <input type="hidden" name="support_title" value="${support.support_title}" required />
-                            <input type="submit">
-                          </form>
-                        </td>
-                      </tr>
-
+                      <!-- 판매자댓글이 달리지 않은 문의글 가지고 오기 -->
+                      <c:if test="${support.support_parent_num == 0}">
+                        <tr id="trId_${support.support_num}">
+                          <td><button class="open-support-btn" data-support-num="${support.support_num}"
+                              type="button">${support.support_title}</button></td>
+                          <td>${support.support_writer}</td>
+                          <td>${support.support_date}</td>
+                        </tr>
+                        <tr id="answer_${support.support_num}" class="support-content-wrap">
+                          <td class="support-content" data-support-con="${support.support_num}" colspan="3">
+                            <p class="support-content-q"> ${support.support_content}</p>
+                            <c:set var="re_num" value="" />
+                            <c:forEach var="support_re" items="${supports }">
+                              <c:if test="${support_re.support_parent_num == support.support_num}">
+                                <p class="support-content-a"> ${support_re.support_content}</p>
+                                <c:set var="re_num" value="${support_re.support_num}" />
+                              </c:if>
+                            </c:forEach>
+                            <c:if test="${sessionScope.user_id eq p.product_seller_id}">
+                              <c:choose>
+                                <c:when test="${empty re_num}">
+                                  <div class="support-re">
+                                    <form method="post" action="${pageContext.request.contextPath}/support/add">
+                                      <input class="support-input" placeholder="댓글을 작성해주세요" type="text" name="support_content">
+                                      <input type="hidden" name="support_parent_num" value="${support.support_num}"
+                                        required />
+                                      <input type="hidden" name="support_writer" value="${sessionScope.user_id}"
+                                        required />
+                                      <input type="hidden" name="support_product_num" value="${p.product_num}" required />
+                                      <input type="hidden" name="support_title" value="${support.support_title}"
+                                        required />
+                                      <input type="submit" class="support-button" value="등록">
+                                    </form>
+                                  </div>
+                                </c:when>
+                                <c:otherwise>
+                                  <div class="support-btn-wrap">
+                                    <form method="post" action="${pageContext.request.contextPath}/support/edit">
+                                      <input class="support-input" placeholder="댓글을 수정해주세요" type="text" name="support_content" required />
+                                      <input type="hidden" name="support_num" value="${re_num}" required />
+                                      <input class="support-button" type="submit" value="수정">
+                                    </form>
+                                    <form method="post" action="${pageContext.request.contextPath}/support/delete" >
+                                      <input type="hidden" name="support_num" value="${re_num}" required />
+                                      <input class="support-del-button" type="submit" value="삭제">
+                                    </form>
+                                  </div>
+                                </c:otherwise>
+                              </c:choose>
+                            </c:if>
+                          </td>
+                        </tr>
+                      </c:if>
                     </c:forEach>
                   </tbody>
                 </c:if>
-
                 </table>
               </div>
             </div>
@@ -439,6 +467,8 @@
         </div>
         </div>
         </div>
+
+
 
         <!-- 판매자일 경우에만 상품 등록 버튼 보이기 -->
         <c:if test="${sessionScope.user_type == 2}">
@@ -452,7 +482,7 @@
         <c:import url="../footer.jsp"></c:import>
 
 
-
+        <!-- 신고 모달 창  -->
         <div class="modal mhidden" id="modal">
           <form action="${pageContext.request.contextPath}/report/add" method="post" class="modalForm" id="reportModal">
             <div class="modal-main">
@@ -472,6 +502,9 @@
           </form>
         </div>
 
+
+
+        <!-- 문의 모달 창  -->
         <div class="modal mhidden" id="modal2">
           <form action="${pageContext.request.contextPath}/support/add" method="post" class="modalForm" id="qModal">
             <div class="modal-main">
