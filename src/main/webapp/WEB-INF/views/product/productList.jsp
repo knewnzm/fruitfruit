@@ -26,7 +26,8 @@
 	    <c:if test="${type == 3}">가격 내림차순</c:if>
 	    <c:if test="${type == 4}">상품 등록일순</c:if>
 	    <c:if test="${type == 5}">추천 상품</c:if>
-	    <c:if test="${type == 6}">blind 처리된 상품</c:if>
+
+	   		<c:if test="${type == 6}">blind 처리된 상품</c:if>
 	    <c:if test="${type == 7}">판매자별 상품</c:if>
     </h2>
     
@@ -39,7 +40,9 @@
 		    <option value="3" <c:if test="${type == 3}">selected</c:if>>가격 내림차순</option>
 		    <option value="4" <c:if test="${type == 4}">selected</c:if>>상품 등록일순</option>
 		    <option value="5" <c:if test="${type == 5}">selected</c:if>>추천 상품</option>
-		    <option value="6" <c:if test="${type == 6}">selected</c:if>>blind 처리된 상품</option>
+    	   	<c:if test="${sessionScope.user_type == 3}">
+    	   		<option value="6" <c:if test="${type == 6}">selected</c:if>>blind 처리된 상품</option>
+    	   	</c:if>
 		    <option value="7" <c:if test="${type == 7}">selected</c:if>>판매자별 상품</option>
 		  </select>
 		</form>

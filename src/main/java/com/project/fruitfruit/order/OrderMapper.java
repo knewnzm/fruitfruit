@@ -13,7 +13,7 @@ public interface OrderMapper {
 	
 	public Order selectOrderByOrderNum(int ordert_num);
 	
-	public Order selectOrderByProductNum(int product_num);
+	public ArrayList<Order> selectOrderByProductNum(int product_num);
 	
 	public void updateOrderType(int order_num); 
 	

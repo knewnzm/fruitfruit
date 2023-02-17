@@ -19,31 +19,8 @@
     <c:import url="../header.jsp"></c:import>
 
 <div class="product-list">
-    <h2 class="list-title">
-    	<c:if test="${type == 0}">전체 상품</c:if>
-	    <c:if test="${type == 1}">인기순</c:if>
-	    <c:if test="${type == 2}">가격 오름차순</c:if>
-	    <c:if test="${type == 3}">가격 내림차순</c:if>
-	    <c:if test="${type == 4}">상품 등록일순</c:if>
-	    <c:if test="${type == 5}">추천 상품</c:if>
-	    <c:if test="${type == 6}">blind 처리된 상품</c:if>
-	    <c:if test="${type == 7}">판매자별 상품</c:if>
-    </h2>
-    
-    <div class="selectBox">
-	<form action="productList" method="get">
-		<select id="type" name="type" onchange="this.form.submit()">
-		    <option value="0" <c:if test="${type == 0}">selected</c:if>>전체 상품</option>
-		    <option value="1" <c:if test="${type == 1}">selected</c:if>>인기순</option>
-		    <option value="2" <c:if test="${type == 2}">selected</c:if>>가격 오름차순</option>
-		    <option value="3" <c:if test="${type == 3}">selected</c:if>>가격 내림차순</option>
-		    <option value="4" <c:if test="${type == 4}">selected</c:if>>상품 등록일순</option>
-		    <option value="5" <c:if test="${type == 5}">selected</c:if>>추천 상품</option>
-		    <option value="6" <c:if test="${type == 6}">selected</c:if>>blind 처리된 상품</option>
-		    <option value="7" <c:if test="${type == 7}">selected</c:if>>판매자별 상품</option>
-		  </select>
-		</form>
-    </div>
+    <h2 class="list-title">검색 결과</h2>
+
     
 	
     <div class="new_list">

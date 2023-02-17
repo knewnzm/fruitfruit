@@ -201,7 +201,7 @@
 		order by product_num desc
 	</select>
 	
-	<select id="selectProductBySellerId" parameterType="String" resultMap="product">
+	<select id="selectProductBySellerId" resultMap="product">
 		select data.* from (
 			select rownum as num, list.* 
 			from (

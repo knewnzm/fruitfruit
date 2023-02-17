@@ -75,7 +75,7 @@ public class ProductController {
 		}
 		
 		if (!file.isEmpty()) {
-			String uploadPath = webPath + product_num + "/" + file.getOriginalFilename();
+			String uploadPath = projectPath + webPath + product_num + "/" + file.getOriginalFilename();
 			File f = new File(projectPath + uploadPath);
 			if (!f.exists()) {
 				try {
@@ -246,11 +246,13 @@ public class ProductController {
 	//delete
 	@RequestMapping("/product/delete")
 	public String deleteProduct(@RequestParam int product_num) {
+		System.out.println(product_num);
 		String user_id = (String) session.getAttribute("user_id");
 		int user_type = (int) session.getAttribute("user_type");
+		System.out.println("유저타입"+user_type);
 		Product p = pService.selectProduct(product_num);
 		
-		if (user_id.equals(p.getProduct_seller_id()) || user_type == 2) {
+		if (user_id.equals(p.getProduct_seller_id()) || user_type == 3) {
 			if (p.getProduct_view_type() == 0) {	//blinded
 				pService.deleteProduct(product_num);
 			} else {
@@ -258,7 +260,7 @@ public class ProductController {
 			}
 			return "redirect:/product/productList";
 		} else {
-			return "redirect:/member/loginForm";
+			return "redirect:/index";
 		}
 	}
 

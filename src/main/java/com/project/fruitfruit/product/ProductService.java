@@ -106,8 +106,8 @@ public class ProductService {
 		return setProductData(mapper.selectProductListByLimit(start, end));
 	}
 	
-	public ArrayList<Product> selectProductBySellerId(int start, int end, String product_seller_id){
-		return setProductData(mapper.selectProductBySellerId(start, end, product_seller_id));
+	public ArrayList<Product> selectProductBySellerId(int start, int end, String seller_id){
+		return setProductData(mapper.selectProductBySellerId(start, end, seller_id));
 	}
 	
 	public int selectSeqProductCurrval() {
@@ -117,13 +117,18 @@ public class ProductService {
 	
 	private String getFile(int product_num) {
 		File dir = new File(projectPath + webPath + product_num);
-		String file = dir.list()[0];
-		if (file != null) {
-			file = webPath.replace("\\", "/") + product_num + "/" + file;
-		} else {
-			file = "";
+		try {
+			String file = dir.list()[0];
+			if (file != null) {
+				file = webPath.replace("\\", "/") + product_num + "/" + file;
+			} else {
+				file = "";
+			}
+			return file;
+		} catch (Exception e) {
+			return "";
 		}
-		return file;
+		
 	}
 //	private Product setProductPath(Product p) {
 ////		String file = getFile(p.getProduct_num());

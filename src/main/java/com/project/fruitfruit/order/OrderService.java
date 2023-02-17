@@ -24,7 +24,7 @@ public class OrderService {
 		return mapper.selectOrderByOrderNum(order_num);
 	}
 	
-	public Order selectOrderByProductNum(int product_num){
+	public ArrayList<Order> selectOrderByProductNum(int product_num){
 		return mapper.selectOrderByProductNum(product_num);
 	}
 	

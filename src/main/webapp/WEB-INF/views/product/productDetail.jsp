@@ -208,9 +208,17 @@
             <div class="product-info-section">
               <div class="title">${p.product_title}</div>
               <div class="delete">
-                <button class="p-del">
-                  <a
-                    href="${pageContext.request.contextPath}/product/delete?product_num=${p.product_num}">삭제하기</a></button>
+                <button class="p-del" onclick="location.href=`${pageContext.request.contextPath}/product/delete?product_num=${p.product_num}`">
+                  <c:if test="${ sessionScope.user_type==3&&p.product_view_type!=0}">
+                  상품 블라인드
+                  </c:if>
+                  <c:if test="${ sessionScope.user_type==3&&p.product_view_type==0}">
+                  삭제하기
+                  </c:if>
+                  <c:if test="${ sessionScope.user_type!=3}">
+                  삭제하기
+                  </c:if>
+                  </button>
               </div>
               <div class="price">
                 <fmt:formatNumber value="${p.product_price}" pattern="#,###원" />
@@ -262,6 +270,7 @@
                   <form name="orderform" action="${pageContext.request.contextPath}/order/orderResult">
                     <input type="number" name="order_count" min="1" max="${p.product_quantity}" value="1">
                     <input type="hidden" name="product_num" value="${p.product_num}">
+                    <input type="hidden" name="order_id" value="${sessionScope.user_id }">
                   </form>
                   <button id="plus-btn">+</button>
                 </div>
