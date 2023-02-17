@@ -10,7 +10,6 @@ ul.myfruit {
 	list-style-type: none;
 	background: #F02c11;
 	overflow: none;
-	height: 100vh;
 }
 
 li a {

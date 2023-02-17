@@ -32,7 +32,7 @@ public class CategoryController {
 			c = new Category(0, cate_name, cate_parent_num);
 		}
 		cService.addCategory(cate_type, c);
-		return getCategory(cate_parent_num, cate_type);
+		return getCategory(cate_type,cate_parent_num);
 	}
 
 //	카테고리 리스트 생성
@@ -62,6 +62,6 @@ public class CategoryController {
 	public String deleteCategory(@RequestParam int cate_type, @RequestParam int cate_num) {
 		Category c = cService.getCategory(cate_type, cate_num);
 		cService.deleteCategory(cate_type, cate_num);
-		return getCategory(c.getCate_parent_num(), cate_type);
+		return getCategory(cate_type,c.getCate_parent_num());
 	}
 }
