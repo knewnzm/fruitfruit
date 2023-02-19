@@ -204,14 +204,30 @@
           <div class="product-detail">
             <div class="product-image-section">
               <img src="${p.product_path}" alt="product.product_title">
+              <c:if test="${sessionScope.user_type == 3}">
+              <div class="product-pick">
+                <button class="product-pick-btn" type="submit">관리자<br> pick</button>
+              </div>
+            </c:if>
             </div>
             <div class="product-info-section">
               <div class="title">${p.product_title}</div>
-              <div class="delete">
-                <button class="p-del">
-                  <a
-                    href="${pageContext.request.contextPath}/product/delete?product_num=${p.product_num}">삭제하기</a></button>
-              </div>
+              <c:if test="${ sessionScope.user_type == 3 || (sessionScope.user_type == 2 && product.prosuct_writer) }">
+                <div class="delete">
+                  <button class="p-del"
+                    onclick="location.href=`${pageContext.request.contextPath}/product/delete?product_num=${p.product_num}`">
+                    <c:if test="${ sessionScope.user_type==3&&p.product_view_type!=0}">
+                      상품 블라인드
+                    </c:if>
+                    <c:if test="${ sessionScope.user_type==3&&p.product_view_type==0}">
+                      삭제하기
+                    </c:if>
+                    <c:if test="${ sessionScope.user_type!=3}">
+                      삭제하기
+                    </c:if>
+                  </button>
+                </div>
+              </c:if>
               <div class="price">
                 <fmt:formatNumber value="${p.product_price}" pattern="#,###원" />
               </div>
@@ -262,6 +278,7 @@
                   <form name="orderform" action="${pageContext.request.contextPath}/order/orderResult">
                     <input type="number" name="order_count" min="1" max="${p.product_quantity}" value="1">
                     <input type="hidden" name="product_num" value="${p.product_num}">
+                    <input type="hidden" name="order_id" value="${sessionScope.user_id }">
                   </form>
                   <button id="plus-btn">+</button>
                 </div>
@@ -358,7 +375,7 @@
                                     <div class="review-form-review-content">
                                       <span class="review-img">리뷰 이미지</span>
                                       <%-- 전체 연결 후에 ${review.review_img}로 변경 예정 --%>
-                                      <span class="review-content">${review.review_content }</span>
+                                        <span class="review-content">${review.review_content }</span>
                                     </div>
                                   </div>
                                 </div>
@@ -427,12 +444,14 @@
                                 <c:when test="${empty re_num}">
                                   <div class="support-re">
                                     <form method="post" action="${pageContext.request.contextPath}/support/add">
-                                      <input class="support-input" placeholder="댓글을 작성해주세요" type="text" name="support_content">
+                                      <input class="support-input" placeholder="댓글을 작성해주세요" type="text"
+                                        name="support_content">
                                       <input type="hidden" name="support_parent_num" value="${support.support_num}"
                                         required />
                                       <input type="hidden" name="support_writer" value="${sessionScope.user_id}"
                                         required />
-                                      <input type="hidden" name="support_product_num" value="${p.product_num}" required />
+                                      <input type="hidden" name="support_product_num" value="${p.product_num}"
+                                        required />
                                       <input type="hidden" name="support_title" value="${support.support_title}"
                                         required />
                                       <input type="submit" class="support-button" value="등록">
@@ -442,11 +461,12 @@
                                 <c:otherwise>
                                   <div class="support-btn-wrap">
                                     <form method="post" action="${pageContext.request.contextPath}/support/edit">
-                                      <input class="support-input" placeholder="댓글을 수정해주세요" type="text" name="support_content" required />
+                                      <input class="support-input" placeholder="댓글을 수정해주세요" type="text"
+                                        name="support_content" required />
                                       <input type="hidden" name="support_num" value="${re_num}" required />
                                       <input class="support-button" type="submit" value="수정">
                                     </form>
-                                    <form method="post" action="${pageContext.request.contextPath}/support/delete" >
+                                    <form method="post" action="${pageContext.request.contextPath}/support/delete">
                                       <input type="hidden" name="support_num" value="${re_num}" required />
                                       <input class="support-del-button" type="submit" value="삭제">
                                     </form>
