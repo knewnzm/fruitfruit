@@ -1,6 +1,5 @@
 package com.project.fruitfruit.help;
 
-<<<<<<< HEAD
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -151,8 +150,4 @@ public class HelpController {
 			 return "redirect:/help/helpList";
 	}
 //	
-=======
-public class HelpController {
-
->>>>>>> refs/remotes/daegyu/daegyu
 }

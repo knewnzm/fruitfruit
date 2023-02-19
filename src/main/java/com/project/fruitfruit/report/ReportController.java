@@ -1,6 +1,5 @@
 package com.project.fruitfruit.report;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
@@ -70,8 +69,4 @@ public class ReportController {
 		mav.addObject("r", r);
 		return mav;
 	}
-=======
-public class ReportController {
-
->>>>>>> refs/remotes/daegyu/daegyu
 }

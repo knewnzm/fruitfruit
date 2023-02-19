@@ -1,6 +1,5 @@
 package com.project.fruitfruit.order;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +22,4 @@ public interface OrderMapper {
 	public void deleteOrder(int order_num);
 	
 	public int selectSeqCurrval();
-=======
-public interface OrderMapper {
-
->>>>>>> refs/remotes/daegyu/daegyu
 }

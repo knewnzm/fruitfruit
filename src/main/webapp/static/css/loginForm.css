@@ -34,7 +34,6 @@ input_text{
   border-radius:5px;
 }
 .container{
-<<<<<<< HEAD
 	width:1200px;
  	height:auto;
 	display:flex;
@@ -149,120 +148,6 @@ input[type="checkbox"]:checked + label{
 .logo{
 	margin-top: 50px;
 	margin-bottom: 50px;
-=======
-	width:1200;
- 	height:1600px;
-	display:flex;
-	justify-content: center;
-}
-.content{
-	width:430px;
- 	background-color:white;
-    text-align : center;
-    padding : 0px;
-    display: flex;
-	justify-content: center;
-    grid-template-columns: 
-        [left-navbar-start] 20%
-        [left-navbar-end content-start] 60%
-        [content-end right-sidebar-start] 20%
-        [right-sidebar-end];
-    grid-template-rows: 
-        [body-start] 80%
-        [body-end footer-start] 20%
-        [footer-end];
-}
-.login_wrap{
-	margin-top:30px;
-}
-.login_panner{
-	width:350px;
-  	padding-bottom:10px;
-}
-.id_line,.pwd_line{
-	border-radius: 5px;
-	border: 1px solid #f02c11;
-	height:44px;
-    width: 350px;
-	margin-bottom: 10px;
-    padding-top:7px;
-    padding-left:8px;
-}
-.login_img,.login_icon{
-	width:20px;
-    height:20px;
-    opacity:0.5;
-    float:left;
-    margin-left: 5px;
-	margin-top: 2.5px;
-}
-#user_id,#user_pwd{
-  width:250px;
-  height:25px;
-  font-size:15px;
-  margin-top:3px;
-  margin-right: 50px;
-  width: 225px;
-  border: none; 
-  background: transparent;
-  border-radius:5px
-}
-.login_option{
-	color:#777;
-	text-align : center;
-	font-size:13px;
-	width:350px;
-	height:50px;
-	display: flex;
-    justify-content: space-between;
-    line-height:45px;
-}
-input[type=checkbox]{
-	display:none;
-}
-input[type=checkbox] + label { 
-	cursor: pointer; 
-	background-image : url('../img/login_check.png');
-	background-repeat : no-repeat;
-    background-size : 15px;
-    padding-left:20px;
-    margin-left: 3px;
-}
-input[type="checkbox"]:checked + label{
-	cursor: pointer; 
-	background-image : url('../img/login_tick.png');
-	background-repeat : no-repeat;
-    background-size : 15px;
-    padding-left:20px;
-    margin-left: 3px;
-}
-.find_text{
-	color:#777;
-}
-.find_inner{
-	margin-top:0px;
-	float:right;
-}
-#social_inner{
-	margin:0px;
-	padding:0px;
-}
-.social_btn{
-	padding: 25px;
-}
-.social_icon{
-	width: 35px;
-  	height:35px;
-  	overflow: hidden;
-  	margin-bottom:10px;
-}
-.social_text{
-	color:#777;
-	font-size:16px;
-}
-.logo{
-	margin: 30px 0 10px 0;
->>>>>>> refs/remotes/daegyu/daegyu
 }
 .fruit_Logo{
 	width: 170px;

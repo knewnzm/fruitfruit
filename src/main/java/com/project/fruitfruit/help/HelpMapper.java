@@ -1,6 +1,5 @@
 package com.project.fruitfruit.help;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -21,8 +20,3 @@ public interface HelpMapper {
 	void deleteHelp(int help_num);
 
 }
-=======
-public interface HelpMapper {
-
-}
->>>>>>> refs/remotes/daegyu/daegyu

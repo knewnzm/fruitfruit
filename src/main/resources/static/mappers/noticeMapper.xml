@@ -12,7 +12,6 @@
 		<result property="notice_date" column="notice_date"/>
 		<result property="notice_path" column="notice_path"/>
 		<result property="notice_hit" column="notice_hit"/>
-<<<<<<< HEAD
 	</resultMap>
 	
 <!-- 공지사항 등록 -->
@@ -71,9 +70,4 @@
 		select
 		seq_notice.currval from dual
 	</select>
-=======
-
-	</resultMap>
-
->>>>>>> refs/remotes/daegyu/daegyu
 </mapper>	

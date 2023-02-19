@@ -27,7 +27,6 @@ public interface ProductMapper {
 	public ArrayList<Product> orderByProductDate(int start, int end);
 	public ArrayList<Product> onlyProductPick(int start, int end);
 	public ArrayList<Product> onlyProductViewTypeBlind(int start, int end);
-<<<<<<< HEAD
 	public ArrayList<Product> selectProductBySellerId(int start, int end, String product_seller_id);
 	
 	
@@ -46,15 +45,5 @@ public interface ProductMapper {
 	public ArrayList<Product> selectProductListByTitleOrUserId(String keyword);
 	
 
-=======
-	public ArrayList<Product> selectProductBySellerId(int start, int end);
-	
-	
-//	public ArrayList<Product> selectProductListByLimit(int start, int end);
-	
-	public int selectSeqProductCurrval();
-	
-	public int selectListSize();
->>>>>>> refs/remotes/daegyu/daegyu
 	
 }

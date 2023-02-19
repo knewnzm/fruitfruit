@@ -19,13 +19,9 @@ public interface ReviewMapper {
 	public ArrayList<Review> orderReviewByReviewLike();
 	public ArrayList<Review> orderReviewByReviewScore();
 	public ArrayList<Review> orderReviewByReviewDate();
-<<<<<<< HEAD
 	public List<Review> selectReviewAllByProductNum(int product_num);
 	
 	public int selectSeqReviewCurrval();
-=======
-	
->>>>>>> refs/remotes/daegyu/daegyu
 	
 	
 }

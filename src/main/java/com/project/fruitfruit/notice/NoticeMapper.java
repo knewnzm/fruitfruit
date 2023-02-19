@@ -1,6 +1,5 @@
 package com.project.fruitfruit.notice;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -21,8 +20,4 @@ void insertNotice(Notice n);
 	void deleteNotice(int notice_num);
 //	현재 시퀀스 값 가져오기
 	int selectSeqCurrval();
-=======
-public interface NoticeMapper {
-
->>>>>>> refs/remotes/daegyu/daegyu
 }

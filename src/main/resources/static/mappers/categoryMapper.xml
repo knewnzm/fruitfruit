@@ -9,7 +9,6 @@
       <result property="cate_name" column="cate_name"/>
       <result property="cate_parent_num" column="cate_parent_num"/>
    </resultMap>
-<<<<<<< HEAD
     <insert id="insertCategory1" parameterType="com.project.fruitfruit.category.Category">
       INSERT   INTO category1 
       VALUES   (seq_category1.nextval, #{cate_name})
@@ -73,6 +72,4 @@
       SELECT   seq_category2.currval
       FROM   	dual
    </select>
-=======
->>>>>>> refs/remotes/daegyu/daegyu
 </mapper>

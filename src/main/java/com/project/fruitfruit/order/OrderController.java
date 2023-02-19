@@ -1,6 +1,5 @@
 package com.project.fruitfruit.order;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -117,8 +116,3 @@ public void orderList(int product_num, Model model) {
 }
 }
 
-=======
-public class OrderController {
-
-}
->>>>>>> refs/remotes/daegyu/daegyu

@@ -1,6 +1,5 @@
 package com.project.fruitfruit.help;
 
-<<<<<<< HEAD
 import java.io.File;
 
 import java.util.List;
@@ -83,8 +82,3 @@ public class HelpService {
 	}
 	
 }
-=======
-public class HelpService {
-
-}
->>>>>>> refs/remotes/daegyu/daegyu

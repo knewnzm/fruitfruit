@@ -1,6 +1,5 @@
 package com.project.fruitfruit.order;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,8 +43,4 @@ public class OrderService {
 	public int selectSeqCurrval() {
 		return mapper.selectSeqCurrval();
 	}
-=======
-public class OrderService {
-
->>>>>>> refs/remotes/daegyu/daegyu
 }

@@ -9,7 +9,6 @@ public class ReviewLikeService {
 	@Autowired
 	private ReviewLikeMapper mapper;
 	
-<<<<<<< HEAD
 //	public int countReviewLikeByUserId(String review_like_user_id) {
 //		return mapper.countReviewLikeByUserId(review_like_user_id);
 //	}
@@ -30,14 +29,6 @@ public class ReviewLikeService {
 	public ReviewLike selectReviewLikeByUserIdAndReviewNum(ReviewLike rl) {
 		// TODO Auto-generated method stub
 		return mapper.selectReviewLikeByUserIdAndReviewNum(rl);
-=======
-	public void insertReviewLike(ReviewLike rl) {
-		mapper.insertReviewLike(rl);
-	}
-	
-	public void deleteReviewLike(int review_like_num) {
-		mapper.deleteReviewLike(review_like_num);
->>>>>>> refs/remotes/daegyu/daegyu
 	}
 	
 }

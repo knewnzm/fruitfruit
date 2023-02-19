@@ -1,6 +1,5 @@
 package com.project.fruitfruit.category;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -32,8 +31,4 @@ public interface CategoryMapper {
 	int getNum1();
 
 	int getNum2();
-=======
-public interface CategoryMapper {
-
->>>>>>> refs/remotes/daegyu/daegyu
 }
