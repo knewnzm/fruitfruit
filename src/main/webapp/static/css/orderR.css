@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 
 *{
@@ -119,3 +120,82 @@ footer{
  padding-left: 10px;
  padding-bottom: 38px;
 }
+=======
+@charset "UTF-8";
+
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box; 
+  border: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+}
+header{
+	text-align : center;
+	height:150px;
+}
+
+footer{
+	text-align : center;
+	height:150px;
+}
+.or_container{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	padding: 50px 0px;
+}
+
+.f_pd {
+    padding-top: 28px ;
+    padding-bottom: 92px ;
+}
+
+.or_box{
+	width: 619px;
+    height: 350px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: lightgray;
+    padding-left: 18px;
+	padding-right: 18px;
+	padding-top: 20px;
+	
+}
+
+.or_result{
+	width: 579px;
+    height: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+	border-style: solid;
+    border-width: 1px;
+
+}
+
+.or_h {
+    padding-bottom: 49px ;
+    font-size: 25px;
+}
+
+.or_content{
+
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	
+}
+.or_title{
+	font-size: 17px;
+	text-align: left;
+	margin-left:5px;
+	padding-bottom:8px;
+}
+
+
+
+
+>>>>>>> refs/remotes/daegyu/daegyu

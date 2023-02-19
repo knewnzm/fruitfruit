@@ -1,5 +1,6 @@
 package com.project.fruitfruit.report;
 
+<<<<<<< HEAD
 import java.sql.Date;
 
 import com.project.fruitfruit.product.Product;
@@ -84,4 +85,8 @@ public class Report {
 	}
 	
 	
+=======
+public class Report {
+
+>>>>>>> refs/remotes/daegyu/daegyu
 }

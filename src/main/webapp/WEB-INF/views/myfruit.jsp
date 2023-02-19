@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
@@ -37,6 +38,45 @@
 			  <li class="myfruit_li"><a href="${pageContext.request.contextPath}/product/mylist">ë‚´ íŒë§¤ ëª©ë¡</a></li>
 			  <li class="myfruit_li"><a href="${pageContext.request.contextPath}/alram/mylist">ë‚´ ì•ŒëžŒ ì¡°íšŒ</a></li>
 			  <li class="myfruit_li"><a href="${pageContext.request.contextPath}/member/editForm">ë‚´ ì •ë³´ ìˆ˜ì •</a></li>
+=======
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/static/css/myfruit.css" />
+</head>
+<body>
+	<c:choose>
+		<%-- °ü¸®ÀÚ ·Î±×ÀÎ ½Ã --%>
+        <%-- <c:when test="${sessionScope.user_type == 3}">
+			<ul class="myfruit">
+			  <li><a href="${pageContext.request.contextPath}/member/main">³» Á¤º¸</a></li>
+			  <li><a href="${pageContext.request.contextPath}/member/list">È¸¿ø°ü¸®</a></li>
+			  <li><a href="${pageContext.request.contextPath}/product/mylist">Á¦Ç°°ü¸®</a></li>
+			  <li><a href="${pageContext.request.contextPath}/report/reportList">½Å°í ¸ñ·Ï È®ÀÎ</a></li>
+			  <li><a href="${pageContext.request.contextPath}/admin/category">Ä«Å×°í¸® °ü¸®</a></li>
+			</ul>
+		</c:when>
+		
+		ÆÇ¸ÅÀÚ ·Î±×ÀÎ ½Ã
+		<c:when test="${sessionScope.user_type == 2}">
+			<ul class="myfruit">
+			  <li><a href="${pageContext.request.contextPath}/member/main">³» Á¤º¸</a></li>
+			  <li><a href="${pageContext.request.contextPath}/product/mylist">ÆÇ¸Å ¸ñ·Ï</a></li>
+			  <li><a href="${pageContext.request.contextPath}/product/add">Á¦Ç° Ãß°¡ÇÏ±â</a></li>
+			</ul>
+		</c:when> --%>
+		
+		<%-- ÆÇ¸ÅÀÚ ·Î±×ÀÎ ½Ã --%>
+        <c:when test="${sessionScope.user_type == 1}">
+        	<ul class="myfruit">
+			  <li><a href="${pageContext.request.contextPath}/product/mylist">³» ÆÇ¸Å ¸ñ·Ï</a></li>
+			  <li><a href="${pageContext.request.contextPath}/alram/mylist">³» ¾Ë¶÷ Á¶È¸</a></li>
+			  <li><a href="${pageContext.request.contextPath}/member/editForm">³» Á¤º¸ ¼öÁ¤</a></li>
+>>>>>>> refs/remotes/daegyu/daegyu
 			</ul>        	
         </c:when>
 	</c:choose>

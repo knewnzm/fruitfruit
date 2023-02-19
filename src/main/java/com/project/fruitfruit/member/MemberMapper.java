@@ -5,6 +5,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> refs/remotes/daegyu/daegyu
 @Mapper
 public interface MemberMapper {
 	void insert(Member m);

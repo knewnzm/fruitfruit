@@ -117,6 +117,7 @@
 							<div class="login_icon">
 								<img src="${pageContext.request.contextPath}/static/img/login_user.png" class="login_img">
 							</div>
+<<<<<<< HEAD
 							<input type="text" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요." required/>
 						</div>
 						<div class="pwd_line">
@@ -138,6 +139,29 @@
 							<ul class="find_inner" id="find_inner">
 								<li><a target="_parent" href="${pageContext.request.contextPath }/member/findId" class="find_text" >아이디 찾기</a></li> |
 								<li><a target="_parent" href="${pageContext.request.contextPath }/member/findPwd" class="find_text">비밀번호 찾기</a></li>
+=======
+							<input type="text" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요.">
+						</div>
+						<div class="pwd_line">
+							<div class="login_icon">
+								<img src="${pageContext.request.contextPath}/static/img/login_padlock.png" class="login_img">
+							</div>
+							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요.">
+						</div>
+					</div>
+					<span id="msg" class="my-3 py-2 msg"></span>
+					<div class="login_option">
+						<div class="keep_wrap">
+							<input type="checkbox"  id="id_keep" name="id_keep" value="off">
+								<label for="id_keep" class="keep_text">
+									아이디 저장
+								</label>
+						</div>
+						<div class="login_find">
+							<ul class="find_inner" id="find_inner">
+								<li><a target="_parent" href="" class="find_text">아이디 찾기</a></li> 
+								<li><a target="_parent" href="" class="find_text">비밀번호 찾기</a></li>
+>>>>>>> refs/remotes/daegyu/daegyu
 							</ul>
 						</div>
 					</div>

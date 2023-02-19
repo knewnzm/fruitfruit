@@ -1,5 +1,6 @@
 package com.project.fruitfruit.notice;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.util.List;
 
@@ -74,4 +75,8 @@ public class NoticeService {
 	public int getNoticeSeqCurrval() {
 		return mapper.selectSeqCurrval();
 	}
+=======
+public class NoticeService {
+
+>>>>>>> refs/remotes/daegyu/daegyu
 }

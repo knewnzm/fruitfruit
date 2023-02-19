@@ -232,6 +232,7 @@ select{
   	border-radius:5px;
 }
 .submit_wrap{
+<<<<<<< HEAD
 	width: 325px;
 	display: flex;
 	text-align:center;
@@ -268,4 +269,27 @@ button[type="submit"] {
   border: 1px solid #f02c11;
   border-radius:5px;
   background:white;
+=======
+	display: flex;
+	text-align:center;
+	padding-top:50px;
+  	padding-bottom:50px;
+	justify-content: center;
+}
+select:focus{
+	outline:none;
+}
+button[type="submit"] {
+  text-align : center;
+  width:328px;
+  height: 48px;
+  letter-spacing:1px;
+  cursor: pointer; 
+  font-size:15px;
+  color:white;
+  border: 1px solid #f02c11;
+  border-radius:5px;
+  padding-left: 0px;
+  background:#f02c11;
+>>>>>>> refs/remotes/daegyu/daegyu
 }

@@ -1,5 +1,6 @@
 package com.project.fruitfruit.category;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,4 +76,8 @@ public class CategoryService {
 		}
 		return cate_num;
 	}
+=======
+public class CategoryService {
+
+>>>>>>> refs/remotes/daegyu/daegyu
 }

@@ -1,5 +1,6 @@
 package com.project.fruitfruit.report;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,8 @@ public class ReportService {
 	public void delReport(int report_num) {
 		mapper.delete(report_num);
 	}
+=======
+public class ReportService {
+
+>>>>>>> refs/remotes/daegyu/daegyu
 }

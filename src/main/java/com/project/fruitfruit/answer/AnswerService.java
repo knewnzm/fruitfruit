@@ -1,5 +1,6 @@
 package com.project.fruitfruit.answer;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,3 +24,8 @@ public class AnswerService {
 		return mapper.selectSeqCurrval();
 		}
 }
+=======
+public class AnswerService {
+
+}
+>>>>>>> refs/remotes/daegyu/daegyu

@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <footer>
+<<<<<<< HEAD
     <div class="fwrap">
+=======
+    <div class="wrap">
+>>>>>>> refs/remotes/daegyu/daegyu
         <h1>프룻프룻</h1>
         <ul class="footer_info clearfix">
             <li><a href="">팀원</a></li>

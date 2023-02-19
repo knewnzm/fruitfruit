@@ -5,6 +5,7 @@
 <mapper namespace="com.project.fruitfruit.support.SupportMapper">
 	<resultMap type="com.project.fruitfruit.support.Support" id="support">
 		<result column="support_num" property="support_num" />
+<<<<<<< HEAD
 		<result column="support_title" property="support_title" />
 		<result column="support_parent_num" property="support_parent_num" />
 		<result column="support_product_num" property="support_product_num" />
@@ -49,6 +50,54 @@
 		update support 
 		set 
 			support_content = #{support_content},
+=======
+		<result column="support_parent_num" property="support_parent_num" />
+		<result column="support_product_num" property="support_product_num" />
+		<result column="support_writer" property="support_writer" />
+		<result column="support_content" property="support_content" />
+		<result column="support_date" property="support_date" />
+	</resultMap>
+	
+	<select id="selectSupportByProductNum" parameterType="int" resultMap="support">
+		select * 
+		from support 
+		where support_product_num=#{support_product_num}
+	</select>
+	
+	<select id="selectSupport" parameterType="int" resultMap="support">
+		select * 
+		from support 
+		where support_num=#{support_num}
+	</select>
+	
+	<select id="selectSupportListByParentNum" parameterType="int" resultMap="support">
+		select * 
+		from support 
+		where support_parent_num=#{support_parent_num}
+	</select>
+
+	
+	<insert id="insertSupport" parameterType="com.project.fruitfruit.support.Support">
+		insert into support 
+		values (
+			seq_support.nextval, 
+			#{support_parent_num}, 
+			#{support_product_num}, 
+			#{support_writer}, 
+			#{support_content}, 
+			sysdate
+		)
+	</insert>
+	
+		<update id="updateSupport" parameterType="com.project.fruitfruit.support.Support">
+		update support 
+		set 
+			support_parent_num = #{support_parent_num},
+			support_product_num = #{support_product_num},
+			support_parent_num = #{support_writer},
+			support_parent_num = #{support_content},
+			support_parent_num = #{support_parent_num},
+>>>>>>> refs/remotes/daegyu/daegyu
 			support_date = sysdate
 		where support_num=#{support_num}
 	</update>

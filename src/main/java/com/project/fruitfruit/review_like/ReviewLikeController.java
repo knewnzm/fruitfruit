@@ -1,5 +1,6 @@
 package com.project.fruitfruit.review_like;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -32,6 +33,21 @@ public class ReviewLikeController {
 	    String referer = req.getHeader("Referer");
 	    return "redirect:"+ referer;
 	}
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.project.fruitfruit.review.ReviewService;
+
+@Controller
+public class ReviewLikeController {
+
+	@Autowired
+	private ReviewLikeService rlService;
+	@Autowired
+	private ReviewService rService;
+>>>>>>> refs/remotes/daegyu/daegyu
 	
 	@RequestMapping("/review_like/add")
 	public void addReviewLike(ReviewLike rl) {

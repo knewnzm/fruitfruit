@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.fruitfruit.product.Product;
 import com.project.fruitfruit.product.ProductService;
+<<<<<<< HEAD
 import com.project.fruitfruit.util.Page;
 
 @Controller
@@ -76,6 +77,69 @@ public class WishController {
 			wService.insertWish(w);
 
 			return "redirect:/wish/wishList";
+=======
+
+@Controller
+public class WishController {
+
+	@Autowired
+	private WishService wService;
+	@Autowired
+	private ProductService pService;
+	@Autowired
+	private HttpSession session;
+	
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping("/wish/wishList")
+	public String wishList(Model model) {
+		String user_id = (String) session.getAttribute("user_id");
+		if (user_id != null) {
+			ArrayList<Wish> list = (ArrayList<Wish>) wService.selectWishByUserId(user_id);
+			ArrayList<Product> plist = new ArrayList<Product>();
+			for (int i = 0; i < list.size(); i++) {
+				Wish w = list.get(i);
+				Product p = pService.selectProduct(w.getWish_product_num());
+				w.setP(p);
+				plist.add(p);
+			}
+			model.addAttribute("list", list);
+			model.addAttribute("plist", plist);
+		}
+		return "wish/wishList";
+	}
+	
+	// 있는지 확인 가능기능
+		@RequestMapping("/wish/check")
+		@ResponseBody
+		public boolean check(@RequestParam int product_num) {
+			String user_id = (String) session.getAttribute("user_id");
+			Wish w = wService.selectWishByUserIdAndProductNum(product_num, user_id);
+			if (w == null) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+		// 찜 추가
+		@RequestMapping("/wish/add")
+		public ModelAndView addWish(@RequestParam int product_num) {
+			ModelAndView mav = new ModelAndView("/wish/wishJSON");
+			String user_id = (String) session.getAttribute("user_id");
+			System.out.println("addWish : " + user_id + " " + product_num);
+
+			Wish w = new Wish();
+
+			w.setWish_num(wService.selectSeqWishCurrval());
+			w.setWish_user_id(user_id);
+			w.setWish_product_num(product_num);
+
+			System.out.println("addWish w : " + w);
+			wService.insertWish(w);
+
+			return mav;
+>>>>>>> refs/remotes/daegyu/daegyu
 		}
 
 		// 찜 삭제
