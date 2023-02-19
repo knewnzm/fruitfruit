@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.fruitfruit.report.ReportMapper">
+	<resultMap type="com.project.fruitfruit.report.Report" id="report">
+		<result column="report_num" property="report_num" />
+		<result column="report_product_num" property="report_product_num" />
+		<result column="report_title" property="report_title" />
+		<result column="report_content" property="report_content" />
+		<result column="report_writer_id" property="report_writer_id" />
+		<result column="report_seller_id" property="report_seller_id" />
+		<result column="report_date" property="report_date" />
+	</resultMap>
+</mapper>

@@ -1,0 +1,25 @@
+*{
+	padding:0;
+	margin: 0;
+	box-sizing: border-box; 
+	border: 0;
+	text-decoration: none;
+}
+
+.myfruit {
+	list-style-type: none;
+	background: #F02c11;
+	overflow: none;
+	height: 100vh;
+}
+
+ .myfruit_li > a {
+	padding: 10px;
+	display: block;
+	color: white;
+}
+
+ .myfruit_li > a:hover {
+	background: white;
+	color: #F02c11;
+}

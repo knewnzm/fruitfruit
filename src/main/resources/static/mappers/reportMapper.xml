@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.fruitfruit.report.ReportMapper">
+	<resultMap type="com.project.fruitfruit.report.Report" id="report">
+		<result column="report_num" property="report_num" />
+		<result column="product_num" property="product_num" />
+		<result column="report_title" property="report_title" />
+		<result column="report_content" property="report_content" />
+		<result column="report_writer_id" property="report_writer_id" />
+		<result column="report_seller_id" property="report_seller_id" />
+		<result column="report_date" property="report_date" />
+	</resultMap>
+	<insert id="insertReport" parameterType="com.project.fruitfruit.report.Report">
+		insert into report values( seq_report.nextval, #{product_num}, #{report_title}, #{report_content} , #{report_writer_id}, #{report_seller_id}, sysdate  )
+	</insert>
+	
+	<select id="selectAll" resultMap="report">
+		select * from report 
+	</select>
+	
+	<select id="select" resultMap="report">
+		select * from report where report_num=#{report_num}
+	</select>
+	<delete id="delete" parameterType="com.project.fruitfruit.report.Report">
+		delete report where report_num=#{report_num}
+	</delete>
+</mapper>

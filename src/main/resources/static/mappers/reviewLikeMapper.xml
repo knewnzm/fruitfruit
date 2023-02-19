@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.fruitfruit.review_like.ReviewLikeMapper">
+	<resultMap type="com.project.fruitfruit.review_like.ReviewLike" id="review_like">
+		<result property="review_like_num" column="review_like_num" />
+		<result property="review_like_user_id" column="review_like_user_id" />
+		<result property="review_like_review_num" column="review_like_review_num" />
+		
+	</resultMap>
+	
+	<select id="selectReviewLikeByUserIdAndReviewNum" parameterType="com.project.fruitfruit.review_like.ReviewLike" resultMap="review_like">
+		select *
+		from review_like
+		where review_like_user_id=#{review_like_user_id}
+		and review_like_review_num =#{review_like_review_num}
+	</select>
+	
+	<insert id="insertReviewLike" parameterType="com.project.fruitfruit.review_like.ReviewLike">
+		insert into review_like 
+		values (
+			seq_review_like.nextval, 
+			#{review_like_user_id}, 
+			#{review_like_review_num}
+		)
+	</insert>
+	
+	<delete id="deleteReviewLike" parameterType="int">
+		delete review_like 
+		where review_like_num = #{review_like_num}
+	</delete>
+	
+	<select id="selectSeqReviewLikeCurrval" resultType="int">
+		select seq_review_like.currval 
+		from dual
+	</select>
+	
+	
+</mapper>
+

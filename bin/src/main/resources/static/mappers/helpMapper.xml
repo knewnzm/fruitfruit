@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.project.fruitfruit.help.HelpMapper">
+	<resultMap type = "com.project.fruitfruit.help.Help" id="help">
+		<result property="help_num" column="help_num"/>
+		<result property="help_title" column="help_title"/>
+		<result property="help_content" column="help_content"/>
+		<result property="help_path" column="help_path"/>
+		<result property="help_date" column="help_date"/>
+		<result property="help_writer_id" column="help_writer_id"/>
+		<result property="help_type" column="help_type"/>
+	</resultMap>
+
+</mapper>	

@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+body {
+    overflow: auto;
+}
+
+button {
+    background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.tablelist {   
+    width: 100%;
+    border-collapse : collapse; }  /*이중선 제거*/
+ 
+
+.tablelist thead th {
+    font-size: 17px;
+    font-weight: 400;
+    background: #f1f1f1;
+    padding: 15px 7px;
+    border-bottom: 1px solid #888;
+    text-align: center;
+}
+
+.tablelist tbody td {
+    font-size: 16px;
+    font-weight: 300;
+    border-bottom: 1px solid #ebebeb;
+    padding: 15px 7px;
+    text-align: center;
+}
+
+.tablelist .open-modal-btn {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.tablelist .open-modal-btn:hover {
+    font-weight: 500;
+}
+
+
+.table-title {
+    text-align: center;
+    font-size: 30px;
+    padding: 70px 0 60px 0;
+    margin-bottom: 80px;
+    font-weight: 300;
+    display: block;
+}
+
+.table-wrap {
+    margin-bottom: 200px;
+}
+
+
+/** 상품 카드 **/
+
+
+  
+.wish-list {
+    padding: 40px 0px;
+    margin: 0px auto 50px auto;
+    width: 1200px;
+  }
+  
+  .wish-list .new_list {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* .wish-list .new_list .product-card {
+    float:left;
+  } */
+  
+  .wish-list .product-img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .wish-list .product-img:hover {
+    filter: brightness(0.8);
+  }
+  
+  .wish-list .product-title {
+    display:block;
+    font-size:24px;
+    color:#1c2a39;
+    font-weight:500;
+  }
+  
+  .wish-list .product-title:hover {
+    font-weight:600;
+    cursor:pointer;
+  }
+
+  .wish-list .product-card {
+    position: relative;
+    margin-bottom: 100px;
+  }
+  
+  .wish-list .product-price {
+    display:block;
+    font-size:16px;
+    color:#5c6a79;
+  }
+
+  /* 삭제 버튼 */
+  .new_list .product-card .delete {
+    background: #fff;
+    color: #f02c11;
+    right: 0;
+    bottom: 26px;
+    position: absolute;
+    z-index: 100;
+    width: 40px;
+    height: 25px;
+    border: 1px solid #f02c11;
+    border-radius: 5px;
+  }
+
+  .new_list .product-card .delete:hover {
+    background: #f02c11;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* 전체삭제 버튼 */
+  
+  .all-del {
+    right: 0;
+    position: absolute;
+    margin-top: -60px;
+  }
+
+  #deleteAll {
+    background: #f02c11;
+    color: #fff;
+    text-align: center;
+    width: 100px;
+    border-radius: 7px;
+    padding: 10px 0;
+  }
+
+  #deleteAll:hover {
+    background: #fff;
+    color: #f02c11;
+    border: 1px solid #f02c11;
+    cursor: pointer;
+  }
