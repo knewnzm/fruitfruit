@@ -267,11 +267,18 @@ public class ProductController {
 			return "redirect:/index";
 		}
 	}
+	
+	@RequestMapping("/product/pick")
+	public String pickProduct(@RequestParam int product_num) {
+		Product p = pService.selectProduct(product_num);
+		setProductPick(p.getProduct_pick(), product_num);
+		return "redirect:/product/productDetail?product_num=" + product_num;
+	}
 
 	
 	//관리자 픽 
-	private void setProductPick(boolean bool, int product_num) {
-		if (bool) {
+	private void setProductPick(int product_pick, int product_num) {
+		if (product_pick == 0) {
 			pService.updateProductPickTrue(product_num);
 		} else {
 			pService.updateProductPickFalse(product_num);

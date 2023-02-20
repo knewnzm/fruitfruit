@@ -206,7 +206,10 @@
               <img src="${p.product_path}" alt="product.product_title">
               <c:if test="${sessionScope.user_type == 3}">
               <div class="product-pick">
-                <button class="product-pick-btn" type="submit">관리자<br> pick</button>
+              <form action="${pageContext.request.contextPath}/product/pick">
+              	<input type="hidden" name="product_num" value="${p.product_num}">
+				<button class="product-pick-btn" type="submit">관리자<br> pick</button>
+              </form>
               </div>
             </c:if>
             </div>
