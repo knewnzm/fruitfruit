@@ -13,7 +13,7 @@
 }
 
 .product-image-section {
-  width: 40%;
+  position: relative;
   height: 100%;
 }
 
@@ -28,6 +28,33 @@
   object-fit: cover;
   height: 500px;
   margin-top: 15px;
+}
+
+/* 관리자 픽 버튼 */
+.product-image-section .product-pick {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  
+}
+
+.product-pick-btn {
+  width: 65px;
+  height: 65px;
+  font-size: 12px;
+  line-height: 13px;
+  font-weight: 500;
+  color: #f02c11;
+  background-color: #fff;
+  border: 1px solid #f02c11;
+  border-radius: 50%;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.product-pick-btn:hover {
+  color: #fff;
+  background-color: #f02c11;
 }
 
 .product-info-section>.title {

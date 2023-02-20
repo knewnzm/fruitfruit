@@ -309,7 +309,7 @@ background-color: transparent;
 }
 
 .moreViewWrap {
-    width: 100px;
+    width: 120px;
     float: left;
     z-index: 100;
 }
@@ -380,9 +380,9 @@ ul.category-wrap > li:hover > ul.category-wrap {
     color: #fff;
 }
 
-.dep1 .c1-list .text {
+.dep1 .text {
     display: block;
-    width:120px;
+    width:130px;
 }
 
 

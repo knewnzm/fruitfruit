@@ -26,8 +26,9 @@
 	    <c:if test="${type == 3}">가격 내림차순</c:if>
 	    <c:if test="${type == 4}">상품 등록일순</c:if>
 	    <c:if test="${type == 5}">추천 상품</c:if>
-
-	   		<c:if test="${type == 6}">blind 처리된 상품</c:if>
+		<c:if test="${sessionScope.user_type == 3}">
+	   	<c:if test="${type == 6}">blind 처리된 상품</c:if>
+		</c:if>
 	    <c:if test="${type == 7}">판매자별 상품</c:if>
     </h2>
     
@@ -52,8 +53,10 @@
     <div class="new_list">
 	    <c:choose>
 	    	<%-- 등록된 제품 목록이 있을 때 --%>
-		    <c:when test="${not empty plist}">
+		    <c:when test="${not empty plist }">
+				
 		         <c:forEach var="p" items="${plist}">
+					<c:if test = "${p.product_view_type == 1}">
 					<div class="product-card">
 			            <a href="${pageContext.request.contextPath}/product/productDetail?product_num=${p.product_num}">
 			            <img src="${p.product_path}" alt="${p.product_path}" class="product-img">
@@ -65,6 +68,7 @@
 			                </div>
 			            </a>
 			        </div>
+				</c:if>
 		         </c:forEach>
 		    </c:when>
 		    <%-- 등록된 제품이 없을 때 --%>

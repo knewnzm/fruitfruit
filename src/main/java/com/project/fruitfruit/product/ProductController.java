@@ -253,11 +253,15 @@ public class ProductController {
 		Product p = pService.selectProduct(product_num);
 		
 		if (user_id.equals(p.getProduct_seller_id()) || user_type == 3) {
-			if (p.getProduct_view_type() == 0) {	//blinded
-				pService.deleteProduct(product_num);
-			} else {
-				pService.updateProductViewTypeBlind(product_num);
-			}
+			
+//			if (p.getProduct_view_type() == 0) {	//blinded
+//				pService.deleteProduct(product_num);
+//			} else {
+//				pService.updateProductViewTypeBlind(product_num);
+//			}
+			
+			pService.updateProductViewTypeBlind(product_num);
+			
 			return "redirect:/product/productList";
 		} else {
 			return "redirect:/index";

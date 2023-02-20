@@ -80,16 +80,16 @@ public class WishController {
 
 		// 찜 삭제
 		@RequestMapping("/wish/delete")
-		public ModelAndView delWish(@RequestParam(required = false, defaultValue = "-1") int wish_num,
+		public String delWish(@RequestParam(required = false, defaultValue = "-1") int wish_num,
 				@RequestParam(required = false, defaultValue = "-1") int product_num) {
-			ModelAndView mav = new ModelAndView("wish/wishJSON");
+
 			String user_id = (String) session.getAttribute("user_id");
 			if (wish_num != -1) {
 				wService.deleteWish(wish_num);
 			} else if (product_num != -1) {
 				wService.deleteWishByProductNum(product_num, user_id);
 			}
-			return mav;
+			return "redirect:/wish/wishList";
 		}
 
 		// 찜 리스트 전체 삭제

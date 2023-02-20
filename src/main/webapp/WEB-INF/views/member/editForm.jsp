@@ -129,7 +129,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 					<div class="edit_box">
 						<div class="edit_title">
 							<label for="user_pwd">
-								비밀번호
+								비밀번호 수정
 							</label>
 						</div>
 						<div class="edit_input">
