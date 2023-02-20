@@ -101,6 +101,50 @@
                 alert("취소되었습니다");
               }
             });
+         
+
+
+          /* 문의 수정 */
+          const modal3 = document.querySelector('#modal3');
+          const eBtnOpenPopup = document.querySelector('.support-e-btn');
+          const eBtnClose = document.querySelector('#close-eModal');
+
+            eBtnOpenPopup.addEventListener('click', () => {
+              modal3.classList.toggle('show');
+
+
+              if (modal3.classList.contains('show')) {
+                body.style.overflow = 'hidden';
+              }
+            });
+
+            modal3.addEventListener('click', (event) => {
+              if (event.target === modal) {
+                modal3.classList.toggle('show');
+
+                if (!modal3.classList.contains('show')) {
+                  body.style.overflow = 'auto';
+                }
+              }
+            });
+
+            eBtnClose.addEventListener('click', () => {
+              modal3.classList.remove('show');
+              body.style.overflow = 'auto';
+            });
+
+            $("#eModalBtn").click(function (e) {
+              e.preventDefault();
+              var returnValue = confirm("문의사항을 수정할까요?");
+              if (returnValue == true) {
+                $("#eModal").submit();
+                alert("문의사항 수정 완료되었습니다");
+              } else {
+                alert("취소되었습니다");
+              }
+            });
+        
+
           });
 
           /* 탭 이동 */
@@ -205,27 +249,38 @@
             <div class="product-image-section">
               <img src="${p.product_path}" alt="product.product_title">
               <c:if test="${sessionScope.user_type == 3}">
-              <div class="product-pick">
-                <button class="product-pick-btn" type="submit">관리자<br> pick</button>
+             <div class="product-pick">
+              <form action="${pageContext.request.contextPath}/product/pick">
+                 <input type="hidden" name="product_num" value="${p.product_num}">
+            <button class="product-pick-btn" type="submit">
+           <c:if test="${p.product_pick!=1}"> 관리자<br> pick</button></c:if>
+            <c:if test="${p.product_pick==1}">관리자픽<br>취소</c:if>
+              </form>
+
               </div>
             </c:if>
             </div>
             <div class="product-info-section">
               <div class="title">${p.product_title}</div>
-              <c:if test="${ sessionScope.user_type == 3 || (sessionScope.user_type == 2 && product.prosuct_writer) }">
+              <c:if test="${ sessionScope.user_type == 3 || (sessionScope.user_type == 2 && p.product_seller_id==sessionScope.user_id) }">
                 <div class="delete">
                   <button class="p-del"
                     onclick="location.href=`${pageContext.request.contextPath}/product/delete?product_num=${p.product_num}`">
                     <c:if test="${ sessionScope.user_type==3&&p.product_view_type!=0}">
                       상품 블라인드
                     </c:if>
-                    <c:if test="${ sessionScope.user_type==3&&p.product_view_type==0}">
+                    <c:if test="${ sessionScope.user_type==3 && p.product_view_type==0}">
                       삭제하기
                     </c:if>
                     <c:if test="${ sessionScope.user_type!=3}">
                       삭제하기
                     </c:if>
                   </button>
+                  <c:if test="${ sessionScope.user_type==3 && p.product_view_type==0}">
+                  <button class="no-blind">
+                    블라인드 해제
+                  </button>
+                </c:if>
                 </div>
               </c:if>
               <div class="price">
@@ -371,9 +426,19 @@
                                           <span class="review-content">${review.review_title }</span>
                                         </div>
                                       </div>
+                                      <div class="review-form-edit">
+                                        <button id="eBtn" onclick="location.href=`${pageContext.request.contextPath}/review/reviewEdit?review_num=${review.review_num}`"
+                                        class="e-btn" type="button">수정</button>
+                                      </div>
+                                      <div class="review-form-delete">
+                                        <form method="post" action="${pageContext.request.contextPath}/review/reviewDelete">
+                                            <input type="hidden" name="review_num" value="${review.review_num}">
+                                            <input type="submit" value="삭제">
+                                        </form>
+                                      </div>
                                     </div>
                                     <div class="review-form-review-content">
-                                      <span class="review-img">리뷰 이미지</span>
+                                      <span class="review-img"><img src="${review.review_path}"></span><br>
                                       <%-- 전체 연결 후에 ${review.review_img}로 변경 예정 --%>
                                         <span class="review-content">${review.review_content }</span>
                                     </div>
@@ -384,10 +449,13 @@
                             <div class="review-like-wrap">
                               <div class="review-like-area">
                                 <div class="review-like">
-                                  <button type="button" class="review-like-btn">
+                                 <form method="post" action="${pageContext.request.contextPath}/review_like/hit">
+									<input type="hidden" name="review_like_review_num" value="${review.review_num}" required />
+									<input type="hidden" name="review_like_user_id" value="${sessionScope.user_id}" required />
+                                  <button type="submit" class="review-like-btn">
                                     <span class="count">${review.review_like_hit }</span>
                                   </button>
-                                  <div class="review-like-a">리뷰가 도움이 되었나요?</div>
+                                </form>
                                 </div>
                               </div>
                             </div>
@@ -432,6 +500,19 @@
                         <tr id="answer_${support.support_num}" class="support-content-wrap">
                           <td class="support-content" data-support-con="${support.support_num}" colspan="3">
                             <p class="support-content-q"> ${support.support_content}</p>
+                            <!-- 작성자일 때만 수정/삭제 뜨게 하기 -->
+                            <c:if test="${support.support_writer == sessionScope.user_id }">
+                              <div class="support-edit">
+                                <button class="support-e-btn" type="button">수정</button>
+                              </div>
+                              <div class="support-delete">
+                                <form method="post" action="${pageContext.request.contextPath}/support/delete">
+                                    <input type="hidden" name="support_num" value="${support.support_num}">
+                                    <input type="submit" value="삭제">
+                                </form>
+                              </div>
+                            </c:if>
+
                             <c:set var="re_num" value="" />
                             <c:forEach var="support_re" items="${supports }">
                               <c:if test="${support_re.support_parent_num == support.support_num}">
@@ -529,7 +610,7 @@
           <form action="${pageContext.request.contextPath}/support/add" method="post" class="modalForm" id="qModal">
             <div class="modal-main">
               <label for="qtitle" class="label">문의 제목</label>
-              <input id="qtitle" name="support_title" type="text" placeholder="문의 제목을 작성해주세요" class="input" />
+              <input id="qtitle" name="support_title" type="text" placeholder="문의 제목을 작성해주세요" class="input" value=""/>
               <label for="qcontent" class="label">문의 내용</label>
               <textarea id="qcontent" name="support_content" placeholder="문의 내용을 작성해주세요" class="input"
                 required></textarea>
@@ -538,8 +619,27 @@
               <input type="hidden" name="support_product_num" value="${p.product_num}" required />
             </div>
             <div class="modal-footer">
-              <button id="close-modal2" type="button">닫기</button>
               <button id="qModalBtn" type="submit">문의하기</button>
+              <button id="close-modal2" type="button">닫기</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- 문의 수정 창 -->
+        <div class="modal mhidden" id="modal3">
+          <form action="${pageContext.request.contextPath}/support/edit" method="post" class="modalForm" id="eModal">
+            <div class="modal-main">
+              <label for="etitle" class="label">문의 제목</label>
+              <input id="etitle" name="support_title" type="text" class="input" value="${s.support_title}" required/>
+              <label for="econtent" class="label">문의 내용</label>
+              <textarea id="econtent" name="support_content" class="input" required>${s.support_content}</textarea>
+              <input type="hidden" name="support_writer" value="${support.support_writer}" required />
+              <input type="hidden" name="support_parent_num" value="${s.support_parent_num}" required />
+              <input type="hidden" name="support_product_num" value="${s.support_product_num}" required />
+            </div>
+            <div class="modal-footer">
+              <button id="eModalBtn" type="submit">수정하기</button>
+              <button id="close-eModal" type="button">닫기</button>
             </div>
           </form>
         </div>
