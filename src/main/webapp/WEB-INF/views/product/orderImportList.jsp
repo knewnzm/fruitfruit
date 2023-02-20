@@ -81,7 +81,7 @@ function del(num,pnum){
 		                                        </c:choose>
 				<td>${o.m.user_name}</td> <td>${o.order_count}</td> <td>${o.m.user_addr1} ${o.m.user_addr2}</td> <td>${o.order_count*p.product_price}</td> 
 				<td>
-<c:if test="${o.order_type != 3}">
+<c:if test="${o.order_type == 0 ||o.order_type == 1 }">
 				<button class="cancel_btn" 
 				onclick="location.href=`${pageContext.request.contextPath}/order/cancel?order_num=${o.order_num}&product_num=${p.product_num }`">주문취소</button>
 </c:if>

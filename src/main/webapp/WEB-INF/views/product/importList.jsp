@@ -111,7 +111,7 @@ function del(num){
 							</a>
 						</div> 
 						<div>
-							<c:if test="${o.order_type != 3}">
+							<c:if test="${o.order_type == 0 || o.order_type == 1}">
 							<button type="button" class="cancel_btn"
 										onclick="location.href=`${pageContext.request.contextPath}/order/cancel?order_num=${o.order_num}`">구매취소</button>
 										</c:if>
