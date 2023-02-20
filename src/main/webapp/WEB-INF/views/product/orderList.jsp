@@ -18,23 +18,20 @@
 		<c:import url="../head.jsp"></c:import>
 		<c:import url="../header.jsp"></c:import>
 
-		<div style="width:100%; min-height:100%">
-			<div class="left">
+		<div style="width:100%; height: auto;">
+		<div style="display:flex;">
+			<div class="left" style="height:auto;">
 				<c:import url="../myfruit.jsp" />
 		    </div>
 		    
 		    <div class="right">
 				<div class="container">
-					<div>
-						<h1>구매자 목록 조회하기</h1>
-					</div>		
-							
-					<div>
-		                <c:import url="./orderImportList.jsp"></c:import>
-					</div>
+					<h1>구매자 목록 조회하기</h1><br/>
+					<c:import url="./orderImportList.jsp"></c:import>
 		        </div>
 		    </div>	
 		</div>	
+		</div>
 		
 		<c:import url="../footer.jsp"></c:import>	
 		 

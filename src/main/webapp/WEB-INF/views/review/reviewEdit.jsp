@@ -48,56 +48,92 @@ window.onload = function(){
 }
 </script>
 <body>
-    <header>
-		<c:import url="../head.jsp"></c:import>
-   		 <c:import url="../header.jsp"></c:import>
-	</header>
-        <div class="wrap">
-            <main class="container">
-		<div class="content">
-			<div class="title_wrap">
-				<div class="main_title">
-					<h1 class="main_text">리뷰 수정하기</h1>
-				</div>
-			</div>
-			<form action="${pageContext.request.contextPath}/review/reviewEdit" method="post" enctype="multipart/form-data">
-			<div class="notice_form_wrap">	
-				<div class="notice_box">
-						<div class="notice_title">
-							<label for="notice_title">
-								제목
-							</label>
-						</div>
-						<div class="notice_input">
-							<input type="text" name="notice_title" id="title" >
-						</div>
+    <c:import url="../head.jsp"></c:import>
+					<c:import url="../header.jsp"></c:import>
+
+					<div class="wrap">
+						<main class="container">
+							<div class="content">
+								<div class="title_wrap">
+									<div class="main_title">
+										<h1 class="main_text">리뷰 수정하기</h1>
+									</div>
+								</div>
+								<form action="${pageContext.request.contextPath}/review/reviewEdit" method="post"
+									enctype="multipart/form-data">
+									<div class="product_form_wrap">
+										<div class="product_box">
+											<div class="product_title">
+												<label for="product_title">
+													제목
+												</label>
+											</div>
+											<div class="product_input">
+												<input type="text" name="review_title" id="title">
+											</div>
+										</div>
+<!-- 										
+										<div class="product_box">
+											<div class="product_title">
+												<label>
+													이미지
+												</label>
+											</div>
+											<div class="file_name_wrap">
+												<label for="product_path" class="file_name_label"></label>
+											</div>
+											<div class="product_path_wrap">
+												<input class="form-control" type="file" name="file" id="file"
+													required />
+												<label for="file" class="file_label">업로드</label>
+											</div>
+										</div> -->
+
+										<!-- <div class="path_wrap">
+											<img src="" id="preview" style="display:none;" nerror="imgError()" />
+										</div> -->
+										<div class="content_wrap">
+											<textarea name="review_content" class="product_w_content"></textarea>
+										</div>
+
+									</div>
+									<div class="product_box" style="display: none;">
+										<div class="product_title">
+											<label for="product_writer_id">
+												아이디
+											</label>
+										</div>
+										<div class="product_input">
+											<input type="text" name="review_writer" id="title" value="${user_id}"
+												readonly>
+										</div>
+									</div>
+									<div class="product_box" style="display: none;">
+										<div class="product_title">
+											<label for="product_writer_id">
+												product_num
+											</label>
+										</div>
+										<div class="product_input">
+											<input type="text" name="review_product_num" id="title"
+												value="${product_num}" readonly>
+										</div>
+									</div>
+
+
+									<!-- product_form_wrap end -->
+
+									<div class="submit_wrap">
+										<button type="submit" name="submit" id="submit">수정하기</button>
+										<button class="back_btn" type="button" onClick="history.back();">수정 취소</button>
+									</div>
+								</form>
+								<!-- content end -->
+							</div>
+						</main>
 					</div>
-				<div class="notice_box">
-					<div class="notice_title">
-						<label for="notice_writer_id">
-							user id
-						</label>
-					</div>
-					<div class="notice_input">
-						<input type="text" name="notice_title" id="title" value="${writer_id}" readonly>
-					</div>
-				</div>
-				<div class="content_wrap">
-					<textarea name="notice_content" class="notice_w_content"></textarea>
-				</div>
-			<!-- notice_form_wrap end -->
-			</div>
-			<div class="submit_wrap">
-                <button type="submit" name="submit" id="submit">수정하기</button>
-				<button class="back_btn" type="button" onClick="history.back();">작성 취소</button>
-			</div>
-			</form>
-		<!-- content end -->
-		</div>	
-	</main>
-        </div>
-	<footer>
-		 <c:import url="../footer.jsp"></c:import>
-	</footer>
-</body>
+
+					<c:import url="../footer.jsp"></c:import>
+
+				</body>
 </html>

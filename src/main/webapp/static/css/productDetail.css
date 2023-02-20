@@ -284,6 +284,46 @@ input::-webkit-inner-spin-button {
     height: 300px;
 }
 
+/* 리뷰 수정/삭제 */
+.review-form-edit {
+      border: 1px solid #f02c11;
+      position: absolute;
+      top: 0;
+      left: 150px;
+      background: #fff;
+      text-align: center;
+      width: 40px;
+      border-radius: 7px;
+      padding: 0 0 3px 0;
+}
+
+.review-form-edit > button {
+  color: #f02c11;
+}
+
+.review-form-edit:hover, .review-form-delete:hover {
+  filter: drop-shadow(1px 1.5px 0.5px #f02c11);
+}
+
+.review-form-delete {
+  border: 1px solid #f02c11;
+      position: absolute;
+      top: 0;
+      left: 200px;
+      background: #fff;
+      color: #f02c11;
+      text-align: center;
+      width: 40px;
+      border-radius: 7px;
+      padding: 0 0 3px 0;
+}
+
+.review-form-delete input {
+  cursor: pointer;
+  background-color: #fff;
+  color: #f02c11;
+}
+
 /* 상품 상세 정보 */
 .product-item-info {
   padding: 80px 0px;

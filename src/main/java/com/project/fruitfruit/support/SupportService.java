@@ -41,7 +41,7 @@ public class SupportService {
 		mapper.deleteSupportByParentNum(support_parent_num);
 	}
 
-	public String getSeqCurrentValue() {
+	public int getSeqCurrentValue() {
 		return mapper.getSeqCurrentValue();
 	}
 

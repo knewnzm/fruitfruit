@@ -1,134 +1,140 @@
+@charset "UTF-8";
+
+html, body {
+   height: 100%;
+}
+
 div.left{
-  	float: left;
-  	width: 115px;
-  	background: #F02c11;
-  	background-size: cover;
+	height: 100%;
+	width: 120px;
+	background: #F02c11;
+	background-size: cover;
 }
 
 div.right{
-	margin-left: 140px;
+	width:100%;
 }
 
 .container{
-	margin: 0px 30px;
-	padding: 30px 0;
+   margin: 0px 30px;
+   padding: 30px 0;
 }
 
 .container>div{
-	margin: 10px 0;
+   margin: 10px 0;
 }
 
 .add-btn{
-	outline: none;
-	background: white;
-	border: 1px solid #F02c11;
-	border-radius: 5px;
-	font-size: 15px;
-	padding: 3px 5px;
+   outline: none;
+   background: white;
+   border: 1px solid #F02c11;
+   border-radius: 5px;
+   font-size: 15px;
+   padding: 3px 5px;
 }
 
 .add-btn:hover{
-	background: #F02c11;
-	color: white;
+   background: #F02c11;
+   color: white;
 }
 
 .p-wrap{
-	margin:20px 100px 30px 0px;	
+   margin:20px 100px 30px 0px;   
 }
 
 .p-card{
-	display:flex;
-	justify-content:space-between;
+   display:flex;
+   justify-content:space-between;
 }
 
 .import-item{
-	height: 180px;
-	justify-content: space-between;
+   height: 180px;
+   justify-content: space-between;
 }
 
 .import-item:hover{
-	opacity: 0.6;
+   opacity: 0.6;
 }
 
 .img-box{
-	width: 180px;
-	height: 180px;
-	float: left;
+   width: 180px;
+   height: 180px;
+   float: left;
 }
 
 .product-pimg{
-	height: 100%;
-	width: 100%;
-  	object-fit: scale-down;
+   height: 100%;
+   width: 100%;
+     object-fit: scale-down;
 }
 
 .desc-box{
-	margin-left: 200px;
-	height:180px;
+   margin-left: 200px;
+   height:180px;
 }
 
 .product-header{
-	color: black;
+   color: black;
 }
 
 .product-name{
-	display: flex;
-	align-items: center;
+   display: flex;
+   align-items: center;
 }
 
 .badge{
-	border-radius: 5px;
-	color: black;
-	font-size: 15px;
-	padding: 3px;
+   border-radius: 5px;
+   color: black;
+   font-size: 15px;
+   padding: 3px;
 }
 
 .product-detail{
-	color: black;
-	
+   color: black;
+   
 }
 
 table{
-	margin-top: 10px;
-	width:860px;
-	border-collapse: collapse;
-	border-top: 1px solid #B6B6B4;
+   margin-top: 10px;
+   width:860px;
+   border-collapse: collapse;
+   border-top: 1px solid #B6B6B4;
 }
 
 tr{
-	border:1px solid #B6B6B4;
+   border:1px solid #B6B6B4;
 }
 
 td{
-	text-align: center;
+   text-align: center;
 }
 
 .cancel_btn{
-	outline: none;
-	background: white;
-	border: 1px solid #F02c11;
-	border-radius: 5px;
-	font-size: 15px;
-	padding: 3px;
-	margin: 5px 15px;
+   outline: none;
+   background: white;
+   border: 1px solid #F02c11;
+   border-radius: 5px;
+   font-size: 15px;
+   padding: 3px;
+   margin: 5px 15px;
 }
 
 .cancel_btn:hover{
-	background: #F02c11;
-	color: white;
+   background: #F02c11;
+   color: white;
 }
 
 .comple_btn{
-	outline: none;
-	background: white;
-	border: 1px solid #4BAF2C;
-	border-radius: 5px;
-	font-size: 15px;
-	padding: 3px;
-	margin: 5px 0px;
+   outline: none;
+   background: white;
+   border: 1px solid #4BAF2C;
+   border-radius: 5px;
+   font-size: 15px;
+   padding: 3px;
+   margin: 5px 0px;
 }
 
 .comple_btn:hover{
-	background: #4BAF2C;
-	color: white;
+   background: #4BAF2C;
+   color: white;
 }

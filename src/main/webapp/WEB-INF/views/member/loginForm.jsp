@@ -98,10 +98,8 @@
         </script>
     </head>
 <body>
-	<header>
-		<c:import url="../head.jsp"></c:import>
-        <c:import url="../header.jsp"></c:import>
-	</header>
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
 <div class="wrap">
 	<main id="cantainer" class="container">
 		<div id="content" class="content">
@@ -148,7 +146,6 @@
 					</div>
 				</div>
 				<!-- login end -->
-				</form>
 				<div class="join_wrap">
 					<button type="button" id="join_btn"  id="join_btn" 
 						onclick="location.href='/member/joinForm'">
@@ -157,41 +154,22 @@
 				</div>
 				<div class="social_wrap">
 					<div class="social_login">
-						<ul class="social_inner" id="social_inner">
-								<li class="social_btn">
-									<a href="" onclick="" >
-										<i class="icon_naver"></i>
-											<img src="${pageContext.request.contextPath}/static/img/login_naver_icon.png" class="social_icon"><br>
-												<span class="social_text">네이버</span>
-									</a>
-								</li>
-								<li class="social_btn">
+
 									<a href="kakaotalk.png" onclick="" >
 										<i class="icon_kakao"></i>
-											<img src="${pageContext.request.contextPath}/static/img/login_kakaotalk_icon.png" class="social_icon"><br>
-												<span class="social_text">카카오</span>
+											<img src="${pageContext.request.contextPath}/static/img/kakao_login_large_wide.png" class="social_icon"><br>
 									</a>
-								</li>
-								<li class="social_btn">
-									<a href="" onclick="" >
-										<i class="icon_google"></i>
-											<img src="${pageContext.request.contextPath}/static/img/login_google_icon.png"  class="social_icon"><br>
-										<span class="social_text">구글</span>
-									</a>
-								</li>
-							</ul>
+
 					</div>
 				<!-- social end -->
 				</div>
-			</div>
+			  </div>	
 			</form>
-		<!-- content end -->
 		</div>
+		<!-- content end -->
 	</main>
 <!-- wrap end -->
 </div>
-	<footer>
-		 <c:import url="../footer.jsp"></c:import>
-	</footer>
+<c:import url="../footer.jsp"></c:import>
 </body>
 </html>

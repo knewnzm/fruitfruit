@@ -88,9 +88,10 @@ public class ReviewController {
 	}
 	
 	@PostMapping("review/reviewDelete")
-	public String deleteReview(int review_num) {
+	public String deleteReview(int review_num, HttpServletRequest request) {
 		rService.deleteReview(review_num);
-		return "redirect:/product/productList";
+		String referer = request.getHeader("Referer");
+    	return "redirect:"+ referer;
 	}
 	
 	private String projectPath = new File("").getAbsolutePath().toString() + "\\src\\main\\webapp";

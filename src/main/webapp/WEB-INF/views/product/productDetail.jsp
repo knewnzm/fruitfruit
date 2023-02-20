@@ -377,6 +377,16 @@
                                           <span class="review-content">${review.review_title }</span>
                                         </div>
                                       </div>
+                                      <div class="review-form-edit">
+                                        <button id="eBtn" onclick="location.href=`${pageContext.request.contextPath}/review/reviewEdit`"
+                                        class="e-btn" type="button">수정</button>
+                                      </div>
+                                      <div class="review-form-delete">
+                                        <form method="post" action="${pageContext.request.contextPath}/review/reviewDelete">
+                                            <input type="hidden" name="review_num" value="${review.review_num}">
+                                            <input type="submit" value="삭제">
+                                        </form>
+                                      </div>
                                     </div>
                                     <div class="review-form-review-content">
                                       <span class="review-img"><img src="${review.review_path}"></span><br>
@@ -397,7 +407,6 @@
                                     <span class="count">${review.review_like_hit }</span>
                                   </button>
                                 </form>
-                                  <div class="review-like-a">리뷰가 도움이 되었나요?</div>
                                 </div>
                               </div>
                             </div>
@@ -539,10 +548,10 @@
           <form action="${pageContext.request.contextPath}/support/add" method="post" class="modalForm" id="qModal">
             <div class="modal-main">
               <label for="qtitle" class="label">문의 제목</label>
-              <input id="qtitle" name="support_title" type="text" placeholder="문의 제목을 작성해주세요" class="input" />
+              <input id="qtitle" name="support_title" type="text" placeholder="문의 제목을 작성해주세요" class="input" value=""/>
               <label for="qcontent" class="label">문의 내용</label>
               <textarea id="qcontent" name="support_content" placeholder="문의 내용을 작성해주세요" class="input"
-                required></textarea>
+                required>""</textarea>
               <input type="hidden" name="support_writer" value="${sessionScope.user_id}" required />
               <input type="hidden" name="support_parent_num" value=0 required />
               <input type="hidden" name="support_product_num" value="${p.product_num}" required />

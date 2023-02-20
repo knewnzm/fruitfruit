@@ -6,20 +6,20 @@
 	text-decoration: none;
 }
 
-ul.myfruit {
+.myfruit {
 	list-style-type: none;
 	background: #F02c11;
 	overflow: none;
 	height: 100vh;
 }
 
-li a {
+ .myfruit_li > a {
 	padding: 10px;
 	display: block;
 	color: white;
 }
 
-li a:hover {
+ .myfruit_li > a:hover {
 	background: white;
 	color: #F02c11;
 }

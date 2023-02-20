@@ -136,14 +136,11 @@ input[type="checkbox"]:checked + label{
 	padding: 25px;
 }
 .social_icon{
-	width: 35px;
-  	height:35px;
+  	width: 352px;
+    height: 48px;
+    margin-top: 10px;
   	overflow: hidden;
   	margin-bottom:10px;
-}
-.social_text{
-	color:#777;
-	font-size:16px;
 }
 .logo{
 	margin-top: 50px;

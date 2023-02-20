@@ -13,6 +13,12 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 
+document.addEventListener('keydown', function(event) {
+	  if (event.keyCode === 13) {
+	    event.preventDefault();
+	  };
+	}, true);
+
 $(document).ready(function (e){
     $("input[type='file']").change(function(e){
 
@@ -172,7 +178,7 @@ $(document).ready(function () {
 							</div>
 							
 							<div class="product_input">
-								<input type="text" name="product_title" id="product_title"  class="ed_input">
+								<input type="text" name="product_title" id="product_title"  class="ed_input" required>
 							</div>
 						</div>
 							
@@ -186,7 +192,7 @@ $(document).ready(function () {
 							<label class="uploadBTN" for="uploadFile">
 								이미지 추가하기
 							</label>
-							<input type="file" name="file" id="uploadFile" style="display:none" multiple>
+							<input type="file" name="file" id="uploadFile" style="display:none" required>
 						</div>
 						
 						<div id="preview"></div>
@@ -219,7 +225,7 @@ $(document).ready(function () {
 							</div>
 							
 							<div class="product_input">
-								<input type="number"  class="ed_input" name="product_price" class="ed_input" id="price" >
+								<input type="number"  class="ed_input" name="product_price" class="ed_input" id="price" required>
 							</div>
 						</div>
 						
@@ -231,7 +237,7 @@ $(document).ready(function () {
 							</div>
 							
 							<div class="product_input">
-								<input type="number"  class="ed_input" name="product_quantity" id="quantity" >
+								<input type="number"  class="ed_input" name="product_quantity" id="quantity" required>
 							</div>
 						</div>
 						
