@@ -378,7 +378,7 @@
                                         </div>
                                       </div>
                                       <div class="review-form-edit">
-                                        <button id="eBtn" onclick="location.href=`${pageContext.request.contextPath}/review/reviewEdit`"
+                                        <button id="eBtn" onclick="location.href=`${pageContext.request.contextPath}/review/reviewEdit?review_num=${review.review_num}`"
                                         class="e-btn" type="button">수정</button>
                                       </div>
                                       <div class="review-form-delete">
@@ -551,7 +551,7 @@
               <input id="qtitle" name="support_title" type="text" placeholder="문의 제목을 작성해주세요" class="input" value=""/>
               <label for="qcontent" class="label">문의 내용</label>
               <textarea id="qcontent" name="support_content" placeholder="문의 내용을 작성해주세요" class="input"
-                required>""</textarea>
+                required></textarea>
               <input type="hidden" name="support_writer" value="${sessionScope.user_id}" required />
               <input type="hidden" name="support_parent_num" value=0 required />
               <input type="hidden" name="support_product_num" value="${p.product_num}" required />

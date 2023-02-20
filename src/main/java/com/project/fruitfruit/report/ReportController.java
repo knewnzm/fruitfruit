@@ -1,6 +1,7 @@
 package com.project.fruitfruit.report;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.servlet.http.HttpSession;
 
@@ -54,6 +55,7 @@ public class ReportController {
 		String user_id = (String) session.getAttribute("user_id");
 		if (user_id != null) {
 			ArrayList<Report> list = (ArrayList<Report>) rService.selectAll();
+			Collections.reverse(list);
 			model.addAttribute("list", list);
 		}
 		return "/report/reportList";

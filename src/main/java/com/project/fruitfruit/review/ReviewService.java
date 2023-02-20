@@ -100,4 +100,8 @@ public class ReviewService {
 		return mapper.selectSeqReviewCurrval();
 	}
 
+    public Review selectReview(int review_num) {
+        return mapper.selectReview(review_num);
+    }
+
 }

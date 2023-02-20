@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>noticeForm</title>
+<title>reviewEdit</title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/reviewForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
@@ -63,13 +63,14 @@ window.onload = function(){
 									enctype="multipart/form-data">
 									<div class="product_form_wrap">
 										<div class="product_box">
+											<input type="hidden" name="review_num" value="${review.review_num}">
 											<div class="product_title">
 												<label for="product_title">
 													제목
 												</label>
 											</div>
 											<div class="product_input">
-												<input type="text" name="review_title" id="title">
+												<input type="text" name="review_title" id="title" value="${review.review_title}">
 											</div>
 										</div>
 <!-- 										
@@ -93,7 +94,8 @@ window.onload = function(){
 											<img src="" id="preview" style="display:none;" nerror="imgError()" />
 										</div> -->
 										<div class="content_wrap">
-											<textarea name="review_content" class="product_w_content"></textarea>
+											<textarea name="review_content" class="product_w_content">${review.review_content}
+											</textarea>
 										</div>
 
 									</div>
@@ -116,7 +118,7 @@ window.onload = function(){
 										</div>
 										<div class="product_input">
 											<input type="text" name="review_product_num" id="title"
-												value="${product_num}" readonly>
+												value="${review.review_product_num}" readonly>
 										</div>
 									</div>
 

@@ -20,12 +20,20 @@
 		order by review_num desc
 	</select>
 	
-		<select id="selectReviewAllByProductNum" parameterType="int" resultMap="review">
+	<select id="selectReviewAllByProductNum" parameterType="int" resultMap="review">
 		select * 
 		from review 
 		where review_product_num = #{review_product_num}
 		order by review_num desc
 	</select>
+
+	<select id="selectReview" parameterType="int" resultMap="review">
+		select * 
+		from review 
+		where review_num = #{review_num}
+	</select>
+
+	
 	
 	
 <insert id="insertReview" parameterType="com.project.fruitfruit.review.Review">
@@ -53,12 +61,8 @@
 		update review 
 		set 
 			review_title = #{review_title},
-			review_content = #{review_content},
-			review_path = #{review_path},
-			review_writer = #{review_writer},
-			review_date = #{sysdate},
-			review_product_num = #{review_product_num}
-		where support_num = #{support_num}
+			review_content = #{review_content}
+		where review_num = #{review_num}
 	</update>
 	
 	<delete id="deleteReview" parameterType="int">

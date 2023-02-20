@@ -48,6 +48,11 @@ public class WishService {
 		return mapper.selectWishByProductNum(product_num);
 	}
 
+	public void deleteAllWishByUserId(String user_id) {
+		mapper.deleteAllWishByUserId(user_id);
+		
+	}
+
 
 
 	

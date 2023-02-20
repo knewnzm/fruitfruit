@@ -28,12 +28,6 @@ public class MemberController {
 private MemberService service;
 @Autowired
 private CategoryService cservice;
-
-@RequestMapping(value = "/") //인덱스 페이지 가기
-public String home() {
-	return "/index";
-
-}
 @GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
 public String joinForm(HttpServletRequest req) {
 	HttpSession session = req.getSession(false);

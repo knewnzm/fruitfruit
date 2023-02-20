@@ -34,7 +34,7 @@
         if (confirm("전체 삭제하시겠습니까?")) {
             $.ajax({
                 type: "post",
-                url: "${pageContext.request.contextPath}/wish/deleteAll",
+                url: "${pageContext.request.contextPath}/wish/wishDelAll",
                 success: function (response) {
                     alert("삭제되었습니다");
                     location.reload(true); // 페이지를 새로고침하도록 수정

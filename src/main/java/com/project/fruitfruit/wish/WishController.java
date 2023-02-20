@@ -96,7 +96,7 @@ public class WishController {
 		@RequestMapping("/wish/wishDelAll")
 		public String delAll() {
 			String user_id = (String) session.getAttribute("user_id");
-			wService.deleteAllWish(user_id);
+			wService.deleteAllWishByUserId(user_id);
 			return "redirect:/wish/wishList";
 		}
 

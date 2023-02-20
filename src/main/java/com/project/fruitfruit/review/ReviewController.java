@@ -65,12 +65,14 @@ public class ReviewController {
 			Review r, 
 			@RequestParam int product_num, 
 			Model model) {
+		
 		model.addAttribute("product_num", product_num);
 		
 	}
 	
 	@PostMapping("review/reviewForm")
 	public String addReview(Review r) {
+		System.out.println("출력삾"+r);
 		rService.insertReview(r);
 		int review_num = rService.selectSeqReviewCurrval();
 		uploadFile(r.getFile(), review_num);
@@ -78,11 +80,16 @@ public class ReviewController {
 	}
 	
 	@GetMapping("review/reviewEdit")
-	public void editForm(Review r) {
+	public void editForm(Model model, @RequestParam int review_num) {
+		Review review = rService.selectReview(review_num);
+		model.addAttribute("review", review);
+
+
 	}
 	
 	@PostMapping("review/reviewEdit")
 	public String editReview(Review r) {
+		System.out.println("r:"+r);
 		rService.updateReview(r);
 		return "redirect:/product/productDetail?product_num=" + r.getReview_product_num();
 	}

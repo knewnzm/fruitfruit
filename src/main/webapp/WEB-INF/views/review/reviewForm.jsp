@@ -8,7 +8,7 @@
 
 				<head>
 					<meta charset="UTF-8">
-					<title>productForm</title>
+					<title>reviewForm</title>
 				</head>
 				<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/reviewForm.css" />
 				<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />

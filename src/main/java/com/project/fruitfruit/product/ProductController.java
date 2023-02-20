@@ -45,18 +45,18 @@ public class ProductController {
 	private String webPath = "\\static\\product\\";
 
 	
-	/*
-	 * @RequestMapping("/") public String index(Model model) { List<Product> list =
-	 * pService.selectProductListByLimit(0, 4); model.addAttribute("list", list);
-	 * 
-	 * List<Product> list2 = pService.onlyProductPick(0, 4);
-	 * model.addAttribute("list2", list2);
-	 * 
-	 * List<Product> list3 = pService.orderByProductHitDesc(0, 4);
-	 * model.addAttribute("list3", list3);
-	 * 
-	 * return "index"; }
-	 */
+	
+	  @RequestMapping("/") public String index(Model model) { List<Product> list =
+	  pService.selectProductListByLimit(0, 4); model.addAttribute("list", list);
+	  
+	  List<Product> list2 = pService.onlyProductPick(0, 4);
+	 model.addAttribute("list2", list2);
+	 
+	  List<Product> list3 = pService.orderByProductHitDesc(0, 4);
+	  model.addAttribute("list3", list3);
+	  
+	  return "index"; }
+	 
 	
 //	@RequestMapping(value = "/") //홈으로 가기
 //	public String index() { 

@@ -27,7 +27,7 @@
 	    <c:if test="${type == 4}">상품 등록일순</c:if>
 	    <c:if test="${type == 5}">추천 상품</c:if>
 		<c:if test="${sessionScope.user_type == 3}">
-	   	<c:if test="${type == 6}">blind 처리된 상품</c:if>
+	   		<c:if test="${type == 6}">blind 처리된 상품</c:if>
 		</c:if>
 	    <c:if test="${type == 7}">판매자별 상품</c:if>
     </h2>
@@ -56,8 +56,9 @@
 		    <c:when test="${not empty plist }">
 				
 		         <c:forEach var="p" items="${plist}">
-					<c:if test = "${p.product_view_type == 1}">
-					<div class="product-card">
+		         <c:choose>
+		         	<c:when test="${type == 6}">
+		         		<div class="product-card">
 			            <a href="${pageContext.request.contextPath}/product/productDetail?product_num=${p.product_num}">
 			            <img src="${p.product_path}" alt="${p.product_path}" class="product-img">
 			                <div class="product-info">
@@ -68,7 +69,24 @@
 			                </div>
 			            </a>
 			        </div>
-				</c:if>
+		         	</c:when>
+		         	<c:otherwise>
+			         	<c:if test = "${p.product_view_type == 1}">
+						<div class="product-card">
+				            <a href="${pageContext.request.contextPath}/product/productDetail?product_num=${p.product_num}">
+				            <img src="${p.product_path}" alt="${p.product_path}" class="product-img">
+				                <div class="product-info">
+				                    <strong class="product-title">${p.product_title}</strong>
+				                    <span class="product-price">
+				                    	<fmt:formatNumber value="${p.product_price}" pattern="#,###원"/>
+				                    </span>
+				                </div>
+				            </a>
+				        </div>
+					</c:if>
+		         	</c:otherwise>
+		         </c:choose>					
+		         
 		         </c:forEach>
 		    </c:when>
 		    <%-- 등록된 제품이 없을 때 --%>
