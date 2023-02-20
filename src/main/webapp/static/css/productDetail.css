@@ -278,6 +278,12 @@ input::-webkit-inner-spin-button {
   font-size: 24px;
 }
 
+.review-img img {
+	    object-fit: scale-down;
+    width: 300px;
+    height: 300px;
+}
+
 /* 상품 상세 정보 */
 .product-item-info {
   padding: 80px 0px;

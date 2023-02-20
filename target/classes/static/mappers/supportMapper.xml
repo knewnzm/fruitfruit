@@ -5,10 +5,10 @@
 <mapper namespace="com.project.fruitfruit.support.SupportMapper">
 	<resultMap type="com.project.fruitfruit.support.Support" id="support">
 		<result column="support_num" property="support_num" />
-		<result column="support_title" property="support_title" />
 		<result column="support_parent_num" property="support_parent_num" />
 		<result column="support_product_num" property="support_product_num" />
 		<result column="support_writer" property="support_writer" />
+		<result column="support_title" property="support_title" />
 		<result column="support_content" property="support_content" />
 		<result column="support_date" property="support_date" />
 	</resultMap>
@@ -36,10 +36,10 @@
 		insert into support 
 		values (
 			seq_support.nextval, 
-			#{support_title},
 			#{support_parent_num}, 
 			#{support_product_num}, 
 			#{support_writer}, 
+			#{support_title}, 
 			#{support_content}, 
 			sysdate
 		)

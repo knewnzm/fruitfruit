@@ -57,8 +57,7 @@
 			review_path = #{review_path},
 			review_writer = #{review_writer},
 			review_date = #{sysdate},
-			review_product_num = #{review_product_num},
-			review_score = #{review_score}
+			review_product_num = #{review_product_num}
 		where support_num = #{support_num}
 	</update>
 	
@@ -94,11 +93,6 @@
 		order by review_like_hit desc
 	</select>
 	
-	<select id="orderReviewByReviewScore" resultMap="review">
-		select * 
-		from review 
-		order by review_score desc
-	</select>
 	
 	<select id="orderReviewByReviewDate" resultMap="review">
 		select * 

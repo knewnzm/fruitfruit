@@ -13,7 +13,6 @@ public class Review {
 	private Date review_date;
 	private int review_product_num;
 	private int review_like_hit;
-	
 	private String review_path;
 	private MultipartFile file;
 	

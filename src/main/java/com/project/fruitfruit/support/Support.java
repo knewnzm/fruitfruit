@@ -8,6 +8,7 @@ public class Support {
 	private int support_parent_num;
 	private int support_product_num;
 	private String support_writer;
+	private String support_title;
 	private String support_content;
 	private Date support_date;
 	
@@ -16,12 +17,13 @@ public class Support {
 	}
 
 	public Support(int support_num, int support_parent_num, int support_product_num, String support_writer,
-			String support_content, Date support_date) {
+			String support_title,String support_content, Date support_date) {
 		super();
 		this.support_num = support_num;
 		this.support_parent_num = support_parent_num;
 		this.support_product_num = support_product_num;
 		this.support_writer = support_writer;
+		this.support_title = support_title;
 		this.support_content = support_content;
 		this.support_date = support_date;
 	}
@@ -58,6 +60,13 @@ public class Support {
 		this.support_writer = support_writer;
 	}
 
+	public String getSupport_title() {
+		return support_content;
+	}
+	
+	public void setSupport_title(String support_content) {
+		this.support_content = support_content;
+	}
 	public String getSupport_content() {
 		return support_content;
 	}
@@ -78,7 +87,7 @@ public class Support {
 	public String toString() {
 		return "Support [support_num=" + support_num + ", support_parent_num=" + support_parent_num
 				+ ", support_product_num=" + support_product_num + ", support_writer=" + support_writer
-				+ ", support_content=" + support_content + ", support_date=" + support_date + "]";
+				+ ", support_title=" + support_title + ", support_content=" + support_content + ", support_date=" + support_date + "]";
 	}
 		
 }

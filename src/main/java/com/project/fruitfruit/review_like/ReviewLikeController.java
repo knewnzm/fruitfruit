@@ -19,7 +19,11 @@ public class ReviewLikeController {
 	
 	@RequestMapping("/review_like/hit")
 	public String hitReviewLike(ReviewLike rl, HttpServletRequest req) {
-		
+	    String referer = req.getHeader("Referer");
+	    
+		if(rl.getReview_like_user_id() == "") {
+			return "redirect:"+ referer; 
+		}
 		ReviewLike reviewLike = rlService.selectReviewLikeByUserIdAndReviewNum(rl);
 		if (reviewLike != null) {
 			rService.decreaseReviewLikeHit(reviewLike.getReview_like_review_num());
@@ -29,7 +33,6 @@ public class ReviewLikeController {
 			rlService.insertReviewLike(rl);
 			rService.increaseReviewLikeHit(rl.getReview_like_review_num());
 		}
-	    String referer = req.getHeader("Referer");
 	    return "redirect:"+ referer;
 	}
 	

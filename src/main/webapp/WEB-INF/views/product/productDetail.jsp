@@ -205,14 +205,20 @@
             <div class="product-image-section">
               <img src="${p.product_path}" alt="product.product_title">
               <c:if test="${sessionScope.user_type == 3}">
-              <div class="product-pick">
-                <button class="product-pick-btn" type="submit">관리자<br> pick</button>
+             <div class="product-pick">
+              <form action="${pageContext.request.contextPath}/product/pick">
+                 <input type="hidden" name="product_num" value="${p.product_num}">
+            <button class="product-pick-btn" type="submit">
+           <c:if test="${p.product_pick!=1}"> 관리자<br> pick</button></c:if>
+            <c:if test="${p.product_pick==1}">관리자픽<br>취소</c:if>
+              </form>
+
               </div>
             </c:if>
             </div>
             <div class="product-info-section">
               <div class="title">${p.product_title}</div>
-              <c:if test="${ sessionScope.user_type == 3 || (sessionScope.user_type == 2 && product.prosuct_writer) }">
+              <c:if test="${ sessionScope.user_type == 3 || (sessionScope.user_type == 2 && p.product_seller_id==sessionScope.user_id) }">
                 <div class="delete">
                   <button class="p-del"
                     onclick="location.href=`${pageContext.request.contextPath}/product/delete?product_num=${p.product_num}`">
@@ -373,7 +379,7 @@
                                       </div>
                                     </div>
                                     <div class="review-form-review-content">
-                                      <span class="review-img">리뷰 이미지</span>
+                                      <span class="review-img"><img src="${review.review_path}"></span><br>
                                       <%-- 전체 연결 후에 ${review.review_img}로 변경 예정 --%>
                                         <span class="review-content">${review.review_content }</span>
                                     </div>
@@ -384,9 +390,13 @@
                             <div class="review-like-wrap">
                               <div class="review-like-area">
                                 <div class="review-like">
-                                  <button type="button" class="review-like-btn">
+                                 <form method="post" action="${pageContext.request.contextPath}/review_like/hit">
+									<input type="hidden" name="review_like_review_num" value="${review.review_num}" required />
+									<input type="hidden" name="review_like_user_id" value="${sessionScope.user_id}" required />
+                                  <button type="submit" class="review-like-btn">
                                     <span class="count">${review.review_like_hit }</span>
                                   </button>
+                                </form>
                                   <div class="review-like-a">리뷰가 도움이 되었나요?</div>
                                 </div>
                               </div>
