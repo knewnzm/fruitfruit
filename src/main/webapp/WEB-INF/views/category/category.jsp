@@ -133,6 +133,8 @@
 </header>
 
 <body>
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
 <div class="c_wrapper">
  <div class="c_container">
   <div class="c_h"><h1>카테고리 관리</h1> 
@@ -178,10 +180,7 @@
   </div>
  </div>
 </div>
+<c:import url="../footer.jsp"></c:import>
 </body>
-
-<footer>
-<h3>footer</h3>
-</footer>
 
 </html>

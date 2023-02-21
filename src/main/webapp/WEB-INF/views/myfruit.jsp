@@ -27,7 +27,7 @@
 		<c:when test="${sessionScope.user_type == 1}">
 			<ul class="myfruit">
 			  <li class="myfruit_li"><a href="${pageContext.request.contextPath}/product/mylist">내 주문 목록</a></li>
-			   <li class="myfruit_li"><a href="${pageContext.request.contextPath}/alram/mylist">내 알람 조회</a></li>
+			   <li class="myfruit_li"><a href="${pageContext.request.contextPath}/wish/wishList">내 찜 목록</a></li>
 			  <li class="myfruit_li"><a href="${pageContext.request.contextPath}/member/editForm">내 정보수정</a></li>
 			</ul>
 		</c:when>
@@ -35,7 +35,6 @@
         <c:when test="${sessionScope.user_type == 2}">
         	<ul class="myfruit">
 			  <li class="myfruit_li"><a href="${pageContext.request.contextPath}/product/mylist">내 판매 목록</a></li>
-			  <li class="myfruit_li"><a href="${pageContext.request.contextPath}/alram/mylist">내 알람 조회</a></li>
 			  <li class="myfruit_li"><a href="${pageContext.request.contextPath}/member/editForm">내 정보 수정</a></li>
 			</ul>        	
         </c:when>

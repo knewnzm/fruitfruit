@@ -195,11 +195,6 @@
         <c:import url="../head.jsp"></c:import>
         <c:import url="../header.jsp"></c:import>
 
-        <form class="wishlist-btn" action="${pageContext.request.contextPath}/review/reviewForm" method="get">
-          <input type="hidden" name="product_num" value="${p.product_num} " />
-          <button class="wishlist-btn" type="submit">리뷰 작성하기</button>
-        </form>
-
         <div class="product-detail-container">
           <div class="product-detail">
             <div class="product-image-section">
