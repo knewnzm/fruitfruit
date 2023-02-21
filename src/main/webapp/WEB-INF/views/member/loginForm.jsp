@@ -166,7 +166,7 @@
 									</a>
 								</li>
 								<li class="social_btn">
-									<a href="kakaotalk.png" onclick="" >
+									<a href="https://kauth.kakao.com/oauth/authorize?client_id=f98b949e06b7e0104ec9a748fdd44138&redirect_uri=http://localhost:8081/kakao_callback&response_type=code" onclick="" >
 										<i class="icon_kakao"></i>
 											<img src="${pageContext.request.contextPath}/static/img/login_kakaotalk_icon.png" class="social_icon"><br>
 												<span class="social_text">카카오</span>
