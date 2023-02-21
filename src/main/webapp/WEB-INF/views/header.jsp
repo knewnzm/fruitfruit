@@ -19,22 +19,11 @@
                 }
 
                 ///////////////////////////////////
-                function hmakeBtn2(data, cate_type = 2) { 
-                    let html = ` 
-            	<li>
-                <a href="/product/csearch?frfr_category2=${"${data.cate_num}"}" class="on title">
-                    <span>${"${data.cate_name}"}</span>
-                </a>
-            </li>
-            `;
-                    return html;
-                }
-
                 function hmakeBtn(data, cate_type = 1) {
  
                     let html = ` 
             	<li class="menuArea"> 
-                <a href="/product/csearch?frfr_category1=${"${data.cate_num}"}" class="title on"> 
+                <a href="/product/productCsearch?frfr_category1=${"${data.cate_num}"}" class="title on"> 
                     <span id="c${'${cate_type}'}x${'${data.cate_num}'}" class="text">${"${data.cate_name}"}</span>
                 </a>
                 <ul id="c${'${cate_type}'}_${'${data.cate_num}'}" class="category-wrap">
@@ -43,6 +32,20 @@
             `;
                     return html; 
                 }
+
+
+                function hmakeBtn2(data, cate_type = 2) { 
+                    let html = ` 
+            	<li>
+                    
+                <a href="/product/productCsearch?frfr_category2=${"${data.cate_num}"}" class="on title">
+                    <span>${"${data.cate_name}"}</span>
+                </a>
+            </li>
+            `;
+                    return html;
+                }
+
 
                 function hmakeBtnList(array, cate_type = 1) {
                     let html = "";

@@ -59,7 +59,10 @@ public class ProductController {
 	  List<Product> list3 = pService.orderByProductHitDesc(0, 4);
 	  model.addAttribute("list3", list3);
 	  
-	  return "index"; }
+	  return "index"; 
+	  
+	  
+	  }
 	 
 	
 //	@RequestMapping(value = "/") //홈으로 가기
@@ -73,43 +76,27 @@ public class ProductController {
 	}
 	
 	private void uploadFile(MultipartFile file, int product_num) {
-		File dir = new File(projectPath + webPath + product_num);
-		if (!dir.exists()) {
-			dir.mkdir();
-		}
-		
-		if (!file.isEmpty()) {
-			String uploadPath = projectPath + webPath + product_num + "/" + file.getOriginalFilename();
-			File f = new File(projectPath + uploadPath);
-			if (!f.exists()) {
-				try {
-					f.createNewFile();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			try {
-				file.transferTo(f);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	private void uploadInnerFiles(MultipartFile file, int product_num, int inner_img_num) {
-		File dir = new File(projectPath + webPath + product_num);
-		if (!dir.exists()) {
-			dir.mkdir();
-		}
-		if (!file.isEmpty()) {
-			String uploadPath = webPath + product_num + "\\" + inner_img_num + "_" + file.getOriginalFilename();
-			File f = new File(projectPath + uploadPath);
-			try {
-				file.transferTo(f);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+	    File dir = new File(projectPath + File.separator + webPath + File.separator + product_num);
+	    if (!dir.exists()) {
+	        dir.mkdir();
+	    }
+
+	    if (!file.isEmpty()) {
+	        String uploadPath = webPath + File.separator + product_num + File.separator + file.getOriginalFilename();
+	        File f = new File(projectPath + uploadPath);
+	        if (!f.exists()) {
+	            try {
+	                f.createNewFile();
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        try {
+	            file.transferTo(f);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
 	}
 	
 	//insert
@@ -119,10 +106,6 @@ public class ProductController {
 
 		int product_num = pService.selectSeqProductCurrval();
 		uploadFile(p.getFile(), product_num);
-		// uploadInnerFiles(p.getInnerFile1(), product_num, 1);
-		// uploadInnerFiles(p.getInnerFile2(), product_num, 2);
-		// uploadInnerFiles(p.getInnerFile3(), product_num, 3);
-		
 		
 		return "redirect:/product/productDetail?product_num=" + product_num;
 	}
@@ -332,5 +315,19 @@ String isWished = "false";
 	         pService.updateProductPickFalse(product_num);
 	      }
 	   }
+	 @GetMapping("/product/productCsearch")
+		public void csearch(
+		        @RequestParam(required = false) Integer frfr_category1,
+		        @RequestParam(required = false) Integer frfr_category2, Model model) {
+		    List<Product> plist = null;
+		    if (frfr_category1 != null && frfr_category1 != 0) {
+		        plist = pService.selectProductListByCategory1_num(frfr_category1);
+		    }
+		    else {
+		        plist = pService.selectProductListByCategory2_num(frfr_category2);
+		    }
+		    
+		    model.addAttribute("plist", plist);
+		}
 	
 }

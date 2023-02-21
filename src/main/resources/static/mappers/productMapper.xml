@@ -264,7 +264,7 @@
 		where frfr_category1=#{frfr_category1} 
 		order by product_num desc
 	</select>
-	<select id="selectListByCategory2_num" resultMap="product">
+	<select id="selectProductListByCategory2_num" parameterType="int" resultMap="product">
 		select * 
 		from product 
 		where frfr_category2=#{frfr_category2} 

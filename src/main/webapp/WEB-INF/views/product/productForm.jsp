@@ -128,7 +128,7 @@
 							<label class="uploadBTN" for="uploadFile">
 								이미지 추가하기
 							</label>
-							<input type="file" name="file" id="uploadFile" style="display:none" multiple>
+							<input type="file" name="file" id="uploadFile" style="display:none">
 						</div>
 						
 						<div id="preview"></div>
