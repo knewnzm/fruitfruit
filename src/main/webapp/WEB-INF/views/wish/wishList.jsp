@@ -60,6 +60,7 @@
                                 <div class="new_list">
                                     <%-- 찜한 상품이 있을 때 --%>
                                         <c:forEach var="wish" items="${list}">
+                                        <c:if test="${wish.p.product_view_type==1 }">
                                             <div class="product-card">
                                                 <a
                                                     href="${pageContext.request.contextPath}/product/productDetail?product_num=${wish.p.product_num}">
@@ -76,10 +77,12 @@
                                                 <input type="button" value="삭제" class="delete"
                                                     itemid="${wish.wish_num }">
                                             </div>
-                                            <div class="all-del">
+                                            </c:if>
+                                            
+                                        </c:forEach>
+                                        <div class="all-del">
                                                 <input type="button" value="전체 삭제" id="deleteAll">
                                             </div>
-                                        </c:forEach>
                                 </div>
                             </c:if>
                     </form>

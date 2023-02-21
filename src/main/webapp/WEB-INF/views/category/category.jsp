@@ -128,9 +128,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/category.css" />
 
 </head>
-<header>
-<h3>헤더</h3>
-</header>
 
 <body>
 <c:import url="../head.jsp"></c:import>

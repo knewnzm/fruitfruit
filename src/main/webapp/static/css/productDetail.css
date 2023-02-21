@@ -176,6 +176,34 @@ input::-webkit-inner-spin-button {
   color: #fff;
 }
 
+/* 블라인드 해제 */
+.no-blind {
+  margin: 10px 5px 10px 0;
+  border: 1px solid #f02c11;
+  background: #fff;
+  color: #f02c11;
+  text-align: center;
+  width: 90px;
+  border-radius: 7px;
+  padding: 8px 0;
+  position: absolute;
+  right: 0;
+  top: 40px;
+}
+
+.no-blind a {
+  color: #f02c11;
+}
+
+.no-blind:hover {
+  background: #f02c11;
+  color: #fff;
+}
+
+.no-blind:hover>a {
+  color: #fff;
+}
+
 
 
 /* 신고하기 */
@@ -555,7 +583,9 @@ input::-webkit-inner-spin-button {
 #close-modal,
 #report-btn,
 #close-modal2,
-#qModalBtn {
+#qModalBtn,
+#close-eModal,
+#eModalBtn {
   margin: 20px 10px 0 10px;
   background: #fff;
   border: 1px solid #f02c11;
@@ -569,7 +599,9 @@ input::-webkit-inner-spin-button {
 #close-modal:hover,
 #report-btn:hover,
 #close-modal2:hover,
-#qModalBtn:hover {
+#qModalBtn:hover,
+#close-eModal:hover,
+#eModalBtn:hover {
   background: #f02c11;
   color: #fff;
 }
@@ -729,4 +761,36 @@ input::-webkit-inner-spin-button {
 
 .support-re {
   margin-left: -370px;
+}
+
+
+/* 문의 수정/삭제 */
+
+.support-contents {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.support-edit:hover, .support-delete:hover {
+filter: drop-shadow(1px 1.5px 0.5px #f02c11);
+}
+
+.support-delete {
+  position: relative;
+  top: -105px;
+    border: 1px solid #f02c11;
+    background: #fff;
+    color: #f02c11;
+    text-align: center;
+    width: 30px;
+    border-radius: 5px;
+    height: 27px;
+}
+
+
+.support-delete input {
+cursor: pointer;
+background-color: #fff;
+color: #f02c11;
 }

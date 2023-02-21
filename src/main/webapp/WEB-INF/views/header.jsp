@@ -145,7 +145,7 @@
                                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                             <li class="dropdown-item">
                                                                 <a class="dropdown-item-a"
-                                                                    href="${pageContext.request.contextPath}/member/main">내정보</a>
+                                                                    href="${pageContext.request.contextPath}/member/editForm">내정보</a>
                                                             </li>
                                                             <li class="dropdown-item">
                                                                 <a class="dropdown-item-a"
@@ -153,7 +153,7 @@
                                                             </li>
                                                             <li class="dropdown-item">
                                                                 <a class="dropdown-item-a"
-                                                                    href="${pageContext.request.contextPath}/product/list">제품관리</a>
+                                                                    href="${pageContext.request.contextPath}/product/productList">제품관리</a>
                                                             </li>
                                                             <li class="dropdown-item">
                                                                 <a class="dropdown-item-a"
@@ -253,7 +253,7 @@
                                                                     aria-labelledby="navbarDropdown">
                                                                     <li class="dropdown-item">
                                                                         <a class="dropdown-item-a"
-                                                                            href="${pageContext.request.contextPath}/member/myPage">마이페이지
+                                                                            href="${pageContext.request.contextPath}/member/editForm">마이페이지
                                                                             <c:if test="${alram_size >= 1}">
                                                                                 <span
                                                                                     class="badge bg-danger">${alram_size}</span>
@@ -267,7 +267,7 @@
                                                                     </li>
                                                                     <li class="dropdown-item">
                                                                         <a class="dropdown-item-a"
-                                                                            href="${pageContext.request.contextPath}/">구매
+                                                                            href="${pageContext.request.contextPath}/product/mylist">구매
                                                                             목록
                                                                         </a>
                                                                     </li>

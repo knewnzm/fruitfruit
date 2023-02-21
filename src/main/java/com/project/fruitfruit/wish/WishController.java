@@ -63,19 +63,25 @@ public class WishController {
 
 		// 찜 추가
 		@RequestMapping("/wish/add")
-		public String addWish(@RequestParam int product_num) {
-			String user_id = (String) session.getAttribute("user_id");
-			System.out.println("addWish : " + user_id + " " + product_num);
+		public String addWish(
+				@RequestParam int product_num, 
+				@RequestParam String isWished) {
+			
+			if (isWished.equals("false")) {
+				String user_id = (String) session.getAttribute("user_id");
+				System.out.println("addWish : " + user_id + " " + product_num);
 
-			Wish w = new Wish();
+				Wish w = new Wish();
 
-			w.setWish_user_id(user_id);
-			w.setWish_product_num(product_num);
+				w.setWish_user_id(user_id);
+				w.setWish_product_num(product_num);
 
-			System.out.println("addWish w : " + w);
-			wService.insertWish(w);
+				System.out.println("addWish w : " + w);
+				wService.insertWish(w);
+			}
 
 			return "redirect:/wish/wishList";
+			
 		}
 
 		// 찜 삭제

@@ -53,7 +53,9 @@ public class WishService {
 		
 	}
 
-
+	public Wish selectWishByUserIdAndProductNum(Wish w) {
+		return mapper.selectWishByUserIdAndProductNum(w);
+	}
 
 	
 }

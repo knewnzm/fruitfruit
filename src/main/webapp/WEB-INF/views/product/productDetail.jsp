@@ -101,6 +101,53 @@
                 alert("취소되었습니다");
               }
             });
+         
+
+
+          /* 문의 수정 */
+          const modal3 = document.querySelector('#modal3');
+          const eBtnOpenPopup = document.querySelector('.support-e-btn');
+          const eBtnClose = document.querySelector('#close-eModal');
+
+            eBtnOpenPopup.addEventListener('click', () => {
+              modal3.classList.toggle('show');
+
+
+              if (modal3.classList.contains('show')) {
+                body.style.overflow = 'hidden';
+              }
+            });
+
+            modal3.addEventListener('click', (event) => {
+              if (event.target === modal) {
+                modal3.classList.toggle('show');
+
+                if (!modal3.classList.contains('show')) {
+                  body.style.overflow = 'auto';
+                }
+              }
+            });
+
+            eBtnClose.addEventListener('click', () => {
+              modal3.classList.remove('show');
+              body.style.overflow = 'auto';
+            });
+
+            $("#eModalBtn").click(function (e) {
+              e.preventDefault();
+              var returnValue = confirm("문의사항을 수정할까요?");
+              if (returnValue == true) {
+                $("#eModal").submit();
+                alert("문의사항 수정 완료되었습니다");
+              } else {
+                alert("취소되었습니다");
+              }
+            });
+
+
+            
+        
+
           });
 
           /* 탭 이동 */
@@ -175,15 +222,59 @@
                 closeModal();
               });
             });
-
-
-
-
           });
 
 
 
+          function checkDuplicateProduct(productNum) {
+  $.ajax({
+    url: "/wish/check",
+    type: "POST",
+    data: { product_num: productNum },
+    success: function(response) {
+      if (response.duplicate) {
+        alert("이미 찜한 상품입니다.");
+        // 찜 등록 버튼 비활성화
+        $("#wishlist-" + productNum).prop("disabled", true);
+      } else {
+        // 찜 등록 버튼 활성화
+        $("#wishlist-" + productNum).prop("disabled", false);
+      }
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText);
+    }
+  });
+}
+function checkDuplicateProduct(productNum) {
+  $.ajax({
+    url: "/wish/check",
+    type: "POST",
+    data: { product_num: productNum },
+    success: function(response) {
+      if (response.duplicate) {
+        alert("이미 찜한 상품입니다.");
+        // 찜 등록 버튼 비활성화
+        $("#wishlist-" + productNum).prop("disabled", true);
+      } else {
+        // 찜 등록 버튼 활성화
+        $("#wishlist-" + productNum).prop("disabled", false);
+      }
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText);
+    }
+  });
+}
 
+$(document).ready(function() {
+  // 모든 찜 버튼에 대해서 click 이벤트 핸들러 등록
+  $(".wishlist-btn").click(function() {
+    // 찜하려는 상품 번호를 읽어옴
+    var productNum = $(this).siblings("input[name=product_num]").val();
+    checkDuplicateProduct(productNum);
+  });
+});
 
         </script>
 
@@ -194,6 +285,11 @@
       <body>
         <c:import url="../head.jsp"></c:import>
         <c:import url="../header.jsp"></c:import>
+
+        <form class="wishlist-btn" action="${pageContext.request.contextPath}/review/reviewForm" method="get">
+          <input type="hidden" name="product_num" value="${p.product_num} " />
+          <button class="wishlist-btn" type="submit">리뷰 작성하기</button>
+        </form>
 
         <div class="product-detail-container">
           <div class="product-detail">
@@ -220,13 +316,19 @@
                     <c:if test="${ sessionScope.user_type==3&&p.product_view_type!=0}">
                       상품 블라인드
                     </c:if>
-                    <c:if test="${ sessionScope.user_type==3&&p.product_view_type==0}">
+                    <c:if test="${ sessionScope.user_type==3 && p.product_view_type==0}">
                       삭제하기
                     </c:if>
                     <c:if test="${ sessionScope.user_type!=3}">
                       삭제하기
                     </c:if>
                   </button>
+                  <c:if test="${ sessionScope.user_type==3 && p.product_view_type==0}">
+                  <button class="no-blind"
+                  onclick="location.href=`${pageContext.request.contextPath}/product/unblind?product_num=${p.product_num}`">
+                    블라인드 해제
+                  </button>
+                </c:if>
                 </div>
               </c:if>
               <div class="price">
@@ -286,10 +388,25 @@
               </div>
 
               <div class="buttons">
+                <!-- <form class="wish-form" onsubmit="return false;">
+                  <input type="hidden" name="product_num" value="${p.product_num}">
+                  <button id="wishlist-${p.product_num}" class="wishlist-btn" onclick="checkDuplicateProduct('${p.product_num}');">찜</button>
+                </form> -->
+                <!-- <form class="wish-form" action="${pageContext.request.contextPath}/wish/add" method="post">
+                  <input type="hidden" name="product_num" value="${p.product_num}">
+                  <button class="wishlist-btn" type="button">찜</button> -->
+                <!-- 버튼=버튼으로 하고 함수가 실행되게끔 하고 함수 안에 ajax 넣고 
+                ajax에 post controller ->all list select ->  ajax 확인 if else alert  -->
                 <form class="wish-form" action="${pageContext.request.contextPath}/wish/add" method="post">
                   <input type="hidden" name="product_num" value="${p.product_num}">
+                  <input type="hidden" name="isWished" value="${isWished}">
                   <button class="wishlist-btn" type="submit">찜</button>
                 </form>
+
+               
+
+
+
                 <button class="cart-btn" onclick="orderform.submit();">주문 요청하기</button>
                 <div class="report-wrap">
                   <button id="reportBtn" style="cursor: pointer"><img
@@ -446,6 +563,16 @@
                         <tr id="answer_${support.support_num}" class="support-content-wrap">
                           <td class="support-content" data-support-con="${support.support_num}" colspan="3">
                             <p class="support-content-q"> ${support.support_content}</p>
+                            <!-- 작성자일 때만 삭제 뜨게 하기 -->
+                            <c:if test="${support.support_writer == sessionScope.user_id }">
+                              <div class="support-delete">
+                                <form method="post" action="${pageContext.request.contextPath}/support/delete">
+                                    <input type="hidden" name="support_num" value="${support.support_num}">
+                                    <input type="submit" value="X">
+                                </form>
+                              </div>
+                            </c:if>
+
                             <c:set var="re_num" value="" />
                             <c:forEach var="support_re" items="${supports }">
                               <c:if test="${support_re.support_parent_num == support.support_num}">
@@ -552,8 +679,27 @@
               <input type="hidden" name="support_product_num" value="${p.product_num}" required />
             </div>
             <div class="modal-footer">
-              <button id="close-modal2" type="button">닫기</button>
               <button id="qModalBtn" type="submit">문의하기</button>
+              <button id="close-modal2" type="button">닫기</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- 문의 수정 창 -->
+        <div class="modal mhidden" id="modal3">
+          <form action="${pageContext.request.contextPath}/support/edit" method="post" class="modalForm" id="eModal">
+            <div class="modal-main">
+              <label for="etitle" class="label">문의 제목</label>
+              <input id="etitle" name="support_title" type="text" class="input" value="${s.support_title}" required/>
+              <label for="econtent" class="label">문의 내용</label>
+              <textarea id="econtent" name="support_content" class="input" required>${s.support_content}</textarea>
+              <input type="hidden" name="support_writer" value="${s.support_writer}" required />
+              <input type="hidden" name="support_parent_num" value="${s.support_parent_num}" required />
+              <input type="hidden" name="support_product_num" value="${s.support_product_num}" required />
+            </div>
+            <div class="modal-footer">
+              <button id="eModalBtn" type="submit">수정하기</button>
+              <button id="close-eModal" type="button">닫기</button>
             </div>
           </form>
         </div>

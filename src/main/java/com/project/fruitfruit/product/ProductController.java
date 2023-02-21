@@ -2,6 +2,7 @@ package com.project.fruitfruit.product;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,12 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.project.fruitfruit.answer.AnswerService;
 import com.project.fruitfruit.review.Review;
 import com.project.fruitfruit.review.ReviewService;
 import com.project.fruitfruit.support.Support;
 import com.project.fruitfruit.support.SupportService;
 import com.project.fruitfruit.util.Page;
+import com.project.fruitfruit.wish.Wish;
+import com.project.fruitfruit.wish.WishService;
 
 @Controller
 public class ProductController {
@@ -34,6 +36,8 @@ public class ProductController {
 	private SupportService sService;
 	
 	
+	@Autowired
+	private WishService wService;
 
 	
 	@Autowired
@@ -231,6 +235,8 @@ public class ProductController {
 	//select
 	@RequestMapping("/product/productDetail")
 	public void viewProduct(@RequestParam int product_num, Model model) {
+		String user_id = (String) session.getAttribute("user_id");
+		
 		pService.addProductHit(product_num);////
 		Product p = pService.selectProduct(product_num);
 		model.addAttribute("p", p);
@@ -239,7 +245,24 @@ public class ProductController {
 		model.addAttribute("reviews", reviews);
 		
 		List<Support> supports = sService.selectSupportByProductNum(product_num);
+		Collections.reverse(supports);
 		model.addAttribute("supports", supports);
+		
+String isWished = "false";
+		
+		if (user_id != null) {
+			Wish w = new Wish();
+			w.setWish_num(0);
+			w.setWish_user_id(user_id);
+			w.setWish_product_num(product_num);
+			Wish wish = wService.selectWishByUserIdAndProductNum(w);
+			
+			if (wish != null) {
+				isWished = "true";
+			}
+		}
+		
+		model.addAttribute("isWished", isWished);
 		
 	}
 	
@@ -268,6 +291,13 @@ public class ProductController {
 		}
 	}
 
+	@RequestMapping("/product/unblind")
+	public String unblindProduct(@RequestParam int product_num) {
+		pService.updateProductViewTypeUnblind(product_num);
+		return "redirect:/product/productList";
+		
+		
+	}
 	
 	//관리자 픽 
 	private void setProductPick(boolean bool, int product_num) {
@@ -277,6 +307,7 @@ public class ProductController {
 			pService.updateProductPickFalse(product_num);
 		}
 	}
+
 	
 
 	/*

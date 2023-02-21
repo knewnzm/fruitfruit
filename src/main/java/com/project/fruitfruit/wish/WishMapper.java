@@ -18,5 +18,5 @@ public interface WishMapper {
 
 	public int selectSeqWishCurrval();
 	public void deleteAllWishByUserId(String user_id);
-	
+	public Wish selectWishByUserIdAndProductNum(Wish w);
 }
