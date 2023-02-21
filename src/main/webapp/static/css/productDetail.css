@@ -766,38 +766,28 @@ input::-webkit-inner-spin-button {
 
 /* 문의 수정/삭제 */
 
-.support-edit {
-  border: 1px solid #f02c11;
-    position: relative;
-    left: 450px;
-    background: #fff;
-    text-align: center;
-    width: 40px;
-    border-radius: 7px;
-    padding: 0 0 3px 0;
-    bottom: 55px;
+.support-contents {
+  display: flex;
+  flex-direction: row;
 }
 
-.support-edit > button {
-color: #f02c11;
-}
 
 .support-edit:hover, .support-delete:hover {
 filter: drop-shadow(1px 1.5px 0.5px #f02c11);
 }
 
 .support-delete {
-  bottom: 83px;
   position: relative;
-  border: 1px solid #f02c11;
-  left: 500px;
-  background: #fff;
-  color: #f02c11;
-  text-align: center;
-  width: 40px;
-  border-radius: 7px;
-  padding: 0 0 3px 0;
+  top: -105px;
+    border: 1px solid #f02c11;
+    background: #fff;
+    color: #f02c11;
+    text-align: center;
+    width: 30px;
+    border-radius: 5px;
+    height: 27px;
 }
+
 
 .support-delete input {
 cursor: pointer;
