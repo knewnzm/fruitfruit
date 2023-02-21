@@ -93,7 +93,12 @@
                 }
             });
         });
-        
+        /* 엔터 submit 방지,  keyCode 13은 enter를 의미 */
+        $('input[type="text"]').keydown(function () { 
+            if (event.keyCode === 13) { 
+                event.preventDefault();
+            }
+        });        
         
         </script>
     </head>

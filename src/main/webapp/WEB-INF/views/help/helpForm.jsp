@@ -10,6 +10,13 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
+/* 엔터 submit 방지,  keyCode 13은 enter를 의미 */
+$('input[type="text"]').keydown(function () { 
+    if (event.keyCode === 13) { 
+        event.preventDefault();
+    }
+});
+/* 파일 */
 $(document).ready(function(){
     $('input[name="file1"]').change(function(){
         setImageAndFileNameFromFile(this);

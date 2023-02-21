@@ -131,7 +131,7 @@
       						<h2>삭제하기</h2>
       				</div>
       				<div class="modal_body">
-      							등록한 문의글을 삭제하시겠습니까?
+      							문의글을 삭제하시겠습니까?
       				</div>
       				<div class="modal_footer">
                         	    <button type="button" class="modal_close_btn1"  data-bs-dismiss="modal" aria-label="Close">취소</button>
@@ -181,6 +181,7 @@
 </body>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
+
 /* 모달 */
 const userType = "${user_type}"
 const body = document.querySelector('body');

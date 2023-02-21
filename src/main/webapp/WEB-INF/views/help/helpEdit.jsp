@@ -9,6 +9,14 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/helpForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+/* 엔터 submit 방지,  keyCode 13은 enter를 의미 */
+$('input[type="text"]').keydown(function () { 
+    if (event.keyCode === 13) { 
+        event.preventDefault();
+    }
+});
+</script>
 <body>
 <c:import url="../head.jsp"></c:import>
 <c:import url="../header.jsp"></c:import>
