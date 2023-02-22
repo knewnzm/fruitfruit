@@ -9,32 +9,33 @@
 <title>noticeForm</title>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
- <script>
+<script>
             // 카테고리 버튼 생성
             function makeBtn(data, cate_type = 1) { 
             	console.log("makeBtn");
-          		  	
-                let html = ` 
-                <div class="btn-group" id="c${"${cate_type}"}+${"${data.cate_num}"}">  
-                    <input type="radio" class="btn-check" name="frfr_category${"${cate_type}"}" id="c${"${cate_type}"}-${"${data.cate_num}"}" value="${"${data.cate_num}"}" autocomplete="off">
-                    <label class="btn-outline" for="c${"${cate_type}"}-${"${data.cate_num}"}">
-                    	${"${data.cate_name}"}
-                    </label>
-                </div>
+				console.log(data);
+                let html = `
+					<c:forEach items="data">
+						<option id="c${"${cate_type}"}-${"${data.cate_num}"}" value="${"${data.cate_num}"}" >${"${data.cate_name}"}</option>
+					</c:forEach>
                 `;
                 return html;
             }
+
+            
             // 카테고리 목록 생성
             function makeBtnList(array, cate_type = 1) {
             	console.log("makeBtnList");
+            	console.log(array);
             	
-                let html = "";
+                let html = "<option>선택해 주세요</option>";
                 for (let i = 0; i < array.length; i++) {
                     const element = array[i];
                     html += makeBtn(element, cate_type);
                 }
                 return html;
             }
+            
             // 카테고리 데이터 가져오기
             function getCategoryList(cate_type, cate_parent_num = -1) {
             	console.log("getCategoryList");
@@ -54,11 +55,11 @@
             // 카테고리 버튼 클릭 시 (하위 카테고리를 추가하기 위한 상위 카테고리 선택 시)
             function categoryBtnClickHandler(e) {
             	console.log("categoryBtnClickHandler");
-            	
+            	console.log(e.target.value);
                 const data = $(e.target).attr("id").split("-"); // $(e.target)은 <a>태그, a태그의 id에서 "-"를 기준으로 값을 나눠 data에 담는다 ex)c1,2
                 const cate_type = parseInt(data[0].substr(1)); //그중 맨앞의 값인 data[0]값의 맨 앞의 하나를 뺀다 .substr(1) c1-> 1
-                const cate_num = data[1]; //그 다음값인 data[1]값
-                
+                const cate_num = e.target.value; //그 다음값인 data[1]값
+
             	if(cate_type <= 1){
                     getCategoryList(cate_type + 1, cate_num);
                     $("#c" + (cate_type + 1) + "-parent").val(cate_num);
@@ -71,16 +72,92 @@
             $(document).ready(function () {
                 // 기본 대분류 카테고리 목록 가져옴
                 console.log("ready");
-                
-                
+
                 getCategoryList(1);
                 
                 // 카테고리 선택 버튼
-                $(document).on("change", "input[type='radio']", function (e) {
+                $(document).on("change", "select[id='c1-list']", function (e) {
                 	console.log("카테고리 선택 버튼");
                     categoryBtnClickHandler(e);
                 });
                 
+            });
+            
+            
+            ///////////////////////////////////////////////////
+			document.addEventListener('keydown', function(event) {
+          	  if (event.keyCode === 13) {
+          	    event.preventDefault();
+          	  };
+          	}, true);
+
+			$(document).ready(function (e){
+              $("input[type='file']").change(function(e){
+
+                //div 내용 비워주기
+                $('#preview').empty();
+
+                var files = e.target.files;
+                var arr =Array.prototype.slice.call(files);
+                
+                //업로드 가능 파일인지 체크
+                for(var i=0;i<files.length;i++){
+                  if(!checkExtension(files[i].name,files[i].size)){
+                    return false;
+                  }
+                }
+                
+                preview(arr);
+                
+              });
+             
+              function checkExtension(fileName,fileSize){
+
+                var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
+                var maxSize = 20971520;  //20MB
+                
+                if(fileSize >= maxSize){
+                  alert('파일 사이즈 초과');
+                  $("input[type='file']").val("");  //파일 초기화
+                  return false;
+                }
+                
+                if(regex.test(fileName)){
+                  alert('업로드 불가능한 파일이 있습니다.');
+                  $("input[type='file']").val("");  //파일 초기화
+                  return false;
+                }
+                return true;
+              }
+              
+              function preview(arr){
+                arr.forEach(function(f){
+                  
+                  //파일명이 길면 파일명...으로 처리
+                  var fileName = f.name;
+                  if(fileName.length > 10){
+                    fileName = fileName.substring(0,7)+"...";
+                  }
+                  
+                  //div에 이미지 추가
+                  var str = '<div style="display: inline-flex; padding: 10px;"><li>';
+                  str += '<span>'+fileName+'</span><br>';
+                  
+                  //이미지 파일 미리보기
+                  if(f.type.match('image.*')){
+                    var reader = new FileReader(); //파일을 읽기 위한 FileReader객체 생성
+                    reader.onload = function (e) { //파일 읽어들이기를 성공했을때 호출되는 이벤트 핸들러
+                      str += '<img src="'+e.target.result+'" title="'+f.name+'" width=150 height=150 />';
+                      str += '</li></div>';
+                      $(str).appendTo('#preview');
+                    } 
+                    reader.readAsDataURL(f);
+                  }else{
+                    str += '<img src="/resources/img/fileImg.png" title="'+f.name+'" width=150 height=150 />';
+                    $(str).appendTo('#preview');
+                  }
+                });//arr.forEach
+              }
             });
         </script>
 
@@ -90,8 +167,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 
 <body>
-<%--   	<c:import url="../head.jsp"></c:import>
-	<c:import url="../header.jsp"></c:import>  --%>
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
 	
 	<main class="container">
 		<div class="content">
@@ -114,7 +191,7 @@
 							</div>
 							
 							<div class="product_input">
-								<input type="text" name="product_title" id="product_title"  class="ed_input">
+								<input type="text" name="product_title" id="product_title"  class="ed_input" required>
 							</div>
 						</div>
 							
@@ -128,7 +205,7 @@
 							<label class="uploadBTN" for="uploadFile">
 								이미지 추가하기
 							</label>
-							<input type="file" name="file" id="uploadFile" style="display:none">
+							<input type="file" name="file" id="uploadFile" style="display:none" required>
 						</div>
 						
 						<div id="preview"></div>
@@ -139,13 +216,17 @@
 									카테고리
 								</label>
 							</div>
-						</div>                     
+							                   
 							<div class="product_cateinput">
-								<div class = "list-group" id="c1-list"></div>
+								<select class = "list-group" name="frfr_category1" id="c1-list">
+									
+								</select>
 							</div>
 							
 							<div class="product_cateinput">
-								<div class = "list-group" id="c2-list"></div>	
+								<select class = "list-group" name="frfr_category2" id="c2-list">
+									
+								</select>	
 							</div>
 							
 						</div>
@@ -158,7 +239,7 @@
 							</div>
 							
 							<div class="product_input">
-								<input type="number"  class="ed_input" name="product_price" class="ed_input" id="price" >
+								<input type="number"  class="ed_input" name="product_price" class="ed_input" id="price" required>
 							</div>
 						</div>
 						
@@ -170,7 +251,7 @@
 							</div>
 							
 							<div class="product_input">
-								<input type="number"  class="ed_input" name="product_quantity" id="quantity" >
+								<input type="number"  class="ed_input" name="product_quantity" id="quantity" required>
 							</div>
 						</div>
 						
