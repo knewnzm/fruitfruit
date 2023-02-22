@@ -13,10 +13,10 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css"> -->
             <title>Document</title>
             <script type="text/javascript">
-                function search() {
+               function search(event) {
                     const keyword = document.getElementById("headerSearchId").value;
                     window.location.href = "${pageContext.request.contextPath}/product/productSearch?keyword=" + keyword;
-                }
+                } 
 
                 ///////////////////////////////////
                 function hmakeBtn(data, cate_type = 1) {
@@ -294,7 +294,7 @@
                             </a>
                         </h1>
                         <div class="searchAreaWrap">
-                            <form>
+                            <form  action="${pageContext.request.contextPath}/product/productSearch">
                                 <div class="searchArea fruit TXT">
                                     <input title="검색어 입력" id="headerSearchId" placeholder="검색어를 입력하세요" class="TXT"
                                         type="search" name="keyword">
@@ -323,11 +323,11 @@
                                     <c:otherwise>
                                         <%-- 그 외 --%>
                                             <div class="icon">
-                                                <a href="${pageContext.request.contextPath}/wish/wishList"
+                                                <a href="${pageContext.request.contextPath}/product/productList"
                                                     class="heart"><span>아이콘</span></a>
                                             </div>
                                             <div class="icon">
-                                                <a href="${pageContext.request.contextPath}/product/mylist"
+                                                <a href="${pageContext.request.contextPath}/member/userList"
                                                     class="mypage"><span>아이콘</span></a>
                                             </div>
                                             <div class="icon">

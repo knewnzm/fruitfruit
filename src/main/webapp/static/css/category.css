@@ -50,7 +50,11 @@
    	margin: 0px 50px;
 }
 .btn-group{
+	width:250px;
    	margin-bottom: 10px;
+   	display:flex;
+    align-items: center;
+    justify-content: space-between;
 }
 input[type=radio]{
 	width:15px;
@@ -78,6 +82,7 @@ input[type="radio"]:checked {
     padding-left: 7px;
     font-size: 16px;
     border: 1px solid #f02c11;
+    border-radius: 8px 0 0 8px;
 }
 .c_btn{
 	width: 50px;
@@ -86,23 +91,24 @@ input[type="radio"]:checked {
 	cursor: pointer;
 	background:#f02c11;
 	color:white;
+	 border-radius: 0 8px 8px 0;
 	
 }
 .c_form{
 	width:250px;
 	display: flex;
-	border: 1px solid #D1D0CE;
     border-radius: 5px;
     margin: 10px 0px ;
 
 }
 
 .btn-delete{
-	width: 45px;
+	width: 52px;
 	height: 30px;
 	cursor: pointer;
 	font-size: 15px;
 	background:#f02c11;
 	color:white;
     border-radius: 5px;
+    float: right;
 }

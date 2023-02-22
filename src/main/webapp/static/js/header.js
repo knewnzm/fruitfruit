@@ -18,7 +18,7 @@ function categoryLeave() {
 
 
 
-btn.addEventListener("mouseenter", categoryHover);
+wrap.addEventListener("mouseenter", categoryHover);
 
 
 

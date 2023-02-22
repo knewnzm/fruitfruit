@@ -11,7 +11,7 @@
 .product-list {
   margin: 0px auto 100px auto;
   width: 1200px;
-  height: 500px;
+  height: auto;
 }
 
 .product-list .new_list {
@@ -249,6 +249,7 @@ display: flex;
 justify-content: center;
 width: 1200px;
 margin: 20px auto;
+margin-bottom:100px;
 }
 
 .page-nav .page-nation {
