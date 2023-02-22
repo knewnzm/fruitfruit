@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -50,7 +50,7 @@
   <!-- 최신 등록 상품 -->
   <div class="product-list">
     <h2 class="list-title">최신 등록 상품</h2>
-  <div class="new_list clearfix">
+  <div id="new-product" class="new_list clearfix">
     <c:choose>
       <%-- 등록된 제품 목록이 있을 때 --%>
         <c:when test="${not empty list}">
@@ -81,7 +81,7 @@
     <!-- MD 추천 상품 -->
     <div class="product-list">
       <h2 class="list-title">MD 추천 상품</h2>
-        <div class="new_list clearfix">
+        <div id="md-product" class="new_list clearfix">
           	<c:choose>
 	    	<%-- 등록된 제품 목록이 있을 때 --%>
 			    <c:when test="${not empty list2}">
@@ -111,7 +111,7 @@
     <!-- 인기 BEST 상품 -->
   <div class="product-list">
     <h2 class="list-title">인기 BEST 상품</h2>
-			<div class="new_list clearfix">
+			<div id="best-product" class="new_list clearfix">
 				<c:choose>
 	    	<%-- 등록된 제품 목록이 있을 때 --%>
 			    <c:when test="${not empty list3}">

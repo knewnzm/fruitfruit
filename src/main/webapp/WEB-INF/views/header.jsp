@@ -98,13 +98,13 @@
     });
 });
 
-    var searchField = document.getElementById("headerSearchId");
+/*     var searchField = document.getElementById("headerSearchId");
     searchField.addEventListener("keyup", function(event) {
         event.preventDefault();
         if (event.keyCode === 13) {
             document.querySelector(".btnSearchInner").click();
         }
-    });
+    }); */
 
 
 
@@ -359,13 +359,13 @@
                                 <div id="menuInner" class="menuInner">
                                     <ul>
                                         <li class>
-                                            <a href="${pageContext.request.contextPath}/">신상품</a>
+                                            <a href="#new-product">신상품</a>
                                         </li>
                                         <li class>
-                                            <a href="${pageContext.request.contextPath}/member/myPage">MD PICK</a>
+                                            <a href="#md-product">MD PICK</a>
                                         </li>
                                         <li class>
-                                            <a href="${pageContext.request.contextPath}/member/myPage">인기베스트</a>
+                                            <a href="#best-product">인기베스트</a>
                                         </li>
                                         <li class>
                                             <a href="${pageContext.request.contextPath}/notice/noticeList">이벤트/공지</a>
