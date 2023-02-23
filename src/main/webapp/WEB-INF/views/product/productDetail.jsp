@@ -17,6 +17,14 @@
         <title>fruitfruit 상품 상세정보</title>
         <script type="text/javascript">
           $(document).ready(function () {
+        	  $("#orderBtn").click(function(){
+        		 if("${sessionScope.user_id}"==""){
+        			 location.href=`${pageContext.request.contextPath}/member/loginForm`
+        		 } else{
+        			 $("form[name=orderform]").submit();
+        		 }
+        	  });
+        	 
 
             /* 신고 모달 */
             const body = document.querySelector('body');
@@ -26,10 +34,14 @@
 
             /* 버튼 클릭시 모달 창 보여주기 */
             btnOpenPopup.addEventListener('click', () => {
+            	if("${sessionScope.user_id}"==""){
+            		location.href=`${pageContext.request.contextPath}/member/loginForm`
+            	} else{
               modal.classList.toggle('show');
               if (modal.classList.contains('show')) {
                 body.style.overflow = 'hidden';
               }
+            }
             });
 
             modal.addEventListener('click', (event) => {
@@ -269,11 +281,18 @@ function checkDuplicateProduct(productNum) {
 
 $(document).ready(function() {
   // 모든 찜 버튼에 대해서 click 이벤트 핸들러 등록
-  $(".wishlist-btn").click(function() {
+  $(".wishlist-btn").click(function(e) {
     // 찜하려는 상품 번호를 읽어옴
+    
+	  if("${sessionScope.user_id}"==""){
+		  e.preventDefault();
+    		location.href=`${pageContext.request.contextPath}/member/loginForm`;
+    		
+    	}else{
     var productNum = $(this).siblings("input[name=product_num]").val();
     checkDuplicateProduct(productNum);
-  });
+  }
+});
 });
 
         </script>
@@ -407,7 +426,7 @@ $(document).ready(function() {
 
 
 
-                <button class="cart-btn" onclick="orderform.submit();">주문 요청하기</button>
+                <button id="orderBtn" type="button" class="cart-btn">주문 요청하기</button>
                 <div class="report-wrap">
                   <button id="reportBtn" style="cursor: pointer"><img
                       src="${pageContext.request.contextPath}/static/img/report_icon.png">신고하기</button>

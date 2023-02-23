@@ -1,7 +1,5 @@
-
-
-
-const category = document.querySelector(".dep1");
+document.addEventListener("DOMContentLoaded", function(event) { //DOM이 로드된 이후에 실행되도록 하는 코드
+ const category = document.querySelector(".dep1");
 const btn = document.querySelector(".moreView");
 const wrap = document.querySelector(".moreViewWrap");
 
@@ -18,11 +16,15 @@ function categoryLeave() {
 
 
 
-wrap.addEventListener("mouseenter", categoryHover);
+btn.addEventListener("mouseenter", categoryHover);
 
 
 
 wrap.addEventListener("mouseleave", categoryLeave);
+});
+
+
+
 
 
 

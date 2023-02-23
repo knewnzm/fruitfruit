@@ -206,7 +206,7 @@
                                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                                 <li class="dropdown-item">
                                                                     <a class="dropdown-item-a"
-                                                                        href="${pageContext.request.contextPath}/member/main">내정보
+                                                                        href="${pageContext.request.contextPath}/member/editForm">내정보
                                                                         <c:if test="${alram_size >= 1}">
                                                                             <span
                                                                                 class="badge bg-danger">${alram_size}</span>
@@ -218,7 +218,7 @@
                                                                 </li>
                                                                 <li class="dropdown-item">
                                                                     <a class="dropdown-item-a"
-                                                                        href="${pageContext.request.contextPath}/product/add">상품
+                                                                        href="${pageContext.request.contextPath}/product/productForm">상품
                                                                         등록하기</a>
                                                                 </li>
                                                             </ul>
@@ -304,8 +304,24 @@
                         </div>
                         <div class="buttonArea">
                             <c:choose>
-                                <%-- 판매자 로그인시 --%>
-                                    <c:when test="${sessionScope.user_type == 2}">
+                                <%-- 관리자 로그인시 --%>
+                                    <c:when test="${sessionScope.user_type == 3}">
+                                        <div class="icon">
+                                                <a href="${pageContext.request.contextPath}/product/productList"
+                                                    class="heart"><span>아이콘</span></a>
+                                            </div>
+                                            <div class="icon">
+                                                <a href="${pageContext.request.contextPath}/member/userList"
+                                                    class="mypage"><span>아이콘</span></a>
+                                            </div>
+                                            <div class="icon">
+                                                <a href="${pageContext.request.contextPath}/help/helpList"
+                                                    class="chat"><span>아이콘</span></a>
+                                            </div>
+                                    </c:when>
+
+                                    <c:otherwise>
+                                     <%-- 일반회원 로그인시 --%>
                                         <div class="icon">
                                             <a href="${pageContext.request.contextPath}/product/mylist"
                                                 class="heart"><span>아이콘</span></a>
@@ -318,22 +334,9 @@
                                             <a href="${pageContext.request.contextPath}/help/helpList"
                                                 class="chat"><span>아이콘</span></a>
                                         </div>
-                                    </c:when>
-
-                                    <c:otherwise>
-                                        <%-- 그 외 --%>
-                                            <div class="icon">
-                                                <a href="${pageContext.request.contextPath}/product/productList"
-                                                    class="heart"><span>아이콘</span></a>
-                                            </div>
-                                            <div class="icon">
-                                                <a href="${pageContext.request.contextPath}/member/userList"
-                                                    class="mypage"><span>아이콘</span></a>
-                                            </div>
-                                            <div class="icon">
-                                                <a href="${pageContext.request.contextPath}/help/helpList"
-                                                    class="chat"><span>아이콘</span></a>
-                                            </div>
+                                 
+                                        <%-- 관리자 로그인시 --%>
+                                            
                                     </c:otherwise>
                             </c:choose>
                         </div>

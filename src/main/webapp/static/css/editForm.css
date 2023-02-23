@@ -15,7 +15,7 @@ a:hover {
 }
 li{display : inline-block;
 }
-hr{
+.e_hr{
 	border: 0;
     height: 2px;
 	background:#f02c11;

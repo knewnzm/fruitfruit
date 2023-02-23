@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
  <head>
  <title>notice List</title>
@@ -69,12 +69,8 @@
 	       	    
 	       	}
        	
-            $("#login_btn").click(function () {
-                if ($("#user_id").val() == "") {
-                    document.getElementById("msg").innerHTML = "이메일을 입력해주세요.";
-                } else if ($("#user_pwd").val() == "") {
-                    document.getElementById("msg").innerHTML = "패스워드를 입력해주세요.<br>";
-                } else {
+            $("#login_btn").click(function (event) {
+            	
                     id = $("#user_id").val();
                     pwd = $("#user_pwd").val();
                     $.ajax({
@@ -83,14 +79,14 @@
                         data: { id, pwd },
                         success: function (data) {
                             if (data.res == "fail") {
-                                document.getElementById("msg").innerHTML = "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.<br>";
-                            } else {
-                                $("form").submit();
-                                /* location.href="/member/joinForm"; */
+                            	document.getElementById("msg").innerHTML = "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.<br>";
+                            } else if(data.res == "null"){
+                            	document.getElementById("msg").innerHTML = "아이디 또는 비밀번호를 입력해주세요";
+                            } else{
+                            	$("form[name='K']").submit();
                             }
                         },
                     });
-                }
             });
         });
         
@@ -101,7 +97,7 @@
 <c:import url="../head.jsp"></c:import>
 <c:import url="../header.jsp"></c:import>
 <div class="wrap">
-	<main id="cantainer" class="container">
+	<div id="cantainer" class="container">
 		<div id="content" class="content">
 				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
 			<div class="login_wrap">
@@ -115,13 +111,13 @@
 							<div class="login_icon">
 								<img src="${pageContext.request.contextPath}/static/img/login_user.png" class="login_img">
 							</div>
-							<input type="text" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요." required/>
+							<input type="text" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요."/>
 						</div>
 						<div class="pwd_line">
 							<div class="login_icon">
 								<img src="${pageContext.request.contextPath}/static/img/login_padlock.png" class="login_img">
 							</div>
-							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요." required/>
+							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요."/>
 						</div>
 					</div>
 					<span id="msg" class="my-3 py-2 msg"></span>
@@ -134,7 +130,7 @@
 						</div>
 						<div class="login_find">
 							<ul class="find_inner" id="find_inner">
-								<li><a target="_parent" href="${pageContext.request.contextPath }/member/findId" class="find_text" >아이디 찾기</a></li> |
+								<li><a target="_parent" href="${pageContext.request.contextPath }/member/findId" class="find_text" >아이디 찾기</a></li> 
 								<li><a target="_parent" href="${pageContext.request.contextPath }/member/findPwd" class="find_text">비밀번호 찾기</a></li>
 							</ul>
 						</div>
@@ -167,7 +163,7 @@
 			</form>
 		</div>
 		<!-- content end -->
-	</main>
+	</div>
 <!-- wrap end -->
 </div>
 <c:import url="../footer.jsp"></c:import>

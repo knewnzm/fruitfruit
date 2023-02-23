@@ -11,22 +11,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript">
 $(document).ready(function() {
-	var chkid = false;
 	
-	// 엔터를 눌렀을때 submit 하는 것을 막기
-	$('input[type="text"]').keydown(function () { 
+	// 엔터를 눌렀을때 폼을 submit 하는 것을 막기
+	$('input').keydown(function () { 
         if (event.keyCode === 13) { //keyCode 13은 enter를 의미함
             event.preventDefault(); //기본 설정대로 실행되는것을 막는다는뜻
         }
     });
-	
-	//아이디 중복체크 여부 검사
-	function join() {
-        $("#submit").attr("disabled", true); 
-        if (chkid) {           
-            	$("#submit").attr("disabled", false);            
-        }
-    }
 	
 	//아이디 중복 확인
 	$(".id_check_btn").click(function() {
@@ -38,26 +29,18 @@ $(document).ready(function() {
 	});
 	
 	//중복체크 여부 확인
-	$("#submit").click(function() {		
+	$("#join").click(function() {		
 		if($(".id_check_text").text().trim()=="사용 가능한 이메일입니다"){
-			$("form").submit();
+			if($("#user_postcode").val() == ""||$("#user_addr1").val() == ""){ //readonly와 required를 함께 사용할 수 없기 떄문에 작성
+				alert("주소를 입력해주세요");
+				return false;
+			}
+			
 		}else{
 			alert("id 중복확인을 먼저 완료해주세요");
 			return false;
 		}
 		//빈값 확인
-		if ($("#user_pwd").val() == ""||
-			$("#user_name").val() == ""||
-			$("#user_nick").val() == ""||
-			$("#user_tel").val() == ""||
-			$("#user_postcode").val() == ""||
-			$("#user_addr1").val() == ""||
-			$("#user_addr2").val() == ""||
-			$("#user_user_bank").val() == ""||
-			$("#user_account").val() == "") {
-            alert("입력되지 않은 값이 존재합니다 다시 확인해주세요");
-            return false;
-		}
 	});
 });
 </script>
@@ -109,7 +92,7 @@ $(document).ready(function() {
 									</label>
 								</div>
 								<div class="join_input">
-									<input type="text" name="user_id" id="user_id"  class="j_input" placeholder="아이디를 입력해주세요.">
+									<input type="text" name="user_id" id="user_id"  class="j_input" placeholder="아이디를 입력해주세요." required>
 								</div>
 								<div class="join_btn">
 									<button class="id_check_btn" type="button" >
@@ -131,7 +114,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="password" name="user_pwd" id="user_pwd" class="j_input" placeholder="비밀번호를 입력해주세요.">
+							<input type="password" name="user_pwd" id="user_pwd" class="j_input" placeholder="비밀번호를 입력해주세요." required>
 						</div>
 					</div>
 					<div class="join_box">
@@ -141,7 +124,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="text" name="user_name" id="user_name" class="j_input" placeholder="이름을 입력해주세요.">
+							<input type="text" name="user_name" id="user_name" class="j_input" placeholder="이름을 입력해주세요." required>
 						</div>
 					</div>
 					<div class="join_box">
@@ -151,7 +134,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="text" name="user_nick" id="user_nick" class="j_input" placeholder="닉네임을 입력해주세요.">
+							<input type="text" name="user_nick" id="user_nick" class="j_input" placeholder="닉네임을 입력해주세요." required>
 						</div>
 					</div>
 					<div class="join_box">
@@ -161,7 +144,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="join_input">
-							<input type="text" name="user_tel" id="user_tel" class="j_input" placeholder="숫자만 입력해주세요.">
+							<input type="number" name="user_tel" id="user_tel" class="j_input" placeholder="숫자만 입력해주세요." required>
 						</div>
 					</div>
 					<div class="join_box">
@@ -188,7 +171,7 @@ $(document).ready(function() {
 								<input type="text" name="user_addr1" id="user_addr1" class="j_input" placeholder="도로명 주소" readonly>
 							</div>
 							<div class="addr_wrap2">
-								<input type="text" name="user_addr2" id="user_addr2" class="j_input" placeholder="상세항목">
+								<input type="text" name="user_addr2" id="user_addr2" class="j_input" placeholder="상세항목" required>
 							</div>
 						</div>
 					</div>
@@ -199,7 +182,7 @@ $(document).ready(function() {
 							</label>
 						</div>
 						<div class="account_select">
-							<select name="user_bank" id="user_bank" class="user_bank">
+							<select name="user_bank" id="user_bank" class="user_bank" required>
 								<option value="" disabled selected>선택</option>
 								<option value="1">국민은행</option>
 								<option value="2">우리은행</option>
@@ -215,12 +198,12 @@ $(document).ready(function() {
 							</select>
 						</div>
 						<div class="account_input">
-							<input type="text" name="user_account" id="user_account" class="j_input"placeholder="계좌번호를 입력해주세요.">
+							<input type="number" name="user_account" id="user_account" class="j_input"placeholder="계좌번호를 입력해주세요." required>
 						</div>
 					</div>
 					<div class="submit_wrap">
-						<button type="submit" id="submit" value="가입하기">가입하기</button>
-						<button class="back_btn" type="button" onClick="history.back();">목록으로</button>
+						<button type="submit" id="join" >가입하기</button>
+						<button class="back_btn" type="button" onClick="location.href=`${pageContext.request.contextPath}/`">목록으로</button>
 					</div>
 				<!-- join content -->	
 				</div>

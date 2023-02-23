@@ -96,7 +96,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 				<h1 class="main_title">회원정보 수정</h1>
 			</div>
 			<div class="line">
-				<hr>
+				<hr class="e_hr">
 			</div>
 			<form name="e" action="${pageContext.request.contextPath }/member/edit" method="post">
 			<div class="edit_wrap">

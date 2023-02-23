@@ -27,4 +27,3 @@
     </footer>
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/footer.css">
-    <script src="${pageContext.request.contextPath}/static/js/footer.js"></script>

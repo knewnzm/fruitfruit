@@ -48,6 +48,9 @@
     box-sizing: border-box;
    	padding:25px;
    	margin: 0px 50px;
+   	display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .btn-group{
 	width:250px;
@@ -72,7 +75,7 @@ input[type="radio"]:checked {
   }
 .c_title{
     font-size: 17px;
-    
+    margin-bottom: 15px;
 }
 
 .c_text{

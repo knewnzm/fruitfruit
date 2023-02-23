@@ -116,10 +116,10 @@ public ModelAndView login(HttpServletRequest req, String user_id, String user_pw
 public JSONObject loginChk(@RequestParam String id, @RequestParam String pwd) {
 	JSONObject jo = new JSONObject();
 	Member m = service.select(id);
-	if (m == null || !m.getUser_pwd().equals(pwd)) {
+	if(id.equals("")||pwd.equals("")){
+		jo.put("res", "null");
+	}else if (m == null || !m.getUser_pwd().equals(pwd)) {
 		jo.put("res", "fail");
-	} else {
-		jo.put("res", "ok");
 	}
 	return jo;
 }

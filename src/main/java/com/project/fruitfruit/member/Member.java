@@ -10,27 +10,10 @@ public class Member {
 	private String user_addr1; //상세주소1
 	private String user_addr2 ; //상세주소2
 	private int user_type; //가입유형
-	private int user_grade ; //회원등급
 	private String user_account; //계좌번호
 	private String user_bank; //은행 이름
 	public Member() {
 		super();
-	}
-	public Member(String user_id, String user_pwd, String user_name, String user_nick, int user_tel, int user_postcode,
-			String user_addr1, String user_addr2, int user_type, int user_grade, String user_account, String user_bank) {
-		super();
-		this.user_id = user_id;
-		this.user_pwd = user_pwd;
-		this.user_name = user_name;
-		this.user_nick = user_nick;
-		this.user_tel = user_tel;
-		this.user_postcode = user_postcode;
-		this.user_addr1 = user_addr1;
-		this.user_addr2 = user_addr2;
-		this.user_type = user_type;
-		this.user_grade = user_grade;
-		this.user_account = user_account;
-		this.user_bank = user_bank;
 	}
 	public Member(String user_id, String user_pwd, String user_name, String user_nick, int user_tel, int user_postcode,
 			String user_addr1, String user_addr2, int user_type, String user_account, String user_bank) {
@@ -101,12 +84,6 @@ public class Member {
 	public void setUser_type(int user_type) {
 		this.user_type = user_type;
 	}
-	public int getUser_grade() {
-		return user_grade;
-	}
-	public void setUser_grade(int user_grade) {
-		this.user_grade = user_grade;
-	}
 	public String getUser_account() {
 		return user_account;
 	}
@@ -123,7 +100,9 @@ public class Member {
 	public String toString() {
 		return "Member [user_id=" + user_id + ", user_pwd=" + user_pwd + ", user_name=" + user_name + ", user_nick="
 				+ user_nick + ", user_tel=" + user_tel + ", user_postcode=" + user_postcode + ", user_addr1="
-				+ user_addr1 + ", user_addr2=" + user_addr2 + ", user_type=" + user_type + ", user_grade=" + user_grade
-				+ ", user_account=" + user_account + ", user_bank=" + user_bank + "]";
+				+ user_addr1 + ", user_addr2=" + user_addr2 + ", user_type=" + user_type + ", user_account="
+				+ user_account + ", user_bank=" + user_bank + "]";
 	}
+	
+	
 }

@@ -14,7 +14,6 @@
 		<result property="user_addr1" column="user_addr1" />
 		<result property="user_addr2" column="user_addr2" />
 		<result property="user_type" column="user_type" />
-		<result property="user_grade" column="user_grade" />
 		<result property="user_account" column="user_account" />
 		<result property="user_bank" column="user_bank" />
 	</resultMap>
@@ -23,7 +22,7 @@
 		insert into member values(#{user_id}, #{user_pwd},
 		#{user_name}, #{user_nick},#{user_tel},
 		#{user_postcode}, #{user_addr1}, #{user_addr2},#{user_type}, 
-		0,#{user_account},#{user_bank})
+		#{user_account},#{user_bank})
 	</insert>
 	<select id="select" parameterType="String" resultMap="member">
 		select *

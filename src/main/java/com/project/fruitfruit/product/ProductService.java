@@ -23,7 +23,9 @@ public class ProductService {
 	private String webPath = "\\static\\product\\";
 	
 	public Product selectProduct(int product_num) {
+		System.out.println(product_num);
 		Product p = mapper.selectProduct(product_num);
+		System.out.println(p);
 		p = setProductPath(p);
 //		p = setProductInnerPath(p);
 		return p;

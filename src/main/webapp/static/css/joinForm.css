@@ -269,3 +269,8 @@ button[type="submit"] {
   border-radius:5px;
   background:white;
 }
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
