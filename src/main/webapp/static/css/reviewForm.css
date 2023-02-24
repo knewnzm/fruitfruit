@@ -103,11 +103,14 @@
       width:180px;
       height:42px;
       margin-left: 5px;
+      padding-left:5px;
       border : 1px solid #f02c11;
       border-radius: 8px 0px 0px  8px;
       display:flex;
       justify-content: center;
       align-items: center;
+      text-overflow:ellipsis; 
+	overflow:hidden;
   }
   .product_path_wrap{
       height: 42px;

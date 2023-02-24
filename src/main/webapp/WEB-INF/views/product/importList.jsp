@@ -128,7 +128,7 @@ function del(num){
 								</c:if>
 								<c:if test="${o.order_type == 2}"> 
 									<button type="button" class="cancel_btn"
-											onclick="location.href=`${pageContext.request.contextPath}/review/reviewForm?product_num=${o.order_num}`">리뷰 작성</button>
+											onclick="location.href=`${pageContext.request.contextPath}/review/reviewForm?product_num=${o.p.product_num}`">리뷰 작성</button>
 								</c:if> 
 							</div>
 						</div>

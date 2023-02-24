@@ -214,9 +214,6 @@
                                                                     </a>
                                                                 </li>
                                                                 <li class="dropdown-item">
-                                                                    <hr class="dropdown-divider" />
-                                                                </li>
-                                                                <li class="dropdown-item">
                                                                     <a class="dropdown-item-a"
                                                                         href="${pageContext.request.contextPath}/product/productForm">상품
                                                                         등록하기</a>
