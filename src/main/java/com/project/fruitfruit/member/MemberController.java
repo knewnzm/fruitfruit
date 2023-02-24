@@ -246,4 +246,9 @@ public String findId(HttpServletRequest req) {
 		service.changePwd(m);
 		return "redirect:/member/loginForm";
 	}
+	
+	@GetMapping(value = "/member/social")
+	public void socialPage() {
+		
+	}
 }

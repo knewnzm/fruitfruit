@@ -46,7 +46,6 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<div class="wrap">
 		<c:import url="../head.jsp"></c:import>
         <c:import url="../header.jsp"></c:import>
 	<main class="container">
@@ -215,7 +214,6 @@ $(document).ready(function() {
 	</main>
 		 <c:import url="../footer.jsp"></c:import>
 <!-- wrap end -->
-</div>
 </body>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </html>

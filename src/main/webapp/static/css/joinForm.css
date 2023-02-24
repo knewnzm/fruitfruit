@@ -23,7 +23,7 @@ hr{
 }
 .j_input{
 	width:310px;
-    height: 39px;
+    height: 38px;
     border: none;
     padding-left: 8px;
 }
@@ -47,7 +47,7 @@ input_text{
 }
 .container{
 	width:1200;
- 	height:1600px;
+ 	height:auto;
 	display:flex;
 	justify-content: center;
 }
