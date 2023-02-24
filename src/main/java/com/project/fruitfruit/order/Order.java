@@ -15,13 +15,14 @@ public class Order {
 	private Date order_date;
 	private Product p;
 	private Member m;
+	private String reviewStatus;
 	
 	public Order() {
 		super();
 	}
 
 	public Order(int order_num, int product_num, String order_id, int order_count, int order_type, Date order_date,
-			Product p, Member m) {
+			Product p, Member m, String reviewStatus) {
 		super();
 		this.order_num = order_num;
 		this.product_num = product_num;
@@ -31,6 +32,7 @@ public class Order {
 		this.order_date = order_date;
 		this.p = p;
 		this.m = m;
+		this.reviewStatus = reviewStatus;
 	}
 
 	public int getOrder_num() {
@@ -88,20 +90,31 @@ public class Order {
 	public void setP(Product p) {
 		this.p = p;
 	}
+
 	public Member getM() {
 		return m;
 	}
-	
+
 	public void setM(Member m) {
 		this.m = m;
+	}
+
+	public String getReviewStatus() {
+		return reviewStatus;
+	}
+
+	public void setReviewStatus(String reviewStatus) {
+		this.reviewStatus = reviewStatus;
 	}
 
 	@Override
 	public String toString() {
 		return "Order [order_num=" + order_num + ", product_num=" + product_num + ", order_id=" + order_id
 				+ ", order_count=" + order_count + ", order_type=" + order_type + ", order_date=" + order_date + ", p="
-				+ p + ", m="+ m + "]";
+				+ p + ", m=" + m + ", reviewStatus=" + reviewStatus + "]";
 	}
+
+	
 
 	
 

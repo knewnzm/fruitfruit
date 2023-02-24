@@ -19,12 +19,9 @@ hr{
 }
 </style>
 </head>
-<body>
-<header>
-<h3>헤더</h3>
+<body> 
 <c:import url="../head.jsp"></c:import>
-        <c:import url="../header.jsp"></c:import>
-</header>        
+<c:import url="../header.jsp"></c:import>
 
 <section class="or_container">
 <div id="ordercontent">
@@ -74,9 +71,9 @@ hr{
 </section>
 
 			 
-<footer>
+
  <c:import url="../footer.jsp"></c:import>
-</footer>
+
 </body>
 
 </html>
