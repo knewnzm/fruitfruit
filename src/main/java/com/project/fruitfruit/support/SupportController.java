@@ -27,7 +27,7 @@ public class SupportController {
 	
 	@PostMapping("/support/add")
 	public String addReply(Support s) {
-		s.setSupport_writer((String) session.getAttribute("user_id"));
+		System.out.println("result"+s);
 		sService.insertSupport(s);
 		return "redirect:" + request.getHeader("REFERER") + "#reply-" + sService.getSeqCurrentValue();
 	}

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,9 +101,9 @@
             }
             // 카테고리 버튼 클릭 시 (하위 카테고리를 추가하기 위한 상위 카테고리 선택 시)
             function categoryBtnClickHandler(e) {
-                const data = $(e.target).attr("id").split("-"); //ex)c1,2
-                const cate_type = parseInt(data[0].substr(1)); 
-                const cate_num = data[1];
+                const data = $(e.target).attr("id").split("-"); // $(e.target)은 <a>태그, a태그의 id에서 "-"를 기준으로 값을 나눠 data에 담는다 ex)c1,2
+                const cate_type = parseInt(data[0].substr(1)); //그중 맨앞의 값인 data[0]값의 맨 앞의 하나를 뺀다 .substr(1) c1-> 1
+                const cate_num = data[1]; //그 다음값인 data[1]값
                 getCategoryList(cate_type + 1, cate_num);
                 $("#c" + (cate_type + 1) + "-parent").val(cate_num);
             }
@@ -124,68 +125,59 @@
                 });
             });
         </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/category.css" />
+
 </head>
-<header>
-<h3>헤더</h3>
-</header>
-        <!-- Section-->
-        <section class="py-5">
-            <div class="container">
-                <div class="py-3">
-                    <h1>카테고리 관리</h1>
-                </div>
-                <div class="grid my-3">
-                    <div class="c1 py-3 px-3 border">
-                        <div class="title">
-                            <h1>대분류</h1>
-                        </div>
-                        <div>
-                            <form class="list-group" id="c1-list"></form>
-                        </div>
-                        <div class="add-form">
-                            <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c1-list" class="input-group">
+
+<body>
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
+<div class="c_wrapper">
+ <div class="c_container">
+  <div class="c_h"><h1>카테고리 관리</h1> 
+  </div>
+  <div class="c_box">
+  <div class="c1_box"><div class="c_title"><h1>대분류</h1></div>
+  
+   <form  action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c1-list" class="c_form">
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    class="c_text"
                                     placeholder="대분류 추가"
                                     aria-label="대분류 추가"
                                     aria-describedby="c1-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="1" />
-                                <button class="btn-insert" type="submit" id="c1-btn">등록</button>
+                                 <input type="submit" class="c_btn" id="c1-btn" value="등록">
                             </form>
-                        </div>
-                    </div>
-                    <div class="align-items-center"><i class="arrow-right"></i></div>
-                    <div class="c2 py-3 px-3 border">
-                        <div class="title">
-                            <h1>중분류</h1>
-                        </div>
-                        <div class="list-group" id="c2-list"></div>
-                        <div class="add-form">
-                            <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c2-list" class="input-group">
+                            <div>
+  <form class = "list-group" id="c1-list"></form>
+  </div>
+   </div> 
+   <div class="c1_box"><div class="c_title"><h1>소분류</h1></div>
+   
+   <form action="${pageContext.request.contextPath}/category/add" method="POST" itemref="c2-list" class="c_form">
                                 <input
                                     type="text"
-                                    class="form-control"
-                                    placeholder="중분류 추가"
-                                    aria-label="중분류 추가"
+                                    class="c_text"
+                                    placeholder="소분류 추가"
+                                    aria-label="소분류 추가"
                                     aria-describedby="c2-btn"
                                     name="cate_name"
                                 />
                                 <input type="hidden" name="cate_type" value="2" />
                                 <input type="hidden" name="cate_parent_num" value="" id="c2-parent" />
-                                <button class="btn-insert" type="submit" id="c2-btn">등록</button>
+                               <input type="submit" class="c_btn" id="c2-btn" value="등록">
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
-
-<footer>
-<h3>footer</h3>
-</footer>
+                             <div>
+  <form class = "list-group" id="c2-list"></form>
+  </div>
+  </div>
+  </div>
+ </div>
+</div>
+<c:import url="../footer.jsp"></c:import>
+</body>
 
 </html>

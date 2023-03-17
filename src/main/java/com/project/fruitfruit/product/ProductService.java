@@ -23,7 +23,12 @@ public class ProductService {
 	private String webPath = "\\static\\product\\";
 	
 	public Product selectProduct(int product_num) {
-		return mapper.selectProduct(product_num);
+		System.out.println(product_num);
+		Product p = mapper.selectProduct(product_num);
+		System.out.println(p);
+		p = setProductPath(p);
+//		p = setProductInnerPath(p);
+		return p;
 	}
 	
 //	public ArrayList<Product> selectAllProduct() {
@@ -66,54 +71,73 @@ public class ProductService {
 		mapper.updateProduct(p);
 	}
 	
+	private ArrayList<Product> setProductData(ArrayList<Product> list) {
+		for (int i = 0; i < list.size(); i++) {
+			Product p = list.get(i);
+			p = setProductPath(p);
+			list.set(i, p);
+		}
+		return list;
+	}
+	
 	public ArrayList<Product> orderByProductHitDesc(int start, int end) {
-		return mapper.orderByProductHitDesc(start, end);
+		return setProductData(mapper.orderByProductHitDesc(start, end));
 	}
 	
 	public ArrayList<Product> orderByProductPriceDesc(int start, int end) {
-		return mapper.orderByProductPriceDesc(start, end);
+		return setProductData(mapper.orderByProductPriceDesc(start, end));
 	}
 	
 	public ArrayList<Product> orderByProductPriceAsc(int start, int end) {
-		return mapper.orderByProductPriceAsc(start, end);
+		return setProductData(mapper.orderByProductPriceAsc(start, end));
 	}
 	
 	public ArrayList<Product> orderByProductDate(int start, int end) {
-		return mapper.orderByProductDate(start, end);
+		return setProductData(mapper.orderByProductDate(start, end));
 	}
 	
 	public ArrayList<Product> onlyProductPick(int start, int end) {
-		return mapper.onlyProductPick(start, end);
+		return setProductData(mapper.onlyProductPick(start, end));
 	}
 	
 	public ArrayList<Product> onlyProductViewTypeBlind(int start, int end) {
-		return mapper.onlyProductViewTypeBlind(start, end);
+		return setProductData(mapper.onlyProductViewTypeBlind(start, end));
 	}
 	
-//	public ArrayList<Product> selectProductListByLimit(int start, int end){
-//		return mapper.selectProductListByLimit(start, end);
-//	}
-
+	public ArrayList<Product> selectProductListByLimit(int start, int end){
+		return setProductData(mapper.selectProductListByLimit(start, end));
+	}
+	
+	public ArrayList<Product> selectProductBySellerId(int start, int end, String seller_id){
+		return setProductData(mapper.selectProductBySellerId(start, end, seller_id));
+	}
+	
 	public int selectSeqProductCurrval() {
 		return mapper.selectSeqProductCurrval();
-	}
-	
-	public ArrayList<Product> selectProductBySellerId(int start, int end){
-		return mapper.selectProductBySellerId(start, end);
 	}
 	
 	
 	private String getFile(int product_num) {
 		File dir = new File(projectPath + webPath + product_num);
-		String file = dir.toString();
-		if (file != null) {
-			file = webPath.replace("\\", "/") + product_num + "/" + file;
-		} else {
-			file = "";
+		try {
+			String file = dir.list()[0];
+			if (file != null) {
+				file = webPath.replace("\\", "/") + product_num + "/" + file;
+			} else {
+				file = "";
+			}
+			return file;
+		} catch (Exception e) {
+			return "";
 		}
-		return file;
+		
 	}
-	
+//	private Product setProductPath(Product p) {
+////		String file = getFile(p.getProduct_num());
+//		p.setProduct_path(("C:\\Users\\home\\git\\fruitfruit\\src\\main\\webapp\\static\\product\\1\\펭권.jpg"));
+////		p.setProduct_path((projectPath + webPath + "1/펭권.jpg").replace("\\", "/"));
+//		return p;
+//	}
 	private Product setProductPath(Product p) {
 		String file = getFile(p.getProduct_num());
 		if (!file.equals("")) {
@@ -156,6 +180,19 @@ public class ProductService {
 
 	public int getProductListSize() {
 		return mapper.selectListSize();
+	}
+
+
+	public ArrayList<Product> selectProductListByCategory1_num(int c1) {
+		return setProductData(mapper.selectProductListByCategory1_num(c1));
+	}
+
+	public ArrayList<Product> selectProductListByCategory2_num(int c2) {
+		return setProductData(mapper.selectProductListByCategory2_num(c2));
+	}
+
+	public ArrayList<Product> selectProductListByTitleOrUserId(String keyword){
+		return setProductData(mapper.selectProductListByTitleOrUserId(keyword));
 	}
 	
 }

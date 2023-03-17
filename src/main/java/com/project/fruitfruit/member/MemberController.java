@@ -1,12 +1,16 @@
 package com.project.fruitfruit.member;
 
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,30 +18,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.fruitfruit.category.CategoryService;
+
 
 @Controller
 public class MemberController {
 	
 @Autowired
 private MemberService service;
-
-/* @RequestMapping(value = "/") */
-/*
- * public ModelAndView index(HttpServletRequest req) { ModelAndView mav = new
- * ModelAndView("/index"); HttpSession session = req.getSession(false); String
- * id = (String) session.getAttribute("user_id"); if(session!=null&&id!=null) {
- * Member m = service.select(id); mav.addObject("m", m); } return mav; }
- */
-@RequestMapping(value = "/") //홈으로 가기
-public String index() { 
-	return "/index";
-}
+@Autowired
+private CategoryService cservice;
 @GetMapping(value = "/member/joinForm")//회원가입 페이지 가기
 public String joinForm(HttpServletRequest req) {
 	HttpSession session = req.getSession(false);
 	String id = (String) session.getAttribute("user_id");
 	if (id != null) {
-		return "redirect:/ ";
+		return "redirect:/";
 	} else {
 		return req.getRequestURI();
 	}
@@ -120,10 +116,10 @@ public ModelAndView login(HttpServletRequest req, String user_id, String user_pw
 public JSONObject loginChk(@RequestParam String id, @RequestParam String pwd) {
 	JSONObject jo = new JSONObject();
 	Member m = service.select(id);
-	if (m == null || !m.getUser_pwd().equals(pwd)) {
+	if(id.equals("")||pwd.equals("")){
+		jo.put("res", "null");
+	}else if (m == null || !m.getUser_pwd().equals(pwd)) {
 		jo.put("res", "fail");
-	} else {
-		jo.put("res", "ok");
 	}
 	return jo;
 }
@@ -154,20 +150,105 @@ public String edit(Member m) {
 	return "redirect:/";
 }
 
-@GetMapping(value = "/member/findId") //아이디 찾기 페이지 가기
-public void findIdForm() { 
+@RequestMapping(value = "/member/out") //회원탈퇴&회원삭제
+public String out(HttpServletRequest req, @RequestParam(value = "user_id", required = false) String user_id) {
+	System.out.println(user_id + " 아이디 확인");
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id"); //회원탈퇴
+	if (user_id == null) {
+		System.out.println(id + " 회원 탈퇴");
+		service.delete(id);
+		session.removeAttribute("user_id");
+		session.invalidate();
+
+	} else { //회원 삭제
+		System.out.println(user_id + " 관리자 권한으로 회원 탈퇴");
+		service.delete(user_id);
+	}
+
+	return "redirect:/member/loginForm";
+}
+
+@SuppressWarnings("unchecked")
+@PostMapping(value = "/member/userList")
+@ResponseBody
+public JSONArray list() {
+	JSONArray jarray = new JSONArray();
+	ArrayList<Member> ml = (ArrayList<Member>) service.list();
+	for (Member i : ml) {
+		jarray.add(i);
+	}
+	System.out.println(jarray);
+	return jarray;
+}
+@GetMapping(value="/member/userList")
+public void userList(Model model) {
+	ArrayList<Member> ml = (ArrayList<Member>) service.list();
+	if(ml==null) {
+		model.addAttribute("nothing", "nothing");
+	}
+	System.out.println("모델은"+model);
+}
+@GetMapping(value = "/member/findId")   //아이디 찾기 가기
+public String findId(HttpServletRequest req) {
+	HttpSession session = req.getSession(false);
+	String id = (String) session.getAttribute("user_id");
+	if (id != null) {
+		return "redirect:/";
+	} else {
+		return req.getRequestURI();
+	}
+}
+	@PostMapping(value = "/member/findId") //아이디 찾기
+	public ModelAndView findId(HttpServletRequest req, @RequestParam(value = "user_name") String user_name, 
+			@RequestParam(value = "user_tel") int user_tel) {
+		ModelAndView mav = new ModelAndView("/member/findIdResult");
+
+		Member m = service.selectbyname(user_name);
+
+		if (m!=null&&m.getUser_tel()==user_tel) {
+			mav.addObject("user_id", m.getUser_id());
+
+		} else {
+			mav.addObject("fail", "fail");
+			 mav.setViewName("/member/findId");
+		}
+		return mav;
 	
 }
-@GetMapping(value = "/member/findPwd") //비밀번호 찾기 페이지 가기
-public void findPwdForm() { 
+	@GetMapping(value = "/member/findPwd")   //비밀번호 찾기 가기
+	public String findPwd(HttpServletRequest req) {
+		HttpSession session = req.getSession(false);
+		String id = (String) session.getAttribute("user_id");
+		if (id != null) {
+			return "redirect:/";
+		} else {
+			return req.getRequestURI();
+		}
+	}
+	@PostMapping(value = "/member/findPwd") //비밀번호 찾기
+	public ModelAndView findPwd(HttpServletRequest req,@RequestParam(value = "user_id") String user_id, 
+			@RequestParam(value = "user_name") String user_name, 
+			@RequestParam(value = "user_tel") int user_tel) {
+		ModelAndView mav = new ModelAndView("/member/changePwd");
+		Member m = service.select(user_id);
+		if (m.getUser_name().equals(user_name) && m.getUser_tel()==user_tel) {
+			mav.addObject("user_id", user_id);
+			
+		}else {
+			mav.addObject("fail", "fail");
+			 mav.setViewName("/member/findPwd");
+		}
+		return mav;
+	}
+	@PostMapping(value = "/member/changePwd") //비밀번호 변경하기
+	public String changePwd(Member m) {
+		service.changePwd(m);
+		return "redirect:/member/loginForm";
+	}
 	
-}
-@GetMapping(value = "/member/changePwd") //비밀번호 변경 페이지 가기
-public void changePwdForm() { 
-	
-}
-@GetMapping(value = "/order/orderResult") //비밀번호 변경 페이지 가기
-public void orderResult() { 
-	
-}
+	@GetMapping(value = "/member/social")
+	public void socialPage() {
+		
+	}
 }

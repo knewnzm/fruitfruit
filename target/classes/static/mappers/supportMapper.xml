@@ -8,6 +8,7 @@
 		<result column="support_parent_num" property="support_parent_num" />
 		<result column="support_product_num" property="support_product_num" />
 		<result column="support_writer" property="support_writer" />
+		<result column="support_title" property="support_title" />
 		<result column="support_content" property="support_content" />
 		<result column="support_date" property="support_date" />
 	</resultMap>
@@ -38,6 +39,7 @@
 			#{support_parent_num}, 
 			#{support_product_num}, 
 			#{support_writer}, 
+			#{support_title}, 
 			#{support_content}, 
 			sysdate
 		)
@@ -46,11 +48,7 @@
 		<update id="updateSupport" parameterType="com.project.fruitfruit.support.Support">
 		update support 
 		set 
-			support_parent_num = #{support_parent_num},
-			support_product_num = #{support_product_num},
-			support_parent_num = #{support_writer},
-			support_parent_num = #{support_content},
-			support_parent_num = #{support_parent_num},
+			support_content = #{support_content},
 			support_date = sysdate
 		where support_num=#{support_num}
 	</update>
@@ -67,10 +65,11 @@
 		where support_parent_num=#{support_parent_num}
 	</delete>
 	
-	<select id="selectSeqSupportCurrval" resultType="int">
-		select
-		seq_Support.currval from dual
-	</select>
+	
+	<select id="getSeqCurrentValue" resultType="int">
+      select seq_support.currval 
+      from dual
+   </select>
 	
 </mapper>
 

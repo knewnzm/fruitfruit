@@ -1,4 +1,5 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+
 *{
   padding:0;
   margin: 0;
@@ -7,42 +8,110 @@
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
 }
-header{
-	text-align : center;
-	height:150px;
+.c_wrapper {
+	    padding-bottom: 200px;
+    margin: 0 auto;
+	width: 1200px; 
+	height:auto;
+	position: relative; 
+	margin-bottom: 150px;
 }
-footer{
-	text-align : center;
-	height:150px;
+.c_container{
+	
+	width:auto;
+ 	height:auto;
+	padding-top:50px ;
+    padding-left:50px;
+   	padding-right:50px;
 }
 
-.c_container{
-	padding-top: 3rem ;
-    padding-bottom: 3rem ;
-    display: flex;
-    padding-right: 125px;
-    padding-left: 125px;
-    
+.c_h{
+    font-size: 22px;
+    margin-top:30px;
+    margin-bottom:85px;
+    text-align: center;
 }
 
 .c_box{
-	width: 1098px;
-    height: 536px;
-    display:inline;
+	display: flex;
+	justify-content: center;
+	
 }
-.c_h{
-	padding-top: 1rem ;
-    padding-bottom: 1rem ;
-    font-size: 22px;
-    
-}
+
 .c1_box{
-	width: 280px;
-    height: 200px;
-    padding: 16px;
+	width: 335px;
+    height: auto;
     border-style: solid;
-    border-width: 2px;
-    border-color: lightgray;
+    border-width: 1px;
+    border-color: #f02c11;
+    border-radius: 5px;
     box-sizing: border-box;
-   	display: inline-block;
+   	padding:25px;
+   	margin: 0px 50px;
+   	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-group{
+	width:250px;
+   	margin-bottom: 10px;
+   	display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+input[type=radio]{
+	width:15px;
+	height:15px;
+	align-items: center;
+	border : 1px solid #D1D0CE;
+	border-radius: 50%;
+	appearance: none;
+	cursor: pointer;
+	margin-right: 5px;
+	margin-left: 0px;
+}
+input[type="radio"]:checked {
+    border: 4px solid #f02c11;
+  }
+.c_title{
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.c_text{
+    width: 200px;
+    height: 35px;
+    border: 1px solid #D1D0CE;
+    padding-left: 7px;
+    font-size: 16px;
+    border: 1px solid #f02c11;
+    border-radius: 8px 0 0 8px;
+}
+.c_btn{
+	width: 50px;
+	height: 35px;
+	font-size: 16px;
+	cursor: pointer;
+	background:#f02c11;
+	color:white;
+	 border-radius: 0 8px 8px 0;
+	
+}
+.c_form{
+	width:250px;
+	display: flex;
+    border-radius: 5px;
+    margin: 10px 0px ;
+
+}
+
+.btn-delete{
+	width: 52px;
+	height: 30px;
+	cursor: pointer;
+	font-size: 15px;
+	background:#f02c11;
+	color:white;
+    border-radius: 5px;
+    float: right;
 }

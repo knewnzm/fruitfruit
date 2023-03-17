@@ -47,6 +47,11 @@ public class CategoryService {
 		return list;
 	}
 
+	public ArrayList<Category> Category2List(){
+		return mapper.Category2All();
+		
+	}
+	
 	public void deleteCategory(int type, int num) {
 		switch (type) {
 		case 1:

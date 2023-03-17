@@ -27,13 +27,23 @@ public interface ProductMapper {
 	public ArrayList<Product> orderByProductDate(int start, int end);
 	public ArrayList<Product> onlyProductPick(int start, int end);
 	public ArrayList<Product> onlyProductViewTypeBlind(int start, int end);
-	public ArrayList<Product> selectProductBySellerId(int start, int end);
+	public ArrayList<Product> selectProductBySellerId(int start, int end, String product_seller_id);
 	
 	
-//	public ArrayList<Product> selectProductListByLimit(int start, int end);
+	public ArrayList<Product> selectProductListByLimit(int start, int end);
 	
 	public int selectSeqProductCurrval();
 	
 	public int selectListSize();
+	
+	public ArrayList<Product> selectProductListByProduct_title(String title);
+	public ArrayList<Product> selectProductListByCategory1_num(int c1);
+	public ArrayList<Product> selectProductListByCategory2_num(int c2);
+	public ArrayList<Product> selectProductListByCategory3_num(int c3);
+	public ArrayList<Product> selectProductListByUser_id(String seller_id);
+	
+	public ArrayList<Product> selectProductListByTitleOrUserId(String keyword);
+	
+
 	
 }

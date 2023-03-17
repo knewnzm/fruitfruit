@@ -15,6 +15,6 @@ public interface SupportMapper {
 	public void updateSupport(Support s);
 	public void deleteSupport(int support_num);
 	public void deleteSupportByParentNum(int support_parent_num);
-	public String getSeqCurrentValue();
+	public int getSeqCurrentValue();
 	
 }

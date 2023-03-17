@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 이중선 제거 */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.tablelist {   
+    width: 100%;
+    border-collapse : collapse; }  /*이중선 제거*/
+ 
+
+.tablelist thead th {
+    font-size: 17px;
+    font-weight: 400;
+    background: #f1f1f1;
+    padding: 15px 7px;
+    border-bottom: 1px solid #888;
+    text-align: center;
+}
+
+.tablelist tbody td {
+    font-size: 16px;
+    font-weight: 300;
+    border-bottom: 1px solid #ebebeb;
+    padding: 15px 7px;
+    text-align: center;
+}
+
+.tablelist .open-modal-btn {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.tablelist .open-modal-btn:hover {
+    font-weight: 500;
+}
+
+
+.table-title {
+    text-align: center;
+    font-size: 30px;
+    padding: 70px 0 60px 0;
+    font-weight: 300;
+    display: block;
+}
+
+.table-wrap {
+    margin-bottom: 200px;
+}
+
+
+.del-btn {
+    background: #fff;
+    border: 1px solid #f02c11;
+    color: #f02c11;
+    text-align: center;
+    width: 80px;
+    border-radius: 7px;
+    padding: 10px 0;
+}

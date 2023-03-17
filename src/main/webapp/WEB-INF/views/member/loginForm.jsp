@@ -1,14 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%> <%@ taglib
-uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
+ <head>
+ <title>notice List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/loginForm.css" />
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
+        
         $(document).ready(function () {
+        	 var userLoginId = getCookie("userLoginId");
+        	// 저장된 쿠키값을 가져와서 ID 칸에 넣어준다. 쿠키값 없으면 공백.
+       	    var userLoginId = getCookie("userLoginId");
+       	    $("input[name='user_id']").val(userLoginId); 
+       	    
+       	    // ID가 있는경우 아이디 저장 체크박스 체크
+       	    if($("input[name='user_id']").val() != ""){
+       	    	$("#id_keep").attr("checked", true);
+       	    }
+       	    
+       	    // 아이디 저장하기 체크박스 onchange
+       	    $("#id_keep").change(function(){
+       	    	if($("#id_keep").is(":checked")){  //checked true
+       	        	var userLoginId = $("input[name='user_id']").val();
+       	            setCookie("userLoginId", userLoginId, 30); // 30일 동안 쿠키 보관
+       	         }else{ //checked false
+       	         	deleteCookie("userLoginId");
+       	        }
+       	    });
+       	     
+       	     
+       	     // 아이디 저장하기가  눌린상태에서, ID를 입력한 경우
+       	     $("input[name='user_id']").keyup(function(){
+       	     	if($("#id_keep").is(":checked")){  //checked true
+       	            var userLoginId = $("input[name='user_id']").val();
+       	            setCookie("userLoginId", userLoginId, 30); // 30일 동안 쿠키 보관
+       	        }
+       	    });
+       	     
+	       	function setCookie(cookieName, value, exdays){
+	       	    var exdate = new Date();
+	       	    exdate.setDate(exdate.getDate() + exdays);
+	       	    var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + exdate.toGMTString());
+	       	    document.cookie = cookieName + "=" + cookieValue;
+	       	}
+	       	 
+	       	function deleteCookie(cookieName){
+	       	    var expireDate = new Date();
+	       	    expireDate.setDate(expireDate.getDate() - 1);
+	       	    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+	       	}
+	       	 
+	       	function getCookie(cookieName) {
+	       	    cookieName = cookieName + '=';
+	       	    var cookieData = document.cookie;
+	       	    var start = cookieData.indexOf(cookieName);
+	       	    var cookieValue = '';
+	       	    if(start != -1){
+	       	        start += cookieName.length;
+	       	        var end = cookieData.indexOf(';', start);
+	       	        if(end == -1)end = cookieData.length;
+	       	        cookieValue = cookieData.substring(start, end);
+	       	    }
+	       	    return unescape(cookieValue);
+	       	    
+	       	}
+       	
             $("#login_btn").click(function () {
                 if ($("#user_id").val() == "") {
                     document.getElementById("msg").innerHTML = "이메일을 입력해주세요.";
@@ -33,61 +93,59 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                 }
             });
         });
+        
+        
         </script>
     </head>
-    <body>
+<body>
+<c:import url="../head.jsp"></c:import>
+<c:import url="../header.jsp"></c:import>
 <div class="wrap">
-	<header>
-		<c:import url="../head.jsp"></c:import>
-        <c:import url="../header.jsp"></c:import>
-	</header>
 	<main id="cantainer" class="container">
 		<div id="content" class="content">
+				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
 			<div class="login_wrap">
 				<div class="logo">
-					<a> 
-					<img src="${pageContext.request.contextPath}/static/image/Logo.png" class="fruit_Logo"></a> 
+					<a><img src="${pageContext.request.contextPath}/static/img/frLogo.png" class="fruit_Logo"></a> 
 				</div>
-				<form name="K" action="${pageContext.request.contextPath}/member/login" method="post">
-				<!-- login -->
-				<div class="login_panner">
+					<!-- login -->
+					<div class="login_panner">
 					<div class="login_box">
 						<div class="id_line">
 							<div class="login_icon">
-								<img src="${pageContext.request.contextPath}/static/image/user.png" class="login_img">
+								<img src="${pageContext.request.contextPath}/static/img/login_user.png" class="login_img">
 							</div>
-							<input type="text" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요.">
+							<input type="text" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요." required/>
 						</div>
 						<div class="pwd_line">
 							<div class="login_icon">
-								<img src="${pageContext.request.contextPath}/static/image/padlock.png" class="login_img">
+								<img src="${pageContext.request.contextPath}/static/img/login_padlock.png" class="login_img">
 							</div>
-							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요.">
+							<input type="password" name="user_pwd" id="user_pwd"  placeholder="비밀번호를 입력해주세요." required/>
 						</div>
 					</div>
-					<span id="msg" class="my-3 py-2 msg">아이디 비번 공백 확인 메시지</span>
+					<span id="msg" class="my-3 py-2 msg"></span>
 					<div class="login_option">
 						<div class="keep_wrap">
 							<input type="checkbox"  id="id_keep" name="id_keep" value="off">
 								<label for="id_keep" class="keep_text">
-									로그인 상태 유지
+									아이디 저장
 								</label>
 						</div>
 						<div class="login_find">
 							<ul class="find_inner" id="find_inner">
-								<li><a target="_parent" href="" class="find_text">아이디 찾기</a></li> 
-								<li><a target="_parent" href="" class="find_text">비밀번호 찾기</a></li>
+								<li><a target="_parent" href="${pageContext.request.contextPath }/member/findId" class="find_text" >아이디 찾기</a></li> |
+								<li><a target="_parent" href="${pageContext.request.contextPath }/member/findPwd" class="find_text">비밀번호 찾기</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="login_btn_wrap">
-						<button type="button" id="login_btn" >
+						<button type="button" id="login_btn">
 							<span class="login_btn_text">로그인</span>
 						</button>
 					</div>
 				</div>
 				<!-- login end -->
-				</form>
 				<div class="join_wrap">
 					<button type="button" id="join_btn"  id="join_btn" 
 						onclick="location.href='/member/joinForm'">
@@ -96,41 +154,23 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 				</div>
 				<div class="social_wrap">
 					<div class="social_login">
-						<ul class="social_inner" id="social_inner">
-								<li class="social_btn">
-									<a href="" onclick="" >
-										<i class="icon_naver"></i>
-											<img src="${pageContext.request.contextPath}/static/image/naver_icon.png" class="social_icon"><br>
-												<span class="social_text">네이버</span>
-									</a>
-								</li>
-								<li class="social_btn">
-									<a href="kakaotalk.png" onclick="" >
+
+									<a href="https://kauth.kakao.com/oauth/authorize?client_id=f98b949e06b7e0104ec9a748fdd44138&redirect_uri=	
+http://localhost:8081/kakao_callback&response_type=code">
 										<i class="icon_kakao"></i>
-											<img src="${pageContext.request.contextPath}/static/image/kakaotalk_icon.png" class="social_icon"><br>
-												<span class="social_text">카카오</span>
+											<img src="${pageContext.request.contextPath}/static/img/kakao_login_large_wide.png" class="social_icon"><br>
 									</a>
-								</li>
-								<li class="social_btn">
-									<a href="" onclick="" >
-										<i class="icon_google"></i>
-											<img src="${pageContext.request.contextPath}/static/image/google_icon.png"  class="social_icon"><br>
-										<span class="social_text">구글</span>
-									</a>
-								</li>
-							</ul>
+
 					</div>
 				<!-- social end -->
 				</div>
-			<!-- login_wrap -->
-			</div>
-		<!-- content -->
+			  </div>	
+			</form>
 		</div>
+		<!-- content end -->
 	</main>
-	<footer>
-		<%-- <c:import url="../footer.jsp"></c:import> --%>
-	</footer>
 <!-- wrap end -->
 </div>
+<c:import url="../footer.jsp"></c:import>
 </body>
 </html>

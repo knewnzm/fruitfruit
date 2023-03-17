@@ -21,9 +21,9 @@ hr{
 	background:#f02c11;
 	margin-bottom: 20px;
 }
-input{
+.j_input{
 	width:310px;
-    height: 39px;
+    height: 38px;
     border: none;
     padding-left: 8px;
 }
@@ -34,7 +34,7 @@ input_text{
 	width:150px;
 	position: relative;
 }
-button{
+.id_check_btn{
   width:120px;
   height: 41.333334px;
   letter-spacing:1px;
@@ -45,26 +45,15 @@ button{
   border-radius:5px;
   background:none;
 }
-header{
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
-footer{
-	margin-top:80px;
-	text-align : center;
-	height:150px;
-	background: #f02c11;
-}
 .container{
-	width:auto;
+	width:1200;
  	height:auto;
-	display: flex;
+	display:flex;
 	justify-content: center;
 }
 .content{
 	width:650px;
- 	height:107vh;
+	margin-top:100px;
     text-align : center;
     padding : 0px;
     grid-template-columns: 
@@ -152,9 +141,17 @@ footer{
 #user_postcode{
 	width: 100px;
 }
-.addr_btn,.addr_search_btn{
+.addr_search_btn{
 	width:200px;
 	align-items: center;
+  	height: 41.333334px;
+	letter-spacing:1px;
+    cursor: pointer; 
+    font-size:15px;
+    color:#f02c11;
+    border: 1px solid #f02c11;
+    border-radius:5px;
+    background:none;
 }
 .search_img{
 	cursor: pointer; 
@@ -228,25 +225,27 @@ input[type="radio"]:checked {
 select{
 	width:120px;
   	height: 42.333334px;
-  	padding-left:8px;
+  	text-align : center;
     font-size:13px;
   	color:#777;
   	border: 1px solid #D1D0CE;
   	border-radius:5px;
 }
 .submit_wrap{
+	width: 325px;
 	display: flex;
 	text-align:center;
+    margin-left: 156px;
 	padding-top:50px;
   	padding-bottom:50px;
-	justify-content: center;
+  	justify-content: space-between;
 }
 select:focus{
 	outline:none;
 }
-input[type="submit"] {
+button[type="submit"] {
   text-align : center;
-  width:328px;
+  width:150px;
   height: 48px;
   letter-spacing:1px;
   cursor: pointer; 
@@ -256,4 +255,22 @@ input[type="submit"] {
   border-radius:5px;
   padding-left: 0px;
   background:#f02c11;
+}
+.back_btn{
+  width:150px;
+  height: 48px;
+  letter-spacing:1px;
+  cursor: pointer; 
+  font-size:15px;
+  padding-left:8px;
+  padding-right:8px;
+  color:#f02c11;
+  border: 1px solid #f02c11;
+  border-radius:5px;
+  background:white;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

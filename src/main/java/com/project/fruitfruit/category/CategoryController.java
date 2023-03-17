@@ -32,14 +32,14 @@ public class CategoryController {
 			c = new Category(0, cate_name, cate_parent_num);
 		}
 		cService.addCategory(cate_type, c);
-		return getCategory(cate_parent_num, cate_type);
+		return getCategory(cate_type,cate_parent_num);
 	}
 
-//	화면에 출력
+//	카테고리 리스트 생성
 	@RequestMapping(value = "/category/getCategory")
 	@ResponseBody
-	public String getCategory(@RequestParam(required = false, defaultValue = "-1") int cate_parent_num,
-			@RequestParam int cate_type) {
+	public String getCategory(@RequestParam int cate_type,
+			@RequestParam(required = false, defaultValue = "-1") int cate_parent_num) {
 		ArrayList<Category> cate_list = null;
 		switch (cate_type) {
 		case 1:
@@ -50,8 +50,8 @@ public class CategoryController {
 			break;
 		}
 		Gson g = new Gson();
-		System.out.println(g.toJson(cate_list));
-		return g.toJson(cate_list);
+		String gson = g.toJson(cate_list);
+		return gson;
 		
 	}
 
@@ -62,6 +62,6 @@ public class CategoryController {
 	public String deleteCategory(@RequestParam int cate_type, @RequestParam int cate_num) {
 		Category c = cService.getCategory(cate_type, cate_num);
 		cService.deleteCategory(cate_type, cate_num);
-		return getCategory(c.getCate_parent_num(), cate_type);
+		return getCategory(cate_type,c.getCate_parent_num());
 	}
 }

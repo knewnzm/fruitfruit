@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 
 *{
   padding:0;
@@ -17,6 +17,7 @@ footer{
 	text-align : center;
 	height:150px;
 }
+
 .or_container{
 	display: flex;
 	justify-content: center;
@@ -35,7 +36,7 @@ footer{
     border-style: solid;
     border-width: 2px;
     border-radius: 5px;
-    border-color: lightgray;
+    border-color:#f02c11;
     padding-left: 18px;
 	padding-right: 18px;
 	padding-top: 20px;
@@ -47,8 +48,8 @@ footer{
     height: 250px;
     margin-top: 20px;
     margin-bottom: 20px;
-	border-style: solid;
-    border-width: 1px;
+	border-style: none;
+    
 
 }
 
@@ -71,7 +72,50 @@ footer{
 	margin-left:5px;
 	padding-bottom:8px;
 }
+#ListBtn{
+	padding-top:50px;
+}
+.back_btn{
+  width:200px;
+  height: 50px;
+  background:#f02c11;
+  color:white;
+  border-radius:5px;
+  text-align:center;
+  cursor: pointer; 
+  font-size:15px;
+  justify-content: center;
+}
+#ordercontent{
+	margin-top:100px;
+}
+.or_result{
+	display:flex;
+	flex-direction: row;
+}
+.or_r_img_box{
+	width:200px;
+	height:200px;
+	border:1px solid #f02c11;
+}
+.or_r_img{
+	width:200px;
+	height:200px;
+}
+.order_r_line{
+	display:flex;
+	flex-direction: row;
+    align-items: center;
+}
 
 
+ .order_dt{
+ padding-left: 10px;
+ padding-right: 10px;
+ padding-bottom: 38px;
+}
 
-
+ .order_dd{
+ padding-left: 10px;
+ padding-bottom: 38px;
+}
