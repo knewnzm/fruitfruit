@@ -12,56 +12,50 @@
 
             <script>
                 $(document).ready(function () {
+                	
+                	/* 회원 리스트 불러오기 */
                     $.ajax({
-                        url: "/member/userList",
-                        type: "post",
-                        success: function (obj) {
-                            /* console.log(obj) */
-                            var obj = obj;
-
-                            /* for(const obj in obj1){ */
-
-                            for (const i in obj) {
-                                var html =
-                                    "<tbody><tr id=m_" +
-                                    obj[i].user_id +
-                                    " class='member-data'><td><a href='${pageContext.request.contextPath}/product/search?q=user_id&value=" +
-                                    obj[i].user_id +
-                                    "'>" +
-                                    obj[i].user_id +
-                                    "</a><td>" +
-                                    obj[i].user_name +
-                                    "</td><td>" +
-                                    obj[i].user_nick +
-                                    "</td><td>" +
-                                    obj[i].user_tel +
-                                    "</td><td>" +
-                                    obj[i].user_addr1 +
-                                    "</td><td>" +
-                                    obj[i].user_addr2 +
-                                    "</td><td><button style='width:90px' type='button' name='del' class='del-btn btn-outline-danger' itemid='" +
-                                    obj[i].user_id +
-                                    "'>회원삭제</button></td></tr></tbody>";
+                        type: "get",
+                        url: "/member/list",
+                        success: function (arr) { //JSONArray
+                            $.each(arr, function(i, item) {
+                                var html = `
+                                    <tbody>
+                                        <tr id=m_\${item.user_id} class='member-data'>
+                                            <td>
+                                                <a href='${pageContext.request.contextPath}/product/search?q=user_id&value=\${item.user_id}'>
+                                                    \${item.user_id}
+                                                </a>
+                                            </td>
+                                            <td>\${item.user_name}</td>
+                                            <td>\${item.user_nick}</td>
+                                            <td>\${item.user_tel}</td>
+                                            <td>\${item.user_addr1}</td>
+                                            <td>\${item.user_addr2}</td>
+                                            <td>
+                                                <button style='width:90px' type='button' name='del' class='deleteButton' id='\${item.user_id}'> 
+                                                    회원삭제
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>`;
 
                                 $("#m_list").append(html);
-                            }
-                        },
+                            });
+                        }
                     });
 
-                    $(document).on("click", "button[name='del']", function (e) {
-                        console.log("e");
-                        console.log(e);
-                        console.log($(this));
-                        var con = confirm($(this).attr("itemid") + " 삭제 하시겠습니까?");
-                        if (con) {
-                            var user_id = $(this).attr("itemid");
+                    $(document).on("click", ".deleteButton", function () { //동적으로 추가된 요소라 이벤트 위임 처리
+                            var user_id = $(this).attr("id"); //클릭한 버튼속에 저장한 id값
+                        var flag = confirm(user_id + "회원을 삭제 하시겠습니까?"); //confirm으로 flag 설정
+                        if (flag) {
                             $.ajax({
                                 url: "/member/out",
-                                type: "post",
+                                type: "get",
                                 data: { user_id },
 
                                 success: function (data) {
-                                    document.getElementById("m_" + user_id).remove();
+                                    $("#m_" + user_id).remove(); //해당 tr 삭제
                                 },
                             });
                         }
@@ -89,11 +83,6 @@
                                     <th>회원 삭제</th>
                                 </tr>
                             </thead>
-                            <c:if test="${not empty nothing }">
-                                <tbody>
-                                    <td colspan="7">등록된 회원이 없습니다.</td>
-                                </tbody>
-                            </c:if>
                         </table>
                     </div>
                 </c:when>

@@ -397,7 +397,7 @@ $(document).ready(function() {
                 <div class="info quantity">
                   <div class="title">구매할 수량 선택</div>
                   <button id="minus-btn">-</button>
-                  <form name="orderform" action="${pageContext.request.contextPath}/order/orderResult">
+                  <form name="orderform" method="post" action="${pageContext.request.contextPath}/order/orderResult">
                     <input type="number" name="order_count" min="1" max="${p.product_quantity}" value="1">
                     <input type="hidden" name="product_num" value="${p.product_num}">
                     <input type="hidden" name="order_id" value="${sessionScope.user_id }">

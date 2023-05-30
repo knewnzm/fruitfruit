@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface ReportMapper {
 void insertReport(Report r);
 	
-	List selectAll();
+	List<Report> selectAll();
 	
 	Report select(int report_num);
 

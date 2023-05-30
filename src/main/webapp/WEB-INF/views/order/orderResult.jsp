@@ -7,17 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/orderR.css" />
-<style type="text/css">
-body{
-	margin: 0;
-}
-hr{
-    height: 2px;
-	background-color: Gainsboro;
-	margin-bottom: 20px;
-	border: 0;
-}
-</style>
 </head>
 <body> 
 <c:import url="../head.jsp"></c:import>
@@ -33,29 +22,29 @@ hr{
   				<hr>
   				<div class="or_result">
   				<div  class="or_r_img_box">
-  				<img src="${p.product_path}" class="or_r_img">
+  				<img src="${o.p.product_path}" class="or_r_img">
   				</div>
   				
   				<div>
   				
   				<dl class="order_r_line">
   				<dt class="order_dt">상품명</dt>
-  				<dd class="order_dd">${p.product_title }</dd>
+  				<dd class="order_dd">${o.p.product_title }</dd>
   				</dl>
   				
   				<dl class="order_r_line">
   				<dt class="order_dt">상품번호</dt>
-  				<dd class="order_dd">${p.product_num }</dd>
+  				<dd class="order_dd">${o.p.product_num }</dd>
   				</dl>
   				
   				<dl class="order_r_line">
   				<dt class="order_dt">판매자</dt>
-  				<dd class="order_dd">${p.product_seller_id }</dd>
+  				<dd class="order_dd">${o.p.product_seller_id }</dd>
   				</dl>
   				
   				<dl class="order_r_line">
   				<dt class="order_dt">결제금액</dt>
-  				<dd class="order_dd">${o.order_count*p.product_price }</dd>
+  				<dd class="order_dd">${o.order_count*o.p.product_price }</dd>
   				</dl>
   				
   				</div>

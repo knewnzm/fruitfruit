@@ -1,17 +1,15 @@
 package com.project.fruitfruit.order;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.project.fruitfruit.member.Member;
 import com.project.fruitfruit.member.MemberService;
 import com.project.fruitfruit.product.Product;
@@ -29,89 +27,98 @@ private ProductService pservice;
 private MemberService mservice;
 @Autowired
 private HttpSession session;
-@RequestMapping(value = "/order/orderResult") //주문 요청 하기
-public ModelAndView insertOrder(Order o) {
-	ModelAndView mav = new ModelAndView();	
-	Product p=pservice.selectProduct(o.getProduct_num());
-	o.setP(p);
-	service.insertOrder(o);
-	int num = service.selectSeqCurrval();
-	Order o2 = service.selectOrderByOrderNum(num);
-	mav.addObject("o", o2);
-	mav.addObject("p", p);
 
-	return mav;
+//주문 등록 하기
+@PostMapping(value = "/order/orderResult") 
+public String insertOrder(Model model, Order o) {
+	String path = "/order/orderResult";
+	String user_id = (String)session.getAttribute("user_id");
+	if(user_id != null) { //세션 만료 확인
+		service.insertOrder(o); //주문 등록
+		
+		int orderNum = service.selectSeqCurrval(); //현재 주문번호를 저장(방금 등록된 주문번호)
+		o = service.selectOrderByOrderNum(orderNum); //DB에서 주문날짜와 주문 번호를 얻은 o객체
+		Product p=pservice.selectProduct(o.getProduct_num()); //판매 번호에 해당하는 판매자 정보
+		o.setP(p); //o객체에 저장
+		model.addAttribute("o", o);
+	} else {
+		path = "redirect:/member/loginForm";
+	}
+	return path;
 
 }
 
-@RequestMapping(value="/product/mylist") //id에 해당하는 전체 주문목록/판매목록 불러오기
+//구매자 or 판매자 id에 해당하는 전체 주문목록 or 판매목록 불러오기(마이페이지 가기)
+@GetMapping(value="/product/mylist") 
 public void go(Model model) {
 	String user_id = (String) session.getAttribute("user_id");
-	if(user_id!=null) {
+	if(user_id!=null) { //세션 만료 확인
 	int user_type = (int) session.getAttribute("user_type");
-	if(user_type==1) {
-		ArrayList<Order> o=service.selectOrderByOrderId(user_id); //구매자 아이디와 일치하는 행전체리스트를 o라 하자
-		for(int i=0;i<o.size();i++) { //o안의 각각의 행들을 뽑아내기 위해 for문을 돌리고
-			Order in_o = o.get(i); //arrayList o의 i번째 행을 순서대로 뽑을것이고 이것을 in_o라고 하자
-			Product in_p = pservice.selectProduct(in_o.getProduct_num());//arrayList o안에 있는 하나의 행 in_o가 가지고 있는 상품번호를 가져온다
-			                                                                                              //해당 상품번호와 일치하는 하나의 상품정보를 가져오고 이것을 in_p라 하자
-			                                                                                              //arrayList o의 i번째 행인 in_o에 해당하는 하나의 상품정보를 저장한다
-			                                                                                              //for문이므로 이것을 arrayList의 크기만큼 반복하고 모든 상품정보를 모든 in_o에
-			                                                                                              //순서대로 넣어준다
-			in_o.setP(in_p);
+	
+	if(user_type==1) { //현재 구매자일경우
+		ArrayList<Order> orderList = service.selectOrderByOrderId(user_id); //구매자가 구매한 list 조회
+		for(int i=0; i<orderList.size(); i++) { 
+			Order o = orderList.get(i); 
+			Product p = pservice.selectProduct(o.getProduct_num());//상품번호로 판매자 정보 조회
+			o.setP(p); //o객체에 판매자 정보를 등록
 		}
-		Collections.reverse(o);
-		model.addAttribute("olist", o); //그렇게 만든 arrayList를 olist라는 이름으로 return 한다
-		System.out.println(o);
+		model.addAttribute("olist", orderList);
 	} else if(user_type==2) {
-		ArrayList<Product> p=pservice.selectProductBySellerId(1, 10, user_id);	
+		ArrayList<Product> p=pservice.selectProductBySellerId(1, 10, user_id); //판매자가 판매한 list 조회
 		model.addAttribute("plist", p);
 	}
 }
 }
-@RequestMapping(value="/order/change") //주문타입 다음단계로 하나 올리기
-public String change(@RequestParam int order_num,@RequestParam(value = "product_num", required = false) String product_num) {
-	
-service.updateOrderType(order_num);		
-if((int)session.getAttribute("user_type")==2) {
-	return "redirect:/product/orderList?product_num="+product_num;
+
+//주문타입 +1하기
+@GetMapping(value="/order/change") 
+public String change(int order_num, @RequestParam(required = false) String product_num) { 
+	//판매자가 주문자조회에서 주문수락이나 거래확정을 했을경우 원래 있던 페이지로 가기위해 product_num을 받음
+service.updateOrderType(order_num);	
+int user_type = (int)session.getAttribute("user_type");
+if( user_type == 2 ) {
+	return "redirect:/product/orderList?product_num="+product_num; //주문자 조회 페이지로
 }else {
-	return "redirect:/product/mylist";
+	return "redirect:/product/mylist"; //마이페이지로
 }
 }
 
-@RequestMapping(value="/order/cancel") //주문타입 3으로 만들기
-public String cancel(@RequestParam int order_num,@RequestParam(value = "product_num", required = false) String product_num) {
+@GetMapping(value="/order/cancel") //주문타입 3으로 만들기
+public String cancel(int order_num, @RequestParam(required = false) String product_num) {
 service.cancelOrder(order_num);		
-if((int)session.getAttribute("user_type")==2) {
-	return "redirect:/product/orderList?product_num="+product_num;
+int user_type = (int)session.getAttribute("user_type");
+if( user_type == 2 ) {
+	return "redirect:/product/orderList?product_num="+product_num; //주문자 조회 페이지로
 }else {
-	return "redirect:/product/mylist";
+	return "redirect:/product/mylist"; //마이페이지로
 }
 }
 
-@RequestMapping(value="/order/orderDelete") //주문목록에서 삭제하기
-public String delete(@RequestParam int order_num,@RequestParam(value = "product_num", required = false) String product_num) {
+@GetMapping(value="/order/orderDelete") //주문목록에서 삭제하기
+public String delete(int order_num,@RequestParam(required = false) String product_num) {
 service.deleteOrder(order_num);		
-if((int)session.getAttribute("user_type")==2) {
-	return "redirect:/product/orderList?product_num="+product_num;
+int user_type = (int)session.getAttribute("user_type");
+if( user_type == 2 ) {
+	return "redirect:/product/orderList?product_num="+product_num; //주문자 조회 페이지로
 }else {
-	return "redirect:/product/mylist";
+	return "redirect:/product/mylist"; //마이페이지로
 }
 }
-@RequestMapping(value="/product/orderList") //id에 해당하는 전체 주문목록/판매목록 불러오기
-public void orderList(int product_num, Model model) {
-		ArrayList<Order> ol=service.selectOrderByProductNum(product_num); //판매글 번호와 일치하는 구매자행 전체리스트를 ol 이라 하자
-		for(Order o:ol) {
-			String user_id = o.getOrder_id();
-			Member m = mservice.select(user_id);
-			o.setM(m);
+
+//구매자 목록 불러오기
+@GetMapping(value="/product/orderList") 
+public void orderList(Model model, int product_num) {
+		ArrayList<Order> orderList=service.selectOrderByProductNum(product_num); //판매글 번호에 해당하는 전체 order 리스트
+		Order o = null;
+		for(int i=0; i<orderList.size(); i++) {
+			o = orderList.get(i);
+			String user_id = o.getOrder_id(); //각각의 주문 목록에서 구매자의 아이디를 조회
+			Member m = mservice.select(user_id); //구매자의 정보를 조회
+			o.setM(m); //구매자 정보를 o객체에 등록
 		}
 			Product p = pservice.selectProduct(product_num);
-			System.out.println(ol);
-			System.out.println(p);
-		model.addAttribute("olist", ol); //그렇게 만든 arrayList를 olist라는 이름으로 return 한다
-		model.addAttribute("p", p); //그렇게 만든 arrayList를 olist라는 이름으로 return 한다
+		model.addAttribute("olist", orderList); 
+		model.addAttribute("p", p);
 
 }
 }

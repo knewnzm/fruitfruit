@@ -9,7 +9,7 @@ public interface HelpMapper {
 
 	void insertHelp(Help h);
 	
-	List selectAllHelp();
+	List<Help> selectAllHelp();
 	
 	Help selectHelp(int help_num);
 	

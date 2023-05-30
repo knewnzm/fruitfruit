@@ -10,7 +10,7 @@ public interface MemberMapper {
 	void insert(Member m);
 	Member select(String id);
 	Member selectbyname(String name);
-	List list();
+	List<Member> list();
 	void update(Member m);
 	void changePwd(Member m);
 	void delete(String id);

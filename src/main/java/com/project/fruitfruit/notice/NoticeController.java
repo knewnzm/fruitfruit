@@ -106,6 +106,7 @@ public class NoticeController {
 		return mav;
 	}
 
+	//공지사항 수정
 	@PostMapping(value = "/notice/Edit")
 	public String edit(Notice n) {
 		System.out.println(n);
@@ -127,11 +128,5 @@ public class NoticeController {
 		nService.delete(notice_num);
 		return "redirect:/notice/noticeList";
 	}
-	
-	/*
-	 * @GetMapping(value = "/notice/noticeDetail") public void noticeDetail() { }
-	 */
-	
-	
 
 }

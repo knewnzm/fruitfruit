@@ -1,5 +1,13 @@
 @charset "UTF-8";
-
+body{
+	margin: 0;
+}
+hr{
+    height: 2px;
+	background-color: Gainsboro;
+	margin-bottom: 20px;
+	border: 0;
+}
 *{
   padding:0;
   margin: 0;

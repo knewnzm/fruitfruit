@@ -7,24 +7,12 @@
 <meta charset="UTF-8">
 <title>findId</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/find.css" />
-
-<style type="text/css">
-body{
-	line-height: 11px;
-	
-}
-</style>
-
-
-
 </head>
-
 <body>
 <header>
 		<c:import url="../head.jsp"></c:import>
         <c:import url="../header.jsp"></c:import>
 	</header>
-
 <div class="wrap">
 <div class="f_container">
 <div class="fi_pd">
@@ -44,7 +32,7 @@ body{
     <div class="f_tel_title">전화번호
     </div> <br> <input type="number" class="f_id_line" id="user_tel" name="user_tel" placeholder="숫자만 입력해 주세요." required><br>
     
-<input type="submit" class="f_button" value="확인">
+<input type="submit" id="submit" class="f_button" value="확인">
    </div>
 </form>
 </div>

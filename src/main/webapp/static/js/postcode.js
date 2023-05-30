@@ -1,8 +1,5 @@
 // src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
 
-
-	
-
     function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -43,13 +40,11 @@
                 } */
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('user_postcode').value = data.zonecode;
-                document.getElementById("user_addr1").value = addr+extraAddr;
+                
+                $("#user_postcode").val(data.zonecode);
+                $("#user_addr1").val(addr+extraAddr);
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("user_addr2").focus();
+                $("#user_addr2").focus();
             }
         }).open();
     }
-
-
-

@@ -157,8 +157,9 @@ input[type=file]+label {
 	width: 248px;
     height: 248px;
     margin-left: 95px;
+    display : flex;
 }
-#preview{
+.preview{
 	width: 248px;
     height: 248px;
 }

@@ -9,57 +9,53 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/editForm.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
 <script type="text/javascript">
-$(document).ready(function () {    // enter submit 방지 함수
-    $('input').keydown(function () {
+
+//enter submit 방지 함수
+$(document).ready(function () {    
+    $("#editForm").find("input").keydown(function () {
         if (event.keyCode === 13) {
             event.preventDefault();
         }       
     });
-    ///
-      document.getElementById("submit").disabled = true;
-                var chkp = false;
-///
-                function join() {
-                    $("#submit").attr("disabled", true);
-                    if (chkp) {                       
-                            $("#submit").attr("disabled", false);                  
-                    }
-                }
-                ///
+    
+    /* 버튼 클릭 비활성화 */
+      $("#submit, #button").prop("disabled",true); //수정버튼, 탈퇴버튼
+                var checkP = false;
+      
+      /* 비밀번호 값 입력시 유효성 검사 */
+                $("#user_pwd, #pwdCheck").on("input", function () { //비밀번호와 확인란의 값이 변경되었을때
+                        chkPwd();
+                });
+      
+      /* 유효성 검사 함수 */
     function chkPwd() {
-        if ($("#user_pwd").val() != $("#pwdCheck").val()) {
+            checkP = false; //true상태에서 다시 변경했을때 방지
+    	if ($("#user_pwd").val() == "") { //비밀번호가 빈값
+            $(".pwd_check_text").text("비밀번호를 입력해주세요.");
+        } else if ($("#pwdCheck").val() == "") { //비밀번호 확인이 빈값
+            $(".pwd_check_text").text("비밀번호 확인란을 입력해주세요.");
+        } else if ($("#user_pwd").val() != $("#pwdCheck").val()) { //비밀번호와 확인이 불일치
             $(".pwd_check_text").text("비밀번호가 일치하지 않습니다.");
-            chkp = false;
-            $("#submit").attr("disabled", true);
-        } else {
-            $(".pwd_check_text").empty();
-            chkp = true;             
-                    $("#submit").attr("disabled", false);                  
+        } else if("${m.user_pwd}" != $("#user_pwd").val()){ //회원 비밀번호와 입력비밀번호가 불일치
+            	$(".pwd_check_text").text("회원정보와 일치하지 않습니다.");
+        }else{
+            	$(".pwd_check_text").empty();
+            	checkP = true; 
+            }
         }
-    }
-    $("#user_pwd").on("propertychange change keyup paste input blur", function () {
-        chkp = false;
-        $("#submit").attr("disabled", true);
-        $(".pwd_check_text").empty();
-        if ($("#user_pwd").val() == "") {
-            $(".pwd_check_text").text("비밀번호를 입력해주세요.　　");
-        } else if ($("#pwdCheck").val() != "") {
-            chkPwd();
-        }
-    });
-    $("#pwdCheck").on("propertychange change keyup paste input blur", function () {
-        chkp = false;
-        $(".pwd_check_text").empty();
-        if ($("#pwdCheck").val() == "") {
-            $(".pwd_check_text").text("　비밀번호 확인란을 입력해주세요.");
-        } else {
-            chkPwd();
-        }
-    });
+    	
+    	 if (checkP) {       
+         $("#submit, #button").attr("disabled", false); //disabled해제                 
+     } else{
+    	 $("#submit, #button").attr("disabled", true); //재변경시 disabled  
+     }
+
+    	 /* 회원 탈퇴 */
     $("#memberOut").click(function () {
         alert("탈퇴처리 되었습니다.\n이용해주셔서 감사합니다.");
         location.href = `${pageContext.request.contextPath}/member/out`;
     });
+    	 
     /* 모달 */
       const body = document.querySelector('body');
       const modal = document.querySelector('.modal');
@@ -98,7 +94,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 			<div class="line">
 				<hr class="e_hr">
 			</div>
-			<form name="e" action="${pageContext.request.contextPath }/member/edit" method="post">
+			<form id="editForm" name="e" action="${pageContext.request.contextPath }/member/edit" method="post">
 			<div class="edit_wrap">
 				<div class="edit_content">
 					<div class="edit_box">
@@ -237,7 +233,7 @@ $(document).ready(function () {    // enter submit 방지 함수
 					</div>
 					<div class="submit_wrap">
 						<button type="submit" name="submit" id="submit" disabled="disabled">수정하기</button>
-						<button type="button" class="modal_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">탈퇴하기</button>
+						<button type="button" id="button" class="modal_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" disabled="disabled">탈퇴하기</button>
 					</div>
 				<!-- ↓edit content -->	
 				</div>

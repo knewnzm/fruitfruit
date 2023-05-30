@@ -22,7 +22,7 @@ public class MemberService {
 		return mapper.select(name);
 		
 	}
-	public List list() {
+	public List<Member> list() {
 		return mapper.list();
 		
 	}

@@ -9,14 +9,14 @@ public class Help {
 	private String help_date;
 	private String help_title;
 	private String help_content;
-	private String help_path;
-	private MultipartFile file1;
+	private String[] help_path;
+	private MultipartFile[] files;
 	private int answer_status;
 	public Help() {
 		super();
 	}
 	public Help(int help_num, int help_type, String help_writer_id, String help_date, String help_title,
-			String help_content, String help_path, MultipartFile file1, int answer_status) {
+			String help_content, String[] help_path, MultipartFile[] files, int answer_status) {
 		super();
 		this.help_num = help_num;
 		this.help_type = help_type;
@@ -25,7 +25,7 @@ public class Help {
 		this.help_title = help_title;
 		this.help_content = help_content;
 		this.help_path = help_path;
-		this.file1 = file1;
+		this.files = files;
 		this.answer_status = answer_status;
 	}
 	public int getHelp_num() {
@@ -64,17 +64,17 @@ public class Help {
 	public void setHelp_content(String help_content) {
 		this.help_content = help_content;
 	}
-	public String getHelp_path() {
+	public String[] getHelp_path() {
 		return help_path;
 	}
-	public void setHelp_path(String help_path) {
+	public void setHelp_path(String[] help_path) {
 		this.help_path = help_path;
 	}
-	public MultipartFile getFile1() {
-		return file1;
+	public MultipartFile[] getFiles() {
+		return files;
 	}
-	public void setFile1(MultipartFile file1) {
-		this.file1 = file1;
+	public void setFile1(MultipartFile[] file1) {
+		this.files = file1;
 	}
 	public int getAnswer_status() {
 		return answer_status;
@@ -86,7 +86,7 @@ public class Help {
 	public String toString() {
 		return "Help [help_num=" + help_num + ", help_type=" + help_type + ", help_writer_id=" + help_writer_id
 				+ ", help_date=" + help_date + ", help_title=" + help_title + ", help_content=" + help_content
-				+ ", help_path=" + help_path + ", file1=" + file1 + ", answer_status=" + answer_status + "]";
+				+ ", help_path=" + help_path + ", files=" + files + ", answer_status=" + answer_status + "]";
 	}
 	
 	

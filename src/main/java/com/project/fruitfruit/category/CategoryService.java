@@ -34,14 +34,14 @@ public class CategoryService {
 		return c;
 	}
 
-	public ArrayList<Category> getCategoryList(int type, int cate_parent_num) {
-		ArrayList<Category> list = null;
-		switch (type) {
-		case 1:
-			list = mapper.selectAllCategory1();
+	public ArrayList<Category> getCategoryList(int type, int cate_parent_num) { //type:1->대분류 2->소분류, cate_parent_num : 부모의 시퀀스번호
+		ArrayList<Category> list = new ArrayList<>();
+		switch (type) { //타입의 값에 따라 다른 작업을 수행
+		case 1: //대분류인경우
+			list = mapper.selectAllCategory1(); //대분류 전체 가져오기
 			break;
 		case 2:
-			list = mapper.selectAllCategory2(cate_parent_num);
+			list = mapper.selectAllCategory2(cate_parent_num); //부모 시퀀스의 소분류 전체 가져오기
 			break;
 		}
 		return list;

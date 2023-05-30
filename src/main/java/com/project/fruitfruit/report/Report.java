@@ -5,13 +5,13 @@ import java.sql.Date;
 import com.project.fruitfruit.product.Product;
 
 public class Report {
-	private int report_num;
-	private int product_num;
-	private String report_title;
-	private String report_content;
-	private String report_writer_id;
-	private String report_seller_id;
-	private Date report_date;
+	private int report_num; //신고번호
+	private int product_num; //판매글 번호
+	private String report_title; //신고 제목	
+	private String report_content; //신고 내용
+	private String report_writer_id; //신고글 작성자 id
+	private String report_seller_id; //신고글 판매자 id
+	private Date report_date; //신고 날짜
 	Product p;
 	public Report() {
 		super();

@@ -57,8 +57,10 @@
         			<c:if test="${not empty h.help_path}">
                                 <div class="carousel-item active">
                                     <a href="${h.help_path}" target="blank">
-                                        <img src="${h.help_path}" alt="${h.help_title}" id="img1" class="d-block w-100 product-img" itemid="0" />
-                                    </a>
+									<c:forEach var="imagePath" items="${h.help_path}">
+										<img src="${imagePath}" alt="Image">
+									</c:forEach>
+								</a>
                                 </div>
                      </c:if>
         		</div>
@@ -66,7 +68,8 @@
            			${h.help_content}
         		</div>
         </div>
-        <c:if test="${user_type==3&& empty a}">
+           <!-- 답글 등록 -->
+        <c:if test="${user_type==3&& empty a}"> <!-- 관리자이고 등록된 답글이 없으면 등록폼 생성 -->
         		<div class="hp_d_r_box">
         		<form id="answerForm" action="${pageContext.request.contextPath}/answer/insert" method="post">
         			<textarea name="answer_content" class="reply_w_content" placeholder="답변을 입력해주세요." required></textarea>
@@ -78,7 +81,7 @@
         </c:if>    
        
        </div>
-    
+      <!-- 답글 조회 -->
      <c:if test="${not empty a}">
        	<div class="reply_list">
        		<div class="r_title_box">
@@ -162,6 +165,9 @@
     				      <input type="hidden" name="help_num" value="${a.help_num }">
 </form>
 <!-- answer 삭제 Modal -->
+<form name="deleteForm" action="${pageContext.request.contextPath }/answer/delete" method="GET">
+ <input type="hidden" name="answer_num" value="${a.answer_num }">
+ <input type="hidden" name="_method" value="DELETE"/>
     		<div class="modal rd_modal" id="rdModal">
       				  <div class="modal_container">
             				<div class="modal_header">
@@ -172,10 +178,12 @@
           					 </div>
            					 <div class="modal_footer">
                 							<button type="button" class="modal_close_btn3"  data-dismiss="modal" aria-label="Close">취소</button>
-                							<button type="button" class="r_del_btn" onclick="location.href='${pageContext.request.contextPath}/answer/delete?answer_num=${a.answer_num }'">삭제</button>
+                							<button type="button" class="r_del_btn" onclick="document.deleteForm.submit()">삭제</button>
+                							
             				</div>
        				 </div>
     		</div>
+    		</form>
 </c:if>  	
 
 </body>

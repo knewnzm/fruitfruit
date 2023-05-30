@@ -77,7 +77,7 @@
                         <div class="modal-footer">
                             <button id="close-modal" type="button">닫기</button>
                             <button id="del_content${report.report_num}" class="btn btn-danger"
-                            type="button" num="${report.report_num}">삭제하기</button>
+                            type="button" data-num="${report.report_num}">삭제하기</button>
                         </div>
                     </div>
                 </div>
@@ -131,23 +131,23 @@
                     });
                 });
 
-            // 삭제 버튼
-            $(document).on("click", "button[class='btn btn-danger']", function (e) {
-                e.preventDefault(e);
-                const p_num = $(this).attr("num");
-                const a = {};
-                a["report_num"]= p_num;
-                if (confirm("삭제하시겠습니까?")) {
-                    document.getElementById("trId_" + p_num).remove();
+            /* 삭제 버튼을 눌렀을때 이벤트 함수 */
+            $(document).on("click", ".btn", function (e) {
+                e.preventDefault(e); //기본 submit()을 막고
+                const report_num = $(this).data("num"); //삭제버튼의 data-num 값을 report_num에 저장
+                const data = {}; //빈 객체 생성
+                data["report_num"]= report_num;
+                let flag = confirm("삭제하시겠습니까?");
+                if (flag) {
                     $.ajax({
-                        type: "post",
+                        type: "get",
                         url: "/report/delete",
-                        data: a,
-                        success: function (data) {
+                        data: data,
+                        success: function () {
                             alert("삭제되었습니다.");
-                           
-                        },
+                        }
                     });
+                	$("#trId_" + report_num).remove();
                 } else {
                     alert("취소되었습니다.");
                 }

@@ -13,10 +13,10 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 /* 탭 메뉴 */
 $(document).ready(function(){
 	  
-	  $('ul.tab_list li').click(function(){
-	    var tab_id = $(this).attr('data-tab');
-	    $('ul.tab_list li').removeClass('current');
-	    $('.tab_pannel').removeClass('current');
+	  $('.tab').click(function(){ //<li>
+	    var tab_id = $(this).data('tab'); //data-tab 속성값을 가져옴
+	    $('.tab').removeClass('current'); //<li>
+	    $('.tab_pannel').removeClass('current'); //해당하는 목록
 	    $(this).addClass('current');
 	    $("#"+tab_id).addClass('current');
 	  })

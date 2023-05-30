@@ -12,7 +12,6 @@
 		<result property="help_date" column="help_date"/>
 		<result property="help_title" column="help_title"/>
 		<result property="help_content" column="help_content"/>
-		<result property="help_path" column="help_path"/>
 	</resultMap>
 
 	<!-- 1:1 문의 등록  -->
@@ -30,7 +29,7 @@
 	<!-- 1:1 문의 전체 출력 -->
 	<select id="selectAllHelp" resultMap="help">
 				select * from help
-				order by help_num
+				order by help_num desc
 	</select>
 	
 	<!-- 1:1 문의 help_num으로 출력 --> 

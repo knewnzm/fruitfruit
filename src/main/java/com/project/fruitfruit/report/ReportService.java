@@ -14,7 +14,7 @@ public class ReportService {
 		mapper.insertReport(r);		
 	}
 	
-	public List selectAll() {
+	public List<Report> selectAll() {
 		return mapper.selectAll();
 	}
 	

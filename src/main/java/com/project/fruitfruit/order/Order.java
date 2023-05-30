@@ -7,15 +7,15 @@ import com.project.fruitfruit.product.Product;
 
 public class Order {
 
-	private int order_num;
-	private int product_num;
-	private String order_id;
-	private int order_count;
-	private int order_type;
-	private Date order_date;
+	private int order_num; //주문번호
+	private int product_num; //주문상품번호
+	private String order_id; //주문자 id
+	private int order_count; //주문 개수
+	private int order_type; //
+	private Date order_date; //주문 시간
 	private Product p;
 	private Member m;
-	private String reviewStatus;
+	private String reviewStatus; //리뷰상태
 	
 	public Order() {
 		super();

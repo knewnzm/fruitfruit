@@ -11,9 +11,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
             // 카테고리 버튼 생성
-            function makeBtn(data, cate_type = 1) { 
-            	console.log("makeBtn");
-				console.log(data);
+            function makeOption(data, cate_type = 1) { 
                 let html = `
 					<c:forEach items="data">
 						<option id="c${"${cate_type}"}-${"${data.cate_num}"}" value="${"${data.cate_num}"}" >${"${data.cate_name}"}</option>
@@ -24,41 +22,35 @@
 
             
             // 카테고리 목록 생성
-            function makeBtnList(array, cate_type = 1) {
-            	console.log("makeBtnList");
-            	console.log(array);
-            	
+            function makeOptionList(array, cate_type = 1) {
                 let html = "<option>선택해 주세요</option>";
                 for (let i = 0; i < array.length; i++) {
                     const element = array[i];
-                    html += makeBtn(element, cate_type);
+                    html += makeOption(element, cate_type);
                 }
                 return html;
             }
             
             // 카테고리 데이터 가져오기
-            function getCategoryList(cate_type, cate_parent_num = -1) {
-            	console.log("getCategoryList");
+            function getCategoryList(cate_type, cate_parent_num = 0) { //cate_type 1 : 대분류, 2 : 소분류
             	
                 $.ajax({
-                    type: "post",
+                    type: "get",
                     url: "${pageContext.request.contextPath}/category/getCategory",
                     data: { cate_type, cate_parent_num },
                     success: function (response) {
                         const arr = $.parseJSON(response);
-                        let html = makeBtnList(arr, cate_type);
+                        let html = makeOptionList(arr, cate_type);
                         $("#c" + cate_type + "-list").html(html);
                     }
                 });
             }
             
             // 카테고리 버튼 클릭 시 (하위 카테고리를 추가하기 위한 상위 카테고리 선택 시)
-            function categoryBtnClickHandler(e) {
-            	console.log("categoryBtnClickHandler");
-            	console.log(e.target.value);
-                const data = $(e.target).attr("id").split("-"); // $(e.target)은 <a>태그, a태그의 id에서 "-"를 기준으로 값을 나눠 data에 담는다 ex)c1,2
-                const cate_type = parseInt(data[0].substr(1)); //그중 맨앞의 값인 data[0]값의 맨 앞의 하나를 뺀다 .substr(1) c1-> 1
-                const cate_num = e.target.value; //그 다음값인 data[1]값
+            function selectClickHandler(e) {
+                const data = $(e.target).attr("id").split("-"); 
+                const cate_type = parseInt(data[0].substr(1)); 
+                const cate_num = e.target.value; 
 
             	if(cate_type <= 1){
                     getCategoryList(cate_type + 1, cate_num);
@@ -71,14 +63,11 @@
             
             $(document).ready(function () {
                 // 기본 대분류 카테고리 목록 가져옴
-                console.log("ready");
-
                 getCategoryList(1);
                 
                 // 카테고리 선택 버튼
                 $(document).on("change", "select[id='c1-list']", function (e) {
-                	console.log("카테고리 선택 버튼");
-                    categoryBtnClickHandler(e);
+                    selectClickHandler(e);
                 });
                 
             });

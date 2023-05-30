@@ -15,7 +15,7 @@
 	<name>Market</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>16</java.version>
+		
 	</properties>
 	<dependencies>
 		<dependency>

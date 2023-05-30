@@ -17,7 +17,7 @@
 	</insert>
 	
 	<select id="selectAll" resultMap="report">
-		select * from report 
+		select * from report order by report_num desc
 	</select>
 	
 	<select id="select" resultMap="report">

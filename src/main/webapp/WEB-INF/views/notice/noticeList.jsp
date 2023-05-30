@@ -11,17 +11,16 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 $(document).ready(function(){
-	  
-	  $('ul.tab_list li').click(function(){
+	  $('.tab').click(function(){
 	    var tab_id = $(this).attr('data-tab');
 
-	    $('ul.tab_list li').removeClass('current');
+	    $('.tab').removeClass('current');
 	    $('.tab_pannel').removeClass('current');
 
 	    $(this).addClass('current');
-	    $("#"+tab_id).addClass('current');
-	  })
-	})
+	    $("#" + tab_id).addClass('current');
+	  });
+	});
 </script>
 <body>
 <c:import url="../head.jsp"></c:import>

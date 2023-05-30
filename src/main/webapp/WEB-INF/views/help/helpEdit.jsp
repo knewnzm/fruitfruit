@@ -1,81 +1,141 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ page trimDirectiveWhitespaces="true" %> <%@ taglib
-uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>프룻프룻 1:1문의 수정 | ${h.help_title} </title>
+<title>프룻프룻 1:1문의 수정 | ${h.help_title}</title>
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/helpForm.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/static/css/helpForm.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/static/css/common.css" />
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function() {
+		loadImageAndFileNameFromFiles(); //이미지 불러오기 
+		$('#file1').change(function() {
+			setImageAndFileNameFromFiles(this); //this = <input id="file1">
+		});
+	});
+
+	//이미지 불러오기 
+	function loadImageAndFileNameFromFiles() {
+		<c:forEach var="imagePath" items="${h.help_path}"> //h에있는 이미지 경로 배열 요소 imagePath에 대해 반복
+		var image = `<img src = "${imagePath}" class="preview">`;
+		$(".path_wrap").append(image); //이미지 미리보기에 <img>붙이기
+		var imageName = "${imagePath}".split("/")[4]; // "/static/게시판이름/글번호/파일이름"
+		var labelText = imageName + " ";
+		$('.file_name_label').append(labelText); //업로드한 이미지 이름 붙이기
+		</c:forEach>
+	}
+
+	function setImageAndFileNameFromFiles(input) {
+		if (input.files && input.files[0]) { //input.files = FileList 객체, 파일 선택을 통해 선택한 파일들의 정보를 담고 있음 (배열과 유사한 형태)
+			$(".path_wrap").html(""); //이미지 미리보기 값 초기화
+			$('.file_name_label').html(""); //이름 표시 초기화
+			for (let i = 0; i < input.files.length; i++) { //input에 있는 요소의 수만큼 반복
+				var reader = new FileReader(); //FileReader객체 생성
+				reader.readAsDataURL(input.files[i]); //FileReader로 <input>의 fileList[0]을 URL로 읽어들임
+				reader.onload = function(e) { //읽는작업이 완료되면 함수실행, e는 reader.onload를 의미
+					var image = `<img src = "\${e.target.result}" class="preview">`;
+					$(".path_wrap").append(image); //이미지 미리보기에 <img>붙이기
+					var labelText = `\${input.files[i].name}\n`; 
+					$('.file_name_label').append(labelText);//미리보기 이미지 이름 붙이기
+				}
+			}
+			$("#flag").val("true"); //이미지가 수정되었으면 flag를 true로 변경
+		}
+	}
+</script>
 <body>
-<c:import url="../head.jsp"></c:import>
-<c:import url="../header.jsp"></c:import>
-        <div class="wrap">
-            <main class="container">
-		<div class="content">
-			<div class="title_wrap">
-				<div class="main_title">
-					<h1 class="main_text">1:1 문의글 작성</h1>
+	<c:import url="../head.jsp"></c:import>
+	<c:import url="../header.jsp"></c:import>
+	<div class="wrap">
+		<main class="container">
+			<div class="content">
+				<div class="title_wrap">
+					<div class="main_title">
+						<h1 class="main_text">1:1 문의글 수정</h1>
+					</div>
 				</div>
-			</div>
-			<form action="${pageContext.request.contextPath }/help/Edit" method="post">
-			<input type="hidden" name="help_num" value="${h.help_num }"  required>
-			<div class="help_form_wrap">
-				<div class="help_box">
-						<div class="help_title">
-							<label for="help_type">
-								구분
-							</label>
-						</div>
-						<div class="help_type">
+				<form action="${pageContext.request.contextPath }/help/Edit"
+					method="post" enctype="multipart/form-data">
+					<input type="hidden" id="flag" name="flag" value="false" required>
+					<input type="hidden" name="help_num" value="${h.help_num }"
+						required>
+					<div class="help_form_wrap">
+						<div class="help_box">
+							<div class="help_title">
+								<label for="help_type"> 구분 </label>
+							</div>
+							<div class="help_type">
 								<div class="type1">
-									<input type="radio" name="help_type"  value="1" <c:if test="${h.help_type==1}">checked</c:if>> 
-										<label for="help_type" class="type_text">회원정보</label>
+									<input type="radio" name="help_type" value="1"
+										<c:if test="${h.help_type==1}">checked</c:if>> <label
+										for="help_type" class="type_text">회원정보</label>
 								</div>
 								<div class="type2">
-									<input type="radio" name="help_type"  value="2" <c:if test="${h.help_type==2}">checked</c:if>> 
-										<label for="help_type" class="type_text">상품</label>
+									<input type="radio" name="help_type" value="2"
+										<c:if test="${h.help_type==2}">checked</c:if>> <label
+										for="help_type" class="type_text">상품</label>
 								</div>
 								<div class="type3">
-									<input type="radio" name="help_type"  value="3" <c:if test="${h.help_type==3}">checked</c:if>> 
-										<label for="help_type" class="type_text">주문</label>
+									<input type="radio" name="help_type" value="3"
+										<c:if test="${h.help_type==3}">checked</c:if>> <label
+										for="help_type" class="type_text">주문</label>
 								</div>
 								<div class="type4">
-									<input type="radio" name="help_type"  value="4" <c:if test="${h.help_type==4}">checked</c:if>> 
-										<label for="help_type" class="type_text">배송</label>
+									<input type="radio" name="help_type" value="4"
+										<c:if test="${h.help_type==4}">checked</c:if>> <label
+										for="help_type" class="type_text">배송</label>
 								</div>
 								<div class="type5">
-									<input type="radio" name="help_type"  value="5" <c:if test="${h.help_type==5}">checked</c:if>> 
-										<label for="help_type" class="type_text">기타</label>
+									<input type="radio" name="help_type" value="5"
+										<c:if test="${h.help_type==5}">checked</c:if>> <label
+										for="help_type" class="type_text">기타</label>
 								</div>
+							</div>
 						</div>
-				</div>		
-				<div class="help_box">
-						<div class="help_title">
-							<label for="help_title">
-								제목
-							</label>
+						<div class="help_box">
+							<div class="help_title">
+								<label for="help_title"> 제목 </label>
+							</div>
+							<div class="help_input">
+								<input type="text" name="help_title" id="title" value="${h.help_title }" required />
+							</div>
 						</div>
-						<div class="help_input">
-							<input type="text" name="help_title" id="title"  value="${h.help_title }" required>
+						<div class="help_box">
+							<div class="help_title">
+								<label> 이미지 </label>
+							</div>
+							<div class="file_name_wrap">
+								<label for="help_path" class="file_name_label"></label>
+							</div>
+							<div class="help_path_wrap">
+								<input class="form-control" type="file" name="file1" id="file1"
+									accept="image/*" multiple> <label for="file1"
+									class="file_label">업로드</label>
+							</div>
 						</div>
+						<div class="path_wrap"></div>
+						<div class="content_wrap">
+							<textarea name="help_content" class="help_w_content" required>${h.help_content }</textarea>
+						</div>
+						<!-- help_form_wrap end -->
 					</div>
-				<div class="content_wrap">
-					<textarea name="help_content" class="help_w_content"  required>${h.help_content }</textarea>
-				</div>
-			<!-- help_form_wrap end -->
+					<div class="submit_wrap">
+						<button type="submit" name="submit" id="submit">수정하기</button>
+						<button class="back_btn" type="button" onClick="history.back();">돌아가기</button>
+					</div>
+				</form>
+				<!-- content end -->
 			</div>
-			<div class="submit_wrap">
-				 <button type="submit" name="submit" id="submit">수정하기</button>
-				 <button class="back_btn" type="button" onClick="history.back();">돌아가기</button>
-			</div>
-			</form>
-		<!-- content end -->
-		</div>	
-	</main>
-</div>
-<c:import url="../footer.jsp"></c:import>
+		</main>
+	</div>
+	<c:import url="../footer.jsp"></c:import>
 </body>
 </html>

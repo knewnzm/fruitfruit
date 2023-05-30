@@ -139,7 +139,7 @@ ul.tab_list li.current{
 }
 
 .tab_pannel.current{
-  display: inherit;
+  display: block;
 }
 .pannel_wrap{
 	width:960px;
